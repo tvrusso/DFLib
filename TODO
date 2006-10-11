@@ -1,0 +1,16 @@
+1) Remove dependence of low-level stuff on vector<double> arguments for
+returns: make an abstract "point" class that has:
+   setLocationXY(vector<double>)
+and
+   vector<double> getLocationXY()   (or some variation)
+
+2) Derived class: XY::Point
+   Just stores location from setLocationXY, and returns it for getLocationXY
+3) Derived class: PCS::Point
+   adds methods getLocation and setLocation.
+   setLocationXY() stores XY, marks XY position dirty.
+   getLocationXY() triggers a projection calculation if PCS position dirty.
+   setLocation() stores PCS position, marks PCS dirty
+   getLocation() triggers reverse projection calculation if XY dirty.
+
+   This should  minimize wasted PCS calculations.

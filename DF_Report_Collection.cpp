@@ -1,0 +1,269 @@
+//-*- mode:C++ ; c-basic-offset: 2 -*-
+#ifdef _MSC_VER
+#define _USE_MATH_DEFINES
+#endif
+#include <iostream>
+#include <cmath>
+#include "DF_Abstract_Report.hpp"
+#include "DF_Report_Collection.hpp"
+
+using namespace std;
+namespace DFLib
+{
+  // Class DFReportCollection
+
+  ReportCollection::ReportCollection()
+    :f_is_valid(false),
+     g_is_valid(false),
+     h_is_valid(false)
+  {
+    theReports.clear();
+  }
+
+  ReportCollection::~ReportCollection()
+  {
+  }
+
+  void ReportCollection::deleteReports()
+  {
+    vector<DFLib::Abstract::Report *>::iterator iterReport=theReports.begin();
+    vector<DFLib::Abstract::Report *>::iterator lastReport=theReports.end();
+    while (iterReport != lastReport)
+      {
+        delete *iterReport;
+        ++iterReport;
+      }
+  }
+
+  int ReportCollection::addReport(DFLib::Abstract::Report *aReport)
+  {
+    theReports.push_back(aReport);
+    return (theReports.size()-1); // return the index to this report.
+  }
+
+  /// TODO:  Make it possible to restrict average to those cuts that
+  /// have angle greater than some lower bound.
+  bool ReportCollection::computeFixCutAverage(vector<double> &FCA,
+                                              vector<double> &FCA_stddev,
+                                              double minAngle)
+  {
+    vector<double> tempVec;
+    FixStatus fs;
+    bool retval;
+    int numCuts=0;
+
+    FCA.resize(2);
+    FCA[0]=FCA[1]=0;
+    FCA_stddev.resize(2);
+    FCA_stddev[0]=FCA_stddev[1]=0;
+
+    vector<DFLib::Abstract::Report *>::iterator iterReportI;
+    vector<DFLib::Abstract::Report *>::iterator reportEnd=theReports.end();
+    // loop over all reports
+    for (iterReportI=theReports.begin();iterReportI!=reportEnd;
+         ++iterReportI)
+      {
+        // loop over all reports after this one
+        vector<DFLib::Abstract::Report *>::iterator iterReportJ;
+        for (iterReportJ=iterReportI,++iterReportJ;
+             iterReportJ != reportEnd;
+             ++iterReportJ)
+          {
+            double cutAngle;
+            (*iterReportI)->computeFixCut(*iterReportJ,tempVec,cutAngle,fs);
+            if (fs == GOOD_FIX && cutAngle >= minAngle*M_PI/180.0)
+              {
+                numCuts++;
+                FCA[0] += tempVec[0];
+                FCA[1] += tempVec[1];
+                FCA_stddev[0] += tempVec[0]*tempVec[0];
+                FCA_stddev[1] += tempVec[1]*tempVec[1];
+              }
+          }
+      }
+    if (numCuts != 0) // we actually got at least one cut
+      {
+        FCA[0] /= numCuts;
+        FCA[1] /= numCuts;
+        FCA_stddev[0] /= numCuts;
+        FCA_stddev[1] /= numCuts;
+        // FCA_stddev now has <FCA^2>.  Now compute 
+        // sqrt((<FCA^2>-<FCA>^2)), the standard deviation
+        FCA_stddev[0] = sqrt((FCA_stddev[0]-FCA[0]*FCA[0]));
+        FCA_stddev[1] = sqrt((FCA_stddev[1]-FCA[1]*FCA[1]));
+        retval = true;
+      }
+    else
+      {
+        retval = false;
+      }
+    return retval;
+  }
+
+
+  /// \brief compute cost function for point x,y
+  ///
+  /// this returns the cost function for the transmitter being at x,y
+  /// given the DF reports we have.  The probability density uses the
+  /// cost function in the argument of an exponential.  Minimizing the
+  /// cost function will therefore maximize the probability density.
+
+  double ReportCollection::computeCostFunction(vector<double> &evaluationPoint)
+  {
+    double f=0;
+    vector<DFLib::Abstract::Report *>::iterator iterReport;
+    vector<DFLib::Abstract::Report *>::iterator reportEnd=theReports.end();
+
+    // Loop over all reports, sum up 
+    //    (1/(2*sigma^2)*(measured_bearing-bearing_to_point)^2
+
+    for (iterReport=theReports.begin();
+         iterReport!=reportEnd;
+         ++iterReport)
+      {
+        double bearing = (*iterReport)->getReportBearingRadians();
+        double bearing_to_point 
+          = (*iterReport)->computeBearingToPoint(evaluationPoint);
+        double sigma = (*iterReport)->getBearingStandardDeviationRadians();
+
+        f += 1/(2*sigma*sigma)*(bearing_to_point-bearing)*
+          (bearing_to_point-bearing);
+      }
+    return (f);
+  }
+
+  /// \brief compute cost function for point x,y and its gradient
+  void 
+  ReportCollection::computeCostFunctionAndGradient
+  (
+   vector<double> &evaluationPoint,
+   double &f,
+   vector<double> &gradient
+   )
+  {
+
+    vector<DFLib::Abstract::Report *>::iterator iterReport;
+    vector<DFLib::Abstract::Report *>::iterator reportEnd=theReports.end();
+
+    f=0;
+    gradient.resize(2);
+    gradient[0]=gradient[1]=0;
+
+    // Loop over all reports, sum up 
+    //    (1/(2*sigma^2)*(measured_bearing-bearing_to_point)^2
+
+    for (iterReport=theReports.begin();
+         iterReport!=reportEnd;
+         ++iterReport)
+      {
+        double bearing = (*iterReport)->getReportBearingRadians();
+        double bearing_to_point 
+          = (*iterReport)->computeBearingToPoint(evaluationPoint);
+        double sigma = (*iterReport)->getBearingStandardDeviationRadians();
+        double deltatheta;
+        double xr=
+          (*iterReport)->getReceiverLocation()[0]-evaluationPoint[0];
+        double yr=
+          (*iterReport)->getReceiverLocation()[1]-evaluationPoint[1];
+        double d=sqrt(xr*xr+yr*yr);
+        double c=cos(bearing_to_point);
+        double s=sin(bearing_to_point);
+
+        deltatheta=(bearing-bearing_to_point);
+
+        f += 1/(2*sigma*sigma)*(deltatheta*deltatheta);
+        gradient[0] += (deltatheta)/(sigma*sigma*d)*(-c);
+        gradient[1] += (deltatheta)/(sigma*sigma*d)*( s);
+      }
+  }
+
+  /// \brief compute cost function for point x,y its gradient, and its hessian.
+  void 
+  ReportCollection::computeCostFunctionAndHessian
+  (
+   vector<double> &evaluationPoint, 
+   double &f, vector<double> &gradient, vector<vector<double> > &hessian
+   )
+  {
+
+    vector<DFLib::Abstract::Report *>::iterator iterReport;
+    vector<DFLib::Abstract::Report *>::iterator reportEnd=theReports.end();
+
+    f=0;
+    gradient.resize(2);
+    gradient[0]=gradient[1]=0;
+    hessian.resize(2);
+    hessian[0].resize(2);
+    hessian[1].resize(2);
+    hessian[0][0]=hessian[0][1]=hessian[1][0]=hessian[1][1]=0.0;
+
+    // Loop over all reports, sum up 
+    //    (1/(2*sigma^2)*(measured_bearing-bearing_to_point)^2
+
+    for (iterReport=theReports.begin();
+         iterReport!=reportEnd;
+         ++iterReport)
+      {
+        double bearing = (*iterReport)->getReportBearingRadians();
+        double bearing_to_point 
+          = (*iterReport)->computeBearingToPoint(evaluationPoint);
+        double sigma = (*iterReport)->getBearingStandardDeviationRadians();
+        double deltatheta=(bearing-bearing_to_point);
+        double xr=
+          (*iterReport)->getReceiverLocation()[0]-evaluationPoint[0];
+        double yr=
+          (*iterReport)->getReceiverLocation()[1]-evaluationPoint[1];
+        double d=sqrt(xr*xr+yr*yr);
+        double c=cos(bearing_to_point);
+        double s=sin(bearing_to_point);
+        double coef = (1/(sigma*sigma*d*d));
+
+        deltatheta=(bearing-bearing_to_point);
+
+        f += 1/(2*sigma*sigma)*(deltatheta*deltatheta);
+        gradient[0] += (deltatheta)/(sigma*sigma*d)*(-c);
+        gradient[1] += (deltatheta)/(sigma*sigma*d)*( s);
+
+        hessian[0][0] += coef*(c*c-s*c*deltatheta);
+        hessian[0][1] += coef*(-s*c-s*s*deltatheta);
+        hessian[1][0] += coef*(-s*c+c*c*deltatheta);
+        hessian[1][1] += coef*(s*s-c*s*deltatheta);
+      }
+  }
+
+  /// \brief compute least squares solution from all df reports.
+  void ReportCollection::computeLeastSquaresFix(vector<double> &LS_Fix)
+  {
+
+    double atb1,atb2,a11,a12,a22;
+    atb1=atb2=a11=a12=a22=0.0;
+    double det;
+
+    vector<DFLib::Abstract::Report *>::iterator iterReport;
+    vector<DFLib::Abstract::Report *>::iterator reportEnd=theReports.end();
+
+    LS_Fix.resize(2);
+
+    for (iterReport=theReports.begin();iterReport!=reportEnd;++iterReport)
+      {
+        double bearing=(*iterReport)->getReportBearingRadians();
+        double c=cos(bearing);
+        double s=sin(bearing);
+        double rx=(*iterReport)->getReceiverLocation()[0];
+        double ry=(*iterReport)->getReceiverLocation()[1];
+        double b=rx*c-ry*s;
+            
+        atb1 += c*b;
+        atb2 += -s*b;
+        a11 += s*s;
+        a12 += s*c;
+        a22 += c*c;
+      }
+
+    det = a11*a22-a12*a12;
+
+    LS_Fix[0]=(a11*atb1+a12*atb2)/det;
+    LS_Fix[1]=(a12*atb1+a22*atb2)/det;
+            
+  }        
+}

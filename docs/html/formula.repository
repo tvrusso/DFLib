@@ -1,0 +1,22 @@
+\form#0:$0<\theta<2\pi$
+\form#1:$ P_{LS} = (A^TA)^{-1}A^Tb $
+\form#2:$A$
+\form#3:$Nx2$
+\form#4:$k^{th}$
+\form#5:$k$
+\form#6:$[\cos(\theta_k), -\sin(\theta_k)]$
+\form#7:$\theta_k$
+\form#8:$T$
+\form#9:$b$
+\form#10:$N$
+\form#11:$ b_k = [\cos(\theta_k),-sin(\theta_k)]\cdot[r_{kx},r_{ky}] $
+\form#12:${\bf r}_k$
+\form#13:$a,b,c$
+\form#14:$X0$
+\form#15:$a, b,$
+\form#16:$c$
+\form#17:$f(x0+direction*b)<f(x0+direction*a) $
+\form#18:$f(x0+direction*b) < f(x0+direction*c))$
+\form#19:$F(x0+x*dir)$
+\form#20:$X0+x*dir$
+\form#21:$df = dir\cdot\nabla f$

@@ -1,0 +1,7 @@
+/*!
+ \mainpage
+  This is a library for handling Direction Finding calculations.
+
+  The main purpose is to collect position/bearing reports from various stations and compute estimates of target location from them.
+
+*/
