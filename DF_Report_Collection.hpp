@@ -92,7 +92,30 @@ namespace DFLib
          where \f${\bf r}_k\f$ is the position vector of the \f$k^{th}\f$
          receiver.
         */
-        CPL_DLL void computeLeastSquaresFix(vector<double> &LS_Fix);
+        CPL_DLL void computeLeastSquaresFix(DFLib::Abstract::Point &LS_Fix);
+
+      /*!
+	\brief Computes Maximum Likelihood solution of DF problem
+
+	Given a collection of DF fixes with specified standard deviation,
+	computes the point of maximum likelihood (ML fix).
+
+        The probability of a transmitter being at a particular location x,y
+	given that each transmitter \f$i\f$ has heard the signal at bearing 
+	\f$\theta_i\f$ is given by a multivariate gaussian probability
+        distribution:
+
+	\f$
+	P(x,y) = 
+        \f$
+
+	The ML fix is the point that minimizes the argument of the 
+	exponential in the multivariate probability distribution, thereby
+        maximizing the probability.
+      */
+
+      CPL_DLL void computeMLFix(DFLib::Abstract::Point &MLFix);
+
         CPL_DLL double computeCostFunction(vector<double> &evaluationPoint);
         CPL_DLL void computeCostFunctionAndGradient(vector<double> &evaluationPoint,
                                             double &f,

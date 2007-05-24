@@ -41,8 +41,6 @@ namespace DFLib
     return (theReports.size()-1); // return the index to this report.
   }
 
-  /// TODO:  Make it possible to restrict average to those cuts that
-  /// have angle greater than some lower bound.
   bool ReportCollection::computeFixCutAverage(DFLib::Abstract::Point &FCA,
                                               vector<double> &FCA_stddev,
                                               double minAngle)
@@ -112,6 +110,11 @@ namespace DFLib
     return retval;
   }
 
+
+  /// \brief compute ML fix
+  void computeMLFix(DFLib::Abstract::Point &MLFix)
+  {
+  }
 
   /// \brief compute cost function for point x,y
   ///
@@ -244,18 +247,19 @@ namespace DFLib
   }
 
   /// \brief compute least squares solution from all df reports.
-  void ReportCollection::computeLeastSquaresFix(vector<double> &LS_Fix)
+  void ReportCollection::computeLeastSquaresFix(DFLib::Abstract::Point &LS_Fix)
   {
 
     double atb1,atb2,a11,a12,a22;
     atb1=atb2=a11=a12=a22=0.0;
     double det;
-
+    vector <double> LS_point;
+    
     vector<DFLib::Abstract::Report *>::iterator iterReport;
     vector<DFLib::Abstract::Report *>::iterator reportEnd=theReports.end();
-
-    LS_Fix.resize(2);
-
+    
+    LS_point.resize(2);
+    
     for (iterReport=theReports.begin();iterReport!=reportEnd;++iterReport)
       {
         double bearing=(*iterReport)->getReportBearingRadians();
@@ -264,18 +268,20 @@ namespace DFLib
         double rx=(*iterReport)->getReceiverLocation()[0];
         double ry=(*iterReport)->getReceiverLocation()[1];
         double b=rx*c-ry*s;
-            
+	
         atb1 += c*b;
         atb2 += -s*b;
         a11 += s*s;
         a12 += s*c;
         a22 += c*c;
       }
-
+    
     det = a11*a22-a12*a12;
+    
+    LS_point[0]=(a11*atb1+a12*atb2)/det;
+    LS_point[1]=(a12*atb1+a22*atb2)/det;
 
-    LS_Fix[0]=(a11*atb1+a12*atb2)/det;
-    LS_Fix[1]=(a12*atb1+a22*atb2)/det;
-            
-  }        
+    LS_Fix.setXY(LS_point);
+    LS_point = LS_Fix.getXY();
+   }
 }

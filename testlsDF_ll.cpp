@@ -29,8 +29,8 @@ int main(int argc,char **argv)
   char dms_string[128];
   
   vector<double> FCA_stddev;
-  vector<double> LS_fix;
   vector<double> NR_fix;
+  DFLib::LatLon::Point LS_fix(transPos);
   DFLib::LatLon::Point FixCutAverage(transPos);
   char EW,NS;
   bool done;
@@ -152,9 +152,10 @@ int main(int argc,char **argv)
 
   rColl.computeLeastSquaresFix(LS_fix);
   rColl.computeFixCutAverage(FixCutAverage,FCA_stddev);
+  vector <double> LS_point=LS_fix.getXY();
   vector <double> FCA_point=FixCutAverage.getXY();
 
-  gnuplotFile << "replot " << LS_fix[0] << "," << LS_fix[1] << " with points title \"LS Fix\"" << endl;
+  gnuplotFile << "replot " << LS_point[0] << "," << LS_point[1] << " with points title \"LS Fix\"" << endl;
   gnuplotFile << "replot " << transPos[0] << "," << transPos[1] << " with points title \"Actual Location\"" << endl;
   gnuplotFile << "replot " << FCA_point[0] << "," << FCA_point[1] << " with points title \"Fix Cut Average\"" << endl;
 
@@ -167,14 +168,11 @@ int main(int argc,char **argv)
   }
 
   cout << " Mercator coordinates of LS fix: " 
-       << "X = " << LS_fix[0] << " Y = " << LS_fix[1] << endl;
+       << "X = " << LS_point[0] << " Y = " << LS_point[1] << endl;
   cout << " Mercator coordinates of Fix Cut Average: " 
        << "X = " << FCA_point[0] << " Y = " << FCA_point[1] << endl;
   
-  DFLib::LatLon::Point LSPoint(LS_fix); // bogus point for now
-  LSPoint.setXY(LS_fix);
-
-  vector<double> latlon=LSPoint.getUserCoords();
+  vector<double> latlon=LS_fix.getUserCoords();
 
   EW='E';
   NS='N';
@@ -245,7 +243,7 @@ int main(int argc,char **argv)
   //  }
 
   // Now try Conjugate Gradients on Jml, always starting from OV fix.
-  NR_fix=LS_fix;
+  NR_fix=LS_fix.getXY();
   done = false;
   j=0;
 

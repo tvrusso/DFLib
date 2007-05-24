@@ -3,6 +3,7 @@
 #include "Util_Misc.hpp"
 
 #include <vector>
+#include <iostream>
 using namespace std;
 
 namespace DFLib
@@ -62,7 +63,10 @@ namespace DFLib
     void Point::setXY(const vector<double> &aPosition)
     {
       theMerc = aPosition;
-      mercDirty=true;
+      // Essential to set llDirty=false, otherwise getXY will try to 
+      // convert ll and we'll be wrong.
+      mercDirty=true;  
+      llDirty=false;
     }
 
     const vector<double> & Point::getXY()
@@ -78,7 +82,8 @@ namespace DFLib
     void Point::setLL(const vector<double> &llPosition)
     {
       theLatLon = llPosition;
-      llDirty=true;
+      // If we set ll, must now trump mercator.
+      llDirty=true; mercDirty=false;
     }
 
     const vector<double> & Point::getLL()
