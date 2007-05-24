@@ -51,7 +51,6 @@ int main(int argc,char **argv)
   gnuplotFile << "set parametric" << endl;
   gnuplotFile.precision(16); gnuplotFile.width(20);
 
-
 #ifdef _MSC_VER
   srand(time(NULL));
 #else
@@ -200,34 +199,35 @@ int main(int argc,char **argv)
 
   for (double minCutAngle=0; minCutAngle < 50; minCutAngle += 5.0)
   {
-    rColl.computeFixCutAverage(FixCutAverage,FCA_stddev,minCutAngle);
-
-    vector<double> latlon=FixCutAverage.getUserCoords();
-    
-
-    EW='E';
-    NS='N';
-
-    if (latlon[0] < 0)
-    {
-      latlon[0] *= -1;
-      EW = 'W';
-    }
-
-    if (latlon[1] < 0)
-    {
-      latlon[1] *= -1;
-      NS = 'S';
-    }
-
-    cout << "  Longitude of Fix Cut Average (min cut angle="<< minCutAngle <<"): " << (int) latlon[0] << "d" 
-         << (latlon[0]-(int)latlon[0])*60 << "\"" << EW << endl;
-
-    cout << "  Latitude of Fix Cut Average (min cut angle="<< minCutAngle <<"): " << (int) latlon[1] << "d" 
-         << (latlon[1]-(int)latlon[1])*60 << "\"" << NS << endl;
-
-    cout << "   Std Dev of FCA = (" << FCA_stddev[0] << " , " 
-	 << " , " << FCA_stddev[1] << ")" << endl;
+    if (rColl.computeFixCutAverage(FixCutAverage,FCA_stddev,minCutAngle))
+      {
+	vector<double> latlon=FixCutAverage.getUserCoords();
+	
+	
+	EW='E';
+	NS='N';
+	
+	if (latlon[0] < 0)
+	  {
+	    latlon[0] *= -1;
+	    EW = 'W';
+	  }
+	
+	if (latlon[1] < 0)
+	  {
+	    latlon[1] *= -1;
+	    NS = 'S';
+	  }
+	
+	cout << "  Longitude of Fix Cut Average (min cut angle="<< minCutAngle <<"): " << (int) latlon[0] << "d" 
+	     << (latlon[0]-(int)latlon[0])*60 << "\"" << EW << endl;
+	
+	cout << "  Latitude of Fix Cut Average (min cut angle="<< minCutAngle <<"): " << (int) latlon[1] << "d" 
+	     << (latlon[1]-(int)latlon[1])*60 << "\"" << NS << endl;
+	
+	cout << "   Std Dev of FCA = (" << FCA_stddev[0] << " , " 
+	     << " , " << FCA_stddev[1] << ")" << endl;
+      }
   }
 
   //

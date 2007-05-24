@@ -79,7 +79,7 @@ namespace DFLib
           {
             double cutAngle;
             (*iterReportI)->computeFixCut(*iterReportJ,*tempPoint,cutAngle,fs);
-            if (fs == GOOD_FIX && cutAngle >= minAngle*M_PI/180.0)
+            if (fs == GOOD_FIX && fabs(cutAngle) >= minAngle*M_PI/180.0)
               {
                 numCuts++;
 		tempVec = tempPoint->getUserCoords();
@@ -107,7 +107,7 @@ namespace DFLib
         retval = false;
       }
 
-    FCA.setUserCoords(tempVec);
+    FCA.setUserCoords(tempFCA);
     delete tempPoint;
     return retval;
   }

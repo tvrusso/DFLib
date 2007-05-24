@@ -13,7 +13,6 @@ using namespace std;
 
 namespace DFLib
 {
-  // TODO: make more generic so that the point returnd might be transformed.  
   void DFLib::Abstract::Report::computeFixCut(DFLib::Abstract::Report *Report2, 
                                               Point &returnPoint,
                                               double &cutAngle,

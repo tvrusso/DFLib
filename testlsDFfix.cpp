@@ -97,7 +97,6 @@ int main(int argc,char **argv)
   gnuplotFile << "set parametric" << endl;
   gnuplotFile.precision(16); gnuplotFile.width(20);
 
-
 #ifdef _MSC_VER
   srand(time(NULL));
 #else
