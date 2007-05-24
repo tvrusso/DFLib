@@ -68,13 +68,16 @@ int main(int argc,char **argv)
 {
   
   double lon,lat;
-  vector<double> transPos(2);
+  vector<double> transPos(2,0.0);
   int i,j;
   char dms_string[128];
   
-  vector<double> FixCutAverage,FCA_stddev;
+  vector<double> FCA_stddev;
   vector<double> LS_fix;
   vector<double> NR_fix;
+
+  DFLib::XY::Point FixCutAverage(transPos);
+
   char EW,NS;
   bool done;
   double normf,lastnormf;
@@ -210,11 +213,12 @@ int main(int argc,char **argv)
 
   rColl.computeLeastSquaresFix(LS_fix);
   rColl.computeFixCutAverage(FixCutAverage,FCA_stddev);
+  vector <double>FCA_point = FixCutAverage.getXY();
 
 
   gnuplotFile << "replot " << LS_fix[0] << "," << LS_fix[1] << " with points title \"LS Fix\"" << endl;
   gnuplotFile << "replot " << transPos[0] << "," << transPos[1] << " with points title \"Actual Location\"" << endl;
-  gnuplotFile << "replot " << FixCutAverage[0] << "," << FixCutAverage[1] << " with points title \"Fix Cut Average\"" << endl;
+  gnuplotFile << "replot " << FCA_point[0] << "," << FCA_point[1] << " with points title \"Fix Cut Average\"" << endl;
 
   for(i = 0; i<rColl.size() ; ++i)
   {
@@ -227,7 +231,7 @@ int main(int argc,char **argv)
   cout << " Mercator coordinates of LS fix: " 
        << "X = " << LS_fix[0] << " Y = " << LS_fix[1] << endl;
   cout << " Mercator coordinates of Fix Cut Average: " 
-       << "X = " << FixCutAverage[0] << " Y = " << FixCutAverage[1] << endl;
+       << "X = " << FCA_point[0] << " Y = " << FCA_point[1] << endl;
   cout << " Fix Cut Average Standard Deviations: " 
        << "X = " << FCA_stddev[0] << " Y = " << FCA_stddev[1] << endl;
 
@@ -257,7 +261,8 @@ int main(int argc,char **argv)
   for (double minCutAngle=0; minCutAngle < 50; minCutAngle += 5.0)
   {
     rColl.computeFixCutAverage(FixCutAverage,FCA_stddev,minCutAngle);
-    convertMercToLatLon(FixCutAverage,lon,lat);
+    FCA_point = FixCutAverage.getXY();
+    convertMercToLatLon(FCA_point,lon,lat);
 
     EW='E';
     NS='N';

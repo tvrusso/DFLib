@@ -43,7 +43,7 @@ namespace DFLib
 
   /// TODO:  Make it possible to restrict average to those cuts that
   /// have angle greater than some lower bound.
-  bool ReportCollection::computeFixCutAverage(vector<double> &FCA,
+  bool ReportCollection::computeFixCutAverage(DFLib::Abstract::Point &FCA,
                                               vector<double> &FCA_stddev,
                                               double minAngle)
   {
@@ -51,9 +51,17 @@ namespace DFLib
     FixStatus fs;
     bool retval;
     int numCuts=0;
+    vector<double> tempFCA;
+    vector<double> tempScratch;
+    DFLib::Abstract::Point *tempPoint;
 
-    FCA.resize(2);
-    FCA[0]=FCA[1]=0;
+    // Make a point object that uses the same coordinate system that our
+    // return object will use, and initialize it to 0.
+    tempPoint = FCA.Clone();
+    tempFCA.resize(2);
+    tempFCA[0]=tempFCA[1]=0;
+    tempPoint->setXY(tempFCA);
+
     FCA_stddev.resize(2);
     FCA_stddev[0]=FCA_stddev[1]=0;
 
@@ -70,12 +78,13 @@ namespace DFLib
              ++iterReportJ)
           {
             double cutAngle;
-            (*iterReportI)->computeFixCut(*iterReportJ,tempVec,cutAngle,fs);
+            (*iterReportI)->computeFixCut(*iterReportJ,*tempPoint,cutAngle,fs);
             if (fs == GOOD_FIX && cutAngle >= minAngle*M_PI/180.0)
               {
                 numCuts++;
-                FCA[0] += tempVec[0];
-                FCA[1] += tempVec[1];
+		tempVec = tempPoint->getUserCoords();
+                tempFCA[0] += tempVec[0];
+                tempFCA[1] += tempVec[1];
                 FCA_stddev[0] += tempVec[0]*tempVec[0];
                 FCA_stddev[1] += tempVec[1]*tempVec[1];
               }
@@ -83,20 +92,23 @@ namespace DFLib
       }
     if (numCuts != 0) // we actually got at least one cut
       {
-        FCA[0] /= numCuts;
-        FCA[1] /= numCuts;
+        tempFCA[0] /= numCuts;
+        tempFCA[1] /= numCuts;
         FCA_stddev[0] /= numCuts;
         FCA_stddev[1] /= numCuts;
-        // FCA_stddev now has <FCA^2>.  Now compute 
-        // sqrt((<FCA^2>-<FCA>^2)), the standard deviation
-        FCA_stddev[0] = sqrt((FCA_stddev[0]-FCA[0]*FCA[0]));
-        FCA_stddev[1] = sqrt((FCA_stddev[1]-FCA[1]*FCA[1]));
+        // FCA_stddev now has <tempFCA^2>.  Now compute 
+        // sqrt((<tempFCA^2>-<tempFCA>^2)), the standard deviation
+        FCA_stddev[0] = sqrt((FCA_stddev[0]-tempFCA[0]*tempFCA[0]));
+        FCA_stddev[1] = sqrt((FCA_stddev[1]-tempFCA[1]*tempFCA[1]));
         retval = true;
       }
     else
       {
         retval = false;
       }
+
+    FCA.setUserCoords(tempVec);
+    delete tempPoint;
     return retval;
   }
 

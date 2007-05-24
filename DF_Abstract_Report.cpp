@@ -6,7 +6,7 @@
 
 #include <iostream>
 #include "DF_Abstract_Report.hpp"
-
+#include "DF_Abstract_Point.hpp"
 #include <cmath>
 
 using namespace std;
@@ -15,11 +15,12 @@ namespace DFLib
 {
   // TODO: make more generic so that the point returnd might be transformed.  
   void DFLib::Abstract::Report::computeFixCut(DFLib::Abstract::Report *Report2, 
-                                              vector<double> &returnPoint,
+                                              Point &returnPoint,
                                               double &cutAngle,
                                               FixStatus &fs)
   {
     vector<double> p2,p2p;
+    vector<double> rp;
     double theta2;
     double thetaprime;
     double phi;
@@ -55,8 +56,8 @@ namespace DFLib
       theta2 *= -1;
     }
 
-    returnPoint.resize(2);
-    returnPoint[0]=returnPoint[1]=0.0;
+    rp.resize(2);
+    rp[0]=rp[1]=0.0;
 
     // Special cases.  We treat degenerate fixes as "no fix" for now.
 
@@ -88,17 +89,18 @@ namespace DFLib
         double xfp,yfp;
         // theta2 is negative, M_PI/2+theta2 is positive angle between 
         // horizontal and beam
-        returnPoint[1]=p2[1]+p2[0]*tan(M_PI/2+theta2);
+        rp[1]=p2[1]+p2[0]*tan(M_PI/2+theta2);
         fs=DFLib::GOOD_FIX;
         // now rotate clockwise by my theta:
-        xfp = returnPoint[0]*cos(thetaprime)+returnPoint[1]*sin(thetaprime);
-        yfp = returnPoint[1]*cos(thetaprime)-returnPoint[0]*sin(thetaprime);
+        xfp = rp[0]*cos(thetaprime)+rp[1]*sin(thetaprime);
+        yfp = rp[1]*cos(thetaprime)-rp[0]*sin(thetaprime);
 
 
-        returnPoint[0]=xfp+getReceiverLocation()[0]; // translate back.
-        returnPoint[1]=yfp+getReceiverLocation()[1];
+        rp[0]=xfp+getReceiverLocation()[0]; // translate back.
+        rp[1]=yfp+getReceiverLocation()[1];
       }
     }
+    returnPoint.setXY(rp);
   }
 
   double DFLib::Abstract::Report::computeBearingToPoint(vector<double> &aPoint)

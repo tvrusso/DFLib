@@ -49,6 +49,16 @@ namespace DFLib
             ///
             virtual const vector<double> &getXY() = 0;
 
+	  /// \brief Get coordinates in the user's coordinate system
+	  ///
+	  
+	  virtual const vector<double> &getUserCoords() = 0;
+
+	  /// \brief Set coordinates in the user's coordinate system
+	  ///
+	  
+	  virtual void setUserCoords(const vector<double> &uPosition) = 0;
+
             /// \brief Clone Self
             ///
             /// Make a copy of yourself, and return a pointer to the copy.

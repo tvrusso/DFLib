@@ -39,6 +39,23 @@ namespace DFLib
             /// \return vector of coordinates in mercator projection
             ///
             virtual const vector<double> &getXY();
+
+
+	  /// \brief get user position
+	  ///
+	  /// This is just a wrapper for getLL as needed by the abstract
+	  /// interface
+
+	  virtual const vector<double> &getUserCoords() { return getLL(); };
+
+	  /// \brief set user position
+	  ///
+	  /// This is just a wrapper for setLL as needed by the abstract
+	  /// interface
+
+	  virtual void setUserCoords(const vector<double> &uPosition)  
+	  { setLL(uPosition); };
+	  
             /// \brief set lat/lon position
             /// 
             /// \param llPosition coordinates in Lat/Lon
@@ -49,6 +66,7 @@ namespace DFLib
             /// \return vector of coordinates in lat/lon
             ///
             const vector<double> &getLL();
+
 
             Point * Clone();
         private:

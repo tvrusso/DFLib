@@ -23,6 +23,14 @@ namespace DFLib
             virtual CPL_DLL void setXY(const vector<double> &aPosition);
             /// Set X-Y position
             virtual const vector<double> &getXY();
+
+	  /// get User Coords (wrapper as required by abstract interface)
+	  virtual const vector<double> &getUserCoords() { return getXY();};
+
+	  /// set User Coords (wrapper as required by abstract interface)
+	  virtual void setUserCoords(const vector<double> &uPosition) 
+	     { setXY(uPosition);};
+
             /// Clone Self
             virtual Point *Clone();
         };

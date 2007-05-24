@@ -3,6 +3,7 @@
 #include "port.h"
 #include <vector>
 #include <cmath>
+#include "DF_Abstract_Point.hpp"
 
 using namespace std;
 
@@ -16,6 +17,7 @@ namespace DFLib
 
     namespace Abstract
     {
+      // Forward declaration:
         class Report
         {
         public:
@@ -34,7 +36,7 @@ namespace DFLib
             /// \param cutAngle on return, the angle in radians made by the two bearing lines
             /// \param fs fix status
             void CPL_DLL computeFixCut(DFLib::Abstract::Report *Report2, 
-                               vector<double> &returnPoint, 
+                               Point &returnPoint, 
                                double &cutAngle,FixStatus &fs);
             /// \brief compute bearing from this reporting location to some other point
             ///

@@ -7,6 +7,7 @@ using namespace std;
 
 #include "Util_Abstract_Group.hpp"
 #include "DF_Abstract_Report.hpp"
+#include "DF_Abstract_Point.hpp"
 
 namespace DFLib
 {
@@ -58,7 +59,7 @@ namespace DFLib
         /// \param FCA Returned fix cut average
         /// \param FCA_stddev standard deviation of fix cuts
         /// \param minAngle reports whose fix cut occur at less than this angle will not be included in the average.
-        CPL_DLL bool computeFixCutAverage(vector<double> &FCA, 
+        CPL_DLL bool computeFixCutAverage(DFLib::Abstract::Point &FCA, 
                                   vector<double> &FCA_stddev,
                                   double minAngle=0);
 
