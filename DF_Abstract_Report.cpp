@@ -41,13 +41,15 @@ namespace DFLib
     p2[0] = p2p[0]*cos(thetaprime)-p2p[1]*sin(thetaprime);
     p2[1] = p2p[1]*cos(thetaprime)+p2p[0]*sin(thetaprime);
     theta2 -= thetaprime;
-    cutAngle = theta2;
-
     // convert theta2 to -PI<theta2<PI so our tests below work
     while (theta2 > M_PI)
       theta2 -= 2*M_PI;
 
-        
+    while (theta2 < -M_PI)
+      theta2 += 2*M_PI;
+
+    cutAngle = fabs(theta2);
+
     // if his point is in left half-plane, reflect around y axis  
     if (p2[0]<0)
     {

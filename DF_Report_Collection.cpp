@@ -52,6 +52,8 @@ namespace DFLib
     vector<double> tempFCA;
     vector<double> tempScratch;
     DFLib::Abstract::Point *tempPoint;
+    int reportnumI=0;
+    int reportnumJ=0;
 
     // Make a point object that uses the same coordinate system that our
     // return object will use, and initialize it to 0.
@@ -69,6 +71,7 @@ namespace DFLib
     for (iterReportI=theReports.begin();iterReportI!=reportEnd;
          ++iterReportI)
       {
+	reportnumJ=reportnumI+1;
         // loop over all reports after this one
         vector<DFLib::Abstract::Report *>::iterator iterReportJ;
         for (iterReportJ=iterReportI,++iterReportJ;
@@ -77,6 +80,9 @@ namespace DFLib
           {
             double cutAngle;
             (*iterReportI)->computeFixCut(*iterReportJ,*tempPoint,cutAngle,fs);
+	    if (fs != GOOD_FIX)
+	      cout << " Fix failed for I=" << reportnumI << " and " 
+		   << " J=" << reportnumJ << endl;
             if (fs == GOOD_FIX && fabs(cutAngle) >= minAngle*M_PI/180.0)
               {
                 numCuts++;
@@ -86,7 +92,9 @@ namespace DFLib
                 FCA_stddev[0] += tempVec[0]*tempVec[0];
                 FCA_stddev[1] += tempVec[1]*tempVec[1];
               }
+	    reportnumJ++;
           }
+	reportnumI++;
       }
     if (numCuts != 0) // we actually got at least one cut
       {
