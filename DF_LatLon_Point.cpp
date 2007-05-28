@@ -12,6 +12,12 @@ namespace DFLib
   {
 
     // class Point
+    Point::Point()
+      : llDirty(true),
+        mercDirty(false)
+    {
+      theLatLon.resize(2,0.0);
+    }
 
     Point::Point(const vector<double> &aPosition)
       : theLatLon(aPosition),
@@ -38,7 +44,9 @@ namespace DFLib
       }
 
       // Don't bother trying to force the mercator --- we'll do that if
-      // we query, because we're setting llDirty to true.
+      // we query, because we're setting llDirty to true, just initialize
+      // to junk.
+      theMerc.resize(2,0.0);
     }
 
     Point::Point(const Point &right)

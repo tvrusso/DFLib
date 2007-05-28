@@ -14,6 +14,9 @@ namespace DFLib
         private:
             vector<double> myXY;
         public:
+            /// Default
+            CPL_DLL Point();
+
             /// Constructor
             CPL_DLL Point(const vector<double> &aPosition);
             /// Copy Constructor

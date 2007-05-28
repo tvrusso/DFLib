@@ -21,10 +21,15 @@ namespace DFLib
             bool llDirty;
             projPJ latlonProj, mercProj;
         public:
+            /// \brief Default Constructor
+            ///
+            Point();
+
             /// \brief Constructor
             ///
             /// \param llPosition coordinates <em>in Lat Lon</em>
             Point(const vector<double> &llPosition);
+
 
             /// \brief Copy Constructor
             Point(const Point &right);

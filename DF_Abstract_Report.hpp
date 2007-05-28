@@ -3,6 +3,8 @@
 #include "port.h"
 #include <vector>
 #include <cmath>
+#include <string>
+
 #include "DF_Abstract_Point.hpp"
 
 using namespace std;
@@ -20,6 +22,8 @@ namespace DFLib
       // Forward declaration:
         class Report
         {
+        private:
+            string ReportName_;
         public:
             // pure virtual functions:
             virtual  const CPL_DLL vector<double> &getReceiverLocation() = 0;
@@ -30,6 +34,13 @@ namespace DFLib
             /// \return bearing in radians, always in the range \f$0<\theta<2\pi\f$.
             virtual CPL_DLL  double getReportBearingRadians() const = 0;
             virtual CPL_DLL  double getBearingStandardDeviationRadians() const = 0;
+
+            ///\brief Return the name of this report
+            virtual const string &getReportName() { return ReportName_;};
+
+            ///\brief set the name of this report
+            virtual void setReportName(string &theName) { ReportName_=theName;};
+
             /// \brief compute point at which the line from this report intersects that from another
             /// \param Report2 pointer to the other report
             /// \param returnPoint reference to place to store solution point

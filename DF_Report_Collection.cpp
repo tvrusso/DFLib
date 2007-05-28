@@ -80,9 +80,6 @@ namespace DFLib
           {
             double cutAngle;
             (*iterReportI)->computeFixCut(*iterReportJ,*tempPoint,cutAngle,fs);
-	    if (fs != GOOD_FIX)
-	      cout << " Fix failed for I=" << reportnumI << " and " 
-		   << " J=" << reportnumJ << endl;
             if (fs == GOOD_FIX && fabs(cutAngle) >= minAngle*M_PI/180.0)
               {
                 numCuts++;

@@ -10,6 +10,11 @@ namespace DFLib
 
         // class Point
 
+        Point::Point()
+        {
+            myXY.resize(2,0.0);
+        }
+
         Point::Point(const vector<double> &aPosition)
             :myXY(aPosition)
         {

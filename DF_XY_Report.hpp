@@ -23,6 +23,8 @@ namespace DFLib
             Point receiverLocation;            
             double bearing,sigma;
         public:
+            CPL_DLL Report(const double &theLon, const double &theLat, 
+                       const double &bearing,const double &std_dev);
             CPL_DLL Report(const vector<double> &theLocation, 
                        const double &bearing,const double &std_dev);
             CPL_DLL ~Report();
@@ -37,6 +39,20 @@ namespace DFLib
             //! set standard deviation in degrees
             virtual CPL_DLL  void  setSigma(double Sigma);
         };
+    }
+
+
+    /// \brief XY DF report constructor with defaults
+    inline DFLib::XY::Report::Report(const double &theX = 0,
+                                     const double &theY = 0,
+                                     const double &Bearing = 0,
+                                     const double &std_dev = 1)
+        : bearing(Bearing), sigma(std_dev*M_PI/180)
+    {
+        vector<double> XY(2);
+        XY[0]=theX;
+        XY[1]=theY;
+        receiverLocation.setXY(XY);
     }
 
     /// \brief XYDF report constructor.
