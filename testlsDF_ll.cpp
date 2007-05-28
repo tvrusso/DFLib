@@ -5,6 +5,7 @@
 #endif
 #include <cmath>
 #include <iostream>
+#include <sstream>
 #include <fstream>
 #include <vector>
 // we need this for dmstor and various conversion factors
@@ -86,6 +87,8 @@ int main(int argc,char **argv)
     char junk_space;
     DFLib::LatLon::Report *reportPtr;
     vector<double> tempVector(2);
+    string reportName;
+    ostringstream ost;
 
     cin.get(dms_string,sizeof(dms_string),' ');
     if (cin.eof())
@@ -112,7 +115,10 @@ int main(int argc,char **argv)
     tempVector[0]=lon*RAD_TO_DEG;
     tempVector[1]=lat*RAD_TO_DEG;
     double bearing=0; // temporary
-    reportPtr = new DFLib::LatLon::Report(tempVector,bearing,temp_sigma);
+
+    ost << "report " << rColl.size();
+    reportPtr = new DFLib::LatLon::Report(tempVector,bearing,temp_sigma,
+                                          ost.str());
 
 
 

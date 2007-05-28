@@ -39,7 +39,7 @@ namespace DFLib
             virtual const string &getReportName() { return ReportName_;};
 
             ///\brief set the name of this report
-            virtual void setReportName(string &theName) { ReportName_=theName;};
+            virtual void setReportName(const string &theName) { ReportName_=theName;};
 
             /// \brief compute point at which the line from this report intersects that from another
             /// \param Report2 pointer to the other report

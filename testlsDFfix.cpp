@@ -6,6 +6,7 @@
 #include <cmath>
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <vector>
 #include <projects.h>
 // projects.h rudely pollutes our namespace!
@@ -151,6 +152,7 @@ int main(int argc,char **argv)
     char junk_space;
     DFLib::XY::Report *reportPtr;
     vector<double> tempVector(2);
+    ostringstream ostr;
 
     cin.get(dms_string,sizeof(dms_string),' ');
     if (cin.eof())
@@ -174,6 +176,7 @@ int main(int argc,char **argv)
          << " Position = " << lon*RAD_TO_DEG << " " << lat*RAD_TO_DEG 
          << " With standard deviation " << temp_sigma
          << endl;
+    ostr << "report " << rColl.size();
     convertLatLonToMerc(tempVector,lon,lat);
 
     double bearing=atan2((transPos[0]-tempVector[0]),(transPos[1]-tempVector[1]))*RAD_TO_DEG;
@@ -183,7 +186,7 @@ int main(int argc,char **argv)
     cout << " after randomizing, bearing to transmitter is " << bearing << endl;
 
 
-    reportPtr = new DFLib::XY::Report(tempVector,bearing,temp_sigma);
+    reportPtr = new DFLib::XY::Report(tempVector,bearing,temp_sigma,ostr.str());
     rColl.addReport(reportPtr);
 
   }
