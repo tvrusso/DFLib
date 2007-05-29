@@ -1,4 +1,6 @@
 base referer
-rect $DF__XY__Point_8cpp.html 420,6 767,32
-rect $DF__XY__Report_8hpp.html 413,56 773,83
-rect $XYPointUnitTests_8cpp.html 404,107 783,134
+rect $DF__XY__Point_8cpp.html 335,5 599,32
+rect $DF__XY__Report_8hpp.html 329,56 604,83
+rect $XYPointUnitTests_8cpp.html 320,107 613,133
+rect $nonoise_8cpp.html 671,31 905,57
+rect $testlsDFfix_8cpp.html 663,81 913,108

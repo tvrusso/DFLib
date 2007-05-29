@@ -1,6 +1,7 @@
 base referer
-rect $DF__Abstract__Report_8cpp.html 460,5 857,32
-rect $DF__LatLon__Report_8hpp.html 465,56 852,83
-rect $DF__Report__Collection_8cpp.html 912,132 1320,159
-rect $DF__Report__Collection_8hpp.html 455,157 863,184
-rect $DF__XY__Report_8hpp.html 479,208 839,235
+rect $DF__Abstract__Report_8cpp.html 375,5 687,32
+rect $DF__LatLon__Report_8hpp.html 380,56 681,83
+rect $DF__Proj__Report_8hpp.html 389,107 672,133
+rect $DF__Report__Collection_8cpp.html 743,183 1065,209
+rect $DF__Report__Collection_8hpp.html 368,208 693,235
+rect $DF__XY__Report_8hpp.html 393,259 668,285

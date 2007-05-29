@@ -5,7 +5,7 @@
 #---------------------------------------------------------------------------
 PROJECT_NAME           = DFLib
 PROJECT_NUMBER         = "Release 0.0.1"
-OUTPUT_DIRECTORY       = /users/russo/DF_Hacking/DFLib/docs
+OUTPUT_DIRECTORY       = /users/russo/DFLib/docs
 CREATE_SUBDIRS         = NO
 OUTPUT_LANGUAGE        = English
 USE_WINDOWS_ENCODING   = NO
@@ -82,7 +82,7 @@ WARN_LOGFILE           =
 #---------------------------------------------------------------------------
 # configuration options related to the input files
 #---------------------------------------------------------------------------
-INPUT                  = /users/russo/DF_Hacking/DFLib 
+INPUT                  = /users/russo/DFLib 
 FILE_PATTERNS          = *.c \
                          *.cc \
                          *.cxx \

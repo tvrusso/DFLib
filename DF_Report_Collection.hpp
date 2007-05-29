@@ -106,12 +106,39 @@ namespace DFLib
       distribution:
 
       \f$
-      P(x,y) = 
+      P(x,y) = K*\exp(-\sum_{i=0}^n (\tilde{\theta_i} - \theta_i(x,y))^2/(2\sigma_i^2))
       \f$
 
-      The ML fix is the point that minimizes the argument of the 
-      exponential in the multivariate probability distribution, thereby
-      maximizing the probability.
+      where \f$\tilde{\theta_i}\f$ is the bearing measured by the
+      \f$i^{th}\f$ receiver, \f$\theta_i(x,y)\f$ is the bearing from
+      the \f$i^{th}\f$ receiver to the point \f$(x,y)\f$, \f$\sigma_i\f$
+      is the standard deviation of the measurements by receiver \f$i\f$, and
+      \f$K\f$ is a normalization coefficient.  The argument of the exponential
+      is the cost function.
+
+      The ML fix is the point that minimizes the cost function, thereby
+      maximizing the probability of that point.
+
+      Note that it is not correct to use \f$P(x,y)\f$ directly as a
+      probability distribution in \f$x\f$ and \f$y\f$, because it is
+      really the probability density in \f$\theta\f$ space.  To get
+      the real probability density in \f$(x,y)\f$ space requires a
+      change of variables factor \f$det(JJ^T)\f$ where \f$J\f$ is the
+      jacobian of the transformation between \f$\theta\f$ and
+      \f$(x,y)\f$ space.
+
+      The correct transformation would be necessary if one were trying
+      to compute the probability of the transmitter being in some area
+      of \f$(x,y)\f$ space.  One potential future development in this 
+      library would be to compute the probability on a grid around the ML fix,
+      then find the convex hull containing points that sum to a particular
+      confidence level.  This would be very time consuming and maybe not
+      worth the trouble.
+
+      To compute the ML fix requires an initial guess, as from the least
+      squares fix.  We use the method of conjugate gradients to find the 
+      minimum of the cost function.
+
     */
 
     CPL_DLL void computeMLFix(DFLib::Abstract::Point &MLFix);

@@ -13,7 +13,7 @@ namespace DFLib
 {
   namespace Proj
   {
-    /// \brief DF report in Lat/Lon coordinates
+    /// \brief DF report in user-specified coordinates
     class Report 
       : public DFLib::Abstract::Report
     {
@@ -39,10 +39,12 @@ namespace DFLib
     };
   }
 
-  /// \brief XYDF report constructor.
+  /// \brief DF report constructor for user-specified coordinate system.
   /// \param theLocation position vector <em>in lat/lon</em> of this report.
   /// \param Bearing bearing IN DEGREES
   /// \param std_dev standard deviation in degrees
+  /// \param projArgs a vector of strings to pass to pj_init in order to 
+  ///        define the user coordinate system.
   inline DFLib::Proj::Report::Report(const vector<double> &theLocation,
                                        const double &Bearing,const double &std_dev,
                                        const string &theName,

@@ -1,3 +1,4 @@
 base referer
-rect $classDFLib_1_1LatLon_1_1Point.html 5,80 163,107
-rect $classDFLib_1_1XY_1_1Point.html 187,80 315,107
+rect $classDFLib_1_1LatLon_1_1Point.html 5,80 160,107
+rect $classDFLib_1_1Proj_1_1Point.html 184,80 320,107
+rect $classDFLib_1_1XY_1_1Point.html 344,80 469,107
