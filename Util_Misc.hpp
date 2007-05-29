@@ -10,22 +10,22 @@ using namespace std;
 namespace DFLib
 {
     
-    namespace Util
-    {
+  namespace Util
+  {
         
-        class Exception
-        {
-        private:
-            string ErrorMessage;
-        public:
-            CPL_DLL Exception(const string &eMsg)
-                :ErrorMessage(ErrorMessage)
-            {};
-            const CPL_DLL string &getEmsg() const
-            {
-                return ErrorMessage;
-            };
-        };
-    }
+    class Exception
+    {
+    private:
+      string ErrorMessage;
+    public:
+      CPL_DLL Exception(const string &eMsg)
+        :ErrorMessage(eMsg)
+      {};
+      const CPL_DLL string &getEmsg() const
+      {
+        return ErrorMessage;
+      };
+    };
+  }
 }
 #endif

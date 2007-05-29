@@ -6,6 +6,7 @@
 #include <cmath>
 #include "DF_Abstract_Report.hpp"
 #include "DF_Report_Collection.hpp"
+#include "Util_Minimization_Methods.hpp"
 
 using namespace std;
 namespace DFLib
@@ -29,10 +30,10 @@ namespace DFLib
     vector<DFLib::Abstract::Report *>::iterator iterReport=theReports.begin();
     vector<DFLib::Abstract::Report *>::iterator lastReport=theReports.end();
     while (iterReport != lastReport)
-      {
-        delete *iterReport;
-        ++iterReport;
-      }
+    {
+      delete *iterReport;
+      ++iterReport;
+    }
   }
 
   int ReportCollection::addReport(DFLib::Abstract::Report *aReport)
@@ -70,45 +71,45 @@ namespace DFLib
     // loop over all reports
     for (iterReportI=theReports.begin();iterReportI!=reportEnd;
          ++iterReportI)
+    {
+      reportnumJ=reportnumI+1;
+      // loop over all reports after this one
+      vector<DFLib::Abstract::Report *>::iterator iterReportJ;
+      for (iterReportJ=iterReportI,++iterReportJ;
+           iterReportJ != reportEnd;
+           ++iterReportJ)
       {
-	reportnumJ=reportnumI+1;
-        // loop over all reports after this one
-        vector<DFLib::Abstract::Report *>::iterator iterReportJ;
-        for (iterReportJ=iterReportI,++iterReportJ;
-             iterReportJ != reportEnd;
-             ++iterReportJ)
-          {
-            double cutAngle;
-            (*iterReportI)->computeFixCut(*iterReportJ,*tempPoint,cutAngle,fs);
-            if (fs == GOOD_FIX && fabs(cutAngle) >= minAngle*M_PI/180.0)
-              {
-                numCuts++;
-		tempVec = tempPoint->getUserCoords();
-                tempFCA[0] += tempVec[0];
-                tempFCA[1] += tempVec[1];
-                FCA_stddev[0] += tempVec[0]*tempVec[0];
-                FCA_stddev[1] += tempVec[1]*tempVec[1];
-              }
-	    reportnumJ++;
-          }
-	reportnumI++;
+        double cutAngle;
+        (*iterReportI)->computeFixCut(*iterReportJ,*tempPoint,cutAngle,fs);
+        if (fs == GOOD_FIX && fabs(cutAngle) >= minAngle*M_PI/180.0)
+        {
+          numCuts++;
+          tempVec = tempPoint->getUserCoords();
+          tempFCA[0] += tempVec[0];
+          tempFCA[1] += tempVec[1];
+          FCA_stddev[0] += tempVec[0]*tempVec[0];
+          FCA_stddev[1] += tempVec[1]*tempVec[1];
+        }
+        reportnumJ++;
       }
+      reportnumI++;
+    }
     if (numCuts != 0) // we actually got at least one cut
-      {
-        tempFCA[0] /= numCuts;
-        tempFCA[1] /= numCuts;
-        FCA_stddev[0] /= numCuts;
-        FCA_stddev[1] /= numCuts;
-        // FCA_stddev now has <tempFCA^2>.  Now compute 
-        // sqrt((<tempFCA^2>-<tempFCA>^2)), the standard deviation
-        FCA_stddev[0] = sqrt((FCA_stddev[0]-tempFCA[0]*tempFCA[0]));
-        FCA_stddev[1] = sqrt((FCA_stddev[1]-tempFCA[1]*tempFCA[1]));
-        retval = true;
-      }
+    {
+      tempFCA[0] /= numCuts;
+      tempFCA[1] /= numCuts;
+      FCA_stddev[0] /= numCuts;
+      FCA_stddev[1] /= numCuts;
+      // FCA_stddev now has <tempFCA^2>.  Now compute 
+      // sqrt((<tempFCA^2>-<tempFCA>^2)), the standard deviation
+      FCA_stddev[0] = sqrt((FCA_stddev[0]-tempFCA[0]*tempFCA[0]));
+      FCA_stddev[1] = sqrt((FCA_stddev[1]-tempFCA[1]*tempFCA[1]));
+      retval = true;
+    }
     else
-      {
-        retval = false;
-      }
+    {
+      retval = false;
+    }
 
     FCA.setUserCoords(tempFCA);
     delete tempPoint;
@@ -117,8 +118,14 @@ namespace DFLib
 
 
   /// \brief compute ML fix
-  void computeMLFix(DFLib::Abstract::Point &MLFix)
+  void ReportCollection::computeMLFix(DFLib::Abstract::Point &MLFix)
   {
+
+    DFLib::Util::Minimizer bogus(this);
+    vector<double> NR_fix = MLFix.getXY();
+    int j;
+    double tempF=bogus.conjugateGradientMinimize(NR_fix,1e-5,j);
+    MLFix.setXY(NR_fix);
   }
 
   /// \brief compute cost function for point x,y
@@ -140,15 +147,15 @@ namespace DFLib
     for (iterReport=theReports.begin();
          iterReport!=reportEnd;
          ++iterReport)
-      {
-        double bearing = (*iterReport)->getReportBearingRadians();
-        double bearing_to_point 
-          = (*iterReport)->computeBearingToPoint(evaluationPoint);
-        double sigma = (*iterReport)->getBearingStandardDeviationRadians();
+    {
+      double bearing = (*iterReport)->getReportBearingRadians();
+      double bearing_to_point 
+        = (*iterReport)->computeBearingToPoint(evaluationPoint);
+      double sigma = (*iterReport)->getBearingStandardDeviationRadians();
 
-        f += 1/(2*sigma*sigma)*(bearing_to_point-bearing)*
-          (bearing_to_point-bearing);
-      }
+      f += 1/(2*sigma*sigma)*(bearing_to_point-bearing)*
+        (bearing_to_point-bearing);
+    }
     return (f);
   }
 
@@ -175,26 +182,26 @@ namespace DFLib
     for (iterReport=theReports.begin();
          iterReport!=reportEnd;
          ++iterReport)
-      {
-        double bearing = (*iterReport)->getReportBearingRadians();
-        double bearing_to_point 
-          = (*iterReport)->computeBearingToPoint(evaluationPoint);
-        double sigma = (*iterReport)->getBearingStandardDeviationRadians();
-        double deltatheta;
-        double xr=
-          (*iterReport)->getReceiverLocation()[0]-evaluationPoint[0];
-        double yr=
-          (*iterReport)->getReceiverLocation()[1]-evaluationPoint[1];
-        double d=sqrt(xr*xr+yr*yr);
-        double c=cos(bearing_to_point);
-        double s=sin(bearing_to_point);
+    {
+      double bearing = (*iterReport)->getReportBearingRadians();
+      double bearing_to_point 
+        = (*iterReport)->computeBearingToPoint(evaluationPoint);
+      double sigma = (*iterReport)->getBearingStandardDeviationRadians();
+      double deltatheta;
+      double xr=
+        (*iterReport)->getReceiverLocation()[0]-evaluationPoint[0];
+      double yr=
+        (*iterReport)->getReceiverLocation()[1]-evaluationPoint[1];
+      double d=sqrt(xr*xr+yr*yr);
+      double c=cos(bearing_to_point);
+      double s=sin(bearing_to_point);
 
-        deltatheta=(bearing-bearing_to_point);
+      deltatheta=(bearing-bearing_to_point);
 
-        f += 1/(2*sigma*sigma)*(deltatheta*deltatheta);
-        gradient[0] += (deltatheta)/(sigma*sigma*d)*(-c);
-        gradient[1] += (deltatheta)/(sigma*sigma*d)*( s);
-      }
+      f += 1/(2*sigma*sigma)*(deltatheta*deltatheta);
+      gradient[0] += (deltatheta)/(sigma*sigma*d)*(-c);
+      gradient[1] += (deltatheta)/(sigma*sigma*d)*( s);
+    }
   }
 
   /// \brief compute cost function for point x,y its gradient, and its hessian.
@@ -223,32 +230,32 @@ namespace DFLib
     for (iterReport=theReports.begin();
          iterReport!=reportEnd;
          ++iterReport)
-      {
-        double bearing = (*iterReport)->getReportBearingRadians();
-        double bearing_to_point 
-          = (*iterReport)->computeBearingToPoint(evaluationPoint);
-        double sigma = (*iterReport)->getBearingStandardDeviationRadians();
-        double deltatheta=(bearing-bearing_to_point);
-        double xr=
-          (*iterReport)->getReceiverLocation()[0]-evaluationPoint[0];
-        double yr=
-          (*iterReport)->getReceiverLocation()[1]-evaluationPoint[1];
-        double d=sqrt(xr*xr+yr*yr);
-        double c=cos(bearing_to_point);
-        double s=sin(bearing_to_point);
-        double coef = (1/(sigma*sigma*d*d));
+    {
+      double bearing = (*iterReport)->getReportBearingRadians();
+      double bearing_to_point 
+        = (*iterReport)->computeBearingToPoint(evaluationPoint);
+      double sigma = (*iterReport)->getBearingStandardDeviationRadians();
+      double deltatheta=(bearing-bearing_to_point);
+      double xr=
+        (*iterReport)->getReceiverLocation()[0]-evaluationPoint[0];
+      double yr=
+        (*iterReport)->getReceiverLocation()[1]-evaluationPoint[1];
+      double d=sqrt(xr*xr+yr*yr);
+      double c=cos(bearing_to_point);
+      double s=sin(bearing_to_point);
+      double coef = (1/(sigma*sigma*d*d));
 
-        deltatheta=(bearing-bearing_to_point);
+      deltatheta=(bearing-bearing_to_point);
 
-        f += 1/(2*sigma*sigma)*(deltatheta*deltatheta);
-        gradient[0] += (deltatheta)/(sigma*sigma*d)*(-c);
-        gradient[1] += (deltatheta)/(sigma*sigma*d)*( s);
+      f += 1/(2*sigma*sigma)*(deltatheta*deltatheta);
+      gradient[0] += (deltatheta)/(sigma*sigma*d)*(-c);
+      gradient[1] += (deltatheta)/(sigma*sigma*d)*( s);
 
-        hessian[0][0] += coef*(c*c-s*c*deltatheta);
-        hessian[0][1] += coef*(-s*c-s*s*deltatheta);
-        hessian[1][0] += coef*(-s*c+c*c*deltatheta);
-        hessian[1][1] += coef*(s*s-c*s*deltatheta);
-      }
+      hessian[0][0] += coef*(c*c-s*c*deltatheta);
+      hessian[0][1] += coef*(-s*c-s*s*deltatheta);
+      hessian[1][0] += coef*(-s*c+c*c*deltatheta);
+      hessian[1][1] += coef*(s*s-c*s*deltatheta);
+    }
   }
 
   /// \brief compute least squares solution from all df reports.
@@ -266,20 +273,20 @@ namespace DFLib
     LS_point.resize(2);
     
     for (iterReport=theReports.begin();iterReport!=reportEnd;++iterReport)
-      {
-        double bearing=(*iterReport)->getReportBearingRadians();
-        double c=cos(bearing);
-        double s=sin(bearing);
-        double rx=(*iterReport)->getReceiverLocation()[0];
-        double ry=(*iterReport)->getReceiverLocation()[1];
-        double b=rx*c-ry*s;
+    {
+      double bearing=(*iterReport)->getReportBearingRadians();
+      double c=cos(bearing);
+      double s=sin(bearing);
+      double rx=(*iterReport)->getReceiverLocation()[0];
+      double ry=(*iterReport)->getReceiverLocation()[1];
+      double b=rx*c-ry*s;
 	
-        atb1 += c*b;
-        atb2 += -s*b;
-        a11 += s*s;
-        a12 += s*c;
-        a22 += c*c;
-      }
+      atb1 += c*b;
+      atb2 += -s*b;
+      a11 += s*s;
+      a12 += s*c;
+      a22 += c*c;
+    }
     
     det = a11*a22-a12*a12;
     
@@ -288,5 +295,5 @@ namespace DFLib
 
     LS_Fix.setXY(LS_point);
     LS_point = LS_Fix.getXY();
-   }
+  }
 }

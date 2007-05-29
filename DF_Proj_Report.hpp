@@ -1,5 +1,5 @@
-#ifndef DF_LATLON_REPORT_HPP
-#define DF_LATLON_REPORT_HPP
+#ifndef DF_XY_REPORT_HPP
+#define DF_XY_REPORT_HPP
 #ifdef _MSC_VER
 #define _USE_MATH_DEFINES
 #endif
@@ -7,30 +7,30 @@
 #include <cmath>
 
 #include "DF_Abstract_Report.hpp"
-#include "DF_LatLon_Point.hpp"
+#include "DF_Proj_Point.hpp"
 
 namespace DFLib
 {
-  namespace LatLon
+  namespace Proj
   {
     /// \brief DF report in Lat/Lon coordinates
     class Report 
       : public DFLib::Abstract::Report
     {
     private:
-      Point receiverLocation;            
+      Point *receiverLocation;            
       double bearing,sigma;
     public:
-      CPL_DLL Report(const vector<double> &theLocationLL, 
+      CPL_DLL Report(const vector<double> &theLocationUser, 
                      const double &bearing,const double &std_dev,
-                     const string &theName);
+                     const string &theName,vector<string>&projArgs);
       CPL_DLL ~Report();
       virtual  const CPL_DLL  vector<double> &getReceiverLocation();
       virtual CPL_DLL  double getReportBearingRadians() const;
       virtual CPL_DLL  double getBearing() const;
       virtual CPL_DLL  double getBearingStandardDeviationRadians() const;
       virtual CPL_DLL  double getSigma() const;
-      virtual CPL_DLL  void  setReceiverLocationLL(vector<double> &theLocation);
+      virtual CPL_DLL  void  setReceiverLocationUser(vector<double> &theLocation);
       virtual CPL_DLL  void  setReceiverLocationMercator(vector<double> &theLocation);
       //! set bearing in degrees
       virtual CPL_DLL  void  setBearing(double Bearing);
@@ -39,17 +39,18 @@ namespace DFLib
     };
   }
 
-  /// \brief Lat/Lon DF report constructor.
+  /// \brief XYDF report constructor.
   /// \param theLocation position vector <em>in lat/lon</em> of this report.
   /// \param Bearing bearing IN DEGREES
   /// \param std_dev standard deviation in degrees
-  inline DFLib::LatLon::Report::Report(const vector<double> &theLocation,
+  inline DFLib::Proj::Report::Report(const vector<double> &theLocation,
                                        const double &Bearing,const double &std_dev,
-                                       const string &theName)
-    : receiverLocation(theLocation),
-      bearing(Bearing*M_PI/180.0),
+                                       const string &theName,
+                                     vector<string> &projArgs)
+    : bearing(Bearing*M_PI/180.0),
       sigma(std_dev*M_PI/180.0)
   {
+    receiverLocation = new Point(theLocation,projArgs);
     setReportName(theName);
     // Make sure our bearing is *always* 0<bearing<2pi.  If it isn't,
     // reset it:
@@ -57,55 +58,57 @@ namespace DFLib
       bearing += 2*M_PI;
   }        
 
-  inline DFLib::LatLon::Report::~Report()
+  inline DFLib::Proj::Report::~Report()
   {
+    if (receiverLocation)
+      delete receiverLocation;
   }
 
-  inline double DFLib::LatLon::Report::getReportBearingRadians() const
+  inline double DFLib::Proj::Report::getReportBearingRadians() const
   {
     // bearing *must* be in 0<bearing<pi
     return bearing;
   }
-  inline double DFLib::LatLon::Report::getBearing() const
+  inline double DFLib::Proj::Report::getBearing() const
   {
     // always return bearing in range 0-360 degrees
     return (getReportBearingRadians()*180.0/M_PI);
   }
 
-  inline double DFLib::LatLon::Report::getBearingStandardDeviationRadians() const
+  inline double DFLib::Proj::Report::getBearingStandardDeviationRadians() const
   {
     return sigma;
   }
-  inline double DFLib::LatLon::Report::getSigma() const
+  inline double DFLib::Proj::Report::getSigma() const
   {
     return sigma*180/M_PI;
   }
 
-  inline void DFLib::LatLon::Report::setReceiverLocationLL(vector<double> &theLocation)
+  inline void DFLib::Proj::Report::setReceiverLocationUser(vector<double> &theLocation)
   {
-    receiverLocation.setLL(theLocation);
+    receiverLocation->setUserCoords(theLocation);
   }
 
-  inline void DFLib::LatLon::Report::setReceiverLocationMercator(vector<double> &theLocation)
+  inline void DFLib::Proj::Report::setReceiverLocationMercator(vector<double> &theLocation)
   {
-    receiverLocation.setXY(theLocation);
+    receiverLocation->setXY(theLocation);
   }
 
-  inline const vector<double> & DFLib::LatLon::Report::getReceiverLocation() 
+  inline const vector<double> & DFLib::Proj::Report::getReceiverLocation() 
   { 
-    return receiverLocation.getXY();
+    return receiverLocation->getXY();
   }
 
-  inline void DFLib::LatLon::Report::setBearing(double Bearing)
+  inline void DFLib::Proj::Report::setBearing(double Bearing)
   {
     // bearing *must* be in 0<bearing<pi
     bearing=Bearing*M_PI/180.0;
     while (bearing < 0)
       bearing += 2*M_PI;
   }
-  inline void DFLib::LatLon::Report::setSigma(double Sigma)
+  inline void DFLib::Proj::Report::setSigma(double Sigma)
   {
     sigma=Sigma*M_PI/180;
   }
 }
-#endif // DF_LATLON_REPORT_HPP
+#endif // DF_XY_REPORT_HPP

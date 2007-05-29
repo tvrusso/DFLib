@@ -15,7 +15,7 @@
 #include "Util_Misc.hpp"
 #include "gaussian_random.hpp"
 #include "DF_Report_Collection.hpp"
-#include "DF_LatLon_Report.hpp"
+#include "DF_Proj_Report.hpp"
 #include "Util_Minimization_Methods.hpp"
 
 using namespace std;
@@ -31,8 +31,11 @@ int main(int argc,char **argv)
   
   vector<double> FCA_stddev;
   vector<double> NR_fix;
-  DFLib::LatLon::Point LS_fix(transPos);
-  DFLib::LatLon::Point FixCutAverage(transPos);
+  vector<string> projArgs;
+  projArgs.push_back("proj=latlong");
+  projArgs.push_back("datum=WGS84");
+  DFLib::Proj::Point LS_fix(transPos,projArgs);
+  DFLib::Proj::Point FixCutAverage(transPos,projArgs);
   char EW,NS;
   bool done;
   double normf,lastnormf;
@@ -72,7 +75,14 @@ int main(int argc,char **argv)
 
   transPos[0]=lon*RAD_TO_DEG;
   transPos[1]=lat*RAD_TO_DEG;
-  DFLib::LatLon::Point transPoint(transPos);
+  cout << " making point from transPos " << endl;
+  cout << " projArgs is currently: " << endl;
+  for (int junk=0; junk<projArgs.size();++junk)
+  {
+    cout << "   " << projArgs[junk];
+  }
+
+  DFLib::Proj::Point transPoint(transPos,projArgs);
   transPos=transPoint.getXY();
 
   cout << " Transmitter " << " at X=" << transPos[0]
@@ -85,7 +95,7 @@ int main(int argc,char **argv)
   {
     double temp_sigma;
     char junk_space;
-    DFLib::LatLon::Report *reportPtr;
+    DFLib::Proj::Report *reportPtr;
     vector<double> tempVector(2);
     string reportName;
     ostringstream ost;
@@ -117,8 +127,8 @@ int main(int argc,char **argv)
     double bearing=0; // temporary
 
     ost << "report " << rColl.size();
-    reportPtr = new DFLib::LatLon::Report(tempVector,bearing,temp_sigma,
-                                          ost.str());
+    reportPtr = new DFLib::Proj::Report(tempVector,bearing,temp_sigma,
+                                          ost.str(),projArgs);
 
 
 
@@ -140,7 +150,7 @@ int main(int argc,char **argv)
   {
     vector<double> receiverLoc = 
       rColl.getReceiverLocationXY(i);
-    double rb=dynamic_cast<DFLib::LatLon::Report const *>(rColl.getReport(i))->getBearing();
+    double rb=dynamic_cast<DFLib::Proj::Report const *>(rColl.getReport(i))->getBearing();
     double rbr=rColl.getReport(i)->getReportBearingRadians();
     cout << " Receiver " << i << " at X=" << receiverLoc[0]
          << " Y= " << receiverLoc[1] << endl;
@@ -256,49 +266,37 @@ int main(int argc,char **argv)
 
   //  rColl.computeCostFunctionAndHessian(NR_fix,f,gradf,jac);
 
-  {
-    double tempF;
+  DFLib::Proj::Point NRPoint=LS_fix;
 
-    try
-    {
-      tempF=bogus.conjugateGradientMinimize(NR_fix,1e-5,j);
-      cout << " CG says minimum at  " << NR_fix[0] << "," << NR_fix[1] 
-           << " where the function is " << tempF << endl;
-    }
-    catch (DFLib::Util::Exception x)
-    {
-      cerr << " Ooops... got exception " << x.getEmsg() << endl;
-    }
-  }
+  rColl.computeMLFix(NRPoint);
 
-  cout << "Final C-G ML result took " << j  << " iterations: X=" << NR_fix[0] << " Y=" << NR_fix[1] << endl;
+  NR_fix = NRPoint.getXY();
   gnuplotFile << "replot " << NR_fix[0] << "," << NR_fix[1] << " with points title \"ML Fix\"" << endl;
-  DFLib::LatLon::Point NRPoint(NR_fix); // bogus point for now
-  NRPoint.setXY(NR_fix);
 
+  cout << " getting user coordinates " << endl;
+  
   latlon=NRPoint.getUserCoords();
-
+  
   EW='E';
   NS='N';
-
+  
   if (latlon[0] < 0)
-  {
-    latlon[0] *= -1;
-    EW = 'W';
-  }
-
+    {
+      latlon[0] *= -1;
+      EW = 'W';
+    }
+  
   if (latlon[1] < 0)
   {
     latlon[1] *= -1;
     NS = 'S';
   }
-
+  
   cout << "  Longitude of ML fix: " << (int) latlon[0] << "d" 
        << (latlon[0]-(int)latlon[0])*60 << "\"" << EW << endl;
-
+  
   cout << "  Latitude of ML fix: " << (int) latlon[1] << "d" 
        << (latlon[1]-(int)latlon[1])*60 << "\"" << NS << endl;
-
   gnuplotFile << "pause -1" << endl;
   gnuplotFile.close();
 }

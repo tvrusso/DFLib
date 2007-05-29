@@ -16,7 +16,23 @@ namespace DFLib
       : llDirty(true),
         mercDirty(false)
     {
+      char *latlon_argv[2]={"proj=latlong",
+                            "datum=WGS84"};
+      char *mercator_argv[3]={"proj=merc",
+                              "ellps=WGS84",
+                              "lat_ts=0"};
+      if (!(latlonProj = pj_init(2,latlon_argv)))
+      {
+        throw(Util::Exception("Failed to initialize lat/lon projection"));
+      }
+
+      if (!(mercProj = pj_init(3,mercator_argv)))
+      {
+        throw(Util::Exception("Failed to initialize mercator projection"));
+      }
+
       theLatLon.resize(2,0.0);
+      theMerc.resize(2,0.0);
     }
 
     Point::Point(const vector<double> &aPosition)

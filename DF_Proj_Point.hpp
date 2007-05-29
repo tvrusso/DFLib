@@ -1,5 +1,5 @@
-#ifndef DF_LATLON_POINT_HPP
-#define DF_LATLON_POINT_HPP
+#ifndef DF_PROJ_POINT_HPP
+#define DF_PROJ_POINT_HPP
 
 #include <vector>
 #include "projects.h"
@@ -10,34 +10,35 @@ using namespace std;
 
 namespace DFLib
 {
-  namespace LatLon
+  namespace Proj
   {
     class Point : public DFLib::Abstract::Point
     {
     private:
       vector<double> theMerc;
       bool mercDirty;
-      vector<double> theLatLon;
-      bool llDirty;
-      projPJ latlonProj, mercProj;
+      vector<double> theUserCoords;
+      bool userDirty;
+      projPJ userProj, mercProj;
     public:
-      /// \brief Default Constructor
-      Point();
 
       /// \brief Constructor
       ///
-      /// \param llPosition coordinates <em>in Lat Lon</em>
-      Point(const vector<double> &llPosition);
+      /// \param llPosition coordinates <em>in user's coordinates</em>
+      Point(const vector<double> &uPosition,vector<string> &projArgs);
 
 
       /// \brief Copy Constructor
       Point(const Point &right);
 
+      /// \brief set user projection information
+      void setUserProj(vector<string> &projArgs);
+
       /// \brief set mercator projection (XY) position
       /// 
       /// \param aPosition coordinates in mercator projection
       ///
-      virtual void setXY(const vector<double> &aPosition);
+      virtual void setXY(const vector<double> &mPosition);
       /// \brief get mercator projection (XY) position
       /// 
       /// \return vector of coordinates in mercator projection
@@ -50,33 +51,20 @@ namespace DFLib
       /// This is just a wrapper for getLL as needed by the abstract
       /// interface
 
-      virtual const vector<double> &getUserCoords() { return getLL(); };
+      virtual const vector<double> &getUserCoords();
 
       /// \brief set user position
       ///
       /// This is just a wrapper for setLL as needed by the abstract
       /// interface
 
-      virtual void setUserCoords(const vector<double> &uPosition)  
-      { setLL(uPosition); };
-	  
-      /// \brief set lat/lon position
-      /// 
-      /// \param llPosition coordinates in Lat/Lon
-      ///
-      void setLL(const vector<double> &llPosition);
-      /// \brief get Lat/Lon position
-      /// 
-      /// \return vector of coordinates in lat/lon
-      ///
-      const vector<double> &getLL();
-
+      virtual void setUserCoords(const vector<double> &uPosition)  ;
 
       Point * Clone();
     private:
-      void mercToLL();
-      void llToMerc();
+      void mercToUser();
+      void userToMerc();
     };
   }
 }
-#endif // DF_LATLON_POINT_HPP
+#endif // DF_PROJ_POINT_HPP

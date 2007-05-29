@@ -5,41 +5,41 @@ using namespace std;
 
 namespace DFLib
 {
-    namespace XY
+  namespace XY
+  {
+
+    // class Point
+
+    Point::Point()
     {
-
-        // class Point
-
-        Point::Point()
-        {
-            myXY.resize(2,0.0);
-        }
-
-        Point::Point(const vector<double> &aPosition)
-            :myXY(aPosition)
-        {
-        }
-
-        Point::Point(Point &right)
-            :myXY(right.myXY)
-        {
-        }
-
-        void Point::setXY(const vector<double> &aPosition)
-        {
-            myXY = aPosition;
-        }
-
-        const vector<double> & Point::getXY()
-        {
-            return(myXY);
-        }
-
-        Point * Point::Clone()
-        {
-            Point *retPoint;
-            retPoint = new Point(*this);
-            return retPoint;
-        }
+      myXY.resize(2,0.0);
     }
+
+    Point::Point(const vector<double> &aPosition)
+      :myXY(aPosition)
+    {
+    }
+
+    Point::Point(Point &right)
+      :myXY(right.myXY)
+    {
+    }
+
+    void Point::setXY(const vector<double> &aPosition)
+    {
+      myXY = aPosition;
+    }
+
+    const vector<double> & Point::getXY()
+    {
+      return(myXY);
+    }
+
+    Point * Point::Clone()
+    {
+      Point *retPoint;
+      retPoint = new Point(*this);
+      return retPoint;
+    }
+  }
 }
