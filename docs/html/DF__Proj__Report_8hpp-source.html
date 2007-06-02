@@ -17,8 +17,8 @@
     <li><a href="files.html"><span>File&nbsp;List</span></a></li>
     <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
   </ul></div>
-<h1>/users/russo/DFLib/DF_Proj_Report.hpp</h1><a href="DF__Proj__Report_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef DF_XY_REPORT_HPP</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define DF_XY_REPORT_HPP</span>
+<h1>/users/russo/DFLib/DF_Proj_Report.hpp</h1><a href="DF__Proj__Report_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef DF_PROJ_REPORT_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define DF_PROJ_REPORT_HPP</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span><span class="preprocessor">#ifdef _MSC_VER</span>
 <a name="l00004"></a>00004 <span class="preprocessor"></span><span class="preprocessor">#define _USE_MATH_DEFINES</span>
 <a name="l00005"></a>00005 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
@@ -64,7 +64,7 @@
 <a name="l00054"></a>00054   {
 <a name="l00055"></a>00055     <a class="code" href="classDFLib_1_1Proj_1_1Report.html#3eddf91761350e1c00d07b590194b807">receiverLocation</a> = <span class="keyword">new</span> <a class="code" href="classDFLib_1_1Proj_1_1Point.html">Point</a>(theLocation,projArgs);
 <a name="l00056"></a>00056     <a class="code" href="classDFLib_1_1Abstract_1_1Report.html#82b0fbd5ae4217e51b761de05225830b">setReportName</a>(theName);
-<a name="l00057"></a>00057     <span class="comment">// Make sure our bearing is *always* 0&lt;bearing&lt;2pi.  If it isn't,</span>
+<a name="l00057"></a>00057     <span class="comment">// Make sure our bearing is *always* 0&lt;bearing&lt;2*pi.  If it isn't,</span>
 <a name="l00058"></a>00058     <span class="comment">// reset it:</span>
 <a name="l00059"></a>00059     <span class="keywordflow">while</span> (<a class="code" href="classDFLib_1_1Proj_1_1Report.html#d249cb07c182985864c335a6283bd7de">bearing</a> &lt; 0)
 <a name="l00060"></a>00060       <a class="code" href="classDFLib_1_1Proj_1_1Report.html#d249cb07c182985864c335a6283bd7de">bearing</a> += 2*M_PI;
@@ -78,7 +78,7 @@
 <a name="l00068"></a>00068 
 <a name="l00069"></a><a class="code" href="classDFLib_1_1Proj_1_1Report.html#1989e82acdf552ef23fd559c468127db">00069</a>   <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#1989e82acdf552ef23fd559c468127db">DFLib::Proj::Report::getReportBearingRadians</a>()<span class="keyword"> const</span>
 <a name="l00070"></a>00070 <span class="keyword">  </span>{
-<a name="l00071"></a>00071     <span class="comment">// bearing *must* be in 0&lt;bearing&lt;pi</span>
+<a name="l00071"></a>00071     <span class="comment">// bearing *must* be in 0&lt;bearing&lt;2*pi</span>
 <a name="l00072"></a>00072     <span class="keywordflow">return</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#d249cb07c182985864c335a6283bd7de">bearing</a>;
 <a name="l00073"></a>00073   }
 <a name="l00074"></a><a class="code" href="classDFLib_1_1Proj_1_1Report.html#8932a0e33b0c988f12a6f1a5c224b9b1">00074</a>   <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#8932a0e33b0c988f12a6f1a5c224b9b1">DFLib::Proj::Report::getBearing</a>()<span class="keyword"> const</span>
@@ -113,7 +113,7 @@
 <a name="l00103"></a>00103 
 <a name="l00104"></a><a class="code" href="classDFLib_1_1Proj_1_1Report.html#678a18c1573b303cb8ffa67412532a6a">00104</a>   <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#678a18c1573b303cb8ffa67412532a6a">DFLib::Proj::Report::setBearing</a>(<span class="keywordtype">double</span> Bearing)
 <a name="l00105"></a>00105   {
-<a name="l00106"></a>00106     <span class="comment">// bearing *must* be in 0&lt;bearing&lt;pi</span>
+<a name="l00106"></a>00106     <span class="comment">// bearing *must* be in 0&lt;bearing&lt;2*pi</span>
 <a name="l00107"></a>00107     <a class="code" href="classDFLib_1_1Proj_1_1Report.html#d249cb07c182985864c335a6283bd7de">bearing</a>=Bearing*M_PI/180.0;
 <a name="l00108"></a>00108     <span class="keywordflow">while</span> (<a class="code" href="classDFLib_1_1Proj_1_1Report.html#d249cb07c182985864c335a6283bd7de">bearing</a> &lt; 0)
 <a name="l00109"></a>00109       <a class="code" href="classDFLib_1_1Proj_1_1Report.html#d249cb07c182985864c335a6283bd7de">bearing</a> += 2*M_PI;
@@ -123,8 +123,8 @@
 <a name="l00113"></a>00113     <a class="code" href="classDFLib_1_1Proj_1_1Report.html#3ece5882274f08a1899a2ed9cac888d5">sigma</a>=Sigma*M_PI/180;
 <a name="l00114"></a>00114   }
 <a name="l00115"></a>00115 }
-<a name="l00116"></a>00116 <span class="preprocessor">#endif // DF_XY_REPORT_HPP</span>
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Fri Jun 1 20:26:08 2007 for DFLib by&nbsp;
+<a name="l00116"></a>00116 <span class="preprocessor">#endif // DF_PROJ_REPORT_HPP</span>
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Fri Jun 1 20:31:47 2007 for DFLib by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.1 </small></address>
 </body>
