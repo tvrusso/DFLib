@@ -40,6 +40,12 @@ Inheritance diagram for DFLib::Proj::Point:<p><center><img src="classDFLib_1_1Pr
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Proj_1_1Point.html#11a3a869303de7131a3600132899f049">Point</a> (const <a class="el" href="classDFLib_1_1Proj_1_1Point.html">Point</a> &amp;right)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Copy Constructor.  <a href="#11a3a869303de7131a3600132899f049"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Proj_1_1Point.html#9cdeae27e2a7f46e6336d6cba9d8b447">~Point</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">destructor  <a href="#9cdeae27e2a7f46e6336d6cba9d8b447"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="classDFLib_1_1Proj_1_1Point.html">Point</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Proj_1_1Point.html#bd7fdf74146c9514b46bd15a8f0e4974">operator=</a> (const <a class="el" href="classDFLib_1_1Proj_1_1Point.html">Point</a> &amp;rhs)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">assignment operator  <a href="#bd7fdf74146c9514b46bd15a8f0e4974"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Proj_1_1Point.html#5d277c9e2a8092cad2c66cd9d5384a2f">setUserProj</a> (<a class="el" href="classstd_1_1vector.html">vector</a>&lt; string &gt; &amp;projArgs)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">set user projection information  <a href="#5d277c9e2a8092cad2c66cd9d5384a2f"></a><br></td></tr>
@@ -122,7 +128,7 @@ Definition at line <a class="el" href="DF__Proj__Point_8cpp-source.html#l00016">
 <p>
 References <a class="el" href="nonoise_8cpp-source.html#l00023">mercator_argv</a>, <a class="el" href="DF__Proj__Point_8hpp-source.html#l00022">mercProj</a>, <a class="el" href="DF__Proj__Point_8hpp-source.html#l00018">theMerc</a>, and <a class="el" href="DF__Proj__Point_8hpp-source.html#l00022">userProj</a>.
 <p>
-Referenced by <a class="el" href="DF__Proj__Point_8cpp-source.html#l00126">Clone()</a>.
+Referenced by <a class="el" href="DF__Proj__Point_8cpp-source.html#l00176">Clone()</a>.
 <p>
 Here is the caller graph for this function:<p><center><img src="classDFLib_1_1Proj_1_1Point_d1fb3c7d8f5ddabce7a99e496315f2f7_icgraph.png" border="0" usemap="#classDFLib_1_1Proj_1_1Point_d1fb3c7d8f5ddabce7a99e496315f2f7_icgraph_map" alt=""></center>
 <map name="classDFLib_1_1Proj_1_1Point_d1fb3c7d8f5ddabce7a99e496315f2f7_icgraph_map">
@@ -155,10 +161,61 @@ Copy Constructor.
 <p>
 Definition at line <a class="el" href="DF__Proj__Point_8cpp-source.html#l00056">56</a> of file <a class="el" href="DF__Proj__Point_8cpp-source.html">DF_Proj_Point.cpp</a>.
 <p>
-References <a class="el" href="DF__Proj__Point_8hpp-source.html#l00019">mercDirty</a>, <a class="el" href="DF__Proj__Point_8hpp-source.html#l00018">theMerc</a>, <a class="el" href="DF__Proj__Point_8hpp-source.html#l00020">theUserCoords</a>, and <a class="el" href="DF__Proj__Point_8hpp-source.html#l00021">userDirty</a>.
+References <a class="el" href="DF__Proj__Point_8hpp-source.html#l00019">mercDirty</a>, <a class="el" href="DF__Proj__Point_8hpp-source.html#l00022">mercProj</a>, <a class="el" href="DF__Proj__Point_8hpp-source.html#l00018">theMerc</a>, <a class="el" href="DF__Proj__Point_8hpp-source.html#l00020">theUserCoords</a>, <a class="el" href="DF__Proj__Point_8hpp-source.html#l00021">userDirty</a>, and <a class="el" href="DF__Proj__Point_8hpp-source.html#l00022">userProj</a>.
+</div>
+</div><p>
+<a class="anchor" name="9cdeae27e2a7f46e6336d6cba9d8b447"></a><!-- doxytag: member="DFLib::Proj::Point::~Point" ref="9cdeae27e2a7f46e6336d6cba9d8b447" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DFLib::Proj::Point::~Point           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+destructor 
+<p>
+
+<p>
+Definition at line <a class="el" href="DF__Proj__Point_8cpp-source.html#l00088">88</a> of file <a class="el" href="DF__Proj__Point_8cpp-source.html">DF_Proj_Point.cpp</a>.
+<p>
+References <a class="el" href="DF__Proj__Point_8hpp-source.html#l00022">mercProj</a>, and <a class="el" href="DF__Proj__Point_8hpp-source.html#l00022">userProj</a>.
 </div>
 </div><p>
 <hr><h2>Member Function Documentation</h2>
+<a class="anchor" name="bd7fdf74146c9514b46bd15a8f0e4974"></a><!-- doxytag: member="DFLib::Proj::Point::operator=" ref="bd7fdf74146c9514b46bd15a8f0e4974" args="(const Point &amp;rhs)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classDFLib_1_1Proj_1_1Point.html">Point</a> &amp; DFLib::Proj::Point::operator=           </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classDFLib_1_1Proj_1_1Point.html">Point</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>rhs</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+assignment operator 
+<p>
+
+<p>
+Definition at line <a class="el" href="DF__Proj__Point_8cpp-source.html#l00094">94</a> of file <a class="el" href="DF__Proj__Point_8cpp-source.html">DF_Proj_Point.cpp</a>.
+<p>
+References <a class="el" href="DF__Proj__Point_8hpp-source.html#l00019">mercDirty</a>, <a class="el" href="DF__Proj__Point_8hpp-source.html#l00022">mercProj</a>, <a class="el" href="DF__Proj__Point_8hpp-source.html#l00021">userDirty</a>, and <a class="el" href="DF__Proj__Point_8hpp-source.html#l00022">userProj</a>.
+</div>
+</div><p>
 <a class="anchor" name="5d277c9e2a8092cad2c66cd9d5384a2f"></a><!-- doxytag: member="DFLib::Proj::Point::setUserProj" ref="5d277c9e2a8092cad2c66cd9d5384a2f" args="(vector&lt; string &gt; &amp;projArgs)" -->
 <div class="memitem">
 <div class="memproto">
@@ -180,7 +237,7 @@ set user projection information
 <p>
 
 <p>
-Definition at line <a class="el" href="DF__Proj__Point_8cpp-source.html#l00084">84</a> of file <a class="el" href="DF__Proj__Point_8cpp-source.html">DF_Proj_Point.cpp</a>.
+Definition at line <a class="el" href="DF__Proj__Point_8cpp-source.html#l00134">134</a> of file <a class="el" href="DF__Proj__Point_8cpp-source.html">DF_Proj_Point.cpp</a>.
 <p>
 References <a class="el" href="DF__Proj__Point_8hpp-source.html#l00022">userProj</a>.
 </div>
@@ -213,7 +270,7 @@ set mercator projection (<a class="el" href="namespaceDFLib_1_1XY.html">XY</a>) 
 <p>
 Implements <a class="el" href="classDFLib_1_1Abstract_1_1Point.html#bb3e5afd43b7d869953db4a8c858e311">DFLib::Abstract::Point</a>.
 <p>
-Definition at line <a class="el" href="DF__Proj__Point_8cpp-source.html#l00075">75</a> of file <a class="el" href="DF__Proj__Point_8cpp-source.html">DF_Proj_Point.cpp</a>.
+Definition at line <a class="el" href="DF__Proj__Point_8cpp-source.html#l00125">125</a> of file <a class="el" href="DF__Proj__Point_8cpp-source.html">DF_Proj_Point.cpp</a>.
 <p>
 References <a class="el" href="DF__Proj__Point_8hpp-source.html#l00019">mercDirty</a>, <a class="el" href="DF__Proj__Point_8hpp-source.html#l00018">theMerc</a>, and <a class="el" href="DF__Proj__Point_8hpp-source.html#l00021">userDirty</a>.
 <p>
@@ -250,9 +307,9 @@ get mercator projection (<a class="el" href="namespaceDFLib_1_1XY.html">XY</a>) 
 <p>
 Implements <a class="el" href="classDFLib_1_1Abstract_1_1Point.html#3fdd1fbfecb806f64b7315e507f05c12">DFLib::Abstract::Point</a>.
 <p>
-Definition at line <a class="el" href="DF__Proj__Point_8cpp-source.html#l00099">99</a> of file <a class="el" href="DF__Proj__Point_8cpp-source.html">DF_Proj_Point.cpp</a>.
+Definition at line <a class="el" href="DF__Proj__Point_8cpp-source.html#l00149">149</a> of file <a class="el" href="DF__Proj__Point_8cpp-source.html">DF_Proj_Point.cpp</a>.
 <p>
-References <a class="el" href="DF__Proj__Point_8hpp-source.html#l00018">theMerc</a>, <a class="el" href="DF__Proj__Point_8hpp-source.html#l00021">userDirty</a>, and <a class="el" href="DF__Proj__Point_8cpp-source.html#l00133">userToMerc()</a>.
+References <a class="el" href="DF__Proj__Point_8hpp-source.html#l00018">theMerc</a>, <a class="el" href="DF__Proj__Point_8hpp-source.html#l00021">userDirty</a>, and <a class="el" href="DF__Proj__Point_8cpp-source.html#l00183">userToMerc()</a>.
 <p>
 Referenced by <a class="el" href="DF__Proj__Report_8hpp-source.html#l00099">DFLib::Proj::Report::getReceiverLocation()</a>, and <a class="el" href="ProjUnitTests_8cpp-source.html#l00009">main()</a>.
 <p>
@@ -292,9 +349,9 @@ This is just a wrapper for getLL as needed by the abstract interface
 <p>
 Implements <a class="el" href="classDFLib_1_1Abstract_1_1Point.html#76f5e11f829509129f05b0c8f4240f71">DFLib::Abstract::Point</a>.
 <p>
-Definition at line <a class="el" href="DF__Proj__Point_8cpp-source.html#l00116">116</a> of file <a class="el" href="DF__Proj__Point_8cpp-source.html">DF_Proj_Point.cpp</a>.
+Definition at line <a class="el" href="DF__Proj__Point_8cpp-source.html#l00166">166</a> of file <a class="el" href="DF__Proj__Point_8cpp-source.html">DF_Proj_Point.cpp</a>.
 <p>
-References <a class="el" href="DF__Proj__Point_8hpp-source.html#l00019">mercDirty</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00156">mercToUser()</a>, and <a class="el" href="DF__Proj__Point_8hpp-source.html#l00020">theUserCoords</a>.
+References <a class="el" href="DF__Proj__Point_8hpp-source.html#l00019">mercDirty</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00206">mercToUser()</a>, and <a class="el" href="DF__Proj__Point_8hpp-source.html#l00020">theUserCoords</a>.
 <p>
 Referenced by <a class="el" href="ProjUnitTests_8cpp-source.html#l00009">main()</a>.
 <p>
@@ -334,7 +391,7 @@ This is just a wrapper for setLL as needed by the abstract interface
 <p>
 Implements <a class="el" href="classDFLib_1_1Abstract_1_1Point.html#c24019510945a7f2683279938ab58a6a">DFLib::Abstract::Point</a>.
 <p>
-Definition at line <a class="el" href="DF__Proj__Point_8cpp-source.html#l00109">109</a> of file <a class="el" href="DF__Proj__Point_8cpp-source.html">DF_Proj_Point.cpp</a>.
+Definition at line <a class="el" href="DF__Proj__Point_8cpp-source.html#l00159">159</a> of file <a class="el" href="DF__Proj__Point_8cpp-source.html">DF_Proj_Point.cpp</a>.
 <p>
 References <a class="el" href="DF__Proj__Point_8hpp-source.html#l00019">mercDirty</a>, <a class="el" href="DF__Proj__Point_8hpp-source.html#l00020">theUserCoords</a>, and <a class="el" href="DF__Proj__Point_8hpp-source.html#l00021">userDirty</a>.
 <p>
@@ -371,7 +428,7 @@ Make a copy of yourself, and return a pointer to the copy. This is useful as a p
 <p>
 Implements <a class="el" href="classDFLib_1_1Abstract_1_1Point.html#d21d8288fcacc615451b632be60dccbf">DFLib::Abstract::Point</a>.
 <p>
-Definition at line <a class="el" href="DF__Proj__Point_8cpp-source.html#l00126">126</a> of file <a class="el" href="DF__Proj__Point_8cpp-source.html">DF_Proj_Point.cpp</a>.
+Definition at line <a class="el" href="DF__Proj__Point_8cpp-source.html#l00176">176</a> of file <a class="el" href="DF__Proj__Point_8cpp-source.html">DF_Proj_Point.cpp</a>.
 <p>
 References <a class="el" href="DF__Proj__Point_8cpp-source.html#l00016">Point()</a>.
 <p>
@@ -408,11 +465,11 @@ Here is the caller graph for this function:<p><center><img src="classDFLib_1_1Pr
 <p>
 
 <p>
-Definition at line <a class="el" href="DF__Proj__Point_8cpp-source.html#l00156">156</a> of file <a class="el" href="DF__Proj__Point_8cpp-source.html">DF_Proj_Point.cpp</a>.
+Definition at line <a class="el" href="DF__Proj__Point_8cpp-source.html#l00206">206</a> of file <a class="el" href="DF__Proj__Point_8cpp-source.html">DF_Proj_Point.cpp</a>.
 <p>
 References <a class="el" href="DF__Proj__Point_8hpp-source.html#l00019">mercDirty</a>, <a class="el" href="DF__Proj__Point_8hpp-source.html#l00022">mercProj</a>, <a class="el" href="DF__Proj__Point_8hpp-source.html#l00018">theMerc</a>, <a class="el" href="DF__Proj__Point_8hpp-source.html#l00020">theUserCoords</a>, and <a class="el" href="DF__Proj__Point_8hpp-source.html#l00022">userProj</a>.
 <p>
-Referenced by <a class="el" href="DF__Proj__Point_8cpp-source.html#l00116">getUserCoords()</a>.
+Referenced by <a class="el" href="DF__Proj__Point_8cpp-source.html#l00166">getUserCoords()</a>.
 <p>
 Here is the caller graph for this function:<p><center><img src="classDFLib_1_1Proj_1_1Point_50d73db1c4ff9d4037e4cc3ce276b433_icgraph.png" border="0" usemap="#classDFLib_1_1Proj_1_1Point_50d73db1c4ff9d4037e4cc3ce276b433_icgraph_map" alt=""></center>
 <map name="classDFLib_1_1Proj_1_1Point_50d73db1c4ff9d4037e4cc3ce276b433_icgraph_map">
@@ -440,11 +497,11 @@ Here is the caller graph for this function:<p><center><img src="classDFLib_1_1Pr
 <p>
 
 <p>
-Definition at line <a class="el" href="DF__Proj__Point_8cpp-source.html#l00133">133</a> of file <a class="el" href="DF__Proj__Point_8cpp-source.html">DF_Proj_Point.cpp</a>.
+Definition at line <a class="el" href="DF__Proj__Point_8cpp-source.html#l00183">183</a> of file <a class="el" href="DF__Proj__Point_8cpp-source.html">DF_Proj_Point.cpp</a>.
 <p>
 References <a class="el" href="DF__Proj__Point_8hpp-source.html#l00022">mercProj</a>, <a class="el" href="DF__Proj__Point_8hpp-source.html#l00018">theMerc</a>, <a class="el" href="DF__Proj__Point_8hpp-source.html#l00020">theUserCoords</a>, <a class="el" href="DF__Proj__Point_8hpp-source.html#l00021">userDirty</a>, and <a class="el" href="DF__Proj__Point_8hpp-source.html#l00022">userProj</a>.
 <p>
-Referenced by <a class="el" href="DF__Proj__Point_8cpp-source.html#l00099">getXY()</a>.
+Referenced by <a class="el" href="DF__Proj__Point_8cpp-source.html#l00149">getXY()</a>.
 <p>
 Here is the caller graph for this function:<p><center><img src="classDFLib_1_1Proj_1_1Point_8a57c7fa0776c5e5cc077fcd87e3fd79_icgraph.png" border="0" usemap="#classDFLib_1_1Proj_1_1Point_8a57c7fa0776c5e5cc077fcd87e3fd79_icgraph_map" alt=""></center>
 <map name="classDFLib_1_1Proj_1_1Point_8a57c7fa0776c5e5cc077fcd87e3fd79_icgraph_map">
@@ -472,7 +529,7 @@ Here is the caller graph for this function:<p><center><img src="classDFLib_1_1Pr
 <p>
 Definition at line <a class="el" href="DF__Proj__Point_8hpp-source.html#l00018">18</a> of file <a class="el" href="DF__Proj__Point_8hpp-source.html">DF_Proj_Point.hpp</a>.
 <p>
-Referenced by <a class="el" href="DF__Proj__Point_8cpp-source.html#l00099">getXY()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00156">mercToUser()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00016">Point()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00075">setXY()</a>, and <a class="el" href="DF__Proj__Point_8cpp-source.html#l00133">userToMerc()</a>.
+Referenced by <a class="el" href="DF__Proj__Point_8cpp-source.html#l00149">getXY()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00206">mercToUser()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00016">Point()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00125">setXY()</a>, and <a class="el" href="DF__Proj__Point_8cpp-source.html#l00183">userToMerc()</a>.
 </div>
 </div><p>
 <a class="anchor" name="65e6ee2aebb11dbcbf604832412027c7"></a><!-- doxytag: member="DFLib::Proj::Point::mercDirty" ref="65e6ee2aebb11dbcbf604832412027c7" args="" -->
@@ -491,7 +548,7 @@ Referenced by <a class="el" href="DF__Proj__Point_8cpp-source.html#l00099">getXY
 <p>
 Definition at line <a class="el" href="DF__Proj__Point_8hpp-source.html#l00019">19</a> of file <a class="el" href="DF__Proj__Point_8hpp-source.html">DF_Proj_Point.hpp</a>.
 <p>
-Referenced by <a class="el" href="DF__Proj__Point_8cpp-source.html#l00116">getUserCoords()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00156">mercToUser()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00056">Point()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00109">setUserCoords()</a>, and <a class="el" href="DF__Proj__Point_8cpp-source.html#l00075">setXY()</a>.
+Referenced by <a class="el" href="DF__Proj__Point_8cpp-source.html#l00166">getUserCoords()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00206">mercToUser()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00094">operator=()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00056">Point()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00159">setUserCoords()</a>, and <a class="el" href="DF__Proj__Point_8cpp-source.html#l00125">setXY()</a>.
 </div>
 </div><p>
 <a class="anchor" name="6a4d755b090092350ed1e360ccecaab6"></a><!-- doxytag: member="DFLib::Proj::Point::theUserCoords" ref="6a4d755b090092350ed1e360ccecaab6" args="" -->
@@ -510,7 +567,7 @@ Referenced by <a class="el" href="DF__Proj__Point_8cpp-source.html#l00116">getUs
 <p>
 Definition at line <a class="el" href="DF__Proj__Point_8hpp-source.html#l00020">20</a> of file <a class="el" href="DF__Proj__Point_8hpp-source.html">DF_Proj_Point.hpp</a>.
 <p>
-Referenced by <a class="el" href="DF__Proj__Point_8cpp-source.html#l00116">getUserCoords()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00156">mercToUser()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00056">Point()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00109">setUserCoords()</a>, and <a class="el" href="DF__Proj__Point_8cpp-source.html#l00133">userToMerc()</a>.
+Referenced by <a class="el" href="DF__Proj__Point_8cpp-source.html#l00166">getUserCoords()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00206">mercToUser()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00056">Point()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00159">setUserCoords()</a>, and <a class="el" href="DF__Proj__Point_8cpp-source.html#l00183">userToMerc()</a>.
 </div>
 </div><p>
 <a class="anchor" name="1d0c4d8331da814872a9ab979f7ba554"></a><!-- doxytag: member="DFLib::Proj::Point::userDirty" ref="1d0c4d8331da814872a9ab979f7ba554" args="" -->
@@ -529,7 +586,7 @@ Referenced by <a class="el" href="DF__Proj__Point_8cpp-source.html#l00116">getUs
 <p>
 Definition at line <a class="el" href="DF__Proj__Point_8hpp-source.html#l00021">21</a> of file <a class="el" href="DF__Proj__Point_8hpp-source.html">DF_Proj_Point.hpp</a>.
 <p>
-Referenced by <a class="el" href="DF__Proj__Point_8cpp-source.html#l00099">getXY()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00056">Point()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00109">setUserCoords()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00075">setXY()</a>, and <a class="el" href="DF__Proj__Point_8cpp-source.html#l00133">userToMerc()</a>.
+Referenced by <a class="el" href="DF__Proj__Point_8cpp-source.html#l00149">getXY()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00094">operator=()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00056">Point()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00159">setUserCoords()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00125">setXY()</a>, and <a class="el" href="DF__Proj__Point_8cpp-source.html#l00183">userToMerc()</a>.
 </div>
 </div><p>
 <a class="anchor" name="6875154c35968520ca65198f0950060c"></a><!-- doxytag: member="DFLib::Proj::Point::userProj" ref="6875154c35968520ca65198f0950060c" args="" -->
@@ -548,7 +605,7 @@ Referenced by <a class="el" href="DF__Proj__Point_8cpp-source.html#l00099">getXY
 <p>
 Definition at line <a class="el" href="DF__Proj__Point_8hpp-source.html#l00022">22</a> of file <a class="el" href="DF__Proj__Point_8hpp-source.html">DF_Proj_Point.hpp</a>.
 <p>
-Referenced by <a class="el" href="DF__Proj__Point_8cpp-source.html#l00156">mercToUser()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00016">Point()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00084">setUserProj()</a>, and <a class="el" href="DF__Proj__Point_8cpp-source.html#l00133">userToMerc()</a>.
+Referenced by <a class="el" href="DF__Proj__Point_8cpp-source.html#l00206">mercToUser()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00094">operator=()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00016">Point()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00134">setUserProj()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00183">userToMerc()</a>, and <a class="el" href="DF__Proj__Point_8cpp-source.html#l00088">~Point()</a>.
 </div>
 </div><p>
 <a class="anchor" name="51e9a73994c7f641de079626cf7f6a32"></a><!-- doxytag: member="DFLib::Proj::Point::mercProj" ref="51e9a73994c7f641de079626cf7f6a32" args="" -->
@@ -567,12 +624,12 @@ Referenced by <a class="el" href="DF__Proj__Point_8cpp-source.html#l00156">mercT
 <p>
 Definition at line <a class="el" href="DF__Proj__Point_8hpp-source.html#l00022">22</a> of file <a class="el" href="DF__Proj__Point_8hpp-source.html">DF_Proj_Point.hpp</a>.
 <p>
-Referenced by <a class="el" href="DF__Proj__Point_8cpp-source.html#l00156">mercToUser()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00016">Point()</a>, and <a class="el" href="DF__Proj__Point_8cpp-source.html#l00133">userToMerc()</a>.
+Referenced by <a class="el" href="DF__Proj__Point_8cpp-source.html#l00206">mercToUser()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00094">operator=()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00016">Point()</a>, <a class="el" href="DF__Proj__Point_8cpp-source.html#l00183">userToMerc()</a>, and <a class="el" href="DF__Proj__Point_8cpp-source.html#l00088">~Point()</a>.
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li>/users/russo/DFLib/<a class="el" href="DF__Proj__Point_8hpp-source.html">DF_Proj_Point.hpp</a><li>/users/russo/DFLib/<a class="el" href="DF__Proj__Point_8cpp-source.html">DF_Proj_Point.cpp</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Fri Jun 1 04:15:59 2007 for DFLib by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Fri Jun 1 20:26:09 2007 for DFLib by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.1 </small></address>
 </body>

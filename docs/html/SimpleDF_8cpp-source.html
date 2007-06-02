@@ -107,80 +107,79 @@
 <a name="l00088"></a>00088            &lt;&lt; endl;
 <a name="l00089"></a>00089     }
 <a name="l00090"></a>00090 
-<a name="l00091"></a>00091     <a class="code" href="classstd_1_1vector.html">vector&lt;double&gt;</a> LS_point=LSFix.<a class="code" href="classDFLib_1_1Proj_1_1Point.html#58e96f4fb00640ec762c709df6e0f573">getUserCoords</a>();
-<a name="l00092"></a>00092     <a class="code" href="SimpleDF_8cpp.html#fe2a9a82bb7fcd2de26d50dacd662836">printCoords</a>(LS_point,string(<span class="stringliteral">"Least Squares Fix"</span>));
-<a name="l00093"></a>00093 
-<a name="l00094"></a>00094     <a class="code" href="classDFLib_1_1Proj_1_1Point.html">DFLib::Proj::Point</a> FCA=LSFix;
-<a name="l00095"></a>00095     <a class="code" href="classstd_1_1vector.html">vector&lt;double&gt;</a> FCA_stddev(2);
-<a name="l00096"></a>00096     <span class="keywordflow">try</span> 
-<a name="l00097"></a>00097     {
-<a name="l00098"></a>00098       rColl.<a class="code" href="classDFLib_1_1ReportCollection.html#ae93d643b545080d22987bf18d1bdf73">computeFixCutAverage</a>(FCA,FCA_stddev);
-<a name="l00099"></a>00099     }
-<a name="l00100"></a>00100     <span class="keywordflow">catch</span> (<a class="code" href="classDFLib_1_1Util_1_1Exception.html">DFLib::Util::Exception</a> x)
-<a name="l00101"></a>00101     {
-<a name="l00102"></a>00102       cerr &lt;&lt; <span class="stringliteral">" Ooops .... got exception trying to compute FCA: "</span> 
-<a name="l00103"></a>00103            &lt;&lt; x.<a class="code" href="classDFLib_1_1Util_1_1Exception.html#e84f2a9ba0a0d187b55d25622b405299">getEmsg</a>()
-<a name="l00104"></a>00104            &lt;&lt; endl;
-<a name="l00105"></a>00105     }
-<a name="l00106"></a>00106 
-<a name="l00107"></a>00107     <a class="code" href="classstd_1_1vector.html">vector&lt;double&gt;</a> FCA_point=FCA.<a class="code" href="classDFLib_1_1Proj_1_1Point.html#58e96f4fb00640ec762c709df6e0f573">getUserCoords</a>();
-<a name="l00108"></a>00108     <a class="code" href="SimpleDF_8cpp.html#fe2a9a82bb7fcd2de26d50dacd662836">printCoords</a>(FCA_point,string(<span class="stringliteral">"Fix Cut Average"</span>));
-<a name="l00109"></a>00109     cout &lt;&lt; <span class="stringliteral">" Standard deviation of FCA is "</span> &lt;&lt; FCA_stddev[0] &lt;&lt; <span class="stringliteral">" longitude"</span>
-<a name="l00110"></a>00110          &lt;&lt; <span class="stringliteral">" and "</span> &lt;&lt; FCA_stddev[1] &lt;&lt; <span class="stringliteral">" latitude."</span> &lt;&lt; endl;
-<a name="l00111"></a>00111 
-<a name="l00112"></a>00112     <a class="code" href="classDFLib_1_1Proj_1_1Point.html">DFLib::Proj::Point</a> MLFix=LSFix;
-<a name="l00113"></a>00113     <span class="keywordflow">try</span> 
-<a name="l00114"></a>00114     {
-<a name="l00115"></a>00115       rColl.<a class="code" href="classDFLib_1_1ReportCollection.html#dffd170257322f58734acb369bb720a4">computeMLFix</a>(MLFix);
-<a name="l00116"></a>00116     }
-<a name="l00117"></a>00117     <span class="keywordflow">catch</span> (<a class="code" href="classDFLib_1_1Util_1_1Exception.html">DFLib::Util::Exception</a> x)
-<a name="l00118"></a>00118     {
-<a name="l00119"></a>00119       cerr &lt;&lt; <span class="stringliteral">" Ooops .... got exception trying to compute ML Fix: "</span> 
-<a name="l00120"></a>00120            &lt;&lt; x.<a class="code" href="classDFLib_1_1Util_1_1Exception.html#e84f2a9ba0a0d187b55d25622b405299">getEmsg</a>()
-<a name="l00121"></a>00121            &lt;&lt; endl;
-<a name="l00122"></a>00122     }
-<a name="l00123"></a>00123     
-<a name="l00124"></a>00124     <a class="code" href="classstd_1_1vector.html">vector&lt;double&gt;</a> ML_point=MLFix.<a class="code" href="classDFLib_1_1Proj_1_1Point.html#58e96f4fb00640ec762c709df6e0f573">getUserCoords</a>();
-<a name="l00125"></a>00125     <a class="code" href="SimpleDF_8cpp.html#fe2a9a82bb7fcd2de26d50dacd662836">printCoords</a>(ML_point,string(<span class="stringliteral">"Maximum Likelihood Fix"</span>));
-<a name="l00126"></a>00126   }
-<a name="l00127"></a>00127 }
-<a name="l00128"></a>00128 
-<a name="l00129"></a><a class="code" href="SimpleDF_8cpp.html#fe2a9a82bb7fcd2de26d50dacd662836">00129</a> <span class="keywordtype">void</span> <a class="code" href="SimpleDF_8cpp.html#fe2a9a82bb7fcd2de26d50dacd662836">printCoords</a>(<span class="keyword">const</span> <a class="code" href="classstd_1_1vector.html">vector&lt;double&gt;</a> &amp;latlon,<span class="keyword">const</span> string &amp;text)
-<a name="l00130"></a>00130 {
-<a name="l00131"></a>00131   <span class="keywordtype">int</span> latfac=1;  <span class="keywordtype">int</span> lonfac=1;
-<a name="l00132"></a>00132   <span class="keywordtype">char</span> EW,NS;
-<a name="l00133"></a>00133 
-<a name="l00134"></a>00134   EW=<span class="charliteral">'E'</span>;
-<a name="l00135"></a>00135   NS=<span class="charliteral">'N'</span>;
-<a name="l00136"></a>00136 
-<a name="l00137"></a>00137   <span class="keywordflow">if</span> (latlon[0] &lt; 0)
-<a name="l00138"></a>00138   {
-<a name="l00139"></a>00139     lonfac=-1;
-<a name="l00140"></a>00140     EW=<span class="charliteral">'W'</span>;
-<a name="l00141"></a>00141   }
-<a name="l00142"></a>00142 
-<a name="l00143"></a>00143   <span class="keywordflow">if</span> (latlon[1] &lt; 0)
-<a name="l00144"></a>00144   {
-<a name="l00145"></a>00145     latfac=-1;
-<a name="l00146"></a>00146     NS=<span class="charliteral">'S'</span>;
-<a name="l00147"></a>00147   }
-<a name="l00148"></a>00148 
-<a name="l00149"></a>00149   cout &lt;&lt; <span class="stringliteral">" Longitude of "</span> &lt;&lt; text &lt;&lt; <span class="stringliteral">": "</span> 
-<a name="l00150"></a>00150        &lt;&lt; static_cast&lt;int&gt;(latlon[0]*lonfac)
-<a name="l00151"></a>00151        &lt;&lt; <span class="stringliteral">"d"</span> 
-<a name="l00152"></a>00152        &lt;&lt; (latlon[0]*lonfac-static_cast&lt;int&gt;(latlon[0]*lonfac))*60 
-<a name="l00153"></a>00153        &lt;&lt; <span class="stringliteral">"'"</span> &lt;&lt; EW 
-<a name="l00154"></a>00154        &lt;&lt; endl;
-<a name="l00155"></a>00155 
-<a name="l00156"></a>00156   cout &lt;&lt; <span class="stringliteral">" Latitude of "</span> &lt;&lt; text &lt;&lt; <span class="stringliteral">": "</span> 
-<a name="l00157"></a>00157        &lt;&lt; static_cast&lt;int&gt;(latlon[1]*latfac)
-<a name="l00158"></a>00158        &lt;&lt; <span class="stringliteral">"d"</span> 
-<a name="l00159"></a>00159        &lt;&lt; (latlon[1]*latfac-static_cast&lt;int&gt;(latlon[1]*latfac))*60 
-<a name="l00160"></a>00160        &lt;&lt; <span class="stringliteral">"'"</span> &lt;&lt; NS 
-<a name="l00161"></a>00161        &lt;&lt; endl;
-<a name="l00162"></a>00162 
-<a name="l00163"></a>00163 }
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Fri Jun 1 04:15:55 2007 for DFLib by&nbsp;
+<a name="l00091"></a>00091     <a class="code" href="classDFLib_1_1Proj_1_1Point.html">DFLib::Proj::Point</a> FCA=LSFix;
+<a name="l00092"></a>00092     <a class="code" href="classstd_1_1vector.html">vector&lt;double&gt;</a> FCA_stddev(2);
+<a name="l00093"></a>00093     <span class="keywordflow">try</span> 
+<a name="l00094"></a>00094     {
+<a name="l00095"></a>00095       rColl.<a class="code" href="classDFLib_1_1ReportCollection.html#ae93d643b545080d22987bf18d1bdf73">computeFixCutAverage</a>(FCA,FCA_stddev);
+<a name="l00096"></a>00096     }
+<a name="l00097"></a>00097     <span class="keywordflow">catch</span> (<a class="code" href="classDFLib_1_1Util_1_1Exception.html">DFLib::Util::Exception</a> x)
+<a name="l00098"></a>00098     {
+<a name="l00099"></a>00099       cerr &lt;&lt; <span class="stringliteral">" Ooops .... got exception trying to compute FCA: "</span> 
+<a name="l00100"></a>00100            &lt;&lt; x.<a class="code" href="classDFLib_1_1Util_1_1Exception.html#e84f2a9ba0a0d187b55d25622b405299">getEmsg</a>()
+<a name="l00101"></a>00101            &lt;&lt; endl;
+<a name="l00102"></a>00102     }
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104     <a class="code" href="classDFLib_1_1Proj_1_1Point.html">DFLib::Proj::Point</a> MLFix=LSFix;
+<a name="l00105"></a>00105     <span class="keywordflow">try</span> 
+<a name="l00106"></a>00106     {
+<a name="l00107"></a>00107       rColl.<a class="code" href="classDFLib_1_1ReportCollection.html#dffd170257322f58734acb369bb720a4">computeMLFix</a>(MLFix);
+<a name="l00108"></a>00108     }
+<a name="l00109"></a>00109     <span class="keywordflow">catch</span> (<a class="code" href="classDFLib_1_1Util_1_1Exception.html">DFLib::Util::Exception</a> x)
+<a name="l00110"></a>00110     {
+<a name="l00111"></a>00111       cerr &lt;&lt; <span class="stringliteral">" Ooops .... got exception trying to compute ML Fix: "</span> 
+<a name="l00112"></a>00112            &lt;&lt; x.<a class="code" href="classDFLib_1_1Util_1_1Exception.html#e84f2a9ba0a0d187b55d25622b405299">getEmsg</a>()
+<a name="l00113"></a>00113            &lt;&lt; endl;
+<a name="l00114"></a>00114     }
+<a name="l00115"></a>00115 
+<a name="l00116"></a>00116     <a class="code" href="classstd_1_1vector.html">vector&lt;double&gt;</a> LS_point=LSFix.<a class="code" href="classDFLib_1_1Proj_1_1Point.html#58e96f4fb00640ec762c709df6e0f573">getUserCoords</a>();
+<a name="l00117"></a>00117     <a class="code" href="SimpleDF_8cpp.html#fe2a9a82bb7fcd2de26d50dacd662836">printCoords</a>(LS_point,string(<span class="stringliteral">"Least Squares Fix"</span>));
+<a name="l00118"></a>00118 
+<a name="l00119"></a>00119     <a class="code" href="classstd_1_1vector.html">vector&lt;double&gt;</a> FCA_point=FCA.<a class="code" href="classDFLib_1_1Proj_1_1Point.html#58e96f4fb00640ec762c709df6e0f573">getUserCoords</a>();
+<a name="l00120"></a>00120     <a class="code" href="SimpleDF_8cpp.html#fe2a9a82bb7fcd2de26d50dacd662836">printCoords</a>(FCA_point,string(<span class="stringliteral">"Fix Cut Average"</span>));
+<a name="l00121"></a>00121     cout &lt;&lt; <span class="stringliteral">" Standard deviation of FCA is "</span> &lt;&lt; FCA_stddev[0] &lt;&lt; <span class="stringliteral">" longitude"</span>
+<a name="l00122"></a>00122          &lt;&lt; <span class="stringliteral">" and "</span> &lt;&lt; FCA_stddev[1] &lt;&lt; <span class="stringliteral">" latitude."</span> &lt;&lt; endl;
+<a name="l00123"></a>00123     <a class="code" href="classstd_1_1vector.html">vector&lt;double&gt;</a> ML_point=MLFix.<a class="code" href="classDFLib_1_1Proj_1_1Point.html#58e96f4fb00640ec762c709df6e0f573">getUserCoords</a>();
+<a name="l00124"></a>00124     <a class="code" href="SimpleDF_8cpp.html#fe2a9a82bb7fcd2de26d50dacd662836">printCoords</a>(ML_point,string(<span class="stringliteral">"Maximum Likelihood Fix"</span>));
+<a name="l00125"></a>00125   }
+<a name="l00126"></a>00126 }
+<a name="l00127"></a>00127 
+<a name="l00128"></a><a class="code" href="SimpleDF_8cpp.html#fe2a9a82bb7fcd2de26d50dacd662836">00128</a> <span class="keywordtype">void</span> <a class="code" href="SimpleDF_8cpp.html#fe2a9a82bb7fcd2de26d50dacd662836">printCoords</a>(<span class="keyword">const</span> <a class="code" href="classstd_1_1vector.html">vector&lt;double&gt;</a> &amp;latlon,<span class="keyword">const</span> string &amp;text)
+<a name="l00129"></a>00129 {
+<a name="l00130"></a>00130   <span class="keywordtype">int</span> latfac=1;  <span class="keywordtype">int</span> lonfac=1;
+<a name="l00131"></a>00131   <span class="keywordtype">char</span> EW,NS;
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133   EW=<span class="charliteral">'E'</span>;
+<a name="l00134"></a>00134   NS=<span class="charliteral">'N'</span>;
+<a name="l00135"></a>00135 
+<a name="l00136"></a>00136   <span class="keywordflow">if</span> (latlon[0] &lt; 0)
+<a name="l00137"></a>00137   {
+<a name="l00138"></a>00138     lonfac=-1;
+<a name="l00139"></a>00139     EW=<span class="charliteral">'W'</span>;
+<a name="l00140"></a>00140   }
+<a name="l00141"></a>00141 
+<a name="l00142"></a>00142   <span class="keywordflow">if</span> (latlon[1] &lt; 0)
+<a name="l00143"></a>00143   {
+<a name="l00144"></a>00144     latfac=-1;
+<a name="l00145"></a>00145     NS=<span class="charliteral">'S'</span>;
+<a name="l00146"></a>00146   }
+<a name="l00147"></a>00147 
+<a name="l00148"></a>00148   cout &lt;&lt; <span class="stringliteral">" Longitude of "</span> &lt;&lt; text &lt;&lt; <span class="stringliteral">": "</span> 
+<a name="l00149"></a>00149        &lt;&lt; static_cast&lt;int&gt;(latlon[0]*lonfac)
+<a name="l00150"></a>00150        &lt;&lt; <span class="stringliteral">"d"</span> 
+<a name="l00151"></a>00151        &lt;&lt; (latlon[0]*lonfac-static_cast&lt;int&gt;(latlon[0]*lonfac))*60 
+<a name="l00152"></a>00152        &lt;&lt; <span class="stringliteral">"'"</span> &lt;&lt; EW 
+<a name="l00153"></a>00153        &lt;&lt; endl;
+<a name="l00154"></a>00154 
+<a name="l00155"></a>00155   cout &lt;&lt; <span class="stringliteral">" Latitude of "</span> &lt;&lt; text &lt;&lt; <span class="stringliteral">": "</span> 
+<a name="l00156"></a>00156        &lt;&lt; static_cast&lt;int&gt;(latlon[1]*latfac)
+<a name="l00157"></a>00157        &lt;&lt; <span class="stringliteral">"d"</span> 
+<a name="l00158"></a>00158        &lt;&lt; (latlon[1]*latfac-static_cast&lt;int&gt;(latlon[1]*latfac))*60 
+<a name="l00159"></a>00159        &lt;&lt; <span class="stringliteral">"'"</span> &lt;&lt; NS 
+<a name="l00160"></a>00160        &lt;&lt; endl;
+<a name="l00161"></a>00161 
+<a name="l00162"></a>00162 }
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Fri Jun 1 20:26:08 2007 for DFLib by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.1 </small></address>
 </body>
