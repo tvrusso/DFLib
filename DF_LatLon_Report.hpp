@@ -63,7 +63,7 @@ namespace DFLib
 
   inline double DFLib::LatLon::Report::getReportBearingRadians() const
   {
-    // bearing *must* be in 0<bearing<pi
+    // bearing *must* be in 0<bearing<2*pi
     return bearing;
   }
   inline double DFLib::LatLon::Report::getBearing() const
@@ -98,7 +98,7 @@ namespace DFLib
 
   inline void DFLib::LatLon::Report::setBearing(double Bearing)
   {
-    // bearing *must* be in 0<bearing<pi
+    // bearing *must* be in 0<bearing<2*pi
     bearing=Bearing*M_PI/180.0;
     while (bearing < 0)
       bearing += 2*M_PI;

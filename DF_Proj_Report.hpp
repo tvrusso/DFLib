@@ -1,5 +1,5 @@
-#ifndef DF_XY_REPORT_HPP
-#define DF_XY_REPORT_HPP
+#ifndef DF_PROJ_REPORT_HPP
+#define DF_PROJ_REPORT_HPP
 #ifdef _MSC_VER
 #define _USE_MATH_DEFINES
 #endif
@@ -54,7 +54,7 @@ namespace DFLib
   {
     receiverLocation = new Point(theLocation,projArgs);
     setReportName(theName);
-    // Make sure our bearing is *always* 0<bearing<2pi.  If it isn't,
+    // Make sure our bearing is *always* 0<bearing<2*pi.  If it isn't,
     // reset it:
     while (bearing < 0)
       bearing += 2*M_PI;
@@ -68,7 +68,7 @@ namespace DFLib
 
   inline double DFLib::Proj::Report::getReportBearingRadians() const
   {
-    // bearing *must* be in 0<bearing<pi
+    // bearing *must* be in 0<bearing<2*pi
     return bearing;
   }
   inline double DFLib::Proj::Report::getBearing() const
@@ -103,7 +103,7 @@ namespace DFLib
 
   inline void DFLib::Proj::Report::setBearing(double Bearing)
   {
-    // bearing *must* be in 0<bearing<pi
+    // bearing *must* be in 0<bearing<2*pi
     bearing=Bearing*M_PI/180.0;
     while (bearing < 0)
       bearing += 2*M_PI;
@@ -113,4 +113,4 @@ namespace DFLib
     sigma=Sigma*M_PI/180;
   }
 }
-#endif // DF_XY_REPORT_HPP
+#endif // DF_PROJ_REPORT_HPP

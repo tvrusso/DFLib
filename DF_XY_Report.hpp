@@ -65,7 +65,7 @@ namespace DFLib
 
   inline double DFLib::XY::Report::getReportBearingRadians() const
   {
-    // bearing *must* be in 0<bearing<pi
+    // bearing *must* be in 0<bearing<2*pi
     return bearing;
   }
   inline double DFLib::XY::Report::getBearing() const
@@ -95,7 +95,7 @@ namespace DFLib
 
   inline void DFLib::XY::Report::setBearing(double Bearing)
   {
-    // bearing *must* be in 0<bearing<pi
+    // bearing *must* be in 0<bearing<2*pi
     bearing=Bearing*M_PI/180.0;
     while (bearing < 0)
       bearing += 2*M_PI;
