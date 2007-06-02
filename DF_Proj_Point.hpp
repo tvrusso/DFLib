@@ -31,6 +31,12 @@ namespace DFLib
       /// \brief Copy Constructor
       Point(const Point &right);
 
+      /// \brief destructor
+      ~Point();
+
+      /// \brief assignment operator
+      Point& operator=(const Point& rhs);
+
       /// \brief set user projection information
       void setUserProj(vector<string> &projArgs);
 

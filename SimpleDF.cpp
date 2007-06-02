@@ -88,9 +88,6 @@ int main(int argc, char **argv)
            << endl;
     }
 
-    vector<double> LS_point=LSFix.getUserCoords();
-    printCoords(LS_point,string("Least Squares Fix"));
-
     DFLib::Proj::Point FCA=LSFix;
     vector<double> FCA_stddev(2);
     try 
@@ -104,11 +101,6 @@ int main(int argc, char **argv)
            << endl;
     }
 
-    vector<double> FCA_point=FCA.getUserCoords();
-    printCoords(FCA_point,string("Fix Cut Average"));
-    cout << " Standard deviation of FCA is " << FCA_stddev[0] << " longitude"
-         << " and " << FCA_stddev[1] << " latitude." << endl;
-
     DFLib::Proj::Point MLFix=LSFix;
     try 
     {
@@ -120,7 +112,14 @@ int main(int argc, char **argv)
            << x.getEmsg()
            << endl;
     }
-    
+
+    vector<double> LS_point=LSFix.getUserCoords();
+    printCoords(LS_point,string("Least Squares Fix"));
+
+    vector<double> FCA_point=FCA.getUserCoords();
+    printCoords(FCA_point,string("Fix Cut Average"));
+    cout << " Standard deviation of FCA is " << FCA_stddev[0] << " longitude"
+         << " and " << FCA_stddev[1] << " latitude." << endl;
     vector<double> ML_point=MLFix.getUserCoords();
     printCoords(ML_point,string("Maximum Likelihood Fix"));
   }

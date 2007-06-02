@@ -16,7 +16,6 @@
 #include "gaussian_random.hpp"
 #include "DF_Report_Collection.hpp"
 #include "DF_Proj_Report.hpp"
-#include "Util_Minimization_Methods.hpp"
 
 using namespace std;
 
@@ -42,7 +41,6 @@ int main(int argc,char **argv)
   double lastf;
   
   DFLib::ReportCollection rColl;
-  DFLib::Util::Minimizer bogus(&rColl);
   
   // newton-raphson temporaries
   double f;

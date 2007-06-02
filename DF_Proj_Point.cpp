@@ -54,24 +54,74 @@ namespace DFLib
     }
     
     Point::Point(const Point &right)
-      : userProj(right.userProj),
-        mercProj(right.mercProj)
     {
+
+      // Must *COPY* the definition, not the pointer to it!
+      // Get the text version of the definition
+      char *theProjDef = pj_get_def(right.userProj,0);
+      // generate a new projUJ pointer
+      userProj = pj_init_plus(theProjDef);
+      free(theProjDef);
+
+      theProjDef = pj_get_def(right.mercProj,0);
+      // generate a new projUJ pointer
+      mercProj = pj_init_plus(theProjDef);
+      free(theProjDef);
+
       if (right.mercDirty)
       {
         // Right's mercator's been changed without its LL being 
         // updated, so copy its mercator values and say we're dirty.
         theMerc=right.theMerc;
         mercDirty=true;
+        userDirty=false;
       } 
       else
       {
         // Just copy its LL and mark dirty.
         theUserCoords=right.theUserCoords;
         userDirty=true;
+        mercDirty=false;
       }
     }
-    
+
+    Point::~Point()
+    {
+      pj_free(userProj);
+      pj_free(mercProj);
+    }
+
+    Point& Point::operator=(const Point& rhs)
+    {
+      if (this == &rhs) return *this;
+
+      if (userProj) 
+      {
+        pj_free(userProj);
+        userProj=0;
+      }
+      if (mercProj)
+      {
+        pj_free(mercProj);
+        mercProj=0;
+      }
+
+      char *theProjDef = pj_get_def(rhs.userProj,0);
+      // generate a new projUJ pointer
+      userProj = pj_init_plus(theProjDef);
+      free(theProjDef);
+
+      theProjDef = pj_get_def(rhs.mercProj,0);
+      // generate a new projUJ pointer
+      mercProj = pj_init_plus(theProjDef);
+      free(theProjDef);
+
+      mercDirty=rhs.mercDirty;
+      userDirty=rhs.userDirty;
+
+      return (*this);
+    }
+
     void Point::setXY(const vector<double> &mPosition)
     {
       theMerc = mPosition;
