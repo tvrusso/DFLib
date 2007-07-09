@@ -24,6 +24,12 @@ namespace DFLib
       CPL_DLL Report(const vector<double> &theLocationUser, 
                      const double &bearing,const double &std_dev,
                      const string &theName,vector<string>&projArgs);
+
+      // TODO: Write copy constructor and assignment operator.  As it is,
+      // attempting to copy or assing a report will be Very Bad as it will
+      // copy the pointer to the receiver location, which is never going to
+      // be what the user will want.
+
       CPL_DLL ~Report();
       virtual  const CPL_DLL  vector<double> &getReceiverLocation();
       virtual CPL_DLL  double getReportBearingRadians() const;
