@@ -42,89 +42,95 @@
 <a name="l00024"></a>00024       <a class="code" href="port_8h.html#42f5fd9b9df7d179918990cd3d7d6783">CPL_DLL</a> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#9b427951a8df71d81d855070ac1aeeb0">Report</a>(<span class="keyword">const</span> <a class="code" href="classstd_1_1vector.html">vector&lt;double&gt;</a> &amp;theLocationUser, 
 <a name="l00025"></a>00025                      <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;<a class="code" href="classDFLib_1_1Proj_1_1Report.html#d249cb07c182985864c335a6283bd7de">bearing</a>,<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;std_dev,
 <a name="l00026"></a>00026                      <span class="keyword">const</span> string &amp;theName,<a class="code" href="classstd_1_1vector.html">vector&lt;string&gt;</a>&amp;projArgs);
-<a name="l00027"></a>00027       <a class="code" href="port_8h.html#42f5fd9b9df7d179918990cd3d7d6783">CPL_DLL</a> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#58bcd28dac7a13645e3aae4d0c95ab85">~Report</a>();
-<a name="l00028"></a>00028       <span class="keyword">virtual</span>  <span class="keyword">const</span> <a class="code" href="port_8h.html#42f5fd9b9df7d179918990cd3d7d6783">CPL_DLL</a>  <a class="code" href="classstd_1_1vector.html">vector&lt;double&gt;</a> &amp;<a class="code" href="classDFLib_1_1Proj_1_1Report.html#58f9f168b54d59f50fe6813daff33ffc">getReceiverLocation</a>();
-<a name="l00029"></a>00029       <span class="keyword">virtual</span> <a class="code" href="port_8h.html#42f5fd9b9df7d179918990cd3d7d6783">CPL_DLL</a>  <span class="keywordtype">double</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#1989e82acdf552ef23fd559c468127db">getReportBearingRadians</a>() <span class="keyword">const</span>;
-<a name="l00030"></a>00030       <span class="keyword">virtual</span> <a class="code" href="port_8h.html#42f5fd9b9df7d179918990cd3d7d6783">CPL_DLL</a>  <span class="keywordtype">double</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#8932a0e33b0c988f12a6f1a5c224b9b1">getBearing</a>() <span class="keyword">const</span>;
-<a name="l00031"></a>00031       <span class="keyword">virtual</span> <a class="code" href="port_8h.html#42f5fd9b9df7d179918990cd3d7d6783">CPL_DLL</a>  <span class="keywordtype">double</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#622aaa5828e4033ba0dfc6bb978b9187">getBearingStandardDeviationRadians</a>() <span class="keyword">const</span>;
-<a name="l00032"></a>00032       <span class="keyword">virtual</span> <a class="code" href="port_8h.html#42f5fd9b9df7d179918990cd3d7d6783">CPL_DLL</a>  <span class="keywordtype">double</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#c6137ea195bdd561aa006864b7381638">getSigma</a>() <span class="keyword">const</span>;
-<a name="l00033"></a>00033       <span class="keyword">virtual</span> <a class="code" href="port_8h.html#42f5fd9b9df7d179918990cd3d7d6783">CPL_DLL</a>  <span class="keywordtype">void</span>  <a class="code" href="classDFLib_1_1Proj_1_1Report.html#44eb32eeb5f08a845097e27f27529601">setReceiverLocationUser</a>(<a class="code" href="classstd_1_1vector.html">vector&lt;double&gt;</a> &amp;theLocation);
-<a name="l00034"></a>00034       <span class="keyword">virtual</span> <a class="code" href="port_8h.html#42f5fd9b9df7d179918990cd3d7d6783">CPL_DLL</a>  <span class="keywordtype">void</span>  <a class="code" href="classDFLib_1_1Proj_1_1Report.html#4a5c07a7aa4535da0f79be1443ffb02c">setReceiverLocationMercator</a>(<a class="code" href="classstd_1_1vector.html">vector&lt;double&gt;</a> &amp;theLocation);
-<a name="l00036"></a>00036       <span class="keyword">virtual</span> <a class="code" href="port_8h.html#42f5fd9b9df7d179918990cd3d7d6783">CPL_DLL</a>  <span class="keywordtype">void</span>  <a class="code" href="classDFLib_1_1Proj_1_1Report.html#678a18c1573b303cb8ffa67412532a6a">setBearing</a>(<span class="keywordtype">double</span> Bearing);
-<a name="l00038"></a>00038       <span class="keyword">virtual</span> <a class="code" href="port_8h.html#42f5fd9b9df7d179918990cd3d7d6783">CPL_DLL</a>  <span class="keywordtype">void</span>  <a class="code" href="classDFLib_1_1Proj_1_1Report.html#eeb6536e463b64d7dbbf68e9e48eebf0">setSigma</a>(<span class="keywordtype">double</span> Sigma);
-<a name="l00039"></a>00039     };
-<a name="l00040"></a>00040   }
-<a name="l00041"></a>00041 
-<a name="l00048"></a><a class="code" href="classDFLib_1_1Proj_1_1Report.html#9b427951a8df71d81d855070ac1aeeb0">00048</a>   <span class="keyword">inline</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#9b427951a8df71d81d855070ac1aeeb0">DFLib::Proj::Report::Report</a>(<span class="keyword">const</span> <a class="code" href="classstd_1_1vector.html">vector&lt;double&gt;</a> &amp;theLocation,
-<a name="l00049"></a>00049                                        <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;Bearing,<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;std_dev,
-<a name="l00050"></a>00050                                        <span class="keyword">const</span> string &amp;theName,
-<a name="l00051"></a>00051                                      <a class="code" href="classstd_1_1vector.html">vector&lt;string&gt;</a> &amp;projArgs)
-<a name="l00052"></a>00052     : bearing(Bearing*M_PI/180.0),
-<a name="l00053"></a>00053       sigma(std_dev*M_PI/180.0)
-<a name="l00054"></a>00054   {
-<a name="l00055"></a>00055     <a class="code" href="classDFLib_1_1Proj_1_1Report.html#3eddf91761350e1c00d07b590194b807">receiverLocation</a> = <span class="keyword">new</span> <a class="code" href="classDFLib_1_1Proj_1_1Point.html">Point</a>(theLocation,projArgs);
-<a name="l00056"></a>00056     <a class="code" href="classDFLib_1_1Abstract_1_1Report.html#82b0fbd5ae4217e51b761de05225830b">setReportName</a>(theName);
-<a name="l00057"></a>00057     <span class="comment">// Make sure our bearing is *always* 0&lt;bearing&lt;2*pi.  If it isn't,</span>
-<a name="l00058"></a>00058     <span class="comment">// reset it:</span>
-<a name="l00059"></a>00059     <span class="keywordflow">while</span> (<a class="code" href="classDFLib_1_1Proj_1_1Report.html#d249cb07c182985864c335a6283bd7de">bearing</a> &lt; 0)
-<a name="l00060"></a>00060       <a class="code" href="classDFLib_1_1Proj_1_1Report.html#d249cb07c182985864c335a6283bd7de">bearing</a> += 2*M_PI;
-<a name="l00061"></a>00061   }        
-<a name="l00062"></a>00062 
-<a name="l00063"></a><a class="code" href="classDFLib_1_1Proj_1_1Report.html#58bcd28dac7a13645e3aae4d0c95ab85">00063</a>   <span class="keyword">inline</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#58bcd28dac7a13645e3aae4d0c95ab85">DFLib::Proj::Report::~Report</a>()
-<a name="l00064"></a>00064   {
-<a name="l00065"></a>00065     <span class="keywordflow">if</span> (<a class="code" href="classDFLib_1_1Proj_1_1Report.html#3eddf91761350e1c00d07b590194b807">receiverLocation</a>)
-<a name="l00066"></a>00066       <span class="keyword">delete</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#3eddf91761350e1c00d07b590194b807">receiverLocation</a>;
-<a name="l00067"></a>00067   }
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028       <span class="comment">// TODO: Write copy constructor and assignment operator.  As it is,</span>
+<a name="l00029"></a>00029       <span class="comment">// attempting to copy or assing a report will be Very Bad as it will</span>
+<a name="l00030"></a>00030       <span class="comment">// copy the pointer to the receiver location, which is never going to</span>
+<a name="l00031"></a>00031       <span class="comment">// be what the user will want.</span>
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033       <a class="code" href="port_8h.html#42f5fd9b9df7d179918990cd3d7d6783">CPL_DLL</a> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#58bcd28dac7a13645e3aae4d0c95ab85">~Report</a>();
+<a name="l00034"></a>00034       <span class="keyword">virtual</span>  <span class="keyword">const</span> <a class="code" href="port_8h.html#42f5fd9b9df7d179918990cd3d7d6783">CPL_DLL</a>  <a class="code" href="classstd_1_1vector.html">vector&lt;double&gt;</a> &amp;<a class="code" href="classDFLib_1_1Proj_1_1Report.html#58f9f168b54d59f50fe6813daff33ffc">getReceiverLocation</a>();
+<a name="l00035"></a>00035       <span class="keyword">virtual</span> <a class="code" href="port_8h.html#42f5fd9b9df7d179918990cd3d7d6783">CPL_DLL</a>  <span class="keywordtype">double</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#1989e82acdf552ef23fd559c468127db">getReportBearingRadians</a>() <span class="keyword">const</span>;
+<a name="l00036"></a>00036       <span class="keyword">virtual</span> <a class="code" href="port_8h.html#42f5fd9b9df7d179918990cd3d7d6783">CPL_DLL</a>  <span class="keywordtype">double</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#8932a0e33b0c988f12a6f1a5c224b9b1">getBearing</a>() <span class="keyword">const</span>;
+<a name="l00037"></a>00037       <span class="keyword">virtual</span> <a class="code" href="port_8h.html#42f5fd9b9df7d179918990cd3d7d6783">CPL_DLL</a>  <span class="keywordtype">double</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#622aaa5828e4033ba0dfc6bb978b9187">getBearingStandardDeviationRadians</a>() <span class="keyword">const</span>;
+<a name="l00038"></a>00038       <span class="keyword">virtual</span> <a class="code" href="port_8h.html#42f5fd9b9df7d179918990cd3d7d6783">CPL_DLL</a>  <span class="keywordtype">double</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#c6137ea195bdd561aa006864b7381638">getSigma</a>() <span class="keyword">const</span>;
+<a name="l00039"></a>00039       <span class="keyword">virtual</span> <a class="code" href="port_8h.html#42f5fd9b9df7d179918990cd3d7d6783">CPL_DLL</a>  <span class="keywordtype">void</span>  <a class="code" href="classDFLib_1_1Proj_1_1Report.html#44eb32eeb5f08a845097e27f27529601">setReceiverLocationUser</a>(<a class="code" href="classstd_1_1vector.html">vector&lt;double&gt;</a> &amp;theLocation);
+<a name="l00040"></a>00040       <span class="keyword">virtual</span> <a class="code" href="port_8h.html#42f5fd9b9df7d179918990cd3d7d6783">CPL_DLL</a>  <span class="keywordtype">void</span>  <a class="code" href="classDFLib_1_1Proj_1_1Report.html#4a5c07a7aa4535da0f79be1443ffb02c">setReceiverLocationMercator</a>(<a class="code" href="classstd_1_1vector.html">vector&lt;double&gt;</a> &amp;theLocation);
+<a name="l00042"></a>00042       <span class="keyword">virtual</span> <a class="code" href="port_8h.html#42f5fd9b9df7d179918990cd3d7d6783">CPL_DLL</a>  <span class="keywordtype">void</span>  <a class="code" href="classDFLib_1_1Proj_1_1Report.html#678a18c1573b303cb8ffa67412532a6a">setBearing</a>(<span class="keywordtype">double</span> Bearing);
+<a name="l00044"></a>00044       <span class="keyword">virtual</span> <a class="code" href="port_8h.html#42f5fd9b9df7d179918990cd3d7d6783">CPL_DLL</a>  <span class="keywordtype">void</span>  <a class="code" href="classDFLib_1_1Proj_1_1Report.html#eeb6536e463b64d7dbbf68e9e48eebf0">setSigma</a>(<span class="keywordtype">double</span> Sigma);
+<a name="l00045"></a>00045     };
+<a name="l00046"></a>00046   }
+<a name="l00047"></a>00047 
+<a name="l00054"></a><a class="code" href="classDFLib_1_1Proj_1_1Report.html#9b427951a8df71d81d855070ac1aeeb0">00054</a>   <span class="keyword">inline</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#9b427951a8df71d81d855070ac1aeeb0">DFLib::Proj::Report::Report</a>(<span class="keyword">const</span> <a class="code" href="classstd_1_1vector.html">vector&lt;double&gt;</a> &amp;theLocation,
+<a name="l00055"></a>00055                                        <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;Bearing,<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;std_dev,
+<a name="l00056"></a>00056                                        <span class="keyword">const</span> string &amp;theName,
+<a name="l00057"></a>00057                                      <a class="code" href="classstd_1_1vector.html">vector&lt;string&gt;</a> &amp;projArgs)
+<a name="l00058"></a>00058     : bearing(Bearing*M_PI/180.0),
+<a name="l00059"></a>00059       sigma(std_dev*M_PI/180.0)
+<a name="l00060"></a>00060   {
+<a name="l00061"></a>00061     <a class="code" href="classDFLib_1_1Proj_1_1Report.html#3eddf91761350e1c00d07b590194b807">receiverLocation</a> = <span class="keyword">new</span> <a class="code" href="classDFLib_1_1Proj_1_1Point.html">Point</a>(theLocation,projArgs);
+<a name="l00062"></a>00062     <a class="code" href="classDFLib_1_1Abstract_1_1Report.html#82b0fbd5ae4217e51b761de05225830b">setReportName</a>(theName);
+<a name="l00063"></a>00063     <span class="comment">// Make sure our bearing is *always* 0&lt;bearing&lt;2*pi.  If it isn't,</span>
+<a name="l00064"></a>00064     <span class="comment">// reset it:</span>
+<a name="l00065"></a>00065     <span class="keywordflow">while</span> (<a class="code" href="classDFLib_1_1Proj_1_1Report.html#d249cb07c182985864c335a6283bd7de">bearing</a> &lt; 0)
+<a name="l00066"></a>00066       <a class="code" href="classDFLib_1_1Proj_1_1Report.html#d249cb07c182985864c335a6283bd7de">bearing</a> += 2*M_PI;
+<a name="l00067"></a>00067   }        
 <a name="l00068"></a>00068 
-<a name="l00069"></a><a class="code" href="classDFLib_1_1Proj_1_1Report.html#1989e82acdf552ef23fd559c468127db">00069</a>   <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#1989e82acdf552ef23fd559c468127db">DFLib::Proj::Report::getReportBearingRadians</a>()<span class="keyword"> const</span>
-<a name="l00070"></a>00070 <span class="keyword">  </span>{
-<a name="l00071"></a>00071     <span class="comment">// bearing *must* be in 0&lt;bearing&lt;2*pi</span>
-<a name="l00072"></a>00072     <span class="keywordflow">return</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#d249cb07c182985864c335a6283bd7de">bearing</a>;
+<a name="l00069"></a><a class="code" href="classDFLib_1_1Proj_1_1Report.html#58bcd28dac7a13645e3aae4d0c95ab85">00069</a>   <span class="keyword">inline</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#58bcd28dac7a13645e3aae4d0c95ab85">DFLib::Proj::Report::~Report</a>()
+<a name="l00070"></a>00070   {
+<a name="l00071"></a>00071     <span class="keywordflow">if</span> (<a class="code" href="classDFLib_1_1Proj_1_1Report.html#3eddf91761350e1c00d07b590194b807">receiverLocation</a>)
+<a name="l00072"></a>00072       <span class="keyword">delete</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#3eddf91761350e1c00d07b590194b807">receiverLocation</a>;
 <a name="l00073"></a>00073   }
-<a name="l00074"></a><a class="code" href="classDFLib_1_1Proj_1_1Report.html#8932a0e33b0c988f12a6f1a5c224b9b1">00074</a>   <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#8932a0e33b0c988f12a6f1a5c224b9b1">DFLib::Proj::Report::getBearing</a>()<span class="keyword"> const</span>
-<a name="l00075"></a>00075 <span class="keyword">  </span>{
-<a name="l00076"></a>00076     <span class="comment">// always return bearing in range 0-360 degrees</span>
-<a name="l00077"></a>00077     <span class="keywordflow">return</span> (<a class="code" href="classDFLib_1_1Proj_1_1Report.html#1989e82acdf552ef23fd559c468127db">getReportBearingRadians</a>()*180.0/M_PI);
-<a name="l00078"></a>00078   }
-<a name="l00079"></a>00079 
-<a name="l00080"></a><a class="code" href="classDFLib_1_1Proj_1_1Report.html#622aaa5828e4033ba0dfc6bb978b9187">00080</a>   <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#622aaa5828e4033ba0dfc6bb978b9187">DFLib::Proj::Report::getBearingStandardDeviationRadians</a>()<span class="keyword"> const</span>
+<a name="l00074"></a>00074 
+<a name="l00075"></a><a class="code" href="classDFLib_1_1Proj_1_1Report.html#1989e82acdf552ef23fd559c468127db">00075</a>   <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#1989e82acdf552ef23fd559c468127db">DFLib::Proj::Report::getReportBearingRadians</a>()<span class="keyword"> const</span>
+<a name="l00076"></a>00076 <span class="keyword">  </span>{
+<a name="l00077"></a>00077     <span class="comment">// bearing *must* be in 0&lt;bearing&lt;2*pi</span>
+<a name="l00078"></a>00078     <span class="keywordflow">return</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#d249cb07c182985864c335a6283bd7de">bearing</a>;
+<a name="l00079"></a>00079   }
+<a name="l00080"></a><a class="code" href="classDFLib_1_1Proj_1_1Report.html#8932a0e33b0c988f12a6f1a5c224b9b1">00080</a>   <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#8932a0e33b0c988f12a6f1a5c224b9b1">DFLib::Proj::Report::getBearing</a>()<span class="keyword"> const</span>
 <a name="l00081"></a>00081 <span class="keyword">  </span>{
-<a name="l00082"></a>00082     <span class="keywordflow">return</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#3ece5882274f08a1899a2ed9cac888d5">sigma</a>;
-<a name="l00083"></a>00083   }
-<a name="l00084"></a><a class="code" href="classDFLib_1_1Proj_1_1Report.html#c6137ea195bdd561aa006864b7381638">00084</a>   <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#c6137ea195bdd561aa006864b7381638">DFLib::Proj::Report::getSigma</a>()<span class="keyword"> const</span>
-<a name="l00085"></a>00085 <span class="keyword">  </span>{
-<a name="l00086"></a>00086     <span class="keywordflow">return</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#3ece5882274f08a1899a2ed9cac888d5">sigma</a>*180/M_PI;
-<a name="l00087"></a>00087   }
-<a name="l00088"></a>00088 
-<a name="l00089"></a><a class="code" href="classDFLib_1_1Proj_1_1Report.html#44eb32eeb5f08a845097e27f27529601">00089</a>   <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#44eb32eeb5f08a845097e27f27529601">DFLib::Proj::Report::setReceiverLocationUser</a>(<a class="code" href="classstd_1_1vector.html">vector&lt;double&gt;</a> &amp;theLocation)
-<a name="l00090"></a>00090   {
-<a name="l00091"></a>00091     <a class="code" href="classDFLib_1_1Proj_1_1Report.html#3eddf91761350e1c00d07b590194b807">receiverLocation</a>-&gt;<a class="code" href="classDFLib_1_1Proj_1_1Point.html#38b172390464dc1cffd6d360e35d8d08">setUserCoords</a>(theLocation);
-<a name="l00092"></a>00092   }
-<a name="l00093"></a>00093 
-<a name="l00094"></a><a class="code" href="classDFLib_1_1Proj_1_1Report.html#4a5c07a7aa4535da0f79be1443ffb02c">00094</a>   <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#4a5c07a7aa4535da0f79be1443ffb02c">DFLib::Proj::Report::setReceiverLocationMercator</a>(<a class="code" href="classstd_1_1vector.html">vector&lt;double&gt;</a> &amp;theLocation)
-<a name="l00095"></a>00095   {
-<a name="l00096"></a>00096     <a class="code" href="classDFLib_1_1Proj_1_1Report.html#3eddf91761350e1c00d07b590194b807">receiverLocation</a>-&gt;<a class="code" href="classDFLib_1_1Proj_1_1Point.html#4b69111729f316c5ddcb5b60ab0a481b">setXY</a>(theLocation);
-<a name="l00097"></a>00097   }
-<a name="l00098"></a>00098 
-<a name="l00099"></a><a class="code" href="classDFLib_1_1Proj_1_1Report.html#58f9f168b54d59f50fe6813daff33ffc">00099</a>   <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="classstd_1_1vector.html">vector&lt;double&gt;</a> &amp; <a class="code" href="classDFLib_1_1Proj_1_1Report.html#58f9f168b54d59f50fe6813daff33ffc">DFLib::Proj::Report::getReceiverLocation</a>() 
-<a name="l00100"></a>00100   { 
-<a name="l00101"></a>00101     <span class="keywordflow">return</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#3eddf91761350e1c00d07b590194b807">receiverLocation</a>-&gt;<a class="code" href="classDFLib_1_1Proj_1_1Point.html#a4e10ed14f4f1e505e992b78de20bd49">getXY</a>();
-<a name="l00102"></a>00102   }
-<a name="l00103"></a>00103 
-<a name="l00104"></a><a class="code" href="classDFLib_1_1Proj_1_1Report.html#678a18c1573b303cb8ffa67412532a6a">00104</a>   <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#678a18c1573b303cb8ffa67412532a6a">DFLib::Proj::Report::setBearing</a>(<span class="keywordtype">double</span> Bearing)
-<a name="l00105"></a>00105   {
-<a name="l00106"></a>00106     <span class="comment">// bearing *must* be in 0&lt;bearing&lt;2*pi</span>
-<a name="l00107"></a>00107     <a class="code" href="classDFLib_1_1Proj_1_1Report.html#d249cb07c182985864c335a6283bd7de">bearing</a>=Bearing*M_PI/180.0;
-<a name="l00108"></a>00108     <span class="keywordflow">while</span> (<a class="code" href="classDFLib_1_1Proj_1_1Report.html#d249cb07c182985864c335a6283bd7de">bearing</a> &lt; 0)
-<a name="l00109"></a>00109       <a class="code" href="classDFLib_1_1Proj_1_1Report.html#d249cb07c182985864c335a6283bd7de">bearing</a> += 2*M_PI;
-<a name="l00110"></a>00110   }
-<a name="l00111"></a><a class="code" href="classDFLib_1_1Proj_1_1Report.html#eeb6536e463b64d7dbbf68e9e48eebf0">00111</a>   <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#eeb6536e463b64d7dbbf68e9e48eebf0">DFLib::Proj::Report::setSigma</a>(<span class="keywordtype">double</span> Sigma)
-<a name="l00112"></a>00112   {
-<a name="l00113"></a>00113     <a class="code" href="classDFLib_1_1Proj_1_1Report.html#3ece5882274f08a1899a2ed9cac888d5">sigma</a>=Sigma*M_PI/180;
-<a name="l00114"></a>00114   }
-<a name="l00115"></a>00115 }
-<a name="l00116"></a>00116 <span class="preprocessor">#endif // DF_PROJ_REPORT_HPP</span>
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Fri Jun 1 20:31:47 2007 for DFLib by&nbsp;
+<a name="l00082"></a>00082     <span class="comment">// always return bearing in range 0-360 degrees</span>
+<a name="l00083"></a>00083     <span class="keywordflow">return</span> (<a class="code" href="classDFLib_1_1Proj_1_1Report.html#1989e82acdf552ef23fd559c468127db">getReportBearingRadians</a>()*180.0/M_PI);
+<a name="l00084"></a>00084   }
+<a name="l00085"></a>00085 
+<a name="l00086"></a><a class="code" href="classDFLib_1_1Proj_1_1Report.html#622aaa5828e4033ba0dfc6bb978b9187">00086</a>   <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#622aaa5828e4033ba0dfc6bb978b9187">DFLib::Proj::Report::getBearingStandardDeviationRadians</a>()<span class="keyword"> const</span>
+<a name="l00087"></a>00087 <span class="keyword">  </span>{
+<a name="l00088"></a>00088     <span class="keywordflow">return</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#3ece5882274f08a1899a2ed9cac888d5">sigma</a>;
+<a name="l00089"></a>00089   }
+<a name="l00090"></a><a class="code" href="classDFLib_1_1Proj_1_1Report.html#c6137ea195bdd561aa006864b7381638">00090</a>   <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#c6137ea195bdd561aa006864b7381638">DFLib::Proj::Report::getSigma</a>()<span class="keyword"> const</span>
+<a name="l00091"></a>00091 <span class="keyword">  </span>{
+<a name="l00092"></a>00092     <span class="keywordflow">return</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#3ece5882274f08a1899a2ed9cac888d5">sigma</a>*180/M_PI;
+<a name="l00093"></a>00093   }
+<a name="l00094"></a>00094 
+<a name="l00095"></a><a class="code" href="classDFLib_1_1Proj_1_1Report.html#44eb32eeb5f08a845097e27f27529601">00095</a>   <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#44eb32eeb5f08a845097e27f27529601">DFLib::Proj::Report::setReceiverLocationUser</a>(<a class="code" href="classstd_1_1vector.html">vector&lt;double&gt;</a> &amp;theLocation)
+<a name="l00096"></a>00096   {
+<a name="l00097"></a>00097     <a class="code" href="classDFLib_1_1Proj_1_1Report.html#3eddf91761350e1c00d07b590194b807">receiverLocation</a>-&gt;<a class="code" href="classDFLib_1_1Proj_1_1Point.html#38b172390464dc1cffd6d360e35d8d08">setUserCoords</a>(theLocation);
+<a name="l00098"></a>00098   }
+<a name="l00099"></a>00099 
+<a name="l00100"></a><a class="code" href="classDFLib_1_1Proj_1_1Report.html#4a5c07a7aa4535da0f79be1443ffb02c">00100</a>   <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#4a5c07a7aa4535da0f79be1443ffb02c">DFLib::Proj::Report::setReceiverLocationMercator</a>(<a class="code" href="classstd_1_1vector.html">vector&lt;double&gt;</a> &amp;theLocation)
+<a name="l00101"></a>00101   {
+<a name="l00102"></a>00102     <a class="code" href="classDFLib_1_1Proj_1_1Report.html#3eddf91761350e1c00d07b590194b807">receiverLocation</a>-&gt;<a class="code" href="classDFLib_1_1Proj_1_1Point.html#4b69111729f316c5ddcb5b60ab0a481b">setXY</a>(theLocation);
+<a name="l00103"></a>00103   }
+<a name="l00104"></a>00104 
+<a name="l00105"></a><a class="code" href="classDFLib_1_1Proj_1_1Report.html#58f9f168b54d59f50fe6813daff33ffc">00105</a>   <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="classstd_1_1vector.html">vector&lt;double&gt;</a> &amp; <a class="code" href="classDFLib_1_1Proj_1_1Report.html#58f9f168b54d59f50fe6813daff33ffc">DFLib::Proj::Report::getReceiverLocation</a>() 
+<a name="l00106"></a>00106   { 
+<a name="l00107"></a>00107     <span class="keywordflow">return</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#3eddf91761350e1c00d07b590194b807">receiverLocation</a>-&gt;<a class="code" href="classDFLib_1_1Proj_1_1Point.html#a4e10ed14f4f1e505e992b78de20bd49">getXY</a>();
+<a name="l00108"></a>00108   }
+<a name="l00109"></a>00109 
+<a name="l00110"></a><a class="code" href="classDFLib_1_1Proj_1_1Report.html#678a18c1573b303cb8ffa67412532a6a">00110</a>   <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#678a18c1573b303cb8ffa67412532a6a">DFLib::Proj::Report::setBearing</a>(<span class="keywordtype">double</span> Bearing)
+<a name="l00111"></a>00111   {
+<a name="l00112"></a>00112     <span class="comment">// bearing *must* be in 0&lt;bearing&lt;2*pi</span>
+<a name="l00113"></a>00113     <a class="code" href="classDFLib_1_1Proj_1_1Report.html#d249cb07c182985864c335a6283bd7de">bearing</a>=Bearing*M_PI/180.0;
+<a name="l00114"></a>00114     <span class="keywordflow">while</span> (<a class="code" href="classDFLib_1_1Proj_1_1Report.html#d249cb07c182985864c335a6283bd7de">bearing</a> &lt; 0)
+<a name="l00115"></a>00115       <a class="code" href="classDFLib_1_1Proj_1_1Report.html#d249cb07c182985864c335a6283bd7de">bearing</a> += 2*M_PI;
+<a name="l00116"></a>00116   }
+<a name="l00117"></a><a class="code" href="classDFLib_1_1Proj_1_1Report.html#eeb6536e463b64d7dbbf68e9e48eebf0">00117</a>   <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classDFLib_1_1Proj_1_1Report.html#eeb6536e463b64d7dbbf68e9e48eebf0">DFLib::Proj::Report::setSigma</a>(<span class="keywordtype">double</span> Sigma)
+<a name="l00118"></a>00118   {
+<a name="l00119"></a>00119     <a class="code" href="classDFLib_1_1Proj_1_1Report.html#3ece5882274f08a1899a2ed9cac888d5">sigma</a>=Sigma*M_PI/180;
+<a name="l00120"></a>00120   }
+<a name="l00121"></a>00121 }
+<a name="l00122"></a>00122 <span class="preprocessor">#endif // DF_PROJ_REPORT_HPP</span>
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Sun Jul 8 23:30:06 2007 for DFLib by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.1 </small></address>
 </body>
