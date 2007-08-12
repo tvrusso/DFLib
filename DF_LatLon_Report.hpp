@@ -55,6 +55,8 @@ namespace DFLib
     // reset it:
     while (bearing < 0)
       bearing += 2*M_PI;
+
+    setValid();
   }        
 
   inline DFLib::LatLon::Report::~Report()

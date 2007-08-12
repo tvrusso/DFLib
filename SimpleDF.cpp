@@ -25,6 +25,7 @@ int main(int argc, char **argv)
   vector<string> WGS84_args;
   DFLib::ReportCollection rColl;
   DFLib::Proj::Report *reportPtr;
+  int validity;
 
   NAD27_args.push_back("proj=latlong");
   WGS84_args.push_back("proj=latlong");
@@ -59,6 +60,7 @@ int main(int argc, char **argv)
         bearing += 9.8;  // hard coded magnetic declination
         infile >> datum;
         infile >> sd;
+        infile >> validity;
 
         cout << "Station " << stationName << " at (" 
              << stationPos[0] << "," << stationPos[1] << ")" 
@@ -69,9 +71,13 @@ int main(int argc, char **argv)
           cout << "WGS84/NAD83" ;
         
         cout << " bearing " << bearing << " sd " << sd << endl;
+        cout << string((validity==1)?"VALID":"IGNORE") << endl;
 
         reportPtr = new DFLib::Proj::Report(stationPos,bearing,sd,stationName,
                                             (datum==0)?NAD27_args:WGS84_args);
+        if (validity == 0)
+          reportPtr->setInvalid();
+
         rColl.addReport(reportPtr);
       }
     }

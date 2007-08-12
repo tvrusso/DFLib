@@ -24,6 +24,7 @@ namespace DFLib
     {
     private:
       string ReportName_;
+      bool validReport_;
     public:
       // pure virtual functions:
       virtual  const CPL_DLL vector<double> &getReceiverLocation() = 0;
@@ -40,6 +41,14 @@ namespace DFLib
 
       ///\brief set the name of this report
       virtual void setReportName(const string &theName) { ReportName_=theName;};
+
+      ///\brief Set this report as valid
+      virtual void setValid() { validReport_=true;};
+      ///\brief Set this report as invalid
+      virtual void setInvalid() { validReport_=false;};
+
+      ///\brief check this report's validity
+      virtual bool isValid() { return validReport_; };
 
       /// \brief compute point at which the line from this report intersects that from another
       /// \param Report2 pointer to the other report
