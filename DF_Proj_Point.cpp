@@ -140,10 +140,28 @@ namespace DFLib
         user_argv[i]=new char [projArgs[i].size()+1];
         projArgs[i].copy(user_argv[i],projArgs[i].size());
       }
+
+      // before we clobber userProj, if we have already have valid userProj
+      //  already then we might also have
+      // valid data, and need to make sure our coordinates are correct in the
+      // new system:
+      if (userProj)
+      {
+        if (userDirty)
+        {
+          userToMerc(); // make sure our mercator coordinates are up-to-date
+        }
+        pj_free(userProj); // free the existing projection
+        userProj = NULL;
+      }
+
       if (!(userProj = pj_init(numUserArgs,user_argv)))
       {
         throw(Util::Exception("Failed to initialize user projection"));
       }
+      // Now, we have just changed the projection, so mark mercDirty as if
+      // we had changed the mercator coordinates ourselves.
+      mercDirty=true;
     }      
     
     const vector<double> & Point::getXY()
