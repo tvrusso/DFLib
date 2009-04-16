@@ -37,7 +37,7 @@ namespace DFLib
       virtual CPL_DLL  double getBearingStandardDeviationRadians() const = 0;
 
       ///\brief Return the name of this report
-      virtual const string &getReportName() { return ReportName_;};
+      virtual const string &getReportName() const { return ReportName_;};
 
       ///\brief set the name of this report
       virtual void setReportName(const string &theName) { ReportName_=theName;};
@@ -48,7 +48,7 @@ namespace DFLib
       virtual void setInvalid() { validReport_=false;};
 
       ///\brief check this report's validity
-      virtual bool isValid() { return validReport_; };
+      virtual bool isValid() const { return validReport_; };
 
       /// \brief compute point at which the line from this report intersects that from another
       /// \param Report2 pointer to the other report

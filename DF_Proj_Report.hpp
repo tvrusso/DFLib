@@ -76,6 +76,12 @@ namespace DFLib
      sigma(right.sigma)
   {
     receiverLocation = new Point(*(right.receiverLocation));
+    if (right.isValid())
+      setValid();
+    else
+      setInvalid();
+
+    setReportName(right.getReportName());
   }
 
   inline DFLib::Proj::Report::~Report()
