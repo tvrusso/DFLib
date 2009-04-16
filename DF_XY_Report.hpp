@@ -48,17 +48,17 @@ namespace DFLib
   inline DFLib::XY::Report::Report(const vector<double> &theLocation,
                                    const double &Bearing,const double &std_dev,
                                    const string &theName)
-    : receiverLocation(theLocation),
+    : DFLib::Abstract::Report(theName,true),
+      receiverLocation(theLocation),
       bearing(Bearing*M_PI/180.0),
       sigma(std_dev*M_PI/180.0)
   {
-    setReportName(theName);
+
     // Make sure our bearing is *always* 0<bearing<2pi.  If it isn't,
     // reset it:
     while (bearing < 0)
       bearing += 2*M_PI;
 
-    setValid();
 
   }        
 

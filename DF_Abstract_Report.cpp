@@ -13,6 +13,16 @@ using namespace std;
 
 namespace DFLib
 {
+  DFLib::Abstract::Report::Report(string n, bool v)
+    : ReportName_(n),
+      validReport_(v)
+  { }
+
+  DFLib::Abstract::Report::Report(const DFLib::Abstract::Report & right)
+    : ReportName_(right.ReportName_),
+      validReport_(right.validReport_)
+  { }
+
   void DFLib::Abstract::Report::computeFixCut(DFLib::Abstract::Report *Report2, 
                                               Point &returnPoint,
                                               double &cutAngle,

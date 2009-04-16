@@ -27,6 +27,23 @@ namespace DFLib
       bool validReport_;
     public:
       // pure virtual functions:
+
+      /// \brief virtual destructor because base classes need one
+      virtual ~Report() {};
+
+      /// \brief constructor for base Report class
+      ///
+      /// This cannot be used to create an abstract report, because this is
+      /// an abstract class.
+      Report(string n,bool v);
+
+      /// \brief copy constructor for base Report class
+      ///
+      /// This cannot be used to create an abstract report, because this is
+      /// an abstract class.
+      Report(const Report & right);
+
+      /// \brief return receiver location in double vector of XY coords
       virtual  const CPL_DLL vector<double> &getReceiverLocation() = 0;
       /// \brief return reported bearing to target
       ///

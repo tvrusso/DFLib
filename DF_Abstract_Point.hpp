@@ -26,6 +26,9 @@ namespace DFLib
     class Point
     {
     public:
+      /// \brief virtual destructor because there should always be one
+      virtual ~Point() {};
+
       /// \brief Set X-Y coordinates of the point
       ///
       /// \param aPosition a vector containing the X and Y coordinates

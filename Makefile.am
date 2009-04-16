@@ -4,6 +4,7 @@ libDFLib_a_SOURCES=DF_Abstract_Report.cpp \
                    DF_XY_Point.cpp \
                    DF_LatLon_Point.cpp \
                    DF_Proj_Point.cpp \
+                   DF_Proj_Report.cpp \
                    Util_Minimization_Methods.cpp \
                    gaussian_random.cpp
 
