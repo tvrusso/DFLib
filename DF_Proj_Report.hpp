@@ -27,11 +27,7 @@ namespace DFLib
 
 
       CPL_DLL Report(const Report & right);
-
-      // TODO: Write assignment operator.  As it is,
-      // attempting to copy or assing a report will be Very Bad as it will
-      // copy the pointer to the receiver location, which is never going to
-      // be what the user will want.
+      Report & operator=(const Report& rhs);
 
       CPL_DLL ~Report();
       virtual  const CPL_DLL  vector<double> &getReceiverLocation();

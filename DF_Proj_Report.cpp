@@ -12,7 +12,7 @@ namespace DFLib
   /// \param std_dev standard deviation in degrees
   /// \param projArgs a vector of strings to pass to pj_init in order to 
   ///        define the user coordinate system.
-    DFLib::Proj::Report::Report(const vector<double> &theLocation,
+    Report::Report(const vector<double> &theLocation,
                                 const double &Bearing,const double &std_dev,
                                 const string &theName,
                                 vector<string> &projArgs)
@@ -30,7 +30,7 @@ namespace DFLib
 
     /// \brief Copy constructor
 
-     DFLib::Proj::Report::Report(const DFLib::Proj::Report & right)
+     Report::Report(const DFLib::Proj::Report & right)
        : DFLib::Abstract::Report(right),
          bearing(right.bearing),
          sigma(right.sigma)
@@ -39,5 +39,25 @@ namespace DFLib
        // pointer to it.
        receiverLocation = new Point(*(right.receiverLocation));
      }
+
+    /// \brief assignment operator
+    Report& Report::operator=(const Report& rhs)
+    {
+      if (this == &rhs) //  do nothing if assigning to same pointer
+        return *this;
+
+      setReportName(rhs.getReportName());
+      if (rhs.isValid())
+        setValid();
+      else
+        setInvalid();
+
+      if (receiverLocation) delete receiverLocation;
+      receiverLocation = new Point(*(rhs.receiverLocation));
+      bearing=rhs.bearing;
+      sigma=rhs.sigma;
+      return *this;
+    }
+
   }
 }
