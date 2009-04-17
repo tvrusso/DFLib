@@ -26,6 +26,9 @@ namespace DFLib
       while (bearing < 0)
         bearing += 2*M_PI;
 
+      while (bearing >= 2*M_PI)
+        bearing -= 2*M_PI;
+
     }        
 
     /// \brief Copy constructor

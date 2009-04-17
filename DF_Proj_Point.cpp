@@ -13,7 +13,7 @@ namespace DFLib
   {
 
     // class Point
-    Point::Point(const vector<double> &uPosition,vector<string> &projArgs)
+    Point::Point(const vector<double> &uPosition,const vector<string> &projArgs)
       : theUserCoords(uPosition),
         userDirty(true),
         mercDirty(false)

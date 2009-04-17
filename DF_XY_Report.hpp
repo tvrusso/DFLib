@@ -54,10 +54,13 @@ namespace DFLib
       sigma(std_dev*M_PI/180.0)
   {
 
-    // Make sure our bearing is *always* 0<bearing<2pi.  If it isn't,
+    // Make sure our bearing is *always* 0<=bearing<2pi.  If it isn't,
     // reset it:
     while (bearing < 0)
       bearing += 2*M_PI;
+
+    while (bearing >= 2*M_PI)
+      bearing -= 2*M_PI;
 
 
   }        
@@ -98,10 +101,12 @@ namespace DFLib
 
   inline void DFLib::XY::Report::setBearing(double Bearing)
   {
-    // bearing *must* be in 0<bearing<2*pi
+    // bearing *must* be in 0<=bearing<2*pi
     bearing=Bearing*M_PI/180.0;
     while (bearing < 0)
       bearing += 2*M_PI;
+    while (bearing >= 2*M_PI)
+      bearing -= 2*M_PI;
   }
   inline void DFLib::XY::Report::setSigma(double Sigma)
   {

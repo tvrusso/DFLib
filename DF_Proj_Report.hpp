@@ -91,6 +91,9 @@ namespace DFLib
     bearing=Bearing*M_PI/180.0;
     while (bearing < 0)
       bearing += 2*M_PI;
+    while (bearing >= 2*M_PI)
+      bearing -= 2*M_PI;
+
   }
   inline void DFLib::Proj::Report::setSigma(double Sigma)
   {

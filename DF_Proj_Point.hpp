@@ -25,7 +25,7 @@ namespace DFLib
       /// \brief Constructor
       ///
       /// \param llPosition coordinates <em>in user's coordinates</em>
-      Point(const vector<double> &uPosition,vector<string> &projArgs);
+      Point(const vector<double> &uPosition,const vector<string> &projArgs);
 
 
       /// \brief Copy Constructor
@@ -66,7 +66,7 @@ namespace DFLib
 
       virtual void setUserCoords(const vector<double> &uPosition)  ;
 
-      Point * Clone();
+      virtual Point * Clone();
     private:
       void mercToUser();
       void userToMerc();
