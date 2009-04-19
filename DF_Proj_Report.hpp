@@ -23,7 +23,7 @@ namespace DFLib
     public:
       CPL_DLL Report(const vector<double> &theLocationUser, 
                      const double &bearing,const double &std_dev,
-                     const string &theName,vector<string>&projArgs);
+                     const string &theName,const vector<string>&projArgs);
 
 
       CPL_DLL Report(const Report & right);
