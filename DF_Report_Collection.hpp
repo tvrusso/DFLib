@@ -36,7 +36,7 @@ namespace DFLib
     ///
     ///  Never destroys the objects in its vector, as they might be getting
     ///  used for something else by caller
-    CPL_DLL ~ReportCollection();
+    virtual CPL_DLL ~ReportCollection();
 
     /// \brief destroy all reports stored in collection
     ///
@@ -47,7 +47,7 @@ namespace DFLib
     /// \brief Add a DF report to the collection
     ///
     /// \return this report's number in the collection.
-    CPL_DLL int addReport(DFLib::Abstract::Report * aReport);
+    virtual CPL_DLL int addReport(DFLib::Abstract::Report * aReport);
 
     /// \brief return the fix cut average of this collection's reports
     ///
@@ -153,7 +153,10 @@ namespace DFLib
                                                vector<vector<double> > &h);
 
     inline CPL_DLL int size() {return theReports.size();};
-    inline CPL_DLL const DFLib::Abstract::Report * const getReport(int i) 
+
+    // This version returns something the caller can never use to change
+    // a report from underneath us.
+    inline CPL_DLL const DFLib::Abstract::Report * const getReport(int i) const
     { return (theReports[i]); };
 
     inline CPL_DLL const vector<double> &getReceiverLocationXY(int i) 
