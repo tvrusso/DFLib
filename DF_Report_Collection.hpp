@@ -152,6 +152,17 @@ namespace DFLib
                                                vector<double> &gradf,
                                                vector<vector<double> > &h);
 
+    inline CPL_DLL void toggleValidity(int i)
+    {
+      if (i<theReports.size()&&i>=0)
+        theReports[i]->toggleValidity();
+    }
+
+    inline CPL_DLL bool isValid(int i) const
+    {
+      return(theReports[i]->isValid());
+    }
+
     inline CPL_DLL int size() {return theReports.size();};
 
     // This version returns something the caller can never use to change

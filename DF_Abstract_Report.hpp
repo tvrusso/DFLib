@@ -64,6 +64,8 @@ namespace DFLib
       ///\brief Set this report as invalid
       virtual void setInvalid() { validReport_=false;};
 
+      virtual void toggleValidity() { validReport_ = !validReport_;};
+
       ///\brief check this report's validity
       virtual bool isValid() const { return validReport_; };
 
