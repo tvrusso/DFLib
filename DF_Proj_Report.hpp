@@ -29,7 +29,7 @@ namespace DFLib
       CPL_DLL Report(const Report & right);
       Report & operator=(const Report& rhs);
 
-      CPL_DLL ~Report();
+      virtual CPL_DLL ~Report();
       virtual  const CPL_DLL  vector<double> &getReceiverLocation();
       virtual CPL_DLL  double getReportBearingRadians() const;
       virtual CPL_DLL  double getBearing() const;
