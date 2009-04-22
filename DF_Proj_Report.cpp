@@ -62,5 +62,11 @@ namespace DFLib
       return *this;
     }
 
+    Report::~Report()
+    {
+      if (receiverLocation)
+        delete receiverLocation;
+    }
+
   }
 }

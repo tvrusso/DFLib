@@ -44,12 +44,6 @@ namespace DFLib
     };
   }
 
-  inline DFLib::Proj::Report::~Report()
-  {
-    if (receiverLocation)
-      delete receiverLocation;
-  }
-
   inline double DFLib::Proj::Report::getReportBearingRadians() const
   {
     // bearing *must* be in 0<bearing<2*pi

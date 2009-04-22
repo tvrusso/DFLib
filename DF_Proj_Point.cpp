@@ -50,7 +50,14 @@ namespace DFLib
       // we query, because we're setting userDirty to true, just initialize
       // to junk.
       theMerc.resize(2,0.0);
-      
+
+      // Now must free the user_argv junk:
+      for (int i=0; i<numUserArgs; ++i)
+      {
+        delete [] user_argv[i];
+      }
+      delete [] user_argv;
+
     }
     
     Point::Point(const Point &right)
@@ -162,6 +169,14 @@ namespace DFLib
       // Now, we have just changed the projection, so mark mercDirty as if
       // we had changed the mercator coordinates ourselves.
       mercDirty=true;
+
+      // Now must free the user_argv junk:
+      for (int i=0; i<numUserArgs; ++i)
+      {
+        delete [] user_argv[i];
+      }
+      delete [] user_argv;
+
     }      
     
     const vector<double> & Point::getXY()

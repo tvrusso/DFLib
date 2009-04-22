@@ -13,11 +13,11 @@ namespace DFLib
   public:
     CPL_DLL ProjReportCollection();
 
-    CPL_DLL ~ProjReportCollection();
+    virtual CPL_DLL ~ProjReportCollection();
 
 
     // Override the base class one...
-    CPL_DLL int addReport(DFLib::Proj::Report * aReport);
+    virtual CPL_DLL int addReport(DFLib::Proj::Report * aReport);
 
   };
 }
