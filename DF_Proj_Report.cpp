@@ -68,5 +68,11 @@ namespace DFLib
         delete receiverLocation;
     }
 
+
+    /// \brief return a copy (yes, a COPY) of the receiver point object
+    Point Report::getReceiverPoint()
+    {
+      return (*receiverLocation);
+    }
   }
 }

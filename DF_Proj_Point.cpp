@@ -200,7 +200,7 @@ namespace DFLib
     {
       if (mercDirty)
       {
-        // our LL has been changed, so update
+        // our XY has been changed, so update
         mercToUser();
       }
       return(theUserCoords);
