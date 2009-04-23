@@ -38,7 +38,7 @@ namespace DFLib
       Point& operator=(const Point& rhs);
 
       /// \brief set user projection information
-      void setUserProj(vector<string> &projArgs);
+      void setUserProj(const vector<string> &projArgs);
 
       /// \brief set mercator projection (XY) position
       /// 

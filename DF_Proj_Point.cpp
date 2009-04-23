@@ -35,7 +35,6 @@ namespace DFLib
         // Null terminate the string!
         user_argv[i][projArgs[i].size()] = '\0';
       }
-
       if (!(userProj = pj_init(numUserArgs,user_argv)))
       {
         throw(Util::Exception("Failed to initialize user projection"));
@@ -138,7 +137,7 @@ namespace DFLib
       userDirty=false;
     }
 
-    void Point::setUserProj(vector<string> &projArgs)
+    void Point::setUserProj(const vector<string> &projArgs)
     {
       int numUserArgs = projArgs.size();
       char **user_argv = new char * [numUserArgs];
@@ -146,6 +145,8 @@ namespace DFLib
       {
         user_argv[i]=new char [projArgs[i].size()+1];
         projArgs[i].copy(user_argv[i],projArgs[i].size());
+        // Null terminate the string!
+        user_argv[i][projArgs[i].size()] = '\0';
       }
 
       // before we clobber userProj, if we have already have valid userProj

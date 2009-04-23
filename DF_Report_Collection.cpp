@@ -99,12 +99,22 @@ namespace DFLib
     {
       tempFCA[0] /= numCuts;
       tempFCA[1] /= numCuts;
-      FCA_stddev[0] /= numCuts;
-      FCA_stddev[1] /= numCuts;
-      // FCA_stddev now has <tempFCA^2>.  Now compute 
-      // sqrt((<tempFCA^2>-<tempFCA>^2)), the standard deviation
-      FCA_stddev[0] = sqrt((FCA_stddev[0]-tempFCA[0]*tempFCA[0]));
-      FCA_stddev[1] = sqrt((FCA_stddev[1]-tempFCA[1]*tempFCA[1]));
+
+      // Do not compute fix cut average standard deviation unless there's more
+      // than one cut!
+      if (numCuts > 1)
+      {
+        FCA_stddev[0] /= numCuts;
+        FCA_stddev[1] /= numCuts;
+        // FCA_stddev now has <tempFCA^2>.  Now compute 
+        // sqrt((<tempFCA^2>-<tempFCA>^2)), the standard deviation
+        FCA_stddev[0] = sqrt((FCA_stddev[0]-tempFCA[0]*tempFCA[0]));
+        FCA_stddev[1] = sqrt((FCA_stddev[1]-tempFCA[1]*tempFCA[1]));
+      }
+      else
+      {
+        FCA_stddev[0]=FCA_stddev[1]=0.0; 
+      }
       retval = true;
     }
     else
@@ -309,4 +319,44 @@ namespace DFLib
     LS_Fix.setXY(LS_point);
     LS_point = LS_Fix.getXY();
   }
+
+  int ReportCollection::numValidReports() const
+  {
+    int numVal=0;
+    for (int i=0; i < theReports.size(); i++)
+    {
+      if (theReports[i]->isValid())
+        numVal++;
+    }
+    return (numVal);
+  }
+
+  /// \brief return the index of the report that has the given name, or -1
+  ///
+  /// Stupid linear search, but should be OK for a realistic size of collection.
+  int ReportCollection::getReportIndex(const string & name) const
+  {
+    int reportIndex=-1;
+    for (int i=0; i< theReports.size(); i++) 
+    {
+      if (theReports[i]->getReportName() == name)
+        reportIndex=i;
+    }
+    return reportIndex;
+  }
+
+  /// \brief return the index of the report that has the given pointer, or -1
+  ///
+  /// Stupid linear search, but should be OK for a realistic size of collection.
+  int ReportCollection::getReportIndex(const DFLib::Abstract::Report *reportPtr) const
+  {
+    int reportIndex=-1;
+    for (int i=0; i< theReports.size(); i++) 
+    {
+      if (theReports[i] == reportPtr)
+        reportIndex=i;
+    }
+    return reportIndex;
+  }
+
 }

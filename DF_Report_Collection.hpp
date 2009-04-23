@@ -152,23 +152,36 @@ namespace DFLib
                                                vector<double> &gradf,
                                                vector<vector<double> > &h);
 
+    // Note, unlike size(), this one doesn't count reports that are marked
+    // invalid
+    CPL_DLL int numValidReports() const;
+
     inline CPL_DLL void toggleValidity(int i)
     {
       if (i<theReports.size()&&i>=0)
         theReports[i]->toggleValidity();
-    }
+    };
 
     inline CPL_DLL bool isValid(int i) const
     {
-      return(theReports[i]->isValid());
-    }
+      if (i<theReports.size() && i>=0)
+        return(theReports[i]->isValid());
+      return (false);
+    };
 
-    inline CPL_DLL int size() {return theReports.size();};
+    inline CPL_DLL int size() const {return theReports.size();};
 
     // This version returns something the caller can never use to change
     // a report from underneath us.
-    inline CPL_DLL const DFLib::Abstract::Report * const getReport(int i) const
-    { return (theReports[i]); };
+    inline CPL_DLL const DFLib::Abstract::Report * getReport(int i) const
+    { 
+      if (i<theReports.size() && i>=0)
+        return (theReports[i]); 
+      return (0);
+    };
+
+    CPL_DLL int getReportIndex(const string &name) const;
+    CPL_DLL int getReportIndex(const DFLib::Abstract::Report *reportPtr) const;
 
     inline CPL_DLL const vector<double> &getReceiverLocationXY(int i) 
     { return (theReports[i]->getReceiverLocation()); };
@@ -179,7 +192,7 @@ namespace DFLib
       f_is_valid=false;
       g_is_valid=false;
       h_is_valid=false;
-    }
+    };
 
     /// \return function value
     inline virtual CPL_DLL double getFunctionValue()
@@ -190,7 +203,7 @@ namespace DFLib
         f_is_valid=true;
       }
       return function_value;
-    }
+    };
 
     /// \param g gradient returned
     /// \return function value
@@ -205,7 +218,7 @@ namespace DFLib
       }
       g=gradient;
       return function_value;
-    }
+    };
 
     /// \param g gradient returned
     /// \param h hessian returned
@@ -226,7 +239,7 @@ namespace DFLib
       g=gradient;
       h=hessian;
       return function_value;
-    }
+    };
   };
 }
 #endif // DF_REPORT_COLLECTION_HPP

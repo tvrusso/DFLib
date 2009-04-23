@@ -31,7 +31,7 @@ namespace DFLib
 
       virtual CPL_DLL ~Report();
       virtual  const CPL_DLL  vector<double> &getReceiverLocation();
-      virtual Point getReceiverPoint();
+      virtual Point getReceiverPoint() const;
       virtual CPL_DLL  double getReportBearingRadians() const;
       virtual CPL_DLL  double getBearing() const;
       virtual CPL_DLL  double getBearingStandardDeviationRadians() const;

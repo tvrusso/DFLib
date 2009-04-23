@@ -70,7 +70,7 @@ namespace DFLib
 
 
     /// \brief return a copy (yes, a COPY) of the receiver point object
-    Point Report::getReceiverPoint()
+    Point Report::getReceiverPoint() const
     {
       return (*receiverLocation);
     }
