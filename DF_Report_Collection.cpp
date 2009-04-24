@@ -34,6 +34,7 @@ namespace DFLib
       delete *iterReport;
       ++iterReport;
     }
+    theReports.clear();
   }
 
   int ReportCollection::addReport(DFLib::Abstract::Report *aReport)

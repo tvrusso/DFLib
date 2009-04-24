@@ -22,7 +22,7 @@ namespace DFLib
       // live in the base class, not each object.  Fix that.
       
       char *mercator_argv[3]={"proj=merc",
-                              "ellps=WGS84",
+                              "datum=WGS84",
                               "lat_ts=0"};
 
       int numUserArgs = projArgs.size();

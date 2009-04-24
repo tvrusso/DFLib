@@ -42,7 +42,7 @@ namespace DFLib
     ///
     /// Provided in case our caller does NOT need the stored pointers for
     /// something else, and doesn't want to keep track of them.
-    CPL_DLL void deleteReports();
+    virtual CPL_DLL void deleteReports();
 
     /// \brief Add a DF report to the collection
     ///
@@ -156,7 +156,7 @@ namespace DFLib
     // invalid
     CPL_DLL int numValidReports() const;
 
-    inline CPL_DLL void toggleValidity(int i)
+    inline virtual CPL_DLL void toggleValidity(int i)
     {
       if (i<theReports.size()&&i>=0)
         theReports[i]->toggleValidity();
