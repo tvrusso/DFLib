@@ -180,6 +180,11 @@ namespace DFLib
 
     }      
     
+    bool Point::isUserProjLatLong() const
+    {
+      return (pj_is_latlong(userProj));
+    }
+    
     const vector<double> & Point::getXY()
     {
       if (userDirty)

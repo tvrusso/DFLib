@@ -40,6 +40,9 @@ namespace DFLib
       /// \brief set user projection information
       void setUserProj(const vector<string> &projArgs);
 
+      // \brief return true if user projection is a lat/lon system
+      bool isUserProjLatLong() const;
+
       /// \brief set mercator projection (XY) position
       /// 
       /// \param aPosition coordinates in mercator projection
