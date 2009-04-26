@@ -1,3 +1,2 @@
-base referer
-rect $classDFLib_1_1Proj_1_1Point.html#a4e10ed14f4f1e505e992b78de20bd49 348,5 532,32
-rect $classDFLib_1_1Proj_1_1Point.html#8a57c7fa0776c5e5cc077fcd87e3fd79 581,5 803,32
+<area shape="rect" id="node3" href="$classDFLib_1_1Proj_1_1Point.html#a4e10ed14f4f1e505e992b78de20bd49" title="get mercator projection (XY) position" alt="" coords="320,5,491,33">
+<area shape="rect" id="node5" href="$classDFLib_1_1Proj_1_1Point.html#8a57c7fa0776c5e5cc077fcd87e3fd79" title="DFLib::Proj::Point::userToMerc" alt="" coords="540,5,745,33">

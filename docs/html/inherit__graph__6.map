@@ -1,2 +1,1 @@
-base referer
-rect $classDFReportInterface.html 7,5 151,32
+<area shape="rect" id="node1" href="$classDFReportInterface.html" title="Abstract interface for DFReport. This is the base class for DF report classes." alt="" coords="7,5,137,33">

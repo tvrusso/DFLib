@@ -1,3 +1,2 @@
-base referer
-rect $nonoise_8cpp.html 340,5 575,32
-rect $testlsDFfix_8cpp.html 332,56 583,83
+<area shape="rect" id="node3" href="$nonoise_8cpp.html" title="/users/russo/DFLib/nonoise.cpp" alt="" coords="5,83,216,111">
+<area shape="rect" id="node5" href="$testlsDFfix_8cpp.html" title="/users/russo/DFLib/testlsDFfix.cpp" alt="" coords="240,83,467,111">

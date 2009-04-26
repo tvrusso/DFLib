@@ -1,5 +1,4 @@
-base referer
-rect $classDFLib_1_1XY_1_1Point.html#bcb43d37e05e20a04fa885470f8bd91e 111,5 284,32
-rect $classDFLib_1_1XY_1_1Point.html#9df2f6c34508bccf75b0e48b0210fad2 109,56 285,83
-rect $classDFLib_1_1XY_1_1Point.html#a05f51f8ab8b0a92b80345833f68fa58 111,107 284,133
-rect $classDFLib_1_1XY_1_1Point.html#20483d508aae19c86c1db8373557bb27 335,5 503,32
+<area shape="rect" id="node3" href="$classDFLib_1_1XY_1_1Point.html#bcb43d37e05e20a04fa885470f8bd91e" title="Clone Self." alt="" coords="105,5,268,33">
+<area shape="rect" id="node7" href="$classDFLib_1_1XY_1_1Point.html#9df2f6c34508bccf75b0e48b0210fad2" title="Set X&#45;Y position." alt="" coords="104,55,269,83">
+<area shape="rect" id="node9" href="$classDFLib_1_1XY_1_1Point.html#a05f51f8ab8b0a92b80345833f68fa58" title="Set position from X&#45;Y." alt="" coords="104,106,269,134">
+<area shape="rect" id="node5" href="$classDFLib_1_1XY_1_1Point.html#20483d508aae19c86c1db8373557bb27" title="Default." alt="" coords="317,5,477,33">

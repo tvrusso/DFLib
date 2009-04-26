@@ -1,3 +1,2 @@
-base referer
-rect $classDFLib_1_1Abstract_1_1Point.html#3fdd1fbfecb806f64b7315e507f05c12 411,5 627,32
-rect $classDFLib_1_1Abstract_1_1Point.html#bb3e5afd43b7d869953db4a8c858e311 412,56 625,83
+<area shape="rect" id="node3" href="$classDFLib_1_1Abstract_1_1Point.html#3fdd1fbfecb806f64b7315e507f05c12" title="Get X&#45;Y coordinates of the point." alt="" coords="376,5,573,33">
+<area shape="rect" id="node5" href="$classDFLib_1_1Abstract_1_1Point.html#bb3e5afd43b7d869953db4a8c858e311" title="Set X&#45;Y coordinates of the point." alt="" coords="377,55,572,83">

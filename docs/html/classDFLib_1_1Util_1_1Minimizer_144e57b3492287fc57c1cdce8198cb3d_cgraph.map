@@ -1,5 +1,7 @@
-base referer
-rect $classDFLib_1_1Util_1_1Minimizer.html#276ee473f3c9d3dfe847b6b845d60166 299,5 587,32
-rect $classDFLib_1_1Util_1_1Minimizer.html#82856e030143b0dc75733fac6e0bdc99 308,56 577,83
-rect $classDFLib_1_1Util_1_1Minimizer.html#93cf5064966c0a606c44c7ed355482e9 665,5 892,32
-rect $classDFLib_1_1Util_1_1Minimizer.html#ab64f9b5f80364ad4d8249e6a5597bcc 635,56 923,83
+<area shape="rect" id="node3" href="$classDFLib_1_1Util_1_1Minimizer.html#276ee473f3c9d3dfe847b6b845d60166" title="bracket minimum of function" alt="" coords="276,30,529,58">
+<area shape="rect" id="node11" href="$classDFLib_1_1Util_1_1Minimizer.html#82856e030143b0dc75733fac6e0bdc99" title="minimize by Brent&#39;s method with derivatives given a,b,c scalars that bracket..." alt="" coords="283,81,523,109">
+<area shape="rect" id="node5" href="$classDFLib_1_1Util_1_1Minimizer.html#93cf5064966c0a606c44c7ed355482e9" title="Evaluate &#160;where x0 and dir are vectors." alt="" coords="607,30,809,58">
+<area shape="rect" id="node7" href="$classDFLib_1_1Abstract_1_1Group.html#2c8ebe70f8be3e5a294878f758ae5a4c" title="DFLib::Abstract::Group::getFunctionValue" alt="" coords="924,5,1193,33">
+<area shape="rect" id="node9" href="$classDFLib_1_1Abstract_1_1Group.html#e1b37ce48201d20e55348c3266c7a520" title="Set the point at which to evaluate the function." alt="" coords="920,55,1197,83">
+<area shape="rect" id="node13" href="$classDFLib_1_1Util_1_1Minimizer.html#ab64f9b5f80364ad4d8249e6a5597bcc" title="DFLib::Util::Minimizer::simpleFandDeriv" alt="" coords="580,81,836,109">
+<area shape="rect" id="node15" href="$classDFLib_1_1Abstract_1_1Group.html#274b5db49d280d9c79eba491da855821" title="DFLib::Abstract::Group::getFunctionValueAndGradient" alt="" coords="887,106,1231,134">

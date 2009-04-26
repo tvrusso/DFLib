@@ -1,3 +1,2 @@
-base referer
-rect $classDFLib_1_1LatLon_1_1Point.html#8c51fadc0429ecbfadac33fae5baea34 320,5 523,32
-rect $classDFLib_1_1LatLon_1_1Point.html#c02df8fb329a1c3773b8b192077d51e6 572,5 799,32
+<area shape="rect" id="node3" href="$classDFLib_1_1LatLon_1_1Point.html#8c51fadc0429ecbfadac33fae5baea34" title="get Lat/Lon position" alt="" coords="297,5,481,33">
+<area shape="rect" id="node5" href="$classDFLib_1_1LatLon_1_1Point.html#c02df8fb329a1c3773b8b192077d51e6" title="DFLib::LatLon::Point::mercToLL" alt="" coords="532,5,743,33">

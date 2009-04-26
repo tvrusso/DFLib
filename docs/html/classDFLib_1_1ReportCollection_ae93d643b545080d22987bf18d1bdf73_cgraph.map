@@ -1,5 +1,4 @@
-base referer
-rect $classDFLib_1_1Abstract_1_1Point.html#d21d8288fcacc615451b632be60dccbf 432,5 645,32
-rect $classDFLib_1_1Abstract_1_1Point.html#76f5e11f829509129f05b0c8f4240f71 401,56 676,83
-rect $classDFLib_1_1Abstract_1_1Point.html#c24019510945a7f2683279938ab58a6a 401,107 676,133
-rect $classDFLib_1_1Abstract_1_1Point.html#bb3e5afd43b7d869953db4a8c858e311 432,157 645,184
+<area shape="rect" id="node3" href="$classDFLib_1_1Abstract_1_1Point.html#d21d8288fcacc615451b632be60dccbf" title="Clone Self." alt="" coords="393,5,588,33">
+<area shape="rect" id="node5" href="$classDFLib_1_1Abstract_1_1Point.html#76f5e11f829509129f05b0c8f4240f71" title="Get coordinates in the user&#39;s coordinate system." alt="" coords="365,55,616,83">
+<area shape="rect" id="node7" href="$classDFLib_1_1Abstract_1_1Point.html#c24019510945a7f2683279938ab58a6a" title="Set coordinates in the user&#39;s coordinate system." alt="" coords="367,106,615,134">
+<area shape="rect" id="node9" href="$classDFLib_1_1Abstract_1_1Point.html#bb3e5afd43b7d869953db4a8c858e311" title="Set X&#45;Y coordinates of the point." alt="" coords="393,157,588,185">

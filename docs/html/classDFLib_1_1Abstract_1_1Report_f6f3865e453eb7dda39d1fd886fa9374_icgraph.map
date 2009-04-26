@@ -1,5 +1,4 @@
-base referer
-rect $classDFLib_1_1Abstract_1_1Report.html#1055d2754b4c3f5229a0f032acf1d93b 380,5 727,32
-rect $classDFLib_1_1Abstract_1_1Report.html#983bcbd2bc6fa9bab2b1081d759ca2b2 409,56 697,83
-rect $nonoise_8cpp.html#3c04138a5bfe5d72780bb7e82a18e627 525,107 581,133
-rect $testlsDF__ll_8cpp.html#3c04138a5bfe5d72780bb7e82a18e627 776,5 832,32
+<area shape="rect" id="node3" href="$classDFLib_1_1Abstract_1_1Report.html#1055d2754b4c3f5229a0f032acf1d93b" title="compute bearing from this reporting location to some other point" alt="" coords="345,5,657,33">
+<area shape="rect" id="node7" href="$classDFLib_1_1Abstract_1_1Report.html#983bcbd2bc6fa9bab2b1081d759ca2b2" title="compute point at which the line from this report intersects that from another" alt="" coords="372,55,631,83">
+<area shape="rect" id="node9" href="$nonoise_8cpp.html#3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="476,106,527,134">
+<area shape="rect" id="node5" href="$testlsDF__ll_8cpp.html#3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="707,5,757,33">

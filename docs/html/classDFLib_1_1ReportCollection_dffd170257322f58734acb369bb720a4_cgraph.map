@@ -1,4 +1,11 @@
-base referer
-rect $classDFLib_1_1Util_1_1Minimizer.html#a3937c0251c1becacd2d938b51f46c79 343,5 703,32
-rect $classDFLib_1_1Abstract_1_1Point.html#3fdd1fbfecb806f64b7315e507f05c12 415,56 631,83
-rect $classDFLib_1_1Abstract_1_1Point.html#bb3e5afd43b7d869953db4a8c858e311 416,107 629,133
+<area shape="rect" id="node3" href="$classDFLib_1_1Util_1_1Minimizer.html#a3937c0251c1becacd2d938b51f46c79" title="minimize function of vector value by method of conjugate gradients" alt="" coords="313,30,631,58">
+<area shape="rect" id="node24" href="$classDFLib_1_1Abstract_1_1Point.html#3fdd1fbfecb806f64b7315e507f05c12" title="Get X&#45;Y coordinates of the point." alt="" coords="373,81,571,109">
+<area shape="rect" id="node26" href="$classDFLib_1_1Abstract_1_1Point.html#bb3e5afd43b7d869953db4a8c858e311" title="Set X&#45;Y coordinates of the point." alt="" coords="375,131,569,159">
+<area shape="rect" id="node5" href="$classDFLib_1_1Abstract_1_1Group.html#274b5db49d280d9c79eba491da855821" title="DFLib::Abstract::Group::getFunctionValueAndGradient" alt="" coords="1561,5,1905,33">
+<area shape="rect" id="node7" href="$classDFLib_1_1Util_1_1Minimizer.html#144e57b3492287fc57c1cdce8198cb3d" title="minimize function in given direction perform a line search along the given direction..." alt="" coords="681,81,900,109">
+<area shape="rect" id="node15" href="$classDFLib_1_1Abstract_1_1Group.html#e1b37ce48201d20e55348c3266c7a520" title="Set the point at which to evaluate the function." alt="" coords="1595,81,1872,109">
+<area shape="rect" id="node9" href="$classDFLib_1_1Util_1_1Minimizer.html#276ee473f3c9d3dfe847b6b845d60166" title="bracket minimum of function" alt="" coords="951,131,1204,159">
+<area shape="rect" id="node17" href="$classDFLib_1_1Util_1_1Minimizer.html#82856e030143b0dc75733fac6e0bdc99" title="minimize by Brent&#39;s method with derivatives given a,b,c scalars that bracket..." alt="" coords="957,81,1197,109">
+<area shape="rect" id="node11" href="$classDFLib_1_1Util_1_1Minimizer.html#93cf5064966c0a606c44c7ed355482e9" title="Evaluate &#160;where x0 and dir are vectors." alt="" coords="1281,131,1484,159">
+<area shape="rect" id="node13" href="$classDFLib_1_1Abstract_1_1Group.html#2c8ebe70f8be3e5a294878f758ae5a4c" title="DFLib::Abstract::Group::getFunctionValue" alt="" coords="1599,131,1868,159">
+<area shape="rect" id="node19" href="$classDFLib_1_1Util_1_1Minimizer.html#ab64f9b5f80364ad4d8249e6a5597bcc" title="DFLib::Util::Minimizer::simpleFandDeriv" alt="" coords="1255,81,1511,109">

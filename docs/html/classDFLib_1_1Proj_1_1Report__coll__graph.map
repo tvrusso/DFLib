@@ -1,5 +1,4 @@
-base referer
-rect $classDFLib_1_1Abstract_1_1Report.html 5,112 184,139
-rect $classDFLib_1_1Proj_1_1Point.html 208,112 344,139
-rect $classDFLib_1_1Abstract_1_1Point.html 95,5 263,32
-rect $classstd_1_1vector.html 287,5 457,32
+<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Report.html" title="DFLib::Abstract::Report" alt="" coords="5,115,168,143">
+<area shape="rect" id="node4" href="$classDFLib_1_1Proj_1_1Point.html" title="DFLib::Proj::Point" alt="" coords="192,115,317,143">
+<area shape="rect" id="node6" href="$classDFLib_1_1Abstract_1_1Point.html" title="Abstract base class for generic &quot;point&quot; objects." alt="" coords="92,6,244,34">
+<area shape="rect" id="node8" href="$classstd_1_1vector.html" title="std::vector\&lt; double \&gt;" alt="" coords="268,6,415,34">

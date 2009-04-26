@@ -1,9 +1,8 @@
-base referer
-rect $classDFLib_1_1Proj_1_1Point.html#924b68869eb9de9ac5e5c5c227017313 140,5 324,32
-rect $classDFLib_1_1Util_1_1Exception.html#e84f2a9ba0a0d187b55d25622b405299 115,56 349,83
-rect $classDFLib_1_1Proj_1_1Point.html#58e96f4fb00640ec762c709df6e0f573 109,107 355,133
-rect $classDFLib_1_1Proj_1_1Point.html#a4e10ed14f4f1e505e992b78de20bd49 140,157 324,184
-rect $classDFLib_1_1Proj_1_1Point.html#4b69111729f316c5ddcb5b60ab0a481b 140,208 324,235
-rect $classDFLib_1_1Proj_1_1Point.html#d1fb3c7d8f5ddabce7a99e496315f2f7 425,5 604,32
-rect $classDFLib_1_1Proj_1_1Point.html#50d73db1c4ff9d4037e4cc3ce276b433 403,107 627,133
-rect $classDFLib_1_1Proj_1_1Point.html#8a57c7fa0776c5e5cc077fcd87e3fd79 404,157 625,184
+<area shape="rect" id="node3" href="$classDFLib_1_1Proj_1_1Point.html#924b68869eb9de9ac5e5c5c227017313" title="Clone Self." alt="" coords="132,5,300,33">
+<area shape="rect" id="node7" href="$classDFLib_1_1Util_1_1Exception.html#faf6a544ed7df1231a6b0ae0c0025d35" title="DFLib::Util::Exception::getEmsg" alt="" coords="111,55,321,83">
+<area shape="rect" id="node9" href="$classDFLib_1_1Proj_1_1Point.html#58e96f4fb00640ec762c709df6e0f573" title="get user position" alt="" coords="104,106,328,134">
+<area shape="rect" id="node13" href="$classDFLib_1_1Proj_1_1Point.html#a4e10ed14f4f1e505e992b78de20bd49" title="get mercator projection (XY) position" alt="" coords="131,157,301,185">
+<area shape="rect" id="node17" href="$classDFLib_1_1Proj_1_1Point.html#4b69111729f316c5ddcb5b60ab0a481b" title="set mercator projection (XY) position" alt="" coords="131,207,301,235">
+<area shape="rect" id="node5" href="$classDFLib_1_1Proj_1_1Point.html#b059612db8d9a543872957a4d7676bf5" title="Constructor." alt="" coords="397,5,563,33">
+<area shape="rect" id="node11" href="$classDFLib_1_1Proj_1_1Point.html#50d73db1c4ff9d4037e4cc3ce276b433" title="DFLib::Proj::Point::mercToUser" alt="" coords="376,106,584,134">
+<area shape="rect" id="node15" href="$classDFLib_1_1Proj_1_1Point.html#8a57c7fa0776c5e5cc077fcd87e3fd79" title="DFLib::Proj::Point::userToMerc" alt="" coords="377,157,583,185">

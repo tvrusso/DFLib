@@ -1,28 +1,33 @@
-base referer
-rect $classDFLib_1_1ReportCollection.html#e9f1b6bf5605ae826957c6dcdd4a18ea 171,81 429,108
-rect $classDFLib_1_1Abstract_1_1Report.html#1055d2754b4c3f5229a0f032acf1d93b 127,132 473,159
-rect $classDFLib_1_1ReportCollection.html#ae93d643b545080d22987bf18d1bdf73 127,183 473,209
-rect $classDFLib_1_1ReportCollection.html#4f37e88da4347af97dfdc2f7ac63f6f1 121,259 479,285
-rect $classDFLib_1_1Util_1_1Minimizer.html#a3937c0251c1becacd2d938b51f46c79 120,309 480,336
-rect $classDFLib_1_1Util_1_1Exception.html#e84f2a9ba0a0d187b55d25622b405299 183,360 417,387
-rect $classDFLib_1_1Util_1_1gaussian__random__generator.html#010d5efcf21cd1a326d2c47a5f7d3e4a 111,411 489,437
-rect $classDFLib_1_1ReportCollection.html#d90d7576d2c52e7f84071978b4f10380 128,461 472,488
-rect $classDFLib_1_1ReportCollection.html#10c30598061cc3f92d8a15bad9438f46 172,512 428,539
-rect $classDFLib_1_1Abstract_1_1Report.html#018369c51468a0f9e844801b68065d91 120,563 480,589
-rect $classDFLib_1_1LatLon_1_1Point.html#9753b57b8bd55b66660b9deed97375d8 168,613 432,640
-rect $classDFLib_1_1LatLon_1_1Point.html#d446f0c0f00290acacc06be63f5962fa 197,664 403,691
-rect $classDFLib_1_1LatLon_1_1Report.html#d7d3799e03054f83cab7e2e457997044 176,715 424,741
-rect $classDFLib_1_1LatLon_1_1Point.html#b0f9644457e3fe70d82062d599c0c99a 199,765 401,792
-rect $classDFLib_1_1ReportCollection.html#6d75bb3e05bb4cbdcb59289b33c6c79c 192,816 408,843
-rect $classDFLib_1_1Abstract_1_1Report.html#f6f3865e453eb7dda39d1fd886fa9374 581,5 907,32
-rect $classDFLib_1_1Abstract_1_1Point.html#d21d8288fcacc615451b632be60dccbf 637,56 851,83
-rect $classDFLib_1_1Abstract_1_1Point.html#76f5e11f829509129f05b0c8f4240f71 607,107 881,133
-rect $classDFLib_1_1Abstract_1_1Point.html#c24019510945a7f2683279938ab58a6a 607,157 881,184
-rect $classDFLib_1_1Abstract_1_1Point.html#bb3e5afd43b7d869953db4a8c858e311 637,208 851,235
-rect $classDFLib_1_1Abstract_1_1Point.html#3fdd1fbfecb806f64b7315e507f05c12 636,259 852,285
-rect $classDFLib_1_1Abstract_1_1Group.html#274b5db49d280d9c79eba491da855821 551,309 937,336
-rect $classDFLib_1_1Util_1_1Minimizer.html#144e57b3492287fc57c1cdce8198cb3d 621,360 867,387
-rect $classDFLib_1_1Abstract_1_1Group.html#e1b37ce48201d20e55348c3266c7a520 589,411 899,437
-rect $classDFLib_1_1Util_1_1gaussian__random__generator.html#55dc337e95f1532aa5c100fc7e4c8ab1 539,461 949,488
-rect $classDFLib_1_1LatLon_1_1Point.html#8c51fadc0429ecbfadac33fae5baea34 643,613 845,640
-rect $classDFLib_1_1LatLon_1_1Point.html#ff611575c4201216580c0324b76fd199 635,664 853,691
+<area shape="rect" id="node3" href="$classDFLib_1_1ReportCollection.html#e9f1b6bf5605ae826957c6dcdd4a18ea" title="Add a DF report to the collection." alt="" coords="157,81,389,109">
+<area shape="rect" id="node5" href="$classDFLib_1_1Abstract_1_1Report.html#1055d2754b4c3f5229a0f032acf1d93b" title="compute bearing from this reporting location to some other point" alt="" coords="117,131,429,159">
+<area shape="rect" id="node9" href="$classDFLib_1_1ReportCollection.html#ae93d643b545080d22987bf18d1bdf73" title="return the fix cut average of this collection&#39;s reports" alt="" coords="119,182,428,210">
+<area shape="rect" id="node19" href="$classDFLib_1_1ReportCollection.html#4f37e88da4347af97dfdc2f7ac63f6f1" title="Computes least squares solution of DF problem." alt="" coords="112,258,435,286">
+<area shape="rect" id="node24" href="$classDFLib_1_1Util_1_1Minimizer.html#a3937c0251c1becacd2d938b51f46c79" title="minimize function of vector value by method of conjugate gradients" alt="" coords="115,309,432,337">
+<area shape="rect" id="node45" href="$classDFLib_1_1Util_1_1Exception.html#faf6a544ed7df1231a6b0ae0c0025d35" title="DFLib::Util::Exception::getEmsg" alt="" coords="168,359,379,387">
+<area shape="rect" id="node47" href="$classDFLib_1_1Util_1_1gaussian__random__generator.html#010d5efcf21cd1a326d2c47a5f7d3e4a" title="DFLib::Util::gaussian_random_generator::getRandom" alt="" coords="104,410,443,438">
+<area shape="rect" id="node51" href="$classDFLib_1_1ReportCollection.html#d90d7576d2c52e7f84071978b4f10380" title="DFLib::ReportCollection::getReceiverLocationXY" alt="" coords="119,461,428,489">
+<area shape="rect" id="node53" href="$classDFLib_1_1ReportCollection.html#4e7aacf1479146a8cf48cf93e202cb75" title="DFLib::ReportCollection::getReport" alt="" coords="159,511,388,539">
+<area shape="rect" id="node55" href="$classDFLib_1_1Abstract_1_1Report.html#cc2089332c7158320bfa5a8f8a22a996" title="return reported bearing to target" alt="" coords="112,562,435,590">
+<area shape="rect" id="node57" href="$classDFLib_1_1LatLon_1_1Point.html#9753b57b8bd55b66660b9deed97375d8" title="get user position" alt="" coords="153,613,393,641">
+<area shape="rect" id="node63" href="$classDFLib_1_1LatLon_1_1Point.html#d446f0c0f00290acacc06be63f5962fa" title="get mercator projection (XY) position" alt="" coords="180,663,367,691">
+<area shape="rect" id="node67" href="$classDFLib_1_1LatLon_1_1Report.html#d7d3799e03054f83cab7e2e457997044" title="set bearing in degrees" alt="" coords="161,714,385,742">
+<area shape="rect" id="node69" href="$classDFLib_1_1LatLon_1_1Point.html#b0f9644457e3fe70d82062d599c0c99a" title="set mercator projection (XY) position" alt="" coords="180,765,367,793">
+<area shape="rect" id="node71" href="$classDFLib_1_1ReportCollection.html#7d80a2c85010f0561c417b89c1bf3864" title="DFLib::ReportCollection::size" alt="" coords="176,815,371,843">
+<area shape="rect" id="node7" href="$classDFLib_1_1Abstract_1_1Report.html#f6f3865e453eb7dda39d1fd886fa9374" title="return receiver location in double vector of XY coords" alt="" coords="528,5,819,33">
+<area shape="rect" id="node11" href="$classDFLib_1_1Abstract_1_1Point.html#d21d8288fcacc615451b632be60dccbf" title="Clone Self." alt="" coords="576,55,771,83">
+<area shape="rect" id="node13" href="$classDFLib_1_1Abstract_1_1Point.html#76f5e11f829509129f05b0c8f4240f71" title="Get coordinates in the user&#39;s coordinate system." alt="" coords="548,106,799,134">
+<area shape="rect" id="node15" href="$classDFLib_1_1Abstract_1_1Point.html#c24019510945a7f2683279938ab58a6a" title="Set coordinates in the user&#39;s coordinate system." alt="" coords="549,157,797,185">
+<area shape="rect" id="node17" href="$classDFLib_1_1Abstract_1_1Point.html#bb3e5afd43b7d869953db4a8c858e311" title="Set X&#45;Y coordinates of the point." alt="" coords="576,207,771,235">
+<area shape="rect" id="node21" href="$classDFLib_1_1Abstract_1_1Point.html#3fdd1fbfecb806f64b7315e507f05c12" title="Get X&#45;Y coordinates of the point." alt="" coords="575,258,772,286">
+<area shape="rect" id="node26" href="$classDFLib_1_1Abstract_1_1Group.html#274b5db49d280d9c79eba491da855821" title="DFLib::Abstract::Group::getFunctionValueAndGradient" alt="" coords="1516,322,1860,350">
+<area shape="rect" id="node28" href="$classDFLib_1_1Util_1_1Minimizer.html#144e57b3492287fc57c1cdce8198cb3d" title="minimize function in given direction perform a line search along the given direction..." alt="" coords="564,359,783,387">
+<area shape="rect" id="node36" href="$classDFLib_1_1Abstract_1_1Group.html#e1b37ce48201d20e55348c3266c7a520" title="Set the point at which to evaluate the function." alt="" coords="1549,398,1827,426">
+<area shape="rect" id="node30" href="$classDFLib_1_1Util_1_1Minimizer.html#276ee473f3c9d3dfe847b6b845d60166" title="bracket minimum of function" alt="" coords="905,410,1159,438">
+<area shape="rect" id="node38" href="$classDFLib_1_1Util_1_1Minimizer.html#82856e030143b0dc75733fac6e0bdc99" title="minimize by Brent&#39;s method with derivatives given a,b,c scalars that bracket..." alt="" coords="912,359,1152,387">
+<area shape="rect" id="node32" href="$classDFLib_1_1Util_1_1Minimizer.html#93cf5064966c0a606c44c7ed355482e9" title="Evaluate &#160;where x0 and dir are vectors." alt="" coords="1236,410,1439,438">
+<area shape="rect" id="node34" href="$classDFLib_1_1Abstract_1_1Group.html#2c8ebe70f8be3e5a294878f758ae5a4c" title="DFLib::Abstract::Group::getFunctionValue" alt="" coords="1553,449,1823,477">
+<area shape="rect" id="node40" href="$classDFLib_1_1Util_1_1Minimizer.html#ab64f9b5f80364ad4d8249e6a5597bcc" title="DFLib::Util::Minimizer::simpleFandDeriv" alt="" coords="1209,359,1465,387">
+<area shape="rect" id="node49" href="$classDFLib_1_1Util_1_1gaussian__random__generator.html#55dc337e95f1532aa5c100fc7e4c8ab1" title="return double precision uniform deviates." alt="" coords="492,511,855,539">
+<area shape="rect" id="node59" href="$classDFLib_1_1LatLon_1_1Point.html#8c51fadc0429ecbfadac33fae5baea34" title="get Lat/Lon position" alt="" coords="581,613,765,641">
+<area shape="rect" id="node61" href="$classDFLib_1_1LatLon_1_1Point.html#c02df8fb329a1c3773b8b192077d51e6" title="DFLib::LatLon::Point::mercToLL" alt="" coords="927,613,1137,641">
+<area shape="rect" id="node65" href="$classDFLib_1_1LatLon_1_1Point.html#ff611575c4201216580c0324b76fd199" title="DFLib::LatLon::Point::llToMerc" alt="" coords="572,663,775,691">

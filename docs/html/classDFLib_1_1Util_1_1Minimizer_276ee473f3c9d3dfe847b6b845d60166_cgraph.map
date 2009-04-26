@@ -1,4 +1,3 @@
-base referer
-rect $classDFLib_1_1Util_1_1Minimizer.html#93cf5064966c0a606c44c7ed355482e9 341,31 568,57
-rect $classDFLib_1_1Abstract_1_1Group.html#2c8ebe70f8be3e5a294878f758ae5a4c 621,5 923,32
-rect $classDFLib_1_1Abstract_1_1Group.html#e1b37ce48201d20e55348c3266c7a520 617,56 927,83
+<area shape="rect" id="node3" href="$classDFLib_1_1Util_1_1Minimizer.html#93cf5064966c0a606c44c7ed355482e9" title="Evaluate &#160;where x0 and dir are vectors." alt="" coords="311,30,513,58">
+<area shape="rect" id="node5" href="$classDFLib_1_1Abstract_1_1Group.html#2c8ebe70f8be3e5a294878f758ae5a4c" title="DFLib::Abstract::Group::getFunctionValue" alt="" coords="567,5,836,33">
+<area shape="rect" id="node7" href="$classDFLib_1_1Abstract_1_1Group.html#e1b37ce48201d20e55348c3266c7a520" title="Set the point at which to evaluate the function." alt="" coords="563,55,840,83">

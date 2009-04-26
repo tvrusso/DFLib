@@ -1,4 +1,4 @@
-base referer
-rect $classDFLib_1_1Proj_1_1Point.html#a4e10ed14f4f1e505e992b78de20bd49 276,31 460,57
-rect $classDFLib_1_1Proj_1_1Report.html#58f9f168b54d59f50fe6813daff33ffc 509,5 803,32
-rect $ProjUnitTests_8cpp.html#5ea466849f21e6c2be4ef9b2eb8868d3 628,56 684,83
+<area shape="rect" id="node3" href="$classDFLib_1_1Proj_1_1Point.html#a4e10ed14f4f1e505e992b78de20bd49" title="get mercator projection (XY) position" alt="" coords="279,30,449,58">
+<area shape="rect" id="node9" href="$classDFLib_1_1Proj_1_1Point.html#c7849475a8ec229b5d4672420e4c036f" title="set user projection information" alt="" coords="263,81,465,109">
+<area shape="rect" id="node5" href="$classDFLib_1_1Proj_1_1Report.html#58f9f168b54d59f50fe6813daff33ffc" title="return receiver location in double vector of XY coords" alt="" coords="516,5,780,33">
+<area shape="rect" id="node7" href="$ProjUnitTests_8cpp.html#5ea466849f21e6c2be4ef9b2eb8868d3" title="main" alt="" coords="623,55,673,83">

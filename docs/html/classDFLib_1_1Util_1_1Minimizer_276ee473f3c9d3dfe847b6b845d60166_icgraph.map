@@ -1,3 +1,5 @@
-base referer
-rect $classDFLib_1_1Util_1_1Minimizer.html#144e57b3492287fc57c1cdce8198cb3d 341,5 587,32
-rect $classDFLib_1_1Util_1_1Minimizer.html#a3937c0251c1becacd2d938b51f46c79 636,5 996,32
+<area shape="rect" id="node3" href="$classDFLib_1_1Util_1_1Minimizer.html#144e57b3492287fc57c1cdce8198cb3d" title="minimize function in given direction perform a line search along the given direction..." alt="" coords="311,30,529,58">
+<area shape="rect" id="node5" href="$classDFLib_1_1Util_1_1Minimizer.html#a3937c0251c1becacd2d938b51f46c79" title="minimize function of vector value by method of conjugate gradients" alt="" coords="580,30,897,58">
+<area shape="rect" id="node7" href="$classDFLib_1_1ReportCollection.html#dffd170257322f58734acb369bb720a4" title="Computes Maximum Likelihood solution of DF problem." alt="" coords="947,5,1205,33">
+<area shape="rect" id="node11" href="$nonoise_8cpp.html#3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1051,55,1101,83">
+<area shape="rect" id="node9" href="$SimpleDF_8cpp.html#3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1253,5,1304,33">

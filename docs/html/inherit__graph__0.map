@@ -1,3 +1,3 @@
-base referer
-rect $classDFLib_1_1Abstract_1_1Group.html 5,5 181,32
-rect $classDFLib_1_1ReportCollection.html 229,5 411,32
+<area shape="rect" id="node1" href="$classDFLib_1_1Abstract_1_1Group.html" title="DFLib::Abstract::Group" alt="" coords="5,5,165,33">
+<area shape="rect" id="node3" href="$classDFLib_1_1ReportCollection.html" title="DFLib::ReportCollection" alt="" coords="215,5,377,33">
+<area shape="rect" id="node5" href="$classDFLib_1_1ProjReportCollection.html" title="DFLib::ProjReportCollection" alt="" coords="427,5,613,33">
