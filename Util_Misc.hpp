@@ -13,15 +13,15 @@ namespace DFLib
   namespace Util
   {
         
-    class Exception
+    class CPL_DLL Exception
     {
     private:
       string ErrorMessage;
     public:
-      CPL_DLL Exception(const string &eMsg)
+      Exception(const string &eMsg)
         :ErrorMessage(eMsg)
       {};
-      const CPL_DLL string &getEmsg() const
+      const string &getEmsg() const
       {
         return ErrorMessage;
       };

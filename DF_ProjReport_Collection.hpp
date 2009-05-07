@@ -1,23 +1,24 @@
 #ifndef DF_PROJREPORT_COLLECTION_HPP
 #define DF_PROJREPORT_COLLECTION_HPP
+#include "port.h"
 
 #include "DF_Report_Collection.hpp"
 
 namespace DFLib
 {
-  class ProjReportCollection: public ReportCollection
+  class CPL_DLL ProjReportCollection: public ReportCollection
   {
     // This class is just a report collection that refuses to take anything
     // but "DFLib::Proj::Report" objects instead of the abstract ones.
 
   public:
-    CPL_DLL ProjReportCollection();
+    ProjReportCollection();
 
-    virtual CPL_DLL ~ProjReportCollection();
+    virtual ~ProjReportCollection();
 
 
     // Override the base class one...
-    virtual CPL_DLL int addReport(DFLib::Proj::Report * aReport);
+    virtual int addReport(DFLib::Proj::Report * aReport);
 
   };
 }

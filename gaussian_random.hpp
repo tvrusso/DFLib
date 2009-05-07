@@ -10,7 +10,7 @@ namespace DFLib
   {
     /// Provide a random number generator returning values from a 
     /// normal distribution of specified mean and standard deviation.
-    class gaussian_random_generator
+    class CPL_DLL gaussian_random_generator
     {
     private:
       double ysave;
@@ -26,12 +26,12 @@ namespace DFLib
 #endif
     public:
       /// Constructor with specified mean and standard deviation
-      CPL_DLL gaussian_random_generator(double mean, double std_dev);
+       gaussian_random_generator(double mean, double std_dev);
       /// Default constructor, mean 0 and standard deviation 1
-      CPL_DLL gaussian_random_generator():mean(0),std_dev(1),use_last(false) {};
+       gaussian_random_generator():mean(0),std_dev(1),use_last(false) {};
       /// Get normally distributed random deviate.
       /// \return random value from distribution
-      CPL_DLL double getRandom();
+       double getRandom();
     };
   }
 }

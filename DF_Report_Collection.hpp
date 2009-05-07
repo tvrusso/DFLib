@@ -11,7 +11,7 @@ using namespace std;
 
 namespace DFLib
 {
-  class ReportCollection : public DFLib::Abstract::Group
+  class CPL_DLL ReportCollection : public DFLib::Abstract::Group
   {
   private: 
     vector<DFLib::Abstract::Report * > theReports;
@@ -30,24 +30,24 @@ namespace DFLib
     ReportCollection &operator=(ReportCollection &right);
 
   public:
-    CPL_DLL ReportCollection();
+    ReportCollection();
 
     /// \brief DF Report Collection destructor
     ///
     ///  Never destroys the objects in its vector, as they might be getting
     ///  used for something else by caller
-    virtual CPL_DLL ~ReportCollection();
+    virtual ~ReportCollection();
 
     /// \brief destroy all reports stored in collection
     ///
     /// Provided in case our caller does NOT need the stored pointers for
     /// something else, and doesn't want to keep track of them.
-    virtual CPL_DLL void deleteReports();
+    virtual void deleteReports();
 
     /// \brief Add a DF report to the collection
     ///
     /// \return this report's number in the collection.
-    virtual CPL_DLL int addReport(DFLib::Abstract::Report * aReport);
+    virtual int addReport(DFLib::Abstract::Report * aReport);
 
     /// \brief return the fix cut average of this collection's reports
     ///
@@ -59,7 +59,7 @@ namespace DFLib
     /// \param FCA Returned fix cut average
     /// \param FCA_stddev standard deviation of fix cuts
     /// \param minAngle reports whose fix cut occur at less than this angle will not be included in the average.
-    CPL_DLL bool computeFixCutAverage(DFLib::Abstract::Point &FCA, 
+    bool computeFixCutAverage(DFLib::Abstract::Point &FCA, 
                                       vector<double> &FCA_stddev,
                                       double minAngle=0);
 
@@ -92,7 +92,7 @@ namespace DFLib
       where \f${\bf r}_k\f$ is the position vector of the \f$k^{th}\f$
       receiver.
     */
-    CPL_DLL void computeLeastSquaresFix(DFLib::Abstract::Point &LS_Fix);
+    void computeLeastSquaresFix(DFLib::Abstract::Point &LS_Fix);
 
     /*!
       \brief Computes Maximum Likelihood solution of DF problem
@@ -141,52 +141,52 @@ namespace DFLib
 
     */
 
-    CPL_DLL void computeMLFix(DFLib::Abstract::Point &MLFix);
+    void computeMLFix(DFLib::Abstract::Point &MLFix);
 
-    CPL_DLL double computeCostFunction(vector<double> &evaluationPoint);
-    CPL_DLL void computeCostFunctionAndGradient(vector<double> &evaluationPoint,
+    double computeCostFunction(vector<double> &evaluationPoint);
+    void computeCostFunctionAndGradient(vector<double> &evaluationPoint,
                                                 double &f,
                                                 vector<double> &gradf);
-    CPL_DLL void computeCostFunctionAndHessian(vector<double> &evaluationPoint,
+    void computeCostFunctionAndHessian(vector<double> &evaluationPoint,
                                                double &f,
                                                vector<double> &gradf,
                                                vector<vector<double> > &h);
 
     // Note, unlike size(), this one doesn't count reports that are marked
     // invalid
-    CPL_DLL int numValidReports() const;
+    int numValidReports() const;
 
-    inline virtual CPL_DLL void toggleValidity(int i)
+    inline virtual void toggleValidity(int i)
     {
       if (i<theReports.size()&&i>=0)
         theReports[i]->toggleValidity();
     };
 
-    inline CPL_DLL bool isValid(int i) const
+    inline bool isValid(int i) const
     {
       if (i<theReports.size() && i>=0)
         return(theReports[i]->isValid());
       return (false);
     };
 
-    inline CPL_DLL int size() const {return theReports.size();};
+    inline int size() const {return theReports.size();};
 
     // This version returns something the caller can never use to change
     // a report from underneath us.
-    inline CPL_DLL const DFLib::Abstract::Report * getReport(int i) const
+    inline const DFLib::Abstract::Report * getReport(int i) const
     { 
       if (i<theReports.size() && i>=0)
         return (theReports[i]); 
       return (0);
     };
 
-    CPL_DLL int getReportIndex(const string &name) const;
-    CPL_DLL int getReportIndex(const DFLib::Abstract::Report *reportPtr) const;
+    int getReportIndex(const string &name) const;
+    int getReportIndex(const DFLib::Abstract::Report *reportPtr) const;
 
-    inline CPL_DLL const vector<double> &getReceiverLocationXY(int i) 
+    inline const vector<double> &getReceiverLocationXY(int i) 
     { return (theReports[i]->getReceiverLocation()); };
 
-    inline virtual CPL_DLL void setEvaluationPoint(vector<double> &ep)
+    inline virtual void setEvaluationPoint(vector<double> &ep)
     {
       evaluationPoint = ep;
       f_is_valid=false;
@@ -195,7 +195,7 @@ namespace DFLib
     };
 
     /// \return function value
-    inline virtual CPL_DLL double getFunctionValue()
+    inline virtual double getFunctionValue()
     {
       if (!f_is_valid)
       {
@@ -207,7 +207,7 @@ namespace DFLib
 
     /// \param g gradient returned
     /// \return function value
-    inline virtual CPL_DLL double getFunctionValueAndGradient(vector<double> &g)
+    inline virtual double getFunctionValueAndGradient(vector<double> &g)
     {
       if (!g_is_valid)
       {
@@ -223,7 +223,7 @@ namespace DFLib
     /// \param g gradient returned
     /// \param h hessian returned
     /// \return function value
-    inline virtual CPL_DLL double 
+    inline virtual double 
     getFunctionValueAndHessian(vector<double> &g,
                                vector<vector<double> > &h)
     {

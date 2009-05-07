@@ -14,28 +14,28 @@ namespace DFLib
   namespace LatLon
   {
     /// \brief DF report in Lat/Lon coordinates
-    class Report 
+    class CPL_DLL Report 
       : public DFLib::Abstract::Report
     {
     private:
       Point receiverLocation;            
       double bearing,sigma;
     public:
-      CPL_DLL Report(const vector<double> &theLocationLL, 
+      Report(const vector<double> &theLocationLL, 
                      const double &bearing,const double &std_dev,
                      const string &theName);
-      CPL_DLL ~Report();
-      virtual  const CPL_DLL  vector<double> &getReceiverLocation();
-      virtual CPL_DLL  double getReportBearingRadians() const;
-      virtual CPL_DLL  double getBearing() const;
-      virtual CPL_DLL  double getBearingStandardDeviationRadians() const;
-      virtual CPL_DLL  double getSigma() const;
-      virtual CPL_DLL  void  setReceiverLocationLL(vector<double> &theLocation);
-      virtual CPL_DLL  void  setReceiverLocationMercator(vector<double> &theLocation);
+      ~Report();
+      virtual  const  vector<double> &getReceiverLocation();
+      virtual  double getReportBearingRadians() const;
+      virtual  double getBearing() const;
+      virtual  double getBearingStandardDeviationRadians() const;
+      virtual  double getSigma() const;
+      virtual  void  setReceiverLocationLL(vector<double> &theLocation);
+      virtual  void  setReceiverLocationMercator(vector<double> &theLocation);
       //! set bearing in degrees
-      virtual CPL_DLL  void  setBearing(double Bearing);
+      virtual  void  setBearing(double Bearing);
       //! set standard deviation in degrees
-      virtual CPL_DLL  void  setSigma(double Sigma);
+      virtual  void  setSigma(double Sigma);
     };
   }
 

@@ -9,21 +9,21 @@ namespace DFLib
 {
   namespace XY
   {
-    class Point : public DFLib::Abstract::Point
+    class CPL_DLL Point : public DFLib::Abstract::Point
     {
     private:
       vector<double> myXY;
     public:
       /// Default
-      CPL_DLL Point();
+      Point();
 
       /// Constructor
-      CPL_DLL Point(const vector<double> &aPosition);
+      Point(const vector<double> &aPosition);
       /// Copy Constructor
-      CPL_DLL Point(Point &right);
+      Point(Point &right);
       // no destructor needed
       /// Set position from X-Y
-      virtual CPL_DLL void setXY(const vector<double> &aPosition);
+      virtual void setXY(const vector<double> &aPosition);
       /// Set X-Y position
       virtual const vector<double> &getXY();
 

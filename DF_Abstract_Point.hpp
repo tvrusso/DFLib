@@ -1,6 +1,7 @@
 #ifndef DF_ABSTRACT_POINT_HPP
 #define DF_ABSTRACT_POINT_HPP
 
+#include "port.h"
 #include <vector>
 using namespace std;
 
@@ -23,7 +24,7 @@ namespace DFLib
     /// user's work.
     ///
 
-    class Point
+    class CPL_DLL Point
     {
     public:
       /// \brief virtual destructor because there should always be one

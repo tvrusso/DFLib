@@ -20,7 +20,7 @@ namespace DFLib
   namespace Abstract
   {
     // Forward declaration:
-    class Report
+    class CPL_DLL Report
     {
     private:
       string ReportName_;
@@ -44,14 +44,14 @@ namespace DFLib
       Report(const Report & right);
 
       /// \brief return receiver location in double vector of XY coords
-      virtual  const CPL_DLL vector<double> &getReceiverLocation() = 0;
+      virtual  const vector<double> &getReceiverLocation() = 0;
       /// \brief return reported bearing to target
       ///
       /// It is essential that getReportBearingRadians always return
       /// the bearing in the correct range \f$0<\theta<2\pi\f$.
       /// \return bearing in radians, always in the range \f$0<\theta<2\pi\f$.
-      virtual CPL_DLL  double getReportBearingRadians() const = 0;
-      virtual CPL_DLL  double getBearingStandardDeviationRadians() const = 0;
+      virtual  double getReportBearingRadians() const = 0;
+      virtual  double getBearingStandardDeviationRadians() const = 0;
 
       ///\brief Return the name of this report
       virtual const string &getReportName() const { return ReportName_;};
@@ -74,14 +74,14 @@ namespace DFLib
       /// \param returnPoint reference to place to store solution point
       /// \param cutAngle on return, the angle in radians made by the two bearing lines
       /// \param fs fix status
-      void CPL_DLL computeFixCut(DFLib::Abstract::Report *Report2, 
+      void computeFixCut(DFLib::Abstract::Report *Report2, 
                                  Point &returnPoint, 
                                  double &cutAngle,FixStatus &fs);
       /// \brief compute bearing from this reporting location to some other point
       ///
       /// \param aPoint point to which bearing requested.
       /// \return bearing in radians, in range \f$0<\theta<2\pi\f$
-      double CPL_DLL computeBearingToPoint(vector<double> &aPoint);
+      double computeBearingToPoint(vector<double> &aPoint);
     };
   }
 

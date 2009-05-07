@@ -16,27 +16,27 @@ namespace DFLib
     /// \brief DF report in XY coordinates
     /// This class is meant for simplistic DF codes that work in X/Y 
     ///  coordinates already.  Mostly intended for testing the interface.
-    class Report 
+    class CPL_DLL Report 
       : public DFLib::Abstract::Report
     {
     private:
       Point receiverLocation;            
       double bearing,sigma;
     public:
-      CPL_DLL Report(const vector<double> &theLocation, 
+      Report(const vector<double> &theLocation, 
                      const double &bearing,const double &std_dev,
                      const string &theName);
-      CPL_DLL ~Report();
-      virtual  const CPL_DLL  vector<double> &getReceiverLocation();
-      virtual CPL_DLL  double getReportBearingRadians() const;
-      virtual CPL_DLL  double getBearing() const;
-      virtual CPL_DLL  double getBearingStandardDeviationRadians() const;
-      virtual CPL_DLL  double getSigma() const;
-      virtual CPL_DLL  void  setReceiverLocation(vector<double> &theLocation);
+      ~Report();
+      virtual  const  vector<double> &getReceiverLocation();
+      virtual  double getReportBearingRadians() const;
+      virtual  double getBearing() const;
+      virtual  double getBearingStandardDeviationRadians() const;
+      virtual  double getSigma() const;
+      virtual  void  setReceiverLocation(vector<double> &theLocation);
       //! set bearing in degrees
-      virtual CPL_DLL  void  setBearing(double Bearing);
+      virtual  void  setBearing(double Bearing);
       //! set standard deviation in degrees
-      virtual CPL_DLL  void  setSigma(double Sigma);
+      virtual  void  setSigma(double Sigma);
     };
   }
 

@@ -18,13 +18,13 @@ namespace DFLib
   namespace Util
   {
         
-    class Minimizer
+    class CPL_DLL Minimizer
     {
     private:
       DFLib::Abstract::Group *theGroup;
             
     public:
-      inline CPL_DLL Minimizer(DFLib::Abstract::Group *aGroup)
+      inline  Minimizer(DFLib::Abstract::Group *aGroup)
         :theGroup(aGroup)
       { };
             
@@ -37,7 +37,7 @@ namespace DFLib
       /// (i.e. \f$f(x0+direction*b)<f(x0+direction*a) \f$
       ///  and \f$f(x0+direction*b) < f(x0+direction*c))\f$
       /// Nearly verbatim port to C++ from Numerical Recipes in C
-      CPL_DLL void bracketMinimum(double &a, double &b, double &c, 
+       void bracketMinimum(double &a, double &b, double &c, 
                                   vector<double> &X0,
                                   vector<double> &direction);
             
@@ -46,7 +46,7 @@ namespace DFLib
       /// from X0, search for minimum using Brent's method
       /// Returns function value, sets "xmin" to abscissa at minimum.
       /// Almost verbatim port out of Numerical Recipes in C
-      CPL_DLL double brentMinimize(double a, double b, double c,
+       double brentMinimize(double a, double b, double c,
                                    vector<double> &X0,vector<double>&direction,
                                    double &xmin);
             
@@ -57,7 +57,7 @@ namespace DFLib
       /// \param dir input: direction to search output: actual displacement
       /// \return function value at minimum.
       /// Nearly verbatim port out of Numerical Recipes in C
-      CPL_DLL double lineSearch(vector<double> &X0, vector<double> &dir); 
+       double lineSearch(vector<double> &X0, vector<double> &dir); 
             
       /// \brief minimize function of vector value by method of conjugate gradients
       ///
@@ -65,18 +65,18 @@ namespace DFLib
       /// \param ftol convergence tolerance on function.
       /// \param iter returned number of iterations taken
       /// \return value of function at minimum.
-      CPL_DLL double conjugateGradientMinimize(vector<double> &X0, double ftol,
+       double conjugateGradientMinimize(vector<double> &X0, double ftol,
                                                int &iter);
             
       /// \brief Evaluate \f$F(x0+x*dir)\f$ where x0 and dir are vectors
       ///
       /// F is the group's function "computeFunctionValue"
       /// \return function value at \f$X0+x*dir\f$
-      CPL_DLL double simpleF(double &x,vector<double>&X0,vector<double>&dir);
+       double simpleF(double &x,vector<double>&X0,vector<double>&dir);
       /// Evaluate F(x0+x*dir) and its directional derivative where x0 and 
       /// dir are vectors.  The directional derivative is the inner product
       /// of the gradient and the direction: \f$df = dir\cdot\nabla f\f$.
-      CPL_DLL double simpleFandDeriv(double &x,vector<double>&X0,vector<double>&dir,
+       double simpleFandDeriv(double &x,vector<double>&X0,vector<double>&dir,
                                      double &df);
             
             

@@ -1,6 +1,7 @@
 #ifndef DF_LATLON_POINT_HPP
 #define DF_LATLON_POINT_HPP
 
+#include "port.h"
 #include <vector>
 #include "projects.h"
 // projects.h rudely defines this, and we don't want it:
@@ -12,7 +13,7 @@ namespace DFLib
 {
   namespace LatLon
   {
-    class Point : public DFLib::Abstract::Point
+    class CPL_DLL Point : public DFLib::Abstract::Point
     {
     private:
       vector<double> theMerc;
