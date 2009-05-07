@@ -247,12 +247,12 @@ int main(int argc,char **argv)
   NR_fix.resize(2);
   LS_point=LS_fix.getXY();
   // write out a grid of 5 meter "pixels" showing function values
-  for (i=-300;i<=300;++i)
+  for (i=-500;i<=500;++i)
   {
-    for (j=-300;j<=300;++j)
+    for (j=-500;j<=500;++j)
     {
-      NR_fix[0] = LS_point[0]+3.0*i;
-      NR_fix[1] = LS_point[1]+3.0*j;
+      NR_fix[0] = LS_point[0]+10.0*i;
+      NR_fix[1] = LS_point[1]+10.0*j;
       gridFile << rColl.computeCostFunction(NR_fix) << " ";
     }
     gridFile << endl;

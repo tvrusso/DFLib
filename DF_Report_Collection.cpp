@@ -166,9 +166,16 @@ namespace DFLib
         double bearing_to_point 
           = (*iterReport)->computeBearingToPoint(evaluationPoint);
         double sigma = (*iterReport)->getBearingStandardDeviationRadians();
-        
-        f += 1/(2*sigma*sigma)*(bearing_to_point-bearing)*
-          (bearing_to_point-bearing);
+        double deltatheta=bearing_to_point - bearing;
+
+        // Make deltatheta in range -pi<deltatheta<=pi
+        while (deltatheta <= -M_PI)
+          deltatheta += 2*M_PI;
+        while (deltatheta > M_PI)
+          deltatheta -= 2*M_PI;
+
+        f += 1/(2*sigma*sigma)*(deltatheta)*
+          (deltatheta);
       }
     }
     return (f);
@@ -214,7 +221,12 @@ namespace DFLib
         double s=sin(bearing_to_point);
         
         deltatheta=(bearing-bearing_to_point);
-        
+        // Make deltatheta in range -pi<deltatheta<=pi
+        while (deltatheta <= -M_PI)
+          deltatheta += 2*M_PI;
+        while (deltatheta > M_PI)
+          deltatheta -= 2*M_PI;
+
         f += 1/(2*sigma*sigma)*(deltatheta*deltatheta);
         gradient[0] += (deltatheta)/(sigma*sigma*d)*(-c);
         gradient[1] += (deltatheta)/(sigma*sigma*d)*( s);
@@ -266,6 +278,11 @@ namespace DFLib
         double coef = (1/(sigma*sigma*d*d));
         
         deltatheta=(bearing-bearing_to_point);
+        // Make deltatheta in range -pi<deltatheta<=pi
+        while (deltatheta <= -M_PI)
+          deltatheta += 2*M_PI;
+        while (deltatheta > M_PI)
+          deltatheta -= 2*M_PI;
         
         f += 1/(2*sigma*sigma)*(deltatheta*deltatheta);
         gradient[0] += (deltatheta)/(sigma*sigma*d)*(-c);
