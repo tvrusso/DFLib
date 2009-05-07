@@ -243,26 +243,23 @@ int main(int argc,char **argv)
     }
   }
 
-  //
-  //  NR_fix.resize(2);
-  //  // write out a grid of 10 meter "pixels" showing function values
-  //  for (i=-100;i<=100;++i)
-  //  {
-  //    for (j=-100;j<=100;++j)
-  //    {
-  //      NR_fix[0] = LS_fix[0]+10.0*i;
-  //      NR_fix[1] = LS_fix[1]+10.0*j;
-  //      gridFile << rColl.computeCostFunction(NR_fix) << " ";
-  //    }
-  //    gridFile << endl;
-  //  }
+
+  NR_fix.resize(2);
+  LS_point=LS_fix.getXY();
+  // write out a grid of 5 meter "pixels" showing function values
+  for (i=-300;i<=300;++i)
+  {
+    for (j=-300;j<=300;++j)
+    {
+      NR_fix[0] = LS_point[0]+3.0*i;
+      NR_fix[1] = LS_point[1]+3.0*j;
+      gridFile << rColl.computeCostFunction(NR_fix) << " ";
+    }
+    gridFile << endl;
+  }
 
   // Now try Conjugate Gradients on Jml, always starting from OV fix.
-  NR_fix=LS_fix.getXY();
-  done = false;
   j=0;
-
-  //  rColl.computeCostFunctionAndHessian(NR_fix,f,gradf,jac);
 
   DFLib::Proj::Point NRPoint=LS_fix;
 
@@ -295,6 +292,13 @@ int main(int argc,char **argv)
   
   cout << "  Latitude of ML fix: " << (int) latlon[1] << "d" 
        << (latlon[1]-(int)latlon[1])*60 << "\"" << NS << endl;
+
+  latlon=NRPoint.getXY();
+  cout << " Mercator coords of ML fix" << latlon[0] << " , " << latlon[1] 
+       << endl;
+  cout << "  Offset from LS by " << latlon[0]-LS_point[0] << " , " 
+       << latlon[1]-LS_point[1] << endl; 
+
   gnuplotFile << "pause -1" << endl;
   gnuplotFile.close();
 }

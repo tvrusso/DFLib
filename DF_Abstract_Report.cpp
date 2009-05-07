@@ -121,6 +121,8 @@ namespace DFLib
     double bearingToPoint=atan2(dx , dy);
     while (bearingToPoint < 0)
       bearingToPoint += 2*M_PI;
+    while (bearingToPoint > 2*M_PI)
+      bearingToPoint -= 2*M_PI;
     return (bearingToPoint);
   }
 
