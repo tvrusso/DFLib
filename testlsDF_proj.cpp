@@ -245,18 +245,19 @@ int main(int argc,char **argv)
 
 
   NR_fix.resize(2);
-  LS_point=LS_fix.getXY();
-  // write out a grid of 5 meter "pixels" showing function values
-  for (i=-500;i<=500;++i)
-  {
-    for (j=-500;j<=500;++j)
-    {
-      NR_fix[0] = LS_point[0]+10.0*i;
-      NR_fix[1] = LS_point[1]+10.0*j;
-      gridFile << rColl.computeCostFunction(NR_fix) << " ";
-    }
-    gridFile << endl;
-  }
+
+//   LS_point=LS_fix.getXY();
+//   // write out a grid of 5 meter "pixels" showing function values
+//   for (i=-500;i<=500;++i)
+//   {
+//     for (j=-500;j<=500;++j)
+//     {
+//       NR_fix[0] = LS_point[0]+10.0*i;
+//       NR_fix[1] = LS_point[1]+10.0*j;
+//       gridFile << rColl.computeCostFunction(NR_fix) << " ";
+//     }
+//     gridFile << endl;
+//   }
 
   // Now try Conjugate Gradients on Jml, always starting from OV fix.
   j=0;
