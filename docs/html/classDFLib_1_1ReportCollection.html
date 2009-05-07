@@ -46,62 +46,61 @@ Collaboration diagram for DFLib::ReportCollection:</div>
 <a href="classDFLib_1_1ReportCollection-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">CPL_DLL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#4fdc10bdb24a6a04de654e392d6f922d">ReportCollection</a> ()</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#4fdc10bdb24a6a04de654e392d6f922d">ReportCollection</a> ()</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual CPL_DLL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#db5b0cb916fb6bdacdfbd19c38e51bfd">~ReportCollection</a> ()</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#db5b0cb916fb6bdacdfbd19c38e51bfd">~ReportCollection</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">DF Report Collection destructor.  <a href="#db5b0cb916fb6bdacdfbd19c38e51bfd"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual CPL_DLL void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#6c2f43dc60218cf88941fe686fc5fee2">deleteReports</a> ()</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#6c2f43dc60218cf88941fe686fc5fee2">deleteReports</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">destroy all reports stored in collection  <a href="#6c2f43dc60218cf88941fe686fc5fee2"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual CPL_DLL int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#e9f1b6bf5605ae826957c6dcdd4a18ea">addReport</a> (<a class="el" href="classDFLib_1_1Abstract_1_1Report.html">DFLib::Abstract::Report</a> *aReport)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#e9f1b6bf5605ae826957c6dcdd4a18ea">addReport</a> (<a class="el" href="classDFLib_1_1Abstract_1_1Report.html">DFLib::Abstract::Report</a> *aReport)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Add a DF report to the collection.  <a href="#e9f1b6bf5605ae826957c6dcdd4a18ea"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">CPL_DLL bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#ae93d643b545080d22987bf18d1bdf73">computeFixCutAverage</a> (<a class="el" href="classDFLib_1_1Abstract_1_1Point.html">DFLib::Abstract::Point</a> &amp;FCA, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;FCA_stddev, double minAngle=0)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#ae93d643b545080d22987bf18d1bdf73">computeFixCutAverage</a> (<a class="el" href="classDFLib_1_1Abstract_1_1Point.html">DFLib::Abstract::Point</a> &amp;FCA, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;FCA_stddev, double minAngle=0)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">return the fix cut average of this collection's reports  <a href="#ae93d643b545080d22987bf18d1bdf73"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">CPL_DLL void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#4f37e88da4347af97dfdc2f7ac63f6f1">computeLeastSquaresFix</a> (<a class="el" href="classDFLib_1_1Abstract_1_1Point.html">DFLib::Abstract::Point</a> &amp;LS_Fix)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#4f37e88da4347af97dfdc2f7ac63f6f1">computeLeastSquaresFix</a> (<a class="el" href="classDFLib_1_1Abstract_1_1Point.html">DFLib::Abstract::Point</a> &amp;LS_Fix)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Computes least squares solution of DF problem.  <a href="#4f37e88da4347af97dfdc2f7ac63f6f1"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">CPL_DLL void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#dffd170257322f58734acb369bb720a4">computeMLFix</a> (<a class="el" href="classDFLib_1_1Abstract_1_1Point.html">DFLib::Abstract::Point</a> &amp;MLFix)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#dffd170257322f58734acb369bb720a4">computeMLFix</a> (<a class="el" href="classDFLib_1_1Abstract_1_1Point.html">DFLib::Abstract::Point</a> &amp;MLFix)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Computes Maximum Likelihood solution of DF problem.  <a href="#dffd170257322f58734acb369bb720a4"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">CPL_DLL double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#7af0e03b2cf975bda110fa78887ac691">computeCostFunction</a> (<a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;<a class="el" href="classDFLib_1_1ReportCollection.html#c6e68b0a5af3414828cc3bb808f10864">evaluationPoint</a>)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#7af0e03b2cf975bda110fa78887ac691">computeCostFunction</a> (<a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;<a class="el" href="classDFLib_1_1ReportCollection.html#c6e68b0a5af3414828cc3bb808f10864">evaluationPoint</a>)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">compute cost function for point x,y  <a href="#7af0e03b2cf975bda110fa78887ac691"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">CPL_DLL void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#3ac75e598fff9481fa4d4cec0e934d9c">computeCostFunctionAndGradient</a> (<a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;<a class="el" href="classDFLib_1_1ReportCollection.html#c6e68b0a5af3414828cc3bb808f10864">evaluationPoint</a>, double &amp;f, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;gradf)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#3ac75e598fff9481fa4d4cec0e934d9c">computeCostFunctionAndGradient</a> (<a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;<a class="el" href="classDFLib_1_1ReportCollection.html#c6e68b0a5af3414828cc3bb808f10864">evaluationPoint</a>, double &amp;f, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;gradf)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">compute cost function for point x,y and its gradient  <a href="#3ac75e598fff9481fa4d4cec0e934d9c"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">CPL_DLL void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#32a26b1a0ac725f5edfcd0e8645fe84b">computeCostFunctionAndHessian</a> (<a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;<a class="el" href="classDFLib_1_1ReportCollection.html#c6e68b0a5af3414828cc3bb808f10864">evaluationPoint</a>, double &amp;f, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;gradf, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &gt; &amp;h)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#32a26b1a0ac725f5edfcd0e8645fe84b">computeCostFunctionAndHessian</a> (<a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;<a class="el" href="classDFLib_1_1ReportCollection.html#c6e68b0a5af3414828cc3bb808f10864">evaluationPoint</a>, double &amp;f, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;gradf, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &gt; &amp;h)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">compute cost function for point x,y its gradient, and its hessian.  <a href="#32a26b1a0ac725f5edfcd0e8645fe84b"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">CPL_DLL int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#db9e05e85785c25bca889490a47a2ac0">numValidReports</a> () const </td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#db9e05e85785c25bca889490a47a2ac0">numValidReports</a> () const </td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual CPL_DLL void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#3b69f2570af5d60f29f70ff2fb30adee">toggleValidity</a> (int i)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#2afe57a981e83862d1101e14eda4fa67">toggleValidity</a> (int i)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">CPL_DLL bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#fc42d50cf330d5343ad697e20e97a548">isValid</a> (int i) const </td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#a57bf3ff817d22bcd231f631566084b5">isValid</a> (int i) const </td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">CPL_DLL int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#7d80a2c85010f0561c417b89c1bf3864">size</a> () const </td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#d5949ddc82d7af6361821c2c7ede9334">size</a> () const </td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">CPL_DLL const <br class="typebreak">
-<a class="el" href="classDFLib_1_1Abstract_1_1Report.html">DFLib::Abstract::Report</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#4e7aacf1479146a8cf48cf93e202cb75">getReport</a> (int i) const </td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="classDFLib_1_1Abstract_1_1Report.html">DFLib::Abstract::Report</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#d40068b03a0754de1ec85ffc943fc69d">getReport</a> (int i) const </td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">CPL_DLL int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#8bc23eb784ba813ccb050d40883d81ba">getReportIndex</a> (const string &amp;name) const </td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#8bc23eb784ba813ccb050d40883d81ba">getReportIndex</a> (const string &amp;name) const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">return the index of the report that has the given name, or -1  <a href="#8bc23eb784ba813ccb050d40883d81ba"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">CPL_DLL int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#59e101f152baebca86cbb8bbfc298cfc">getReportIndex</a> (const <a class="el" href="classDFLib_1_1Abstract_1_1Report.html">DFLib::Abstract::Report</a> *reportPtr) const </td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#59e101f152baebca86cbb8bbfc298cfc">getReportIndex</a> (const <a class="el" href="classDFLib_1_1Abstract_1_1Report.html">DFLib::Abstract::Report</a> *reportPtr) const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">return the index of the report that has the given pointer, or -1  <a href="#59e101f152baebca86cbb8bbfc298cfc"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">CPL_DLL const <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#d90d7576d2c52e7f84071978b4f10380">getReceiverLocationXY</a> (int i)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#56e5cff0f6df67b5da9bd8291caa99da">getReceiverLocationXY</a> (int i)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual CPL_DLL void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#119b5aa2d1c9161776eab4d4e887dbcf">setEvaluationPoint</a> (<a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;ep)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#fde6e20409f283015c00a16e67ed155c">setEvaluationPoint</a> (<a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;ep)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the point at which to evaluate the function.  <a href="#119b5aa2d1c9161776eab4d4e887dbcf"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual CPL_DLL double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#248da3e6f803c5b17d33d5e29d4f60cd">getFunctionValue</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the point at which to evaluate the function.  <a href="#fde6e20409f283015c00a16e67ed155c"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#c103f627b39814852e6b606f372e515e">getFunctionValue</a> ()</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual CPL_DLL double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#91d7202b32801d33c18aaa6f45191c51">getFunctionValueAndGradient</a> (<a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;g)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#d31f5cc5e6d1821a4d16207f5d717a96">getFunctionValueAndGradient</a> (<a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;g)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual CPL_DLL double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#c790f698eac1fb3b1616cb7511fa9ba9">getFunctionValueAndHessian</a> (<a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;g, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &gt; &amp;h)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#878c5ac4a3734a46100d6c494c0dc039">getFunctionValueAndHessian</a> (<a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;g, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &gt; &amp;h)</td></tr>
 
 <tr><td colspan="2"><br><h2>Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1ReportCollection.html#0a0a0eb7fda591fdee4e1679dafad65f">ReportCollection</a> (<a class="el" href="classDFLib_1_1ReportCollection.html">ReportCollection</a> &amp;right)</td></tr>
@@ -240,15 +239,6 @@ Here is the caller graph for this function:</div>
 compute cost function for point x,y 
 <p>
 this returns the cost function for the transmitter being at x,y given the DF reports we have. The probability density uses the cost function in the argument of an exponential. Minimizing the cost function will therefore maximize the probability density. 
-<p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dynsection">
-<p><center><img src="classDFLib_1_1ReportCollection_7af0e03b2cf975bda110fa78887ac691_icgraph.png" border="0" usemap="#classDFLib_1_1ReportCollection_7af0e03b2cf975bda110fa78887ac691_icgraph_map" alt=""></center>
-<map name="classDFLib_1_1ReportCollection_7af0e03b2cf975bda110fa78887ac691_icgraph_map">
-<area shape="rect" id="node3" href="classDFLib_1_1ReportCollection.html#248da3e6f803c5b17d33d5e29d4f60cd" title="DFLib::ReportCollection::getFunctionValue" alt="" coords="355,5,629,33"></map>
-</div>
-
 </div>
 </div><p>
 <a class="anchor" name="3ac75e598fff9481fa4d4cec0e934d9c"></a><!-- doxytag: member="DFLib::ReportCollection::computeCostFunctionAndGradient" ref="3ac75e598fff9481fa4d4cec0e934d9c" args="(vector&lt; double &gt; &amp;evaluationPoint, double &amp;f, vector&lt; double &gt; &amp;gradf)" -->
@@ -285,15 +275,6 @@ Here is the caller graph for this function:</div>
 <p>
 compute cost function for point x,y and its gradient 
 <p>
-
-<p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dynsection">
-<p><center><img src="classDFLib_1_1ReportCollection_3ac75e598fff9481fa4d4cec0e934d9c_icgraph.png" border="0" usemap="#classDFLib_1_1ReportCollection_3ac75e598fff9481fa4d4cec0e934d9c_icgraph_map" alt=""></center>
-<map name="classDFLib_1_1ReportCollection_3ac75e598fff9481fa4d4cec0e934d9c_icgraph_map">
-<area shape="rect" id="node3" href="classDFLib_1_1ReportCollection.html#91d7202b32801d33c18aaa6f45191c51" title="DFLib::ReportCollection::getFunctionValueAndGradient" alt="" coords="429,5,779,33"></map>
-</div>
 
 </div>
 </div><p>
@@ -344,7 +325,7 @@ Here is the caller graph for this function:</div>
 <div class="dynsection">
 <p><center><img src="classDFLib_1_1ReportCollection_32a26b1a0ac725f5edfcd0e8645fe84b_icgraph.png" border="0" usemap="#classDFLib_1_1ReportCollection_32a26b1a0ac725f5edfcd0e8645fe84b_icgraph_map" alt=""></center>
 <map name="classDFLib_1_1ReportCollection_32a26b1a0ac725f5edfcd0e8645fe84b_icgraph_map">
-<area shape="rect" id="node3" href="classDFLib_1_1ReportCollection.html#c790f698eac1fb3b1616cb7511fa9ba9" title="DFLib::ReportCollection::getFunctionValueAndHessian" alt="" coords="427,5,773,33"><area shape="rect" id="node5" href="nonoise_8cpp.html#3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="575,55,625,83"></map>
+<area shape="rect" id="node3" href="nonoise_8cpp.html#3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="427,5,477,33"></map>
 </div>
 
 </div>
@@ -491,7 +472,7 @@ Here is the call graph for this function:</div>
 <div class="dynsection">
 <p><center><img src="classDFLib_1_1ReportCollection_dffd170257322f58734acb369bb720a4_cgraph.png" border="0" usemap="#classDFLib_1_1ReportCollection_dffd170257322f58734acb369bb720a4_cgraph_map" alt=""></center>
 <map name="classDFLib_1_1ReportCollection_dffd170257322f58734acb369bb720a4_cgraph_map">
-<area shape="rect" id="node3" href="classDFLib_1_1Util_1_1Minimizer.html#a3937c0251c1becacd2d938b51f46c79" title="minimize function of vector value by method of conjugate gradients" alt="" coords="313,30,631,58"><area shape="rect" id="node24" href="classDFLib_1_1Abstract_1_1Point.html#3fdd1fbfecb806f64b7315e507f05c12" title="Get X&#45;Y coordinates of the point." alt="" coords="373,81,571,109"><area shape="rect" id="node26" href="classDFLib_1_1Abstract_1_1Point.html#bb3e5afd43b7d869953db4a8c858e311" title="Set X&#45;Y coordinates of the point." alt="" coords="375,131,569,159"><area shape="rect" id="node5" href="classDFLib_1_1Abstract_1_1Group.html#274b5db49d280d9c79eba491da855821" title="DFLib::Abstract::Group::getFunctionValueAndGradient" alt="" coords="1561,5,1905,33"><area shape="rect" id="node7" href="classDFLib_1_1Util_1_1Minimizer.html#144e57b3492287fc57c1cdce8198cb3d" title="minimize function in given direction perform a line search along the given direction..." alt="" coords="681,81,900,109"><area shape="rect" id="node15" href="classDFLib_1_1Abstract_1_1Group.html#e1b37ce48201d20e55348c3266c7a520" title="Set the point at which to evaluate the function." alt="" coords="1595,81,1872,109"><area shape="rect" id="node9" href="classDFLib_1_1Util_1_1Minimizer.html#276ee473f3c9d3dfe847b6b845d60166" title="bracket minimum of function" alt="" coords="951,131,1204,159"><area shape="rect" id="node17" href="classDFLib_1_1Util_1_1Minimizer.html#82856e030143b0dc75733fac6e0bdc99" title="minimize by Brent&#39;s method with derivatives given a,b,c scalars that bracket..." alt="" coords="957,81,1197,109"><area shape="rect" id="node11" href="classDFLib_1_1Util_1_1Minimizer.html#93cf5064966c0a606c44c7ed355482e9" title="Evaluate &#160;where x0 and dir are vectors." alt="" coords="1281,131,1484,159"><area shape="rect" id="node13" href="classDFLib_1_1Abstract_1_1Group.html#2c8ebe70f8be3e5a294878f758ae5a4c" title="DFLib::Abstract::Group::getFunctionValue" alt="" coords="1599,131,1868,159"><area shape="rect" id="node19" href="classDFLib_1_1Util_1_1Minimizer.html#ab64f9b5f80364ad4d8249e6a5597bcc" title="DFLib::Util::Minimizer::simpleFandDeriv" alt="" coords="1255,81,1511,109"></map>
+<area shape="rect" id="node3" href="classDFLib_1_1Util_1_1Minimizer.html#a3937c0251c1becacd2d938b51f46c79" title="minimize function of vector value by method of conjugate gradients" alt="" coords="313,30,631,58"><area shape="rect" id="node24" href="classDFLib_1_1Abstract_1_1Point.html#3fdd1fbfecb806f64b7315e507f05c12" title="Get X&#45;Y coordinates of the point." alt="" coords="373,81,571,109"><area shape="rect" id="node26" href="classDFLib_1_1Abstract_1_1Point.html#bb3e5afd43b7d869953db4a8c858e311" title="Set X&#45;Y coordinates of the point." alt="" coords="375,131,569,159"><area shape="rect" id="node5" href="classDFLib_1_1Abstract_1_1Group.html#d22b4897bcb2e214bbcd9d645e4d8c06" title="DFLib::Abstract::Group::getFunctionValueAndGradient" alt="" coords="1561,5,1905,33"><area shape="rect" id="node7" href="classDFLib_1_1Util_1_1Minimizer.html#144e57b3492287fc57c1cdce8198cb3d" title="minimize function in given direction perform a line search along the given direction..." alt="" coords="681,81,900,109"><area shape="rect" id="node15" href="classDFLib_1_1Abstract_1_1Group.html#c13a7c44bdda484f39614de0d533f56b" title="Set the point at which to evaluate the function." alt="" coords="1595,81,1872,109"><area shape="rect" id="node9" href="classDFLib_1_1Util_1_1Minimizer.html#276ee473f3c9d3dfe847b6b845d60166" title="bracket minimum of function" alt="" coords="951,131,1204,159"><area shape="rect" id="node17" href="classDFLib_1_1Util_1_1Minimizer.html#82856e030143b0dc75733fac6e0bdc99" title="minimize by Brent&#39;s method with derivatives given a,b,c scalars that bracket..." alt="" coords="957,81,1197,109"><area shape="rect" id="node11" href="classDFLib_1_1Util_1_1Minimizer.html#93cf5064966c0a606c44c7ed355482e9" title="Evaluate &#160;where x0 and dir are vectors." alt="" coords="1281,131,1484,159"><area shape="rect" id="node13" href="classDFLib_1_1Abstract_1_1Group.html#56e8978276976b053afac5939c0fbafb" title="DFLib::Abstract::Group::getFunctionValue" alt="" coords="1599,131,1868,159"><area shape="rect" id="node19" href="classDFLib_1_1Util_1_1Minimizer.html#ab64f9b5f80364ad4d8249e6a5597bcc" title="DFLib::Util::Minimizer::simpleFandDeriv" alt="" coords="1255,81,1511,109"></map>
 </div>
 
 <p>
@@ -526,12 +507,12 @@ destroy all reports stored in collection
 Provided in case our caller does NOT need the stored pointers for something else, and doesn't want to keep track of them. 
 </div>
 </div><p>
-<a class="anchor" name="248da3e6f803c5b17d33d5e29d4f60cd"></a><!-- doxytag: member="DFLib::ReportCollection::getFunctionValue" ref="248da3e6f803c5b17d33d5e29d4f60cd" args="()" -->
+<a class="anchor" name="c103f627b39814852e6b606f372e515e"></a><!-- doxytag: member="DFLib::ReportCollection::getFunctionValue" ref="c103f627b39814852e6b606f372e515e" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual CPL_DLL double DFLib::ReportCollection::getFunctionValue           </td>
+          <td class="memname">virtual double DFLib::ReportCollection::getFunctionValue           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -544,25 +525,16 @@ Provided in case our caller does NOT need the stored pointers for something else
 <p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>function value </dd></dl>
 
-<p>Implements <a class="el" href="classDFLib_1_1Abstract_1_1Group.html#2c8ebe70f8be3e5a294878f758ae5a4c">DFLib::Abstract::Group</a>.</p>
-
-<p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dynsection">
-<p><center><img src="classDFLib_1_1ReportCollection_248da3e6f803c5b17d33d5e29d4f60cd_cgraph.png" border="0" usemap="#classDFLib_1_1ReportCollection_248da3e6f803c5b17d33d5e29d4f60cd_cgraph_map" alt=""></center>
-<map name="classDFLib_1_1ReportCollection_248da3e6f803c5b17d33d5e29d4f60cd_cgraph_map">
-<area shape="rect" id="node3" href="classDFLib_1_1ReportCollection.html#7af0e03b2cf975bda110fa78887ac691" title="compute cost function for point x,y" alt="" coords="328,5,629,33"></map>
-</div>
+<p>Implements <a class="el" href="classDFLib_1_1Abstract_1_1Group.html#56e8978276976b053afac5939c0fbafb">DFLib::Abstract::Group</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="91d7202b32801d33c18aaa6f45191c51"></a><!-- doxytag: member="DFLib::ReportCollection::getFunctionValueAndGradient" ref="91d7202b32801d33c18aaa6f45191c51" args="(vector&lt; double &gt; &amp;g)" -->
+<a class="anchor" name="d31f5cc5e6d1821a4d16207f5d717a96"></a><!-- doxytag: member="DFLib::ReportCollection::getFunctionValueAndGradient" ref="d31f5cc5e6d1821a4d16207f5d717a96" args="(vector&lt; double &gt; &amp;g)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual CPL_DLL double DFLib::ReportCollection::getFunctionValueAndGradient           </td>
+          <td class="memname">virtual double DFLib::ReportCollection::getFunctionValueAndGradient           </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;&nbsp;</td>
           <td class="paramname"> <em>g</em>          </td>
@@ -581,25 +553,16 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>function value </dd></dl>
 
-<p>Implements <a class="el" href="classDFLib_1_1Abstract_1_1Group.html#274b5db49d280d9c79eba491da855821">DFLib::Abstract::Group</a>.</p>
-
-<p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dynsection">
-<p><center><img src="classDFLib_1_1ReportCollection_91d7202b32801d33c18aaa6f45191c51_cgraph.png" border="0" usemap="#classDFLib_1_1ReportCollection_91d7202b32801d33c18aaa6f45191c51_cgraph_map" alt=""></center>
-<map name="classDFLib_1_1ReportCollection_91d7202b32801d33c18aaa6f45191c51_cgraph_map">
-<area shape="rect" id="node3" href="classDFLib_1_1ReportCollection.html#3ac75e598fff9481fa4d4cec0e934d9c" title="compute cost function for point x,y and its gradient" alt="" coords="403,5,779,33"></map>
-</div>
+<p>Implements <a class="el" href="classDFLib_1_1Abstract_1_1Group.html#d22b4897bcb2e214bbcd9d645e4d8c06">DFLib::Abstract::Group</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="c790f698eac1fb3b1616cb7511fa9ba9"></a><!-- doxytag: member="DFLib::ReportCollection::getFunctionValueAndHessian" ref="c790f698eac1fb3b1616cb7511fa9ba9" args="(vector&lt; double &gt; &amp;g, vector&lt; vector&lt; double &gt; &gt; &amp;h)" -->
+<a class="anchor" name="878c5ac4a3734a46100d6c494c0dc039"></a><!-- doxytag: member="DFLib::ReportCollection::getFunctionValueAndHessian" ref="878c5ac4a3734a46100d6c494c0dc039" args="(vector&lt; double &gt; &amp;g, vector&lt; vector&lt; double &gt; &gt; &amp;h)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual CPL_DLL double DFLib::ReportCollection::getFunctionValueAndHessian           </td>
+          <td class="memname">virtual double DFLib::ReportCollection::getFunctionValueAndHessian           </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;&nbsp;</td>
           <td class="paramname"> <em>g</em>, </td>
@@ -628,25 +591,16 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>function value </dd></dl>
 
-<p>Implements <a class="el" href="classDFLib_1_1Abstract_1_1Group.html#4dcf7a0532ddee3e8d5029c256f31c1a">DFLib::Abstract::Group</a>.</p>
-
-<p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dynsection">
-<p><center><img src="classDFLib_1_1ReportCollection_c790f698eac1fb3b1616cb7511fa9ba9_cgraph.png" border="0" usemap="#classDFLib_1_1ReportCollection_c790f698eac1fb3b1616cb7511fa9ba9_cgraph_map" alt=""></center>
-<map name="classDFLib_1_1ReportCollection_c790f698eac1fb3b1616cb7511fa9ba9_cgraph_map">
-<area shape="rect" id="node3" href="classDFLib_1_1ReportCollection.html#32a26b1a0ac725f5edfcd0e8645fe84b" title="compute cost function for point x,y its gradient, and its hessian." alt="" coords="400,5,773,33"></map>
-</div>
+<p>Implements <a class="el" href="classDFLib_1_1Abstract_1_1Group.html#85c04c7e69fb193235b9f0e82d7a641f">DFLib::Abstract::Group</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="d90d7576d2c52e7f84071978b4f10380"></a><!-- doxytag: member="DFLib::ReportCollection::getReceiverLocationXY" ref="d90d7576d2c52e7f84071978b4f10380" args="(int i)" -->
+<a class="anchor" name="56e5cff0f6df67b5da9bd8291caa99da"></a><!-- doxytag: member="DFLib::ReportCollection::getReceiverLocationXY" ref="56e5cff0f6df67b5da9bd8291caa99da" args="(int i)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">CPL_DLL const <a class="el" href="classstd_1_1vector.html">vector</a>&lt;double&gt;&amp; DFLib::ReportCollection::getReceiverLocationXY           </td>
+          <td class="memname">const <a class="el" href="classstd_1_1vector.html">vector</a>&lt;double&gt;&amp; DFLib::ReportCollection::getReceiverLocationXY           </td>
           <td>(</td>
           <td class="paramtype">int&nbsp;</td>
           <td class="paramname"> <em>i</em>          </td>
@@ -663,19 +617,19 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dynsection">
-<p><center><img src="classDFLib_1_1ReportCollection_d90d7576d2c52e7f84071978b4f10380_icgraph.png" border="0" usemap="#classDFLib_1_1ReportCollection_d90d7576d2c52e7f84071978b4f10380_icgraph_map" alt=""></center>
-<map name="classDFLib_1_1ReportCollection_d90d7576d2c52e7f84071978b4f10380_icgraph_map">
+<p><center><img src="classDFLib_1_1ReportCollection_56e5cff0f6df67b5da9bd8291caa99da_icgraph.png" border="0" usemap="#classDFLib_1_1ReportCollection_56e5cff0f6df67b5da9bd8291caa99da_icgraph_map" alt=""></center>
+<map name="classDFLib_1_1ReportCollection_56e5cff0f6df67b5da9bd8291caa99da_icgraph_map">
 <area shape="rect" id="node3" href="testlsDF__ll_8cpp.html#3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="365,5,416,33"></map>
 </div>
 
 </div>
 </div><p>
-<a class="anchor" name="4e7aacf1479146a8cf48cf93e202cb75"></a><!-- doxytag: member="DFLib::ReportCollection::getReport" ref="4e7aacf1479146a8cf48cf93e202cb75" args="(int i) const " -->
+<a class="anchor" name="d40068b03a0754de1ec85ffc943fc69d"></a><!-- doxytag: member="DFLib::ReportCollection::getReport" ref="d40068b03a0754de1ec85ffc943fc69d" args="(int i) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">CPL_DLL const <a class="el" href="classDFLib_1_1Abstract_1_1Report.html">DFLib::Abstract::Report</a>* DFLib::ReportCollection::getReport           </td>
+          <td class="memname">const <a class="el" href="classDFLib_1_1Abstract_1_1Report.html">DFLib::Abstract::Report</a>* DFLib::ReportCollection::getReport           </td>
           <td>(</td>
           <td class="paramtype">int&nbsp;</td>
           <td class="paramname"> <em>i</em>          </td>
@@ -692,8 +646,8 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dynsection">
-<p><center><img src="classDFLib_1_1ReportCollection_4e7aacf1479146a8cf48cf93e202cb75_icgraph.png" border="0" usemap="#classDFLib_1_1ReportCollection_4e7aacf1479146a8cf48cf93e202cb75_icgraph_map" alt=""></center>
-<map name="classDFLib_1_1ReportCollection_4e7aacf1479146a8cf48cf93e202cb75_icgraph_map">
+<p><center><img src="classDFLib_1_1ReportCollection_d40068b03a0754de1ec85ffc943fc69d_icgraph.png" border="0" usemap="#classDFLib_1_1ReportCollection_d40068b03a0754de1ec85ffc943fc69d_icgraph_map" alt=""></center>
+<map name="classDFLib_1_1ReportCollection_d40068b03a0754de1ec85ffc943fc69d_icgraph_map">
 <area shape="rect" id="node3" href="nonoise_8cpp.html#3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="283,5,333,33"></map>
 </div>
 
@@ -743,12 +697,12 @@ return the index of the report that has the given name, or -1
 Stupid linear search, but should be OK for a realistic size of collection. 
 </div>
 </div><p>
-<a class="anchor" name="fc42d50cf330d5343ad697e20e97a548"></a><!-- doxytag: member="DFLib::ReportCollection::isValid" ref="fc42d50cf330d5343ad697e20e97a548" args="(int i) const " -->
+<a class="anchor" name="a57bf3ff817d22bcd231f631566084b5"></a><!-- doxytag: member="DFLib::ReportCollection::isValid" ref="a57bf3ff817d22bcd231f631566084b5" args="(int i) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">CPL_DLL bool DFLib::ReportCollection::isValid           </td>
+          <td class="memname">bool DFLib::ReportCollection::isValid           </td>
           <td>(</td>
           <td class="paramtype">int&nbsp;</td>
           <td class="paramname"> <em>i</em>          </td>
@@ -765,8 +719,8 @@ Stupid linear search, but should be OK for a realistic size of collection.
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dynsection">
-<p><center><img src="classDFLib_1_1ReportCollection_fc42d50cf330d5343ad697e20e97a548_icgraph.png" border="0" usemap="#classDFLib_1_1ReportCollection_fc42d50cf330d5343ad697e20e97a548_icgraph_map" alt=""></center>
-<map name="classDFLib_1_1ReportCollection_fc42d50cf330d5343ad697e20e97a548_icgraph_map">
+<p><center><img src="classDFLib_1_1ReportCollection_a57bf3ff817d22bcd231f631566084b5_icgraph.png" border="0" usemap="#classDFLib_1_1ReportCollection_a57bf3ff817d22bcd231f631566084b5_icgraph_map" alt=""></center>
+<map name="classDFLib_1_1ReportCollection_a57bf3ff817d22bcd231f631566084b5_icgraph_map">
 <area shape="rect" id="node3" href="classDFLib_1_1ReportCollection.html#db9e05e85785c25bca889490a47a2ac0" title="DFLib::ReportCollection::numValidReports" alt="" coords="265,5,537,33"></map>
 </div>
 
@@ -795,7 +749,7 @@ Here is the call graph for this function:</div>
 <div class="dynsection">
 <p><center><img src="classDFLib_1_1ReportCollection_db9e05e85785c25bca889490a47a2ac0_cgraph.png" border="0" usemap="#classDFLib_1_1ReportCollection_db9e05e85785c25bca889490a47a2ac0_cgraph_map" alt=""></center>
 <map name="classDFLib_1_1ReportCollection_db9e05e85785c25bca889490a47a2ac0_cgraph_map">
-<area shape="rect" id="node3" href="classDFLib_1_1ReportCollection.html#fc42d50cf330d5343ad697e20e97a548" title="DFLib::ReportCollection::isValid" alt="" coords="328,5,539,33"></map>
+<area shape="rect" id="node3" href="classDFLib_1_1ReportCollection.html#a57bf3ff817d22bcd231f631566084b5" title="DFLib::ReportCollection::isValid" alt="" coords="328,5,539,33"></map>
 </div>
 
 </div>
@@ -820,12 +774,12 @@ Here is the call graph for this function:</div>
 
 </div>
 </div><p>
-<a class="anchor" name="119b5aa2d1c9161776eab4d4e887dbcf"></a><!-- doxytag: member="DFLib::ReportCollection::setEvaluationPoint" ref="119b5aa2d1c9161776eab4d4e887dbcf" args="(vector&lt; double &gt; &amp;ep)" -->
+<a class="anchor" name="fde6e20409f283015c00a16e67ed155c"></a><!-- doxytag: member="DFLib::ReportCollection::setEvaluationPoint" ref="fde6e20409f283015c00a16e67ed155c" args="(vector&lt; double &gt; &amp;ep)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual CPL_DLL void DFLib::ReportCollection::setEvaluationPoint           </td>
+          <td class="memname">virtual void DFLib::ReportCollection::setEvaluationPoint           </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;&nbsp;</td>
           <td class="paramname"> <em>ep</em>          </td>
@@ -840,16 +794,16 @@ Here is the call graph for this function:</div>
 Set the point at which to evaluate the function. 
 <p>
 
-<p>Implements <a class="el" href="classDFLib_1_1Abstract_1_1Group.html#e1b37ce48201d20e55348c3266c7a520">DFLib::Abstract::Group</a>.</p>
+<p>Implements <a class="el" href="classDFLib_1_1Abstract_1_1Group.html#c13a7c44bdda484f39614de0d533f56b">DFLib::Abstract::Group</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="7d80a2c85010f0561c417b89c1bf3864"></a><!-- doxytag: member="DFLib::ReportCollection::size" ref="7d80a2c85010f0561c417b89c1bf3864" args="() const " -->
+<a class="anchor" name="d5949ddc82d7af6361821c2c7ede9334"></a><!-- doxytag: member="DFLib::ReportCollection::size" ref="d5949ddc82d7af6361821c2c7ede9334" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">CPL_DLL int DFLib::ReportCollection::size           </td>
+          <td class="memname">int DFLib::ReportCollection::size           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -865,19 +819,19 @@ Set the point at which to evaluate the function.
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dynsection">
-<p><center><img src="classDFLib_1_1ReportCollection_7d80a2c85010f0561c417b89c1bf3864_icgraph.png" border="0" usemap="#classDFLib_1_1ReportCollection_7d80a2c85010f0561c417b89c1bf3864_icgraph_map" alt=""></center>
-<map name="classDFLib_1_1ReportCollection_7d80a2c85010f0561c417b89c1bf3864_icgraph_map">
+<p><center><img src="classDFLib_1_1ReportCollection_d5949ddc82d7af6361821c2c7ede9334_icgraph.png" border="0" usemap="#classDFLib_1_1ReportCollection_d5949ddc82d7af6361821c2c7ede9334_icgraph_map" alt=""></center>
+<map name="classDFLib_1_1ReportCollection_d5949ddc82d7af6361821c2c7ede9334_icgraph_map">
 <area shape="rect" id="node3" href="nonoise_8cpp.html#3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="248,5,299,33"></map>
 </div>
 
 </div>
 </div><p>
-<a class="anchor" name="3b69f2570af5d60f29f70ff2fb30adee"></a><!-- doxytag: member="DFLib::ReportCollection::toggleValidity" ref="3b69f2570af5d60f29f70ff2fb30adee" args="(int i)" -->
+<a class="anchor" name="2afe57a981e83862d1101e14eda4fa67"></a><!-- doxytag: member="DFLib::ReportCollection::toggleValidity" ref="2afe57a981e83862d1101e14eda4fa67" args="(int i)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual CPL_DLL void DFLib::ReportCollection::toggleValidity           </td>
+          <td class="memname">virtual void DFLib::ReportCollection::toggleValidity           </td>
           <td>(</td>
           <td class="paramtype">int&nbsp;</td>
           <td class="paramname"> <em>i</em>          </td>
@@ -1016,7 +970,7 @@ Here is the caller graph for this function:</div>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li>/users/russo/DFLib/<a class="el" href="DF__Report__Collection_8hpp.html">DF_Report_Collection.hpp</a><li>/users/russo/DFLib/<a class="el" href="DF__Report__Collection_8cpp.html">DF_Report_Collection.cpp</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sun Apr 26 00:57:55 2009 for DFLib by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu May 7 12:08:42 2009 for DFLib by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

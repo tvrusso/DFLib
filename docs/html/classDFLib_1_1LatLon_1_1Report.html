@@ -49,33 +49,32 @@ Collaboration diagram for DFLib::LatLon::Report:</div>
 <a href="classDFLib_1_1LatLon_1_1Report-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">CPL_DLL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1LatLon_1_1Report.html#1ca7aa01fc7e8bacbd024214f8fe7ca5">Report</a> (const <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;theLocationLL, const double &amp;<a class="el" href="classDFLib_1_1LatLon_1_1Report.html#ae1e46df75c87453ced71eb4543020e4">bearing</a>, const double &amp;std_dev, const string &amp;theName)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1LatLon_1_1Report.html#1ca7aa01fc7e8bacbd024214f8fe7ca5">Report</a> (const <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;theLocationLL, const double &amp;<a class="el" href="classDFLib_1_1LatLon_1_1Report.html#ae1e46df75c87453ced71eb4543020e4">bearing</a>, const double &amp;std_dev, const string &amp;theName)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Lat/Lon DF report constructor.  <a href="#1ca7aa01fc7e8bacbd024214f8fe7ca5"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">CPL_DLL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1LatLon_1_1Report.html#a03fa53464c348112c52ce55e52a146f">~Report</a> ()</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1LatLon_1_1Report.html#a03fa53464c348112c52ce55e52a146f">~Report</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">virtual destructor because base classes need one  <a href="#a03fa53464c348112c52ce55e52a146f"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const CPL_DLL <a class="el" href="classstd_1_1vector.html">vector</a><br class="typebreak">
-&lt; double &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1LatLon_1_1Report.html#07c78ccb2db58293f561fc1caf12eae3">getReceiverLocation</a> ()</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1LatLon_1_1Report.html#07c78ccb2db58293f561fc1caf12eae3">getReceiverLocation</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">return receiver location in double vector of <a class="el" href="namespaceDFLib_1_1XY.html">XY</a> coords  <a href="#07c78ccb2db58293f561fc1caf12eae3"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual CPL_DLL double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1LatLon_1_1Report.html#084a3d24419106be436c3c8f20893700">getReportBearingRadians</a> () const </td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1LatLon_1_1Report.html#084a3d24419106be436c3c8f20893700">getReportBearingRadians</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">return reported bearing to target  <a href="#084a3d24419106be436c3c8f20893700"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual CPL_DLL double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1LatLon_1_1Report.html#bafe9f882d0cd13d289e040758d4cb59">getBearing</a> () const </td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1LatLon_1_1Report.html#bafe9f882d0cd13d289e040758d4cb59">getBearing</a> () const </td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual CPL_DLL double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1LatLon_1_1Report.html#5e7b3045c705721baa6f1315cc900767">getBearingStandardDeviationRadians</a> () const </td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1LatLon_1_1Report.html#5e7b3045c705721baa6f1315cc900767">getBearingStandardDeviationRadians</a> () const </td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual CPL_DLL double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1LatLon_1_1Report.html#c43fa84583d3fd3460d37c7990d14973">getSigma</a> () const </td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1LatLon_1_1Report.html#c43fa84583d3fd3460d37c7990d14973">getSigma</a> () const </td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual CPL_DLL void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1LatLon_1_1Report.html#5fba88955ed548fa010ecc6cd6413516">setReceiverLocationLL</a> (<a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;theLocation)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1LatLon_1_1Report.html#5fba88955ed548fa010ecc6cd6413516">setReceiverLocationLL</a> (<a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;theLocation)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual CPL_DLL void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1LatLon_1_1Report.html#dfeb15f365820a346ce9ecd60b969720">setReceiverLocationMercator</a> (<a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;theLocation)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1LatLon_1_1Report.html#dfeb15f365820a346ce9ecd60b969720">setReceiverLocationMercator</a> (<a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;theLocation)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual CPL_DLL void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1LatLon_1_1Report.html#d7d3799e03054f83cab7e2e457997044">setBearing</a> (double Bearing)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1LatLon_1_1Report.html#d7d3799e03054f83cab7e2e457997044">setBearing</a> (double Bearing)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">set bearing in degrees  <a href="#d7d3799e03054f83cab7e2e457997044"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual CPL_DLL void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1LatLon_1_1Report.html#41c4c2fa4470a2e2ca9b1e20f96043e2">setSigma</a> (double Sigma)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1LatLon_1_1Report.html#41c4c2fa4470a2e2ca9b1e20f96043e2">setSigma</a> (double Sigma)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">set standard deviation in degrees  <a href="#41c4c2fa4470a2e2ca9b1e20f96043e2"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Private Attributes</h2></td></tr>
@@ -207,7 +206,7 @@ Here is the call graph for this function:</div>
 
 <p>
 
-<p>Implements <a class="el" href="classDFLib_1_1Abstract_1_1Report.html#f6793497206c675cfe5954b45f05a21f">DFLib::Abstract::Report</a>.</p>
+<p>Implements <a class="el" href="classDFLib_1_1Abstract_1_1Report.html#cc383ce24bd007e1d39948798f1f1810">DFLib::Abstract::Report</a>.</p>
 
 </div>
 </div><p>
@@ -230,7 +229,7 @@ Here is the call graph for this function:</div>
 return receiver location in double vector of <a class="el" href="namespaceDFLib_1_1XY.html">XY</a> coords 
 <p>
 
-<p>Implements <a class="el" href="classDFLib_1_1Abstract_1_1Report.html#f6f3865e453eb7dda39d1fd886fa9374">DFLib::Abstract::Report</a>.</p>
+<p>Implements <a class="el" href="classDFLib_1_1Abstract_1_1Report.html#ee4e5f2ecc0050682b2dcbb85d9ba9b2">DFLib::Abstract::Report</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -263,7 +262,7 @@ return reported bearing to target
 <p>
 It is essential that getReportBearingRadians always return the bearing in the correct range <img class="formulaInl" alt="$0<\theta<2\pi$" src="form_0.png">. <dl class="return" compact><dt><b>Returns:</b></dt><dd>bearing in radians, always in the range <img class="formulaInl" alt="$0<\theta<2\pi$" src="form_0.png">. </dd></dl>
 
-<p>Implements <a class="el" href="classDFLib_1_1Abstract_1_1Report.html#cc2089332c7158320bfa5a8f8a22a996">DFLib::Abstract::Report</a>.</p>
+<p>Implements <a class="el" href="classDFLib_1_1Abstract_1_1Report.html#68b62f719f4c09f8aff4d8890c6f0b3e">DFLib::Abstract::Report</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -455,7 +454,7 @@ set standard deviation in degrees
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>/users/russo/DFLib/<a class="el" href="DF__LatLon__Report_8hpp.html">DF_LatLon_Report.hpp</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sun Apr 26 00:57:58 2009 for DFLib by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu May 7 12:08:44 2009 for DFLib by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

@@ -39,36 +39,36 @@ Collaboration diagram for DFLib::Util::Minimizer:</div>
 <a href="classDFLib_1_1Util_1_1Minimizer-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">CPL_DLL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#d65eb49afc9be0403be12a3beccf342b">Minimizer</a> (<a class="el" href="classDFLib_1_1Abstract_1_1Group.html">DFLib::Abstract::Group</a> *aGroup)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#65045177e7765dc349d09106fedeff84">Minimizer</a> (<a class="el" href="classDFLib_1_1Abstract_1_1Group.html">DFLib::Abstract::Group</a> *aGroup)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">CPL_DLL void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#276ee473f3c9d3dfe847b6b845d60166">bracketMinimum</a> (double &amp;a, double &amp;b, double &amp;c, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;X0, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;direction)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#276ee473f3c9d3dfe847b6b845d60166">bracketMinimum</a> (double &amp;a, double &amp;b, double &amp;c, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;X0, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;direction)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">bracket minimum of function  <a href="#276ee473f3c9d3dfe847b6b845d60166"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">CPL_DLL double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#82856e030143b0dc75733fac6e0bdc99">brentMinimize</a> (double a, double b, double c, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;X0, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;direction, double &amp;xmin)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#82856e030143b0dc75733fac6e0bdc99">brentMinimize</a> (double a, double b, double c, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;X0, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;direction, double &amp;xmin)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">minimize by Brent's method with derivatives given a,b,c scalars that bracket the minimum in given direction from X0, search for minimum using Brent's method Returns function value, sets "xmin" to abscissa at minimum. Almost verbatim port out of Numerical Recipes in C  <a href="#82856e030143b0dc75733fac6e0bdc99"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">CPL_DLL double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#144e57b3492287fc57c1cdce8198cb3d">lineSearch</a> (<a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;X0, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;dir)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#144e57b3492287fc57c1cdce8198cb3d">lineSearch</a> (<a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;X0, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;dir)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">minimize function in given direction perform a line search along the given direction for the minimum value of the function.  <a href="#144e57b3492287fc57c1cdce8198cb3d"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">CPL_DLL double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#a3937c0251c1becacd2d938b51f46c79">conjugateGradientMinimize</a> (<a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;X0, double ftol, int &amp;iter)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#a3937c0251c1becacd2d938b51f46c79">conjugateGradientMinimize</a> (<a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;X0, double ftol, int &amp;iter)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">minimize function of vector value by method of conjugate gradients  <a href="#a3937c0251c1becacd2d938b51f46c79"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">CPL_DLL double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#93cf5064966c0a606c44c7ed355482e9">simpleF</a> (double &amp;x, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;X0, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;dir)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#93cf5064966c0a606c44c7ed355482e9">simpleF</a> (double &amp;x, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;X0, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;dir)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Evaluate <img class="formulaInl" alt="$F(x0+x*dir)$" src="form_19.png"> where x0 and dir are vectors.  <a href="#93cf5064966c0a606c44c7ed355482e9"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">CPL_DLL double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#ab64f9b5f80364ad4d8249e6a5597bcc">simpleFandDeriv</a> (double &amp;x, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;X0, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;dir, double &amp;df)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#ab64f9b5f80364ad4d8249e6a5597bcc">simpleFandDeriv</a> (double &amp;x, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;X0, <a class="el" href="classstd_1_1vector.html">vector</a>&lt; double &gt; &amp;dir, double &amp;df)</td></tr>
 
 <tr><td colspan="2"><br><h2>Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="classDFLib_1_1Abstract_1_1Group.html">DFLib::Abstract::Group</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#b47f28c46425c2ebb833907d04ddcea8">theGroup</a></td></tr>
 
 </table>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" name="d65eb49afc9be0403be12a3beccf342b"></a><!-- doxytag: member="DFLib::Util::Minimizer::Minimizer" ref="d65eb49afc9be0403be12a3beccf342b" args="(DFLib::Abstract::Group *aGroup)" -->
+<a class="anchor" name="65045177e7765dc349d09106fedeff84"></a><!-- doxytag: member="DFLib::Util::Minimizer::Minimizer" ref="65045177e7765dc349d09106fedeff84" args="(DFLib::Abstract::Group *aGroup)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">CPL_DLL DFLib::Util::Minimizer::Minimizer           </td>
+          <td class="memname">DFLib::Util::Minimizer::Minimizer           </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classDFLib_1_1Abstract_1_1Group.html">DFLib::Abstract::Group</a> *&nbsp;</td>
           <td class="paramname"> <em>aGroup</em>          </td>
@@ -137,7 +137,7 @@ Here is the call graph for this function:</div>
 <div class="dynsection">
 <p><center><img src="classDFLib_1_1Util_1_1Minimizer_276ee473f3c9d3dfe847b6b845d60166_cgraph.png" border="0" usemap="#classDFLib_1_1Util_1_1Minimizer_276ee473f3c9d3dfe847b6b845d60166_cgraph_map" alt=""></center>
 <map name="classDFLib_1_1Util_1_1Minimizer_276ee473f3c9d3dfe847b6b845d60166_cgraph_map">
-<area shape="rect" id="node3" href="classDFLib_1_1Util_1_1Minimizer.html#93cf5064966c0a606c44c7ed355482e9" title="Evaluate &#160;where x0 and dir are vectors." alt="" coords="311,30,513,58"><area shape="rect" id="node5" href="classDFLib_1_1Abstract_1_1Group.html#2c8ebe70f8be3e5a294878f758ae5a4c" title="DFLib::Abstract::Group::getFunctionValue" alt="" coords="567,5,836,33"><area shape="rect" id="node7" href="classDFLib_1_1Abstract_1_1Group.html#e1b37ce48201d20e55348c3266c7a520" title="Set the point at which to evaluate the function." alt="" coords="563,55,840,83"></map>
+<area shape="rect" id="node3" href="classDFLib_1_1Util_1_1Minimizer.html#93cf5064966c0a606c44c7ed355482e9" title="Evaluate &#160;where x0 and dir are vectors." alt="" coords="311,30,513,58"><area shape="rect" id="node5" href="classDFLib_1_1Abstract_1_1Group.html#56e8978276976b053afac5939c0fbafb" title="DFLib::Abstract::Group::getFunctionValue" alt="" coords="567,5,836,33"><area shape="rect" id="node7" href="classDFLib_1_1Abstract_1_1Group.html#c13a7c44bdda484f39614de0d533f56b" title="Set the point at which to evaluate the function." alt="" coords="563,55,840,83"></map>
 </div>
 
 <p>
@@ -210,7 +210,7 @@ Here is the call graph for this function:</div>
 <div class="dynsection">
 <p><center><img src="classDFLib_1_1Util_1_1Minimizer_82856e030143b0dc75733fac6e0bdc99_cgraph.png" border="0" usemap="#classDFLib_1_1Util_1_1Minimizer_82856e030143b0dc75733fac6e0bdc99_cgraph_map" alt=""></center>
 <map name="classDFLib_1_1Util_1_1Minimizer_82856e030143b0dc75733fac6e0bdc99_cgraph_map">
-<area shape="rect" id="node3" href="classDFLib_1_1Util_1_1Minimizer.html#ab64f9b5f80364ad4d8249e6a5597bcc" title="DFLib::Util::Minimizer::simpleFandDeriv" alt="" coords="295,30,551,58"><area shape="rect" id="node5" href="classDFLib_1_1Abstract_1_1Group.html#274b5db49d280d9c79eba491da855821" title="DFLib::Abstract::Group::getFunctionValueAndGradient" alt="" coords="601,5,945,33"><area shape="rect" id="node7" href="classDFLib_1_1Abstract_1_1Group.html#e1b37ce48201d20e55348c3266c7a520" title="Set the point at which to evaluate the function." alt="" coords="635,55,912,83"></map>
+<area shape="rect" id="node3" href="classDFLib_1_1Util_1_1Minimizer.html#ab64f9b5f80364ad4d8249e6a5597bcc" title="DFLib::Util::Minimizer::simpleFandDeriv" alt="" coords="295,30,551,58"><area shape="rect" id="node5" href="classDFLib_1_1Abstract_1_1Group.html#d22b4897bcb2e214bbcd9d645e4d8c06" title="DFLib::Abstract::Group::getFunctionValueAndGradient" alt="" coords="601,5,945,33"><area shape="rect" id="node7" href="classDFLib_1_1Abstract_1_1Group.html#c13a7c44bdda484f39614de0d533f56b" title="Set the point at which to evaluate the function." alt="" coords="635,55,912,83"></map>
 </div>
 
 <p>
@@ -273,7 +273,7 @@ Here is the call graph for this function:</div>
 <div class="dynsection">
 <p><center><img src="classDFLib_1_1Util_1_1Minimizer_a3937c0251c1becacd2d938b51f46c79_cgraph.png" border="0" usemap="#classDFLib_1_1Util_1_1Minimizer_a3937c0251c1becacd2d938b51f46c79_cgraph_map" alt=""></center>
 <map name="classDFLib_1_1Util_1_1Minimizer_a3937c0251c1becacd2d938b51f46c79_cgraph_map">
-<area shape="rect" id="node3" href="classDFLib_1_1Abstract_1_1Group.html#274b5db49d280d9c79eba491da855821" title="DFLib::Abstract::Group::getFunctionValueAndGradient" alt="" coords="1255,5,1599,33"><area shape="rect" id="node5" href="classDFLib_1_1Util_1_1Minimizer.html#144e57b3492287fc57c1cdce8198cb3d" title="minimize function in given direction perform a line search along the given direction..." alt="" coords="375,81,593,109"><area shape="rect" id="node13" href="classDFLib_1_1Abstract_1_1Group.html#e1b37ce48201d20e55348c3266c7a520" title="Set the point at which to evaluate the function." alt="" coords="1288,81,1565,109"><area shape="rect" id="node7" href="classDFLib_1_1Util_1_1Minimizer.html#276ee473f3c9d3dfe847b6b845d60166" title="bracket minimum of function" alt="" coords="644,131,897,159"><area shape="rect" id="node15" href="classDFLib_1_1Util_1_1Minimizer.html#82856e030143b0dc75733fac6e0bdc99" title="minimize by Brent&#39;s method with derivatives given a,b,c scalars that bracket..." alt="" coords="651,81,891,109"><area shape="rect" id="node9" href="classDFLib_1_1Util_1_1Minimizer.html#93cf5064966c0a606c44c7ed355482e9" title="Evaluate &#160;where x0 and dir are vectors." alt="" coords="975,131,1177,159"><area shape="rect" id="node11" href="classDFLib_1_1Abstract_1_1Group.html#2c8ebe70f8be3e5a294878f758ae5a4c" title="DFLib::Abstract::Group::getFunctionValue" alt="" coords="1292,131,1561,159"><area shape="rect" id="node17" href="classDFLib_1_1Util_1_1Minimizer.html#ab64f9b5f80364ad4d8249e6a5597bcc" title="DFLib::Util::Minimizer::simpleFandDeriv" alt="" coords="948,81,1204,109"></map>
+<area shape="rect" id="node3" href="classDFLib_1_1Abstract_1_1Group.html#d22b4897bcb2e214bbcd9d645e4d8c06" title="DFLib::Abstract::Group::getFunctionValueAndGradient" alt="" coords="1255,5,1599,33"><area shape="rect" id="node5" href="classDFLib_1_1Util_1_1Minimizer.html#144e57b3492287fc57c1cdce8198cb3d" title="minimize function in given direction perform a line search along the given direction..." alt="" coords="375,81,593,109"><area shape="rect" id="node13" href="classDFLib_1_1Abstract_1_1Group.html#c13a7c44bdda484f39614de0d533f56b" title="Set the point at which to evaluate the function." alt="" coords="1288,81,1565,109"><area shape="rect" id="node7" href="classDFLib_1_1Util_1_1Minimizer.html#276ee473f3c9d3dfe847b6b845d60166" title="bracket minimum of function" alt="" coords="644,131,897,159"><area shape="rect" id="node15" href="classDFLib_1_1Util_1_1Minimizer.html#82856e030143b0dc75733fac6e0bdc99" title="minimize by Brent&#39;s method with derivatives given a,b,c scalars that bracket..." alt="" coords="651,81,891,109"><area shape="rect" id="node9" href="classDFLib_1_1Util_1_1Minimizer.html#93cf5064966c0a606c44c7ed355482e9" title="Evaluate &#160;where x0 and dir are vectors." alt="" coords="975,131,1177,159"><area shape="rect" id="node11" href="classDFLib_1_1Abstract_1_1Group.html#56e8978276976b053afac5939c0fbafb" title="DFLib::Abstract::Group::getFunctionValue" alt="" coords="1292,131,1561,159"><area shape="rect" id="node17" href="classDFLib_1_1Util_1_1Minimizer.html#ab64f9b5f80364ad4d8249e6a5597bcc" title="DFLib::Util::Minimizer::simpleFandDeriv" alt="" coords="948,81,1204,109"></map>
 </div>
 
 <p>
@@ -329,7 +329,7 @@ Here is the call graph for this function:</div>
 <div class="dynsection">
 <p><center><img src="classDFLib_1_1Util_1_1Minimizer_144e57b3492287fc57c1cdce8198cb3d_cgraph.png" border="0" usemap="#classDFLib_1_1Util_1_1Minimizer_144e57b3492287fc57c1cdce8198cb3d_cgraph_map" alt=""></center>
 <map name="classDFLib_1_1Util_1_1Minimizer_144e57b3492287fc57c1cdce8198cb3d_cgraph_map">
-<area shape="rect" id="node3" href="classDFLib_1_1Util_1_1Minimizer.html#276ee473f3c9d3dfe847b6b845d60166" title="bracket minimum of function" alt="" coords="276,30,529,58"><area shape="rect" id="node11" href="classDFLib_1_1Util_1_1Minimizer.html#82856e030143b0dc75733fac6e0bdc99" title="minimize by Brent&#39;s method with derivatives given a,b,c scalars that bracket..." alt="" coords="283,81,523,109"><area shape="rect" id="node5" href="classDFLib_1_1Util_1_1Minimizer.html#93cf5064966c0a606c44c7ed355482e9" title="Evaluate &#160;where x0 and dir are vectors." alt="" coords="607,30,809,58"><area shape="rect" id="node7" href="classDFLib_1_1Abstract_1_1Group.html#2c8ebe70f8be3e5a294878f758ae5a4c" title="DFLib::Abstract::Group::getFunctionValue" alt="" coords="924,5,1193,33"><area shape="rect" id="node9" href="classDFLib_1_1Abstract_1_1Group.html#e1b37ce48201d20e55348c3266c7a520" title="Set the point at which to evaluate the function." alt="" coords="920,55,1197,83"><area shape="rect" id="node13" href="classDFLib_1_1Util_1_1Minimizer.html#ab64f9b5f80364ad4d8249e6a5597bcc" title="DFLib::Util::Minimizer::simpleFandDeriv" alt="" coords="580,81,836,109"><area shape="rect" id="node15" href="classDFLib_1_1Abstract_1_1Group.html#274b5db49d280d9c79eba491da855821" title="DFLib::Abstract::Group::getFunctionValueAndGradient" alt="" coords="887,106,1231,134"></map>
+<area shape="rect" id="node3" href="classDFLib_1_1Util_1_1Minimizer.html#276ee473f3c9d3dfe847b6b845d60166" title="bracket minimum of function" alt="" coords="276,30,529,58"><area shape="rect" id="node11" href="classDFLib_1_1Util_1_1Minimizer.html#82856e030143b0dc75733fac6e0bdc99" title="minimize by Brent&#39;s method with derivatives given a,b,c scalars that bracket..." alt="" coords="283,81,523,109"><area shape="rect" id="node5" href="classDFLib_1_1Util_1_1Minimizer.html#93cf5064966c0a606c44c7ed355482e9" title="Evaluate &#160;where x0 and dir are vectors." alt="" coords="607,30,809,58"><area shape="rect" id="node7" href="classDFLib_1_1Abstract_1_1Group.html#56e8978276976b053afac5939c0fbafb" title="DFLib::Abstract::Group::getFunctionValue" alt="" coords="924,5,1193,33"><area shape="rect" id="node9" href="classDFLib_1_1Abstract_1_1Group.html#c13a7c44bdda484f39614de0d533f56b" title="Set the point at which to evaluate the function." alt="" coords="920,55,1197,83"><area shape="rect" id="node13" href="classDFLib_1_1Util_1_1Minimizer.html#ab64f9b5f80364ad4d8249e6a5597bcc" title="DFLib::Util::Minimizer::simpleFandDeriv" alt="" coords="580,81,836,109"><area shape="rect" id="node15" href="classDFLib_1_1Abstract_1_1Group.html#d22b4897bcb2e214bbcd9d645e4d8c06" title="DFLib::Abstract::Group::getFunctionValueAndGradient" alt="" coords="887,106,1231,134"></map>
 </div>
 
 <p>
@@ -385,7 +385,7 @@ Here is the call graph for this function:</div>
 <div class="dynsection">
 <p><center><img src="classDFLib_1_1Util_1_1Minimizer_93cf5064966c0a606c44c7ed355482e9_cgraph.png" border="0" usemap="#classDFLib_1_1Util_1_1Minimizer_93cf5064966c0a606c44c7ed355482e9_cgraph_map" alt=""></center>
 <map name="classDFLib_1_1Util_1_1Minimizer_93cf5064966c0a606c44c7ed355482e9_cgraph_map">
-<area shape="rect" id="node3" href="classDFLib_1_1Abstract_1_1Group.html#2c8ebe70f8be3e5a294878f758ae5a4c" title="DFLib::Abstract::Group::getFunctionValue" alt="" coords="263,5,532,33"><area shape="rect" id="node5" href="classDFLib_1_1Abstract_1_1Group.html#e1b37ce48201d20e55348c3266c7a520" title="Set the point at which to evaluate the function." alt="" coords="259,55,536,83"></map>
+<area shape="rect" id="node3" href="classDFLib_1_1Abstract_1_1Group.html#56e8978276976b053afac5939c0fbafb" title="DFLib::Abstract::Group::getFunctionValue" alt="" coords="263,5,532,33"><area shape="rect" id="node5" href="classDFLib_1_1Abstract_1_1Group.html#c13a7c44bdda484f39614de0d533f56b" title="Set the point at which to evaluate the function." alt="" coords="259,55,536,83"></map>
 </div>
 
 <p>
@@ -444,7 +444,7 @@ Here is the call graph for this function:</div>
 <div class="dynsection">
 <p><center><img src="classDFLib_1_1Util_1_1Minimizer_ab64f9b5f80364ad4d8249e6a5597bcc_cgraph.png" border="0" usemap="#classDFLib_1_1Util_1_1Minimizer_ab64f9b5f80364ad4d8249e6a5597bcc_cgraph_map" alt=""></center>
 <map name="classDFLib_1_1Util_1_1Minimizer_ab64f9b5f80364ad4d8249e6a5597bcc_cgraph_map">
-<area shape="rect" id="node3" href="classDFLib_1_1Abstract_1_1Group.html#274b5db49d280d9c79eba491da855821" title="DFLib::Abstract::Group::getFunctionValueAndGradient" alt="" coords="313,5,657,33"><area shape="rect" id="node5" href="classDFLib_1_1Abstract_1_1Group.html#e1b37ce48201d20e55348c3266c7a520" title="Set the point at which to evaluate the function." alt="" coords="347,55,624,83"></map>
+<area shape="rect" id="node3" href="classDFLib_1_1Abstract_1_1Group.html#d22b4897bcb2e214bbcd9d645e4d8c06" title="DFLib::Abstract::Group::getFunctionValueAndGradient" alt="" coords="313,5,657,33"><area shape="rect" id="node5" href="classDFLib_1_1Abstract_1_1Group.html#c13a7c44bdda484f39614de0d533f56b" title="Set the point at which to evaluate the function." alt="" coords="347,55,624,83"></map>
 </div>
 
 <p>
@@ -477,7 +477,7 @@ Here is the caller graph for this function:</div>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li>/users/russo/DFLib/<a class="el" href="Util__Minimization__Methods_8hpp.html">Util_Minimization_Methods.hpp</a><li>/users/russo/DFLib/<a class="el" href="Util__Minimization__Methods_8cpp.html">Util_Minimization_Methods.cpp</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sun Apr 26 00:57:59 2009 for DFLib by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu May 7 12:08:45 2009 for DFLib by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>
