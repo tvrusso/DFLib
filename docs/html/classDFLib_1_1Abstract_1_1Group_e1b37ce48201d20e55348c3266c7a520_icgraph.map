@@ -1,9 +1,0 @@
-<area shape="rect" id="node3" href="$classDFLib_1_1Util_1_1Minimizer.html#a3937c0251c1becacd2d938b51f46c79" title="minimize function of vector value by method of conjugate gradients" alt="" coords="1212,30,1529,58">
-<area shape="rect" id="node11" href="$classDFLib_1_1Util_1_1Minimizer.html#93cf5064966c0a606c44c7ed355482e9" title="Evaluate &#160;where x0 and dir are vectors." alt="" coords="359,55,561,83">
-<area shape="rect" id="node18" href="$classDFLib_1_1Util_1_1Minimizer.html#ab64f9b5f80364ad4d8249e6a5597bcc" title="DFLib::Util::Minimizer::simpleFandDeriv" alt="" coords="332,106,588,134">
-<area shape="rect" id="node5" href="$classDFLib_1_1ReportCollection.html#dffd170257322f58734acb369bb720a4" title="Computes Maximum Likelihood solution of DF problem." alt="" coords="1579,5,1837,33">
-<area shape="rect" id="node9" href="$nonoise_8cpp.html#3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1683,55,1733,83">
-<area shape="rect" id="node7" href="$SimpleDF_8cpp.html#3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1885,5,1936,33">
-<area shape="rect" id="node13" href="$classDFLib_1_1Util_1_1Minimizer.html#276ee473f3c9d3dfe847b6b845d60166" title="bracket minimum of function" alt="" coords="639,55,892,83">
-<area shape="rect" id="node15" href="$classDFLib_1_1Util_1_1Minimizer.html#144e57b3492287fc57c1cdce8198cb3d" title="minimize function in given direction perform a line search along the given direction..." alt="" coords="943,55,1161,83">
-<area shape="rect" id="node20" href="$classDFLib_1_1Util_1_1Minimizer.html#82856e030143b0dc75733fac6e0bdc99" title="minimize by Brent&#39;s method with derivatives given a,b,c scalars that bracket..." alt="" coords="645,106,885,134">
