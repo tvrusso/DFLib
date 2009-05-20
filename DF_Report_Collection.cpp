@@ -223,6 +223,22 @@ namespace DFLib
       deltas[0] /= denom;
       deltas[1] /= denom;
       currentNorm=sqrt(deltas[0]*deltas[0]+deltas[1]*deltas[1]);
+
+      temp[0]=initialFix[0]+deltas[0];
+      temp[1]=initialFix[1]+deltas[1];
+      int tempInt=0;
+      // now we have to generate new estimates of distance:
+      // initialize
+      for (iterReport=theReports.begin();
+           iterReport!=reportEnd;
+           ++iterReport)
+      {
+        if ((*iterReport)->isValid())
+        {
+          distances[tempInt++]=((*iterReport)->computeDistanceToPoint(temp));
+        }
+      }
+      
       ++numIters;
     } while (abs(currentNorm-lastNorm)>tol && numIters<=10);
 
@@ -232,6 +248,7 @@ namespace DFLib
       throw(Util::Exception("Too many iterations in computeStansfieldFix"));
     else
     {
+      cerr << " stansfield converged in " << numIters << endl;
       // we converged, compute the error ellipse info and save the 
       // fix in the point we were given
       initialFix[0] += deltas[0];
