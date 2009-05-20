@@ -126,4 +126,11 @@ namespace DFLib
     return (bearingToPoint);
   }
 
+  double DFLib::Abstract::Report::computeDistanceToPoint(vector<double> &aPoint)
+  {
+    double dx=aPoint[0]-getReceiverLocation()[0];
+    double dy=aPoint[1]-getReceiverLocation()[1];
+    return (sqrt(dx*dx+dy*dy));
+  }
+
 }

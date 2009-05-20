@@ -4,9 +4,11 @@
 #endif
 #include <iostream>
 #include <cmath>
+#include <limits>
 #include "DF_Abstract_Report.hpp"
 #include "DF_Report_Collection.hpp"
 #include "Util_Minimization_Methods.hpp"
+#include "Util_Misc.hpp"
 
 using namespace std;
 namespace DFLib
@@ -140,27 +142,110 @@ namespace DFLib
     MLFix.setXY(NR_fix);
   }
 
-  /*!
-   \brief compute cost function for point x,y
-  
-   this returns the cost function for the transmitter being at x,y
-   given the DF reports we have.  The probability density uses the
-   cost function in the argument of an exponential.  Minimizing the
-   cost function will therefore maximize the probability density.
+  /// \brief Compute Stansfield fix
+  void ReportCollection::computeStansfieldFix(DFLib::Abstract::Point &SFix,
+                                              double &a, double &b,
+                                              double &phi)
+  {
+    vector<double> initialFix = SFix.getXY();
+    vector<double> distances;
+    vector<double> sines;
+    vector<double> cosines;
+    vector<double> sigmas;
+    vector<double> p;   // Stansfield's "p_i"
+    vector<double> temp(2);
+    vector<double> deltas(2);
 
-   The cost function is the sum
-   \f$
-    f(x,y) = \sum_{i=0}^n (\tilde{\theta_i} - \theta_i(x,y))^2/(2\sigma_i^2)
-   \f$
-  
-   where \f$\tilde{\theta_i}\f$ is the measured bearing from receiver
-   location i and \f$\theta_i(x,y)\f$ is the bearing from receiver
-   location i to point (x,y).  Care must be taken to assure that the
-   bearing differences are are always kept in the range e
-   \f$-\pi<\tilde{\theta_i} - \theta_i(x,y)<=\pi\f$ to avoid
-   discontinuities that break the minimization operation.
-  */
+    double mu, nu, lambda;
+    double lastNorm=1e100; 
+    double currentNorm=1e100; // a ridiculous value to start with
+    int numIters=0;
+    double tol=sqrt(numeric_limits<double>::epsilon());
 
+    vector<DFLib::Abstract::Report *>::iterator iterReport;
+    vector<DFLib::Abstract::Report *>::iterator reportEnd=theReports.end();
+    distances.clear();
+    sines.clear();
+    cosines.clear();
+    distances.reserve(theReports.size());
+    cosines.reserve(theReports.size());
+    sines.reserve(theReports.size());
+    sigmas.reserve(theReports.size());
+    int i=0;
+
+    // initialize
+    for (iterReport=theReports.begin();
+         iterReport!=reportEnd;
+         ++iterReport)
+    {
+      if ((*iterReport)->isValid())
+      {
+        distances.push_back((*iterReport)->computeDistanceToPoint(initialFix));
+        cosines.push_back(cos((*iterReport)->getReportBearingRadians()));
+        sines.push_back(sin((*iterReport)->getReportBearingRadians()));
+        sigmas.push_back((*iterReport)->getBearingStandardDeviationRadians());
+        temp=(*iterReport)->getReceiverLocation();
+        // remember difference between Stansfield and DFLib convention
+        // This is the perpendicular distance between the bearing line
+        // from this receiver to the point initialFix.  Cosine and sine
+        // interchanged because our bearing is clockwise from north, not 
+        // counterclockwise from east.
+        p.push_back( cosines[i]*(initialFix[0]-temp[0])
+                     -sines[i]*(initialFix[1]-temp[1]));
+        ++i;
+      }
+    }
+
+    // we are now ready to iterate.
+    do 
+    {
+      mu=nu=lambda=0;
+      lastNorm=currentNorm;
+      // compute mu, nu, lambda
+      for (int i=0; i< p.size(); ++i)
+      {
+        double dsigma2=(distances[i]*distances[i]*sigmas[i]*sigmas[i]);
+        // again, sine and cosine opposite from Stansfield because of
+        // angular convention
+        mu += (sines[i]*sines[i])/dsigma2;
+        nu += (cosines[i]*sines[i])/dsigma2;
+        lambda += (cosines[i]*cosines[i])/dsigma2;
+      }
+      double denom=lambda*mu-nu*nu;
+      deltas[0]=0;
+      deltas[1]=0;
+      for (int i=0; i< p.size(); ++i)
+      {
+        double dsigma2=(distances[i]*distances[i]*sigmas[i]*sigmas[i]);
+        deltas[0] += p[i]*(nu*sines[i]-mu*cosines[i])/dsigma2;
+        deltas[1] += p[i]*(lambda*sines[i]-nu*cosines[i])/dsigma2;
+      }
+      deltas[0] /= denom;
+      deltas[1] /= denom;
+      currentNorm=sqrt(deltas[0]*deltas[0]+deltas[1]*deltas[1]);
+      ++numIters;
+    } while (abs(currentNorm-lastNorm)>tol && numIters<=10);
+
+    // we get here either because we failed to converge or because we did
+    // converge.  Check.
+    if (numIters > 10)
+      throw(Util::Exception("Too many iterations in computeStansfieldFix"));
+    else
+    {
+      // we converged, compute the error ellipse info and save the 
+      // fix in the point we were given
+      initialFix[0] += deltas[0];
+      initialFix[1] += deltas[1];
+      SFix.setXY(initialFix);
+    
+      // tan(2*phi)= -2*nu/(lambda-nu)
+      phi=.5*atan2(-2*nu,lambda-nu);
+      a=sqrt(1/(lambda-nu*tan(phi)));
+      b=sqrt(1/(mu+nu*tan(phi)));
+    }
+  }
+
+  /// \brief Compute Cost Function
 
   double ReportCollection::computeCostFunction(vector<double> &evaluationPoint)
   {

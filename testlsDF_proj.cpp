@@ -300,6 +300,62 @@ int main(int argc,char **argv)
   cout << "  Offset from LS by " << latlon[0]-LS_point[0] << " , " 
        << latlon[1]-LS_point[1] << endl; 
 
+  // Lastly, try to compute the stansfield solution using LS fix as staring
+  // guess:
+  DFLib::Proj::Point StansfieldPoint=LS_fix;
+  double a,b,phi;
+  try
+  {
+    rColl.computeStansfieldFix(StansfieldPoint,a,b,phi);
+
+    NR_fix = StansfieldPoint.getXY();
+    gnuplotFile << "replot " << NR_fix[0] << "," << NR_fix[1] << " with points title \"Stansfield Fix\"" << endl;
+    
+    cout << " getting user coordinates " << endl;
+    
+    latlon=StansfieldPoint.getUserCoords();
+    
+    EW='E';
+    NS='N';
+    
+    if (latlon[0] < 0)
+    {
+      latlon[0] *= -1;
+      EW = 'W';
+    }
+    
+    if (latlon[1] < 0)
+    {
+      latlon[1] *= -1;
+      NS = 'S';
+    }
+    
+    cout << "  Longitude of Stansfield fix: " << (int) latlon[0] << "d" 
+         << (latlon[0]-(int)latlon[0])*60 << "\"" << EW << endl;
+    
+    cout << "  Latitude of Stansfield fix: " << (int) latlon[1] << "d" 
+         << (latlon[1]-(int)latlon[1])*60 << "\"" << NS << endl;
+    
+    latlon=StansfieldPoint.getXY();
+    cout << " Mercator coords of Stansfield fix" << latlon[0] << " , " << latlon[1] 
+         << endl;
+    cout << "  Offset from LS by " << latlon[0]-LS_point[0] << " , " 
+         << latlon[1]-LS_point[1] << endl; 
+
+    cout << " Stansfield ellipse: a="<<a << "  b=" << b << " phi=" << phi
+         << " rotation in degrees="<<phi*RAD_TO_DEG 
+         << endl;
+
+
+  }
+  catch(DFLib::Util::Exception x)
+  {
+    cerr << "Ooops, got exception trying to compute Stansfield fix" 
+         << x.getEmsg()
+         << endl;
+  }
+
+
   gnuplotFile << "pause -1" << endl;
   gnuplotFile.close();
 }

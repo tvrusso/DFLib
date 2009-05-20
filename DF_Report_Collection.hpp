@@ -95,6 +95,176 @@ namespace DFLib
     void computeLeastSquaresFix(DFLib::Abstract::Point &LS_Fix);
 
     /*!
+      \brief Computes Stansfield estimate of Maximum Likelihood solution of DF problem
+
+      Given a collection of DF fixes with specified standard
+      deviation, computes the point of maximum likelihood in the
+      approximation of small angles.  It is based on the paper
+      "Statistical Theory of D.F. Fixing" by R. G. Stansfield,
+      J. I.E.E. Vol 94, Part IIA, 1947.
+
+      Stansfield's approach approximates the bearing error
+      \f$\theta_i(x,y)-\tilde{\theta}_i\f$ by
+      \f$\sin(\theta_i(x,y)-\tilde{\theta}_i)\f$. 
+
+      Fly in the ointment: Stansfield uses angles measured
+      counter-clockwise from the East in those equations.  To
+      translate to our usage (bearings clockwise from North) simply
+      interchange cosine and sine in the final expressions below.  To keep
+      consistent with Stansfield's paper, I retain his convention throughout
+      this documentation.
+
+      Starting as in the Maximum Likelihood fix,
+
+      \f$
+      P(x,y) = K*\exp(-\sum_{i=0}^n (\tilde{\theta_i} - \theta_i(x,y))^2/(2\sigma_i^2))
+      \f$
+
+      Making the substitution that \f$\tilde{\theta_i} -
+      \theta_i(x,y)\approx\sin(\tilde{\theta_i} - \theta_i(x,y))\f$
+      and that \f$\sin(\tilde{\theta_i} - \theta_i(x,y))=q_i/d_i\f$,
+      where \f$q_i\f$ is the perpendicular distance from our bearing
+      line to the point (x,y) and \f$d_i\f$ is the distance from our
+      receiver site to that point, we get:
+
+      
+      \f$
+      P(q) = K*\exp(-\sum_{i=0}^n (q_i)^2/(2(d_i\sigma_i)^2))
+      \f$
+
+      Unfortunately, the d_i all depend on x,y, making this a fairly ugly
+      nonlinear problem to solve.  To simplify matters, Stansfield introduced
+      a point which he repeatedly refers to as the actual position of the
+      transmitter, making the approximation that d_i is approximately the
+      distance to that point and using it instead.  But really any point
+      O (for Origin) can be used instead in what follows, so long as O isn't
+      too far from (x,y).
+
+      Assume that p_i is the perpendicular distance from our bearing line i
+
+      to O and that \f$\Delta x\f$ and \f$\Delta y\f$ are the offsets from
+      point O to point Q.  Then 
+      \f$
+      q_i = p_i+\Delta x \sin(\tilde{\theta}_i)-\Delta y\cos(\tilde{\theta}_i)
+      \f$
+      by a very simple geometric argument.  Substituting this mess into the
+      new cost function and solving the least squares problem, one concludes
+      that the values of \f$\Delta x\f$ and \f$\Delta y\f$ that maximize the
+      probability are:
+
+      \f$
+      \Delta x = \frac{1}{\lambda\mu-\nu^2}\sum_i p_i\frac{\nu\cos(\tilde{\theta}_i)-\mu\sin(\tilde{\theta}_i)}{(d_i\sigma_i)^2}
+      \f$
+      and
+      \f$
+      \Delta y = \frac{1}{\lambda\mu-\nu^2}\sum_i p_i\frac{\lambda\cos(\tilde{\theta}_i)-\nu\sin(\tilde{\theta}_i)}{(d_i\sigma_i)^2}
+      \f$
+
+      with
+      \f$
+      \lambda=\sum_i \frac{\sin^2(\tilde{\theta}_i)}{(d_i\sigma_i)^2}
+      \f$
+
+      \f$
+      \mu=\sum_i \frac{\cos^2(\tilde{\theta}_i)}{(d_i\sigma_i)^2}
+      \f$
+
+      and 
+      \f$
+      \nu = \sum_i \frac{\cos(\tilde{\theta}_i)\sin(\tilde{\theta}_i)}{(d_i\sigma_i)^2}
+      \f$
+
+      Finally, it is the case that the numbers \f$\lambda\f$,
+      \f$\mu\f$ and \f$\nu\f$ form the elements of the covariance
+      matrix for the distribution of \f$q_i\f$ and can be used to form
+      a confidence region.
+
+      If one rotates the system of coordinates around the maximum likelihood
+      fix location by an angle \f$\phi\f$ such that
+      \f$
+      tan(2\phi) = -\frac{2\nu}{\lambda-\mu}
+      \f$
+      so that 
+
+      \f$
+      \Delta x = X\cos(\phi) - Y\sin(\phi)
+      \f$
+
+      \f$
+      \Delta y = X\sin\phi) + Y\cos(\phi)      
+      \f$
+      
+      where the delta quantities are offsets from the fix location,
+      then the region defined by:
+
+      \f$
+      \frac{X^2}{a^2} + \frac{Y^2}{b^2} = -2 \ln(1-P')
+      \f$
+
+      encloses the region in which there is a probability \f$P'\f$ for
+      the true location to be.
+
+      \f$a\f$ and \f$b\f$ are given by:
+
+      \f$
+      \frac{1}{a^2}=\lambda - \nu\tan(\phi)
+      \f$
+
+      and
+
+      \f$
+      \frac{1}{b^2}=\mu + \nu\tan(\phi)
+      \f$
+
+      Note that Stansfield's paper has an error in it regarding the
+      two expressions above.  The error was pointed out and corrected
+      in a report "Probabalistic Position-Fixing" by Steve Burnett et
+      al.  This paper was a report from the Claremont Graduate School,
+      Claremont McKenna College Mathematics Clinic, 1986.  The only place
+      I've been able to find it is the URL:
+
+      http://oai.dtic.mil/oai/oai?verb=getRecord&metadataPrefix=html&identifier=ADA190397      
+
+      Remember when reading the code that Stansfield uses a different angle
+      convention for bearings than DFLib does.
+
+      And there is another subtlety that is not discussed in
+      Stansfield, but is discussed in "Numerical Calculations for
+      Passive Geolocation Scenarios" by Don Koks
+
+      http://www.dsto.defence.gov.au/publications/4949/DSTO-RR-0319.pdf
+
+      Since the Stansfield fix is supposed to be a least squares solution to
+      the minimization of the cost function (and therefore the maximization of
+      the probability density), the presence of the distance from receiver to
+      test point in the cost function is a problem that interferes with the
+      solution.  So an iterative process is employed.  Practically, this is the
+      algorithm:
+
+      0) starting with an initial guess point O, compute the distances from 
+         receivers to O, call them \f$d_i\f$ and use them as an approximation to
+         the distances to the test point.
+
+      Iterate:
+
+        1) Using the \f$d_i\f$ determined above, solve the least squares problem using
+           the expressions above.  This yields an offset vector \f$(\Delta x, \Delta y)\f$ from O to the approximate fix.
+         
+        2) Compute the distances from receivers to \f$O+(\Delta x, \Delta y)\f$ and
+           call them \f$d_i\f$ again.
+           
+        3) If \f$(\Delta x, \Delta y)\f$ has changed appreciably this iteration,
+           return to step 1 and iterate again.  Otherwise, use \f$O+(\Delta x, \Delta y)\f$ as the Stansfield fix.
+
+      The "changed appreciably" bit will take a little black art, I
+      think.  I propose that we simply check that the norm of the
+      offset vector hasn't changed more than some tolerance since the last 
+      iteration.
+
+    */
+    void computeStansfieldFix(DFLib::Abstract::Point &SFix,double &a, 
+                              double &b, double &phi);
+    /*!
       \brief Computes Maximum Likelihood solution of DF problem
 
       Given a collection of DF fixes with specified standard deviation,
@@ -143,6 +313,28 @@ namespace DFLib
 
     void computeMLFix(DFLib::Abstract::Point &MLFix);
 
+    
+    /*!
+      \brief compute cost function for point x,y
+      
+      this returns the cost function for the transmitter being at x,y
+      given the DF reports we have.  The probability density uses the
+      cost function in the argument of an exponential.  Minimizing the
+      cost function will therefore maximize the probability density.
+      
+      The cost function is the sum
+      \f$
+      f(x,y) = \sum_{i=0}^n (\tilde{\theta_i} - \theta_i(x,y))^2/(2\sigma_i^2)
+      \f$
+      
+      where \f$\tilde{\theta_i}\f$ is the measured bearing from receiver
+      location i and \f$\theta_i(x,y)\f$ is the bearing from receiver
+      location i to point (x,y).  Care must be taken to assure that the
+      bearing differences are are always kept in the range e
+      \f$-\pi<\tilde{\theta_i} - \theta_i(x,y)<=\pi\f$ to avoid
+      discontinuities that break the minimization operation.
+    */
+    
     double computeCostFunction(vector<double> &evaluationPoint);
     void computeCostFunctionAndGradient(vector<double> &evaluationPoint,
                                                 double &f,

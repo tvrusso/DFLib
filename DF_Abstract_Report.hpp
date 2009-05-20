@@ -82,6 +82,11 @@ namespace DFLib
       /// \param aPoint point to which bearing requested.
       /// \return bearing in radians, in range \f$0<\theta<2\pi\f$
       double computeBearingToPoint(vector<double> &aPoint);
+
+      /// \brief compute distance from this reporting location to some other point.
+      /// \param aPoint point to which distance is requested
+      /// \return distance
+      double computeDistanceToPoint(vector<double> &aPoint);
     };
   }
 
