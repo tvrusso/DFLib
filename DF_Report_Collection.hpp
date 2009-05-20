@@ -91,6 +91,19 @@ namespace DFLib
       \f$
       where \f${\bf r}_k\f$ is the position vector of the \f$k^{th}\f$
       receiver.
+
+      This method currently computes the matrix inverse
+      \f$(A^TA)^{-1}\f$ using the closed form of matrix inverse for a
+      2x2 matrix.  This is not the numerically stable thing to do, as
+      this solution is ill-behaved if the matrix is near-singular.
+      The correct thing to do is to form the "pseudoinverse"
+      \f$A^\#=(A^TA)^{-1}A^T\f$, the numerically-stable approach to
+      which involves singular value decomposition.  I do not do so
+      because I thought it might be overkill.  Fortunately, the method of
+      solution can be changed under the hood without any impact on callers
+      should it turn out that closed-form matrix inversion is underkill 
+      after all.
+      
     */
     void computeLeastSquaresFix(DFLib::Abstract::Point &LS_Fix);
 

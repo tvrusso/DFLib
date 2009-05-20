@@ -4,4 +4,35 @@
 
   The main purpose is to collect position/bearing reports from various stations and compute estimates of target location from them.
 
+  From a user's perspective, the most important classes to use are:
+
+   DFLib::Proj::Point
+
+   DFLib::Proj::Report
+
+   DFLib::ProjReportCollection
+
+   All of these are derived classes from more abstract classes where the 
+   hard work is done.
+
+   Here's the basic work flow for any program that uses DFLib:
+
+
+   -Create a ReportCollection (either DFLib::ReportCollection or 
+    DFLib::ProjReportCollection)
+
+   -for each DF report, create a Report (DFLib::Proj::Report being the most
+    general, supporting multiple coordinate systems)
+
+   -add reports to the report collection using the addReport method.
+
+   -compute various fixes using the "computeXXXFix" methods of the report
+    collection.
+
+
+The program "SimpleDF" is a very trivial example program that uses DFLib to
+compute fixes from DF reports supplied in a rigidly-formatted text file.  Two
+example text files for input to SimpleDF are included.
+
+
 */

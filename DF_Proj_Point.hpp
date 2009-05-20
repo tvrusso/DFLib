@@ -25,7 +25,10 @@ namespace DFLib
 
       /// \brief Constructor
       ///
-      /// \param llPosition coordinates <em>in user's coordinates</em>
+      /// \param uPosition coordinates <em>in user's coordinates</em>
+      /// \param projArgs a vector of strings representing the Proj.4
+      /// description of the user's coordinate system.
+      ///
       Point(const vector<double> &uPosition,const vector<string> &projArgs);
 
 
@@ -39,9 +42,22 @@ namespace DFLib
       Point& operator=(const Point& rhs);
 
       /// \brief set user projection information
+      ///
+      /// \param projArgs vector of strings representing the new projection
+      ///
+      /// This method can be used to change the coordinate system of a point.
+      /// When called, the Mercator representation of the point is updated,
+      /// then the user projection is changed.  The next call to getUserCoords
+      /// will therefore return the point's coordinates in the new coordinate
+      /// system.
+
       void setUserProj(const vector<string> &projArgs);
 
-      // \brief return true if user projection is a lat/lon system
+      /// \brief return true if user projection is a lat/lon system
+      ///
+      ///  Primarily useful for deciding how to display coordinates 
+      ///  (as for example whether to display them in sexigesimal or
+      ///  decimal representation)
       bool isUserProjLatLong() const;
 
       /// \brief set mercator projection (XY) position
@@ -58,15 +74,24 @@ namespace DFLib
 
       /// \brief get user position
       ///
-      /// This is just a wrapper for getLL as needed by the abstract
-      /// interface
+      /// \return a vector<double> containing the coordinates of this
+      /// point in the user's coordinate system.  
+      ///
+      /// This method works by converting the mercator coordinates of
+      /// the point back to the user's coordinate system using the Proj.4
+      /// cartographic projection library if the mercator coordinates 
+      /// or user projection have changed since the last call. 
 
       virtual const vector<double> &getUserCoords();
 
       /// \brief set user position
       ///
-      /// This is just a wrapper for setLL as needed by the abstract
-      /// interface
+      /// Sets the coordinates of the point in user's coordinate system,
+      /// marking the mercator coordinates invalid.  Mercator coordinates
+      /// will be updated by conversion with Proj.4 upon the next call to
+      /// getXY().
+      ///
+      /// \param uPosition vector of doubles with user coordinates.
 
       virtual void setUserCoords(const vector<double> &uPosition)  ;
 
