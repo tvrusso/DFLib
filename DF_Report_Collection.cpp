@@ -144,7 +144,7 @@ namespace DFLib
 
   /// \brief Compute Stansfield fix
   void ReportCollection::computeStansfieldFix(DFLib::Abstract::Point &SFix,
-                                              double &a, double &b,
+                                              double &am2, double &bm2,
                                               double &phi)
   {
     vector<double> initialFix = SFix.getXY();
@@ -257,8 +257,8 @@ namespace DFLib
     
       // tan(2*phi)= -2*nu/(lambda-nu)
       phi=.5*atan2(-2*nu,lambda-nu);
-      a=sqrt(1/(lambda-nu*tan(phi)));
-      b=sqrt(1/(mu+nu*tan(phi)));
+      am2=(lambda-nu*tan(phi));
+      bm2=(mu+nu*tan(phi));
     }
   }
 

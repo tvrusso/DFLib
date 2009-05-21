@@ -303,10 +303,10 @@ int main(int argc,char **argv)
   // Lastly, try to compute the stansfield solution using LS fix as staring
   // guess:
   DFLib::Proj::Point StansfieldPoint=LS_fix;
-  double a,b,phi;
+  double am2,bm2,phi;
   try
   {
-    rColl.computeStansfieldFix(StansfieldPoint,a,b,phi);
+    rColl.computeStansfieldFix(StansfieldPoint,am2,bm2,phi);
 
     NR_fix = StansfieldPoint.getXY();
     gnuplotFile << "replot " << NR_fix[0] << "," << NR_fix[1] << " with points title \"Stansfield Fix\"" << endl;
@@ -342,38 +342,48 @@ int main(int argc,char **argv)
     cout << "  Offset from LS by " << latlon[0]-LS_point[0] << " , " 
          << latlon[1]-LS_point[1] << endl; 
 
-    cout << " Stansfield ellipse: a="<<a << "  b=" << b << " phi=" << phi
-         << " rotation in degrees="<<phi*RAD_TO_DEG 
-         << endl;
-
-    double rho=sqrt(-2*log(.5));   // 50% confidence interval
-    double cosphi=cos(phi);
-    double sinphi=sin(phi);
-    gnuplotFile << "replot " << NR_fix[0] << "+"<<a<<"*"<<rho<<"*"<<cosphi
-                <<"*cos(360.0/40000.0*t)-"<<b<<"*"<<rho<<"*"<<sinphi
-                <<"*sin(360.0/40000.0*t),"
-                <<NR_fix[1] << "+"<<a<<"*"<<rho<<"*"<<sinphi
-                <<"*cos(360.0/40000.0*t)+"<<b<<"*"<<rho<<"*"<<cosphi
-                <<"*sin(360.0/40000.0*t) w l title \"50% Stansfield confidence\"" << endl;
-    rho=sqrt(-2*log(.25));   // 75% confidence interval
-    gnuplotFile << "replot " << NR_fix[0] << "+"<<a<<"*"<<rho<<"*"<<cosphi
-                <<"*cos(360.0/40000.0*t)-"<<b<<"*"<<rho<<"*"<<sinphi
-                <<"*sin(360.0/40000.0*t),"
-                <<NR_fix[1] << "+"<<a<<"*"<<rho<<"*"<<sinphi
-                <<"*cos(360.0/40000.0*t)+"<<b<<"*"<<rho<<"*"<<cosphi
-                <<"*sin(360.0/40000.0*t) w l title \"75% Stansfield confidence\"" << endl;
-
-    rho=sqrt(-2*log(.05));   // 95% confidence interval
-    gnuplotFile << "replot " << NR_fix[0] << "+"<<a<<"*"<<rho<<"*"<<cosphi
-                <<"*cos(360.0/40000.0*t)-"<<b<<"*"<<rho<<"*"<<sinphi
-                <<"*sin(360.0/40000.0*t),"
-                <<NR_fix[1] << "+"<<a<<"*"<<rho<<"*"<<sinphi
-                <<"*cos(360.0/40000.0*t)+"<<b<<"*"<<rho<<"*"<<cosphi
-                <<"*sin(360.0/40000.0*t) w l title \"95% Stansfield confidence\"" << endl;
+    if (am2>0 && bm2>0)
+    {
+      double a=sqrt(1/am2);
+      double b=sqrt(1/bm2);
+      cout << " Stansfield ellipse: a="<<a << "  b=" << b << " phi=" << phi
+           << " rotation in degrees="<<phi*RAD_TO_DEG 
+           << endl;
+      
+      double rho=sqrt(-2*log(.5));   // 50% confidence interval
+      double cosphi=cos(phi);
+      double sinphi=sin(phi);
+      gnuplotFile << "replot " << NR_fix[0] << "+"<<a<<"*"<<rho<<"*"<<cosphi
+                  <<"*cos(360.0/40000.0*t)-"<<b<<"*"<<rho<<"*"<<sinphi
+                  <<"*sin(360.0/40000.0*t),"
+                  <<NR_fix[1] << "+"<<a<<"*"<<rho<<"*"<<sinphi
+                  <<"*cos(360.0/40000.0*t)+"<<b<<"*"<<rho<<"*"<<cosphi
+                  <<"*sin(360.0/40000.0*t) w l title \"50% Stansfield confidence\"" << endl;
+      rho=sqrt(-2*log(.25));   // 75% confidence interval
+      gnuplotFile << "replot " << NR_fix[0] << "+"<<a<<"*"<<rho<<"*"<<cosphi
+                  <<"*cos(360.0/40000.0*t)-"<<b<<"*"<<rho<<"*"<<sinphi
+                  <<"*sin(360.0/40000.0*t),"
+                  <<NR_fix[1] << "+"<<a<<"*"<<rho<<"*"<<sinphi
+                  <<"*cos(360.0/40000.0*t)+"<<b<<"*"<<rho<<"*"<<cosphi
+                  <<"*sin(360.0/40000.0*t) w l title \"75% Stansfield confidence\"" << endl;
+      
+      rho=sqrt(-2*log(.05));   // 95% confidence interval
+      gnuplotFile << "replot " << NR_fix[0] << "+"<<a<<"*"<<rho<<"*"<<cosphi
+                  <<"*cos(360.0/40000.0*t)-"<<b<<"*"<<rho<<"*"<<sinphi
+                  <<"*sin(360.0/40000.0*t),"
+                  <<NR_fix[1] << "+"<<a<<"*"<<rho<<"*"<<sinphi
+                  <<"*cos(360.0/40000.0*t)+"<<b<<"*"<<rho<<"*"<<cosphi
+                  <<"*sin(360.0/40000.0*t) w l title \"95% Stansfield confidence\"" << endl;
+    }
+    else
+    {
+      cerr << "Stansfield ellipse parameters came back bogus: 1/a^2=" << am2
+           << " and 1/b^2="<< bm2 << endl;
+    }
   }
   catch(DFLib::Util::Exception x)
   {
-    cerr << "Ooops, got exception trying to compute Stansfield fix" 
+    cerr << "Ooops, got exception trying to compute Stansfield fix:" << endl
          << x.getEmsg()
          << endl;
   }

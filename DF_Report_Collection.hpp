@@ -275,8 +275,8 @@ namespace DFLib
       iteration.
 
     */
-    void computeStansfieldFix(DFLib::Abstract::Point &SFix,double &a, 
-                              double &b, double &phi);
+    void computeStansfieldFix(DFLib::Abstract::Point &SFix,double &am2, 
+                              double &bm2, double &phi);
     /*!
       \brief Computes Maximum Likelihood solution of DF problem
 
