@@ -240,11 +240,11 @@ namespace DFLib
       }
       
       ++numIters;
-    } while (abs(currentNorm-lastNorm)>tol && numIters<=10);
+    } while (abs(currentNorm-lastNorm)>tol && numIters<=40);
 
     // we get here either because we failed to converge or because we did
     // converge.  Check.
-    if (numIters > 10)
+    if (numIters > 40)
       throw(Util::Exception("Too many iterations in computeStansfieldFix"));
     else
     {
