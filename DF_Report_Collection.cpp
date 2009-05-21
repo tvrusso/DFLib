@@ -255,8 +255,8 @@ namespace DFLib
       initialFix[1] += deltas[1];
       SFix.setXY(initialFix);
     
-      // tan(2*phi)= -2*nu/(lambda-nu)
-      phi=.5*atan2(-2*nu,lambda-nu);
+      // tan(2*phi)= -2*nu/(lambda-mu)
+      phi=.5*atan2(-2*nu,lambda-mu);
       am2=(lambda-nu*tan(phi));
       bm2=(mu+nu*tan(phi));
     }

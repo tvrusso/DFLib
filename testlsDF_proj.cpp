@@ -50,6 +50,7 @@ int main(int argc,char **argv)
   ofstream gnuplotFile("testlsDFfix.gnuplot");
   ofstream gridFile("function.grid");
   gnuplotFile << "set angles degrees" << endl;
+  gnuplotFile << "set size square" << endl;
   gnuplotFile << "set parametric" << endl;
   gnuplotFile.precision(16); gnuplotFile.width(20);
 
