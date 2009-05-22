@@ -388,10 +388,31 @@ int main(int argc,char **argv)
 
   rColl.computeMLFix(NRPoint);
 
+  // Now let's check how far we are from a selected receiver
+  const DFLib::Proj::Report *r0=dynamic_cast<const DFLib::Proj::Report *>(rColl.getReport(0));
+  DFLib::Proj::Point rPoint0=r0->getReceiverPoint();
+
+  // assure we're in WGS84 lat/lon like our ML point
+  rPoint0.setUserProj(projArgs);
+  vector<double> r0_coords=rPoint0.getUserCoords();
+
   NR_fix = NRPoint.getXY();
+  latlon=NRPoint.getUserCoords();
+  // compute very rough distance on sphere with haversine formula:
+  double dlon=(latlon[0]-r0_coords[0])/RAD_TO_DEG;
+  double dlat=(latlon[1]-r0_coords[1])/RAD_TO_DEG;
+  double haversin_a=sin(dlat/2.0)*sin(dlat/2.0)+cos(latlon[1]/RAD_TO_DEG)*cos(r0_coords[1]/RAD_TO_DEG)*sin(dlon/2)*sin(dlon/2);
+  double haversin_c=2*atan2(sqrt(haversin_a),sqrt(1-haversin_a));
+  double haversin_d=3596*haversin_c;   // miles, give or take
+  if (haversin_d>100)    // don't freakin' trust it
+  {
+    cout << " ML fix is pretty much questionable ";
+  }
+  cout << " ML Fix is about " << haversin_d
+         << " miles from a receiver." << endl;
   gnuplotFile << "replot " << NR_fix[0] << "," << NR_fix[1] << " with points title \"ML Fix\"" << endl;
   pointsFile << 102 << "|"<<NR_fix[0]<<"|"<<NR_fix[1]<<"|ML" <<endl;
-
+  
   cout << " getting user coordinates " << endl;
   
   latlon=NRPoint.getUserCoords();
@@ -400,10 +421,10 @@ int main(int argc,char **argv)
   NS='N';
   
   if (latlon[0] < 0)
-    {
-      latlon[0] *= -1;
-      EW = 'W';
-    }
+  {
+    latlon[0] *= -1;
+    EW = 'W';
+  }
   
   if (latlon[1] < 0)
   {
@@ -416,12 +437,13 @@ int main(int argc,char **argv)
   
   cout << "  Latitude of ML fix: " << (int) latlon[1] << "d" 
        << (latlon[1]-(int)latlon[1])*60 << "\"" << NS << endl;
-
+  
   latlon=NRPoint.getXY();
   cout << " Mercator coords of ML fix" << latlon[0] << " , " << latlon[1] 
        << endl;
   cout << "  Offset from LS by " << latlon[0]-LS_point[0] << " , " 
        << latlon[1]-LS_point[1] << endl; 
+
 
   // Lastly, try to compute the stansfield solution using LS fix as staring
   // guess:
