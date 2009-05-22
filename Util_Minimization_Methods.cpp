@@ -458,9 +458,13 @@ namespace DFLib
               for(int j=0;j<ndim;j++)
                 x0[j]+=Simplex[i][j];
             }
-            for(int j=0;j<ndim;j++)
-              x0[j]/=ndim;
           }
+          for(int j=0;j<ndim;j++)
+            x0[j]/=ndim;
+          cout << "x0=";
+          for (i=0;i<ndim;i++)
+            cout << x0[i] << " ";
+          cout << endl;
           
           // Compute the reflection point through the centroid
           for (int j=0;j<ndim;j++)
@@ -530,8 +534,12 @@ namespace DFLib
               fTestC=theGroup->getFunctionValue();
               nFunctionEvals++;
               
+              cout << " fTestC = " << fTestC << " Xc=";
+              for (i=0;i<ndim;i++)
+                cout << xc[i] << " ";
+              cout << endl;
               // is this better than the worst point?
-              if (fTestC<fVals[indexOfWorst])
+              if (fTestC<=fVals[indexOfWorst])
               {
                 // then toss the worst and replace with contracted
                 fVals[indexOfWorst]=fTestC;

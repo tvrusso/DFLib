@@ -273,6 +273,7 @@ int main(int argc,char **argv)
   cout << "  Latitude of LS fix: " << (int) latlon[1] << "d" 
        << (latlon[1]-(int)latlon[1])*60 << "\"" << NS << endl;
 
+  /*
   //  for (double minCutAngle=0; minCutAngle < 50; minCutAngle += 5.0)
   for (double minCutAngle=0; minCutAngle < 5; minCutAngle += 5.0)
   {
@@ -306,7 +307,7 @@ int main(int argc,char **argv)
            << " , " << FCA_stddev[1] << ")" << endl;
     }
   }
-
+  */
 
   NR_fix.resize(2);
 

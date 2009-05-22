@@ -138,15 +138,29 @@ namespace DFLib
     DFLib::Util::Minimizer bogus(this);
     vector<double> NR_fix = MLFix.getXY();
     int j;
+
 #if 0
     // First do a quickie Nelder-Mead simplex minimize
     vector<vector<double> > Simplex(3);
     Simplex[0]=NR_fix;
     Simplex[1]=NR_fix;
     Simplex[2]=NR_fix;
-    // perturb
-    Simplex[1][0] += -10000;
-    Simplex[2][1] += -10000;
+    
+    // get gradient of cost function at base point.
+    vector<double> gradient;
+    double f;
+    computeCostFunctionAndGradient(Simplex[0],f,gradient);
+    // normalize:
+    f=sqrt(gradient[0]*gradient[0]+gradient[1]*gradient[1]);
+    gradient[0]/=f;
+    gradient[1]/=f;
+    // perturb along the downhill direction
+    Simplex[1][0] += -10*gradient[0];
+    Simplex[1][1] += -10*gradient[1];
+
+    // perturb along the direction orthogonal to gradient here
+    Simplex[2][0] += -10*gradient[1];
+    Simplex[2][1] +=  10*gradient[0];
 
     try 
     {
