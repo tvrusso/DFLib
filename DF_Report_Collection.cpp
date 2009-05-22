@@ -138,6 +138,25 @@ namespace DFLib
     DFLib::Util::Minimizer bogus(this);
     vector<double> NR_fix = MLFix.getXY();
     int j;
+    // First do a quickie Nelder-Mead simplex minimize
+    vector<vector<double> > Simplex(3);
+    Simplex[0]=NR_fix;
+    Simplex[1]=NR_fix;
+    Simplex[2]=NR_fix;
+    // perturb
+    Simplex[1][0] += 100;
+    Simplex[2][1] += 100; 
+    try 
+    {
+      int simpIndex=bogus.nelderMeadMinimize(Simplex);
+      NR_fix=Simplex[simpIndex];
+    }
+    catch (DFLib::Util::Exception x)
+    {
+      cerr << " Caught exception in nelderMeadMinimize:" << endl
+           << x.getEmsg() << endl;
+    }
+
     double tempF=bogus.conjugateGradientMinimize(NR_fix,1e-5,j);
     MLFix.setXY(NR_fix);
   }
@@ -240,11 +259,11 @@ namespace DFLib
       }
       
       ++numIters;
-    } while (abs(currentNorm-lastNorm)>tol && numIters<=40);
+    } while (abs(currentNorm-lastNorm)>tol && numIters<=100);
 
     // we get here either because we failed to converge or because we did
     // converge.  Check.
-    if (numIters > 40)
+    if (numIters > 100)
       throw(Util::Exception("Too many iterations in computeStansfieldFix"));
     else
     {
@@ -447,7 +466,7 @@ namespace DFLib
     }
     
     det = a11*a22-a12*a12;
-    
+    cout << " computeLeastSquaresFix determinant=" << det << endl;
     LS_point[0]=(a11*atb1+a12*atb2)/det;
     LS_point[1]=(a12*atb1+a22*atb2)/det;
 

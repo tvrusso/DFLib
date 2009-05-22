@@ -68,6 +68,15 @@ namespace DFLib
        double conjugateGradientMinimize(vector<double> &X0, double ftol,
                                                int &iter);
             
+
+       /// \brief minimuze function of vector argument by Nelder-Mead 
+       ///        simplex method.
+       ///
+       /// \param Simplex vector of vector of points representing simplex vertices
+       /// \return index into modified simplex of vertex with lowest function 
+       ///    value
+       int nelderMeadMinimize(vector<vector<double> > &Simplex);
+
       /// \brief Evaluate \f$F(x0+x*dir)\f$ where x0 and dir are vectors
       ///
       /// F is the group's function "computeFunctionValue"

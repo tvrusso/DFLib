@@ -12,10 +12,15 @@
 #include <projects.h>
 #undef XY
 
+#include "config.h"
 #include "Util_Misc.hpp"
 #include "gaussian_random.hpp"
 #include "DF_Report_Collection.hpp"
 #include "DF_Proj_Report.hpp"
+
+#ifdef HAVE_GDAL_H
+#include <gdal_priv.h>
+#endif
 
 using namespace std;
 
@@ -49,25 +54,73 @@ int main(int argc,char **argv)
 
   ofstream gnuplotFile("testlsDFfix.gnuplot");
   ofstream gridFile("function.grid");
+  ofstream pointsFile("testlsDFfix.grasspoints");
   gnuplotFile << "set angles degrees" << endl;
   gnuplotFile << "set size square" << endl;
   gnuplotFile << "set parametric" << endl;
   gnuplotFile.precision(16); gnuplotFile.width(20);
+  pointsFile.precision(16); pointsFile.width(20);
+  cout.precision(16); cout.width(20);
 
-#ifdef _MSC_VER
-  srand(time(NULL));
-#else
-  srand48(time(NULL));
-#endif
-  if (argc < 3)
+  string progName(argv[0]);
+  argv++;
+  argc--;
+
+  string testArg(argv[0]);
+  time_t seed;
+
+  if (testArg == "--seed")
   {
-    cerr << "Usage: " << argv[0] << " <trans lon> <trans lat> " << endl;
+    argv++;
+    argc--;
+    seed=atoi(argv[0]);
+    argv++;
+    argc--;
+    cerr << " using seed " << seed << endl;
+  }
+  else
+  {
+    seed=time(NULL);
+    cerr << " using time " << seed << " as random number seed." << endl;
+  }
+#ifdef _MSC_VER
+  srand(seed);
+#else
+  srand48(seed);
+#endif
+
+#ifdef HAVE_LIBGDAL  
+  testArg=argv[0];
+  string geotiffName;
+  bool geotiffRequested=false;
+
+  if (testArg == "--geotiff")
+  {
+    cout<< "You asked for a geotiff ... not yet." << endl;
+    argv++;
+    argc--;
+    geotiffRequested=true;
+    geotiffName=argv[0];
+    cout << "Geotiff name: " << geotiffName << endl;
+    argv++;
+    argc--;
+  }
+#endif
+
+
+  if (argc < 2)
+  {
+    cerr << "Usage: " << progName;
+#ifdef HAVE_LIBGDAL    
+    cerr << " [--geotiff <geotiffname>]";
+#endif
+    cerr << " <trans lon> <trans lat> " << endl;
     cerr << " Remember to pipe list of receiver lon/lats into stdin!" << endl;
     exit(1);
   }
 
-  lon=dmstor(argv[1],NULL);
-  lat=dmstor(argv[2],NULL);
+  lon=dmstor(argv[0],NULL);
+  lat=dmstor(argv[1],NULL);
 
   cout << "Transmitter location in decimal degrees: Lon: " << lon*RAD_TO_DEG
        << " Lat: " << lat*RAD_TO_DEG << endl;
@@ -162,6 +215,7 @@ int main(int argc,char **argv)
     gnuplotFile << receiverLoc[0] << "+sin("<<rb<<")*t,"
                 << receiverLoc[1] << "+cos("<<rb<<")*t with lines title \"station " << i << "\" ";
 
+    pointsFile << i << "|"<<receiverLoc[0]<<"|"<<receiverLoc[1]<<"|Receiver "<<i<<endl;
   }
   gnuplotFile << endl;
 
@@ -173,6 +227,10 @@ int main(int argc,char **argv)
   gnuplotFile << "replot " << LS_point[0] << "," << LS_point[1] << " with points title \"LS Fix\"" << endl;
   gnuplotFile << "replot " << transPos[0] << "," << transPos[1] << " with points title \"Actual Location\"" << endl;
   gnuplotFile << "replot " << FCA_point[0] << "," << FCA_point[1] << " with points title \"Fix Cut Average\"" << endl;
+
+  pointsFile << 100 << "|"<<LS_point[0]<<"|"<<LS_point[1]<<"|LSFix" <<endl;
+  pointsFile << 101 << "|"<<FCA_point[0]<<"|"<<FCA_point[1]<<"|FCA" <<endl;
+  pointsFile << 666 << "|"<<transPos[0]<<"|"<<transPos[1]<<"|Transmitter" <<endl;
 
   for(i = 0; i<rColl.size() ; ++i)
   {
@@ -260,6 +318,62 @@ int main(int argc,char **argv)
 //     gridFile << endl;
 //   }
 
+#ifdef HAVE_LIBGDAL
+#define RASTSIZ (2049)
+#define RWID ((RASTSIZ-1)/2)
+#define PIXSIZ (80.0)
+  if (geotiffRequested)
+  {
+    // create a RASTSIZxRASTSIZ buffer centered on LS point 
+    double rasterBuff[RASTSIZ*RASTSIZ];
+    for (i=RWID; i>=-RWID; --i)
+    {
+      NR_fix[1]=LS_point[1]+PIXSIZ*i;
+      for (j=-RWID; j<=RWID; ++j)
+      {
+        NR_fix[0]=LS_point[0]+PIXSIZ*j;
+        rasterBuff[RASTSIZ*(RWID-i)+RWID+j]=rColl.computeCostFunction(NR_fix);
+      }
+    }
+    // Now create a geotiff and write out our buffer
+
+    const char *pszFormat = "GTiff";
+    GDALDriver *poDriver;
+
+    GDALAllRegister();
+    poDriver = GetGDALDriverManager()->GetDriverByName(pszFormat);
+
+    if( poDriver != NULL )
+    {
+      GDALDataset *poDstDS;       
+      char **papszOptions = NULL;
+      
+      poDstDS = poDriver->Create( geotiffName.c_str(), RASTSIZ, RASTSIZ, 1, 
+                                  GDT_Float64, papszOptions );
+
+      
+      double adfGeoTransform[6] = { LS_point[0]-RWID*PIXSIZ, PIXSIZ, 0, LS_point[1]+RWID*PIXSIZ, 0, -PIXSIZ };
+      char *pszSRS_WKT="PROJCS[\"unnamed\",GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433],AUTHORITY[\"EPSG\",\"4326\"]],PROJECTION[\"Mercator_1SP\"],PARAMETER[\"central_meridian\",0],PARAMETER[\"scale_factor\",1],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]]]";
+
+      GDALRasterBand *poBand;
+
+      poDstDS->SetGeoTransform( adfGeoTransform );
+      poDstDS->SetProjection( pszSRS_WKT );
+      poBand = poDstDS->GetRasterBand(1);
+      poBand->RasterIO( GF_Write, 0, 0, RASTSIZ, RASTSIZ, 
+                        rasterBuff, RASTSIZ, RASTSIZ, GDT_Float64, 0, 0 );    
+
+      /* Once we're done, close properly the dataset */
+      GDALClose( (GDALDatasetH) poDstDS );
+
+    }
+    else
+    {
+      cerr << "Could not open GeoTiff driver." << endl;
+    }
+  }
+#endif
+
   // Now try Conjugate Gradients on Jml, always starting from OV fix.
   j=0;
 
@@ -269,6 +383,7 @@ int main(int argc,char **argv)
 
   NR_fix = NRPoint.getXY();
   gnuplotFile << "replot " << NR_fix[0] << "," << NR_fix[1] << " with points title \"ML Fix\"" << endl;
+  pointsFile << 102 << "|"<<NR_fix[0]<<"|"<<NR_fix[1]<<"|ML" <<endl;
 
   cout << " getting user coordinates " << endl;
   
@@ -311,6 +426,7 @@ int main(int argc,char **argv)
 
     NR_fix = StansfieldPoint.getXY();
     gnuplotFile << "replot " << NR_fix[0] << "," << NR_fix[1] << " with points title \"Stansfield Fix\"" << endl;
+    pointsFile << 103 << "|"<<NR_fix[0]<<"|"<<NR_fix[1]<<"|Stansfield" <<endl;
     
     cout << " getting user coordinates " << endl;
     

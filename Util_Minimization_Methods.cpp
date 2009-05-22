@@ -75,6 +75,7 @@ namespace DFLib
       c= b+GOLD*(b-a);
       fc=simpleF(c,X0,direction);
 
+      int iter=0;
       while (fb > fc)
       {
         double r,q,u,denom,ulim;
@@ -141,6 +142,7 @@ namespace DFLib
         fa=fb;
         fb=fc;
         fc=fu;
+        iter++;
       }
     }
 
@@ -309,8 +311,10 @@ namespace DFLib
       const double EPS=1e-10;
       double fret;
 
+      iter=0;
       theGroup->setEvaluationPoint(X0);
       fp=theGroup->getFunctionValueAndGradient(xi);
+
       for (j=0;j<vecSize;++j)
       {
         g[j]=-xi[j];
@@ -347,5 +351,219 @@ namespace DFLib
         throw(Exception("Too many iterations in conjugateGradientMinimize"));
       return fret;
     }
-  }    
-}            
+
+    // returns index of simplex vertex with best function value
+    int Minimizer::nelderMeadMinimize(vector<vector<double> >&Simplex)
+    {
+      int ndim=Simplex[0].size();
+      int npts=Simplex.size();
+
+      if (npts != ndim+1)
+        throw(Exception("Number of points in simplex must be one more than number of dimensions of vectors"));
+
+      vector<double> fVals(ndim);
+      // wasteful of space, but who cares.  
+      vector<double> x0(ndim); // centroid of face through which we reflect
+      vector<double> xr(ndim); // reflected vertex
+      vector<double> xe(ndim); // reflected/expanded vertex
+      vector<double> xc(ndim); // contracted vertex
+      
+      int indexOfBest, indexOfWorst, indexOfSecondWorst;
+      int i;
+      bool done=false;
+
+      const double Alpha=1;
+      const double Gamma=2;
+      const double Rho=0.5;
+      const double Sigma=0.5;
+      const int maximumIterations=5000;
+
+      double fTestR,fTestE,fTestC;
+      int nFunctionEvals=0;
+      int niters=0;
+      double ftol=sqrt(numeric_limits<double>::epsilon());
+      double rtol;
+
+      // compute the function values for our simplex corners
+      for (i=0; i<npts; i++)
+      {
+        theGroup->setEvaluationPoint(Simplex[i]);
+        fVals[i]=theGroup->getFunctionValue();
+        nFunctionEvals++;
+      }
+
+      
+      while (!done)
+      {
+        // locate best, worst, and second worst values.  An extraordinarily
+        //inefficient way to do it.
+        indexOfBest=0;
+        if (fVals[0]>fVals[1])
+        {
+          indexOfWorst=0;
+          indexOfSecondWorst=1;
+        }
+        else
+        {
+          indexOfWorst=1;
+          indexOfSecondWorst=0;
+        }
+        for (i=0;i<npts;i++)
+        {
+          if (fVals[i]<fVals[indexOfBest]) 
+            indexOfBest=i;
+          if (fVals[i]>fVals[indexOfWorst])
+          {
+            indexOfSecondWorst=indexOfWorst;
+            indexOfWorst=i;
+          }
+          else if (fVals[i]>fVals[indexOfSecondWorst] && i!=indexOfWorst)
+          {
+            indexOfSecondWorst=i;
+          }
+        }
+
+        cout << "nM " << niters++ << " nfuncs=" << nFunctionEvals << " "
+             << "fVals["<<indexOfBest<<"]="<<fVals[indexOfBest] << " " 
+             << "fVals["<<indexOfSecondWorst<<"]="<<fVals[indexOfSecondWorst] << " " 
+             << "fVals["<<indexOfWorst<<"]="<<fVals[indexOfWorst] << endl;
+          
+        rtol=2*abs(fVals[indexOfWorst]-fVals[indexOfBest])
+          /(abs(fVals[indexOfWorst])+abs(fVals[indexOfBest]));
+        if (rtol<ftol)
+        {
+          done=true;
+        }
+        else
+        {
+          if (nFunctionEvals>maximumIterations)
+            throw(Exception("Maximum function evals exceeded in nelderMead"));
+          
+          // Now compute the center of mass of the side opposite the worst
+          // point:
+          x0.assign(ndim,0.0);
+          for (i=0;i<npts;i++)
+          {
+            if (i!=indexOfWorst)
+            {
+              for(int j=0;j<ndim;j++)
+                x0[j]+=Simplex[i][j];
+            }
+          }
+          
+          // Compute the reflection point through the centroid
+          for (int j=0;j<ndim;j++)
+            xr[j]=x0[j]+Alpha*(x0[j]-Simplex[indexOfWorst][j]);
+          
+          // evaluate the function at xr
+          theGroup->setEvaluationPoint(xr);
+          fTestR=theGroup->getFunctionValue();
+          nFunctionEvals++;
+
+          cout << " fTestR = " << fTestR << endl;
+
+          // If this is the best of all....
+          if (fTestR<fVals[indexOfBest])
+          {
+            // then try to expand it, too
+            for (int j=0;j<ndim;j++)
+              xe[j]=x0[j]+Gamma*(x0[j]-Simplex[indexOfWorst][j]);
+            
+            theGroup->setEvaluationPoint(xe);
+            fTestE=theGroup->getFunctionValue();
+            nFunctionEvals++;
+            
+            // if this is the best so far, replace the worst with it
+            if (fTestE<fVals[indexOfBest])
+            {
+              fVals[indexOfWorst]=fTestE;
+              Simplex[indexOfWorst]=xe;
+              cout << " nM expanded best, " << fTestE << " replacing " 
+                   << indexOfWorst << endl;
+            }
+            else
+            {
+              // the reflected is the best so far, replace worst with it
+              fVals[indexOfWorst]=fTestR;
+              Simplex[indexOfWorst]=xr;
+              cout << " nM reflected best, " << fTestR << " replacing " 
+                   << indexOfWorst << endl;
+            }
+          }
+          else // reflected is not better than everything
+          {
+            // is reflected better than second worst?
+            if (fTestR<fVals[indexOfSecondWorst])
+            {
+              // yes, toss the worst and use this one
+              fVals[indexOfWorst]=fTestR;
+              Simplex[indexOfWorst]=xr;
+              cout << " nM reflected better than second worst, " 
+                   << fTestR << " replacing " 
+                   << indexOfWorst << endl;
+            }
+            else
+            {
+              // no, worst than second worst
+              // try contraction:
+              // this is a point part way along the line connecting the
+              // worst and the centroid.
+              for (int j=0;j<ndim;j++)
+                xc[j]=Simplex[indexOfWorst][j]
+                  +Rho*(x0[j]-Simplex[indexOfWorst][j]);
+              
+              theGroup->setEvaluationPoint(xc);
+              fTestC=theGroup->getFunctionValue();
+              nFunctionEvals++;
+              
+              // is this better than the worst point?
+              if (fTestC<fVals[indexOfWorst])
+              {
+                // then toss the worst and replace with contracted
+                fVals[indexOfWorst]=fTestC;
+                Simplex[indexOfWorst]=xc;
+                cout << " nM contracted better than worst, " 
+                   << fTestC << " replacing " 
+                   << indexOfWorst << endl;
+              }
+              else
+              {
+                // we really can't win, can we?  Reduce the whole thing
+                // toward the best point
+                cout << " nM reducing the whole deal " << endl;
+                cout << "   best one is " << indexOfBest 
+                     << " with function value " << fVals[indexOfBest] << endl;
+                for (int vertex=0;vertex<npts;vertex++)
+                  if (vertex != indexOfBest)
+                  {
+                    for (int component=0;component<ndim;component++)
+                    {
+                      Simplex[vertex][component]=
+                        Simplex[indexOfBest][component]+
+                        Sigma*(Simplex[vertex][component]-
+                               Simplex[indexOfBest][component]);
+                    }
+                    theGroup->setEvaluationPoint(Simplex[vertex]);
+                    fVals[vertex]=theGroup->getFunctionValue();
+                    cout << " Just changed vertex " << vertex << " value to " 
+                         << fVals[vertex]<<endl;
+                    cout << "  value of best is still fVals["
+                         <<indexOfBest<<"]=" << fVals[indexOfBest] 
+                         << endl;
+                    nFunctionEvals++;
+                  }
+                cout << " Finished reducing... " << endl;
+                cout << "nM  nfuncs=" << nFunctionEvals << " "
+                     << "fVals["<<indexOfBest<<"]="<<fVals[indexOfBest] << " " 
+                     << "fVals["<<indexOfSecondWorst<<"]="<<fVals[indexOfSecondWorst] << " " 
+                     << "fVals["<<indexOfWorst<<"]="<<fVals[indexOfWorst] << endl;
+              }
+            }
+          }
+        }
+      }
+      return(indexOfBest);
+    }
+
+  }                                    
+}

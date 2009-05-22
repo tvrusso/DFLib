@@ -27,5 +27,7 @@ AC_CHECK_FUNCS([sqrt])
 
 AC_CHECK_LIB(proj,pj_init,,AC_MSG_ERROR([DFLib requires proj.4 libraries.]))
 
+DFLIB_CHECK_GDAL
+
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
