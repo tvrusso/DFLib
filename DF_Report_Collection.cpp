@@ -138,14 +138,16 @@ namespace DFLib
     DFLib::Util::Minimizer bogus(this);
     vector<double> NR_fix = MLFix.getXY();
     int j;
+#if 0
     // First do a quickie Nelder-Mead simplex minimize
     vector<vector<double> > Simplex(3);
     Simplex[0]=NR_fix;
     Simplex[1]=NR_fix;
     Simplex[2]=NR_fix;
     // perturb
-    Simplex[1][0] += 100;
-    Simplex[2][1] += 100; 
+    Simplex[1][0] += -10000;
+    Simplex[2][1] += -10000;
+
     try 
     {
       int simpIndex=bogus.nelderMeadMinimize(Simplex);
@@ -156,6 +158,7 @@ namespace DFLib
       cerr << " Caught exception in nelderMeadMinimize:" << endl
            << x.getEmsg() << endl;
     }
+#endif
 
     double tempF=bogus.conjugateGradientMinimize(NR_fix,1e-5,j);
     MLFix.setXY(NR_fix);

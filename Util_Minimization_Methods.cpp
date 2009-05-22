@@ -361,7 +361,7 @@ namespace DFLib
       if (npts != ndim+1)
         throw(Exception("Number of points in simplex must be one more than number of dimensions of vectors"));
 
-      vector<double> fVals(ndim);
+      vector<double> fVals(npts);
       // wasteful of space, but who cares.  
       vector<double> x0(ndim); // centroid of face through which we reflect
       vector<double> xr(ndim); // reflected vertex
@@ -424,9 +424,18 @@ namespace DFLib
         }
 
         cout << "nM " << niters++ << " nfuncs=" << nFunctionEvals << " "
-             << "fVals["<<indexOfBest<<"]="<<fVals[indexOfBest] << " " 
-             << "fVals["<<indexOfSecondWorst<<"]="<<fVals[indexOfSecondWorst] << " " 
-             << "fVals["<<indexOfWorst<<"]="<<fVals[indexOfWorst] << endl;
+             << "fVals["<<indexOfBest<<"]="<<fVals[indexOfBest] << " ";
+        for (i=0;i<ndim;i++)
+          cout << Simplex[indexOfBest][i] << " ";
+
+        cout << "fVals["<<indexOfSecondWorst<<"]="<<fVals[indexOfSecondWorst] << " " ;
+        for (i=0;i<ndim;i++)
+          cout << Simplex[indexOfSecondWorst][i] << " ";
+
+        cout << "fVals["<<indexOfWorst<<"]="<<fVals[indexOfWorst] << " ";
+        for (i=0;i<ndim;i++)
+          cout << Simplex[indexOfWorst][i] << " ";
+        cout << endl;
           
         rtol=2*abs(fVals[indexOfWorst]-fVals[indexOfBest])
           /(abs(fVals[indexOfWorst])+abs(fVals[indexOfBest]));
@@ -449,6 +458,8 @@ namespace DFLib
               for(int j=0;j<ndim;j++)
                 x0[j]+=Simplex[i][j];
             }
+            for(int j=0;j<ndim;j++)
+              x0[j]/=ndim;
           }
           
           // Compute the reflection point through the centroid
@@ -460,7 +471,10 @@ namespace DFLib
           fTestR=theGroup->getFunctionValue();
           nFunctionEvals++;
 
-          cout << " fTestR = " << fTestR << endl;
+          cout << " fTestR = " << fTestR << " Xr=";
+          for (i=0;i<ndim;i++)
+            cout << xr[i] << " ";
+          cout << endl;
 
           // If this is the best of all....
           if (fTestR<fVals[indexOfBest])

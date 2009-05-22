@@ -18,8 +18,10 @@
 #include "DF_Report_Collection.hpp"
 #include "DF_Proj_Report.hpp"
 
+#if 0
 #ifdef HAVE_GDAL_H
 #include <gdal_priv.h>
+#endif
 #endif
 
 using namespace std;
@@ -89,6 +91,7 @@ int main(int argc,char **argv)
   srand48(seed);
 #endif
 
+#if 0
 #ifdef HAVE_LIBGDAL  
   testArg=argv[0];
   string geotiffName;
@@ -106,13 +109,15 @@ int main(int argc,char **argv)
     argc--;
   }
 #endif
-
+#endif
 
   if (argc < 2)
   {
     cerr << "Usage: " << progName;
+#if 0
 #ifdef HAVE_LIBGDAL    
     cerr << " [--geotiff <geotiffname>]";
+#endif
 #endif
     cerr << " <trans lon> <trans lat> " << endl;
     cerr << " Remember to pipe list of receiver lon/lats into stdin!" << endl;
@@ -318,6 +323,7 @@ int main(int argc,char **argv)
 //     gridFile << endl;
 //   }
 
+#if 0
 #ifdef HAVE_LIBGDAL
 #define RASTSIZ (2049)
 #define RWID ((RASTSIZ-1)/2)
@@ -373,7 +379,7 @@ int main(int argc,char **argv)
     }
   }
 #endif
-
+#endif
   // Now try Conjugate Gradients on Jml, always starting from OV fix.
   j=0;
 
