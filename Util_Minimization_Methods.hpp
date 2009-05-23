@@ -75,6 +75,51 @@ namespace DFLib
        /// \param Simplex vector of vector of points representing simplex vertices
        /// \return index into modified simplex of vertex with lowest function 
        ///    value
+       ///
+       /// The Nelder-Mead simplex method is a minimization method in which
+       /// a "simplex" is morphed through the landscape of the function and
+       /// tends downhill.  In 2-D the simplex is a triangle, in 3-D a 
+       /// tetrahedron, and in more dimensions it is a generalization of 
+       /// such a shape.  In  \f$N\f$ dimensions, the simplex has \f$N+1\f$
+       /// vertices.  The method keeps track of the best, worst, and "second
+       /// worst" fucntion values at the vertices and at each step attempts to
+       /// modify the simplex to make the collection better:
+       ///
+       /// Centroid point:  the centroid of the side opposite the worst point.
+       ///
+       /// Reflected point: The reflection of the worst point through the 
+       /// centroid.
+       ///
+       /// Expanded point:  a point extrapolated along the line from the
+       /// centroid to the reflected point at twice the distance.
+       ///
+       /// Contracted point:  a point halfway between the centroid and the 
+       /// worst point.
+       ///
+       /// Reduced simplex: the simplex shrunk by half along all
+       /// sides, leaving the best point unmodified.
+       /// 
+       /// The method improves the simplex by the following algorithm:
+       ///
+       /// if the reflected point is the best so far, try the expanded point
+       /// If the expanded point is the best so far, replace the worst point with it.  Otherwise replace the worst point with the reflected point.
+       ///
+       /// If the reflected point is not the best so far, but is better than
+       /// the second-worst, replace the worst point with it.
+       ///
+       /// If we haven't replaed the worst point yet, check the
+       /// contracted point.  If it is better than the second-worst point,
+       /// replace the worst point with it.
+       ///
+       /// If nothing has worked so far, reduce the size of the simplex by
+       /// shrinking along all sides towards the current best point.
+       ///
+       /// The method stops when we have either exceeded the maximum number
+       /// of function evaluations (here hard-coded to 5000) or the spread
+       /// of values between best and worst has been reduced to a sufficiently
+       /// small fraction of the average of best and worst.  
+       /// The stopping criterion is (abs(diff)/average)<sqrt(machine_epsilon)
+
        int nelderMeadMinimize(vector<vector<double> > &Simplex);
 
       /// \brief Evaluate \f$F(x0+x*dir)\f$ where x0 and dir are vectors
