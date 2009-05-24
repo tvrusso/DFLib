@@ -445,6 +445,10 @@ int main(int argc,char **argv)
       {
         fixFailed=true;
       }
+      else
+      {
+        fixFailed=false;
+      }
     }
     else
     {
