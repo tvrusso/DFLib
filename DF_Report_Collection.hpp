@@ -145,16 +145,15 @@ namespace DFLib
       P(q) = K*\exp(-\sum_{i=0}^n (q_i)^2/(2(d_i\sigma_i)^2))
       \f$
 
-      Unfortunately, the d_i all depend on x,y, making this a fairly ugly
+      Unfortunately, the \f$d_i\f$ all depend on \f$(x,y)\f$, making this a fairly ugly
       nonlinear problem to solve.  To simplify matters, Stansfield introduced
       a point which he repeatedly refers to as the actual position of the
-      transmitter, making the approximation that d_i is approximately the
+      transmitter, making the approximation that \f$d_i\f$ is approximately the
       distance to that point and using it instead.  But really any point
       O (for Origin) can be used instead in what follows, so long as O isn't
       too far from (x,y).
 
-      Assume that p_i is the perpendicular distance from our bearing line i
-
+      Assume that \f$p_i\f$ is the perpendicular distance from our bearing line i
       to O and that \f$\Delta x\f$ and \f$\Delta y\f$ are the offsets from
       point O to point Q.  Then 
       \f$
@@ -319,8 +318,30 @@ namespace DFLib
       worth the trouble.
 
       To compute the ML fix requires an initial guess, as from the least
-      squares fix.  We use the method of conjugate gradients to find the 
-      minimum of the cost function.
+      squares fix.  
+
+      The cost function is not guaranteed to have a unique minimum,
+      and even when it does it is often hard to find.  Originally, I
+      used only the method of Conjugate Gradients to search for the
+      minimum, but this fails rather often if the cost function has
+      broad, flat areas of low value.  The failure mode is that the
+      line search in the steepest descent direction (the first step of
+      the CG method) takes us very, very far away because rather than
+      having a minimum in that direction, the function is simply
+      asymptotic to some smallish value.  Once it does this, the
+      method can't recover because from there the function is
+      completely flat.
+
+      So instead, before we try CG we do a Nelder-Mead downhill
+      simplex search to improve our starting guess.  So far, testing
+      shows that this generally gets us very close to a minimum if
+      there is one.  Sometimes, though, it also goes off to infinity
+      because the system simply doesn't have a clear minimum.  In
+      these cases it seems it is best for the user simply to ignore
+      the fix.  A more aggressive search for a constrained minimum
+      (say the best point in some range of the starting point) could
+      be a helpful thing, but is probably more work than this
+      deserves.
 
     */
 
