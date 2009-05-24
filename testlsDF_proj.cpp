@@ -402,7 +402,8 @@ int main(int argc,char **argv)
   bool retryFix=false;
   bool fixFailed=false;
   double haversin_d;
-  if (!(isinf(latlon[0]) || isinf(latlon[1]) || isnan(latlon[0]) || isnan(latlon[1])))
+  if (!(isinf(latlon[0]) || isinf(latlon[1]) || isnan(latlon[0]) || isnan(latlon[1])
+        ||isinf(NR_fix[0]) || isinf(NR_fix[1]) || isnan(NR_fix[0]) || isnan(NR_fix[1])))
   {
     // compute very rough distance on sphere with haversine formula:
     double dlon=(latlon[0]-r0_coords[0])/RAD_TO_DEG;
@@ -415,8 +416,8 @@ int main(int argc,char **argv)
     cout << " dlon="<<dlon <<endl;
     cout << " dlat="<<dlat <<endl;
     cout << " haversin_a="<<haversin_a <<endl;
-    cout << " haversin_c="<<haversin_a <<endl;
-    cout << " haversin_d="<<haversin_a <<endl;
+    cout << " haversin_c="<<haversin_c <<endl;
+    cout << " haversin_d="<<haversin_d <<endl;
     if (haversin_d>100)    // don't freakin' trust it
     {
       retryFix=true;
@@ -424,6 +425,11 @@ int main(int argc,char **argv)
   }
   else
   {
+    cout << " Simple attempt returned bogus numbers. " << endl;
+    cout << "latlon[0]=" << latlon[0] << endl;
+    cout << "latlon[1]=" << latlon[1] << endl;
+    cout << "NR_fix[0]=" << NR_fix[0] << endl;
+    cout << "NR_fix[1]=" << NR_fix[1] << endl;
     retryFix=true;
   }
   if (retryFix)
@@ -434,13 +440,21 @@ int main(int argc,char **argv)
     NR_fix = NRPoint.getXY();
     latlon=NRPoint.getUserCoords();
     
-    if (!(isinf(latlon[0]) || isinf(latlon[1]) || isnan(latlon[0]) || isnan(latlon[1])))
+    if (!(isinf(latlon[0]) || isinf(latlon[1]) || isnan(latlon[0]) || isnan(latlon[1])
+          ||isinf(NR_fix[0]) || isinf(NR_fix[1]) || isnan(NR_fix[0]) || isnan(NR_fix[1])))
     {
       double dlon=(latlon[0]-r0_coords[0])/RAD_TO_DEG;
       double dlat=(latlon[1]-r0_coords[1])/RAD_TO_DEG;
       double haversin_a=sin(dlat/2.0)*sin(dlat/2.0)+cos(latlon[1]/RAD_TO_DEG)*cos(r0_coords[1]/RAD_TO_DEG)*sin(dlon/2)*sin(dlon/2);
       double haversin_c=2*atan2(sqrt(haversin_a),sqrt(1-haversin_a));
       haversin_d=3596*haversin_c;   // miles, give or take
+      cout << " latlon[0]-r0_coords[0]= " << latlon[0]-r0_coords[0];
+      cout << " latlon[1]-r0_coords[1]= " << latlon[1]-r0_coords[1];
+      cout << " dlon="<<dlon <<endl;
+      cout << " dlat="<<dlat <<endl;
+      cout << " haversin_a="<<haversin_a <<endl;
+      cout << " haversin_c="<<haversin_c <<endl;
+      cout << " haversin_d="<<haversin_d <<endl;
       if (haversin_d>100)
       {
         fixFailed=true;
@@ -453,6 +467,11 @@ int main(int argc,char **argv)
     else
     {
       fixFailed=true;
+      cout << " Second attempt returned bogus numbers. " << endl;
+      cout << "latlon[0]=" << latlon[0] << endl;
+      cout << "latlon[1]=" << latlon[1] << endl;
+      cout << "NR_fix[0]=" << NR_fix[0] << endl;
+      cout << "NR_fix[1]=" << NR_fix[1] << endl;
     }
     if (fixFailed)
     {
