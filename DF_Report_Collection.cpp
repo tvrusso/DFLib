@@ -132,7 +132,7 @@ namespace DFLib
 
 
   /// \brief compute ML fix
-  void ReportCollection::computeMLFix(DFLib::Abstract::Point &MLFix)
+  void ReportCollection::aggressiveComputeMLFix(DFLib::Abstract::Point &MLFix)
   {
 
     DFLib::Util::Minimizer bogus(this);
@@ -172,6 +172,18 @@ namespace DFLib
            << x.getEmsg() << endl;
     }
     
+    double tempF=bogus.conjugateGradientMinimize(NR_fix,1e-5,j);
+    MLFix.setXY(NR_fix);
+  }
+
+  /// \brief compute ML fix
+  void ReportCollection::computeMLFix(DFLib::Abstract::Point &MLFix)
+  {
+
+    DFLib::Util::Minimizer bogus(this);
+    vector<double> NR_fix = MLFix.getXY();
+    int j;
+
     double tempF=bogus.conjugateGradientMinimize(NR_fix,1e-5,j);
     MLFix.setXY(NR_fix);
   }
@@ -481,7 +493,6 @@ namespace DFLib
     }
     
     det = a11*a22-a12*a12;
-    cout << " computeLeastSquaresFix determinant=" << det << endl;
     LS_point[0]=(a11*atb1+a12*atb2)/det;
     LS_point[1]=(a12*atb1+a22*atb2)/det;
 

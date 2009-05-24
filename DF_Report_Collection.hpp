@@ -320,6 +320,15 @@ namespace DFLib
       To compute the ML fix requires an initial guess, as from the least
       squares fix.  
 
+    */
+
+    void computeMLFix(DFLib::Abstract::Point &MLFix);
+
+    /*! \brief more aggressive attempt to get at an ML fix
+
+      This is just a version of computeMLFix that tries a little harder to
+      get at the answer.
+
       The cost function is not guaranteed to have a unique minimum,
       and even when it does it is often hard to find.  Originally, I
       used only the method of Conjugate Gradients to search for the
@@ -344,8 +353,7 @@ namespace DFLib
       deserves.
 
     */
-
-    void computeMLFix(DFLib::Abstract::Point &MLFix);
+    void aggressiveComputeMLFix(DFLib::Abstract::Point &MLFix);
 
     
     /*!

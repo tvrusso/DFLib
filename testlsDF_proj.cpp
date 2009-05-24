@@ -398,53 +398,103 @@ int main(int argc,char **argv)
 
   NR_fix = NRPoint.getXY();
   latlon=NRPoint.getUserCoords();
-  // compute very rough distance on sphere with haversine formula:
-  double dlon=(latlon[0]-r0_coords[0])/RAD_TO_DEG;
-  double dlat=(latlon[1]-r0_coords[1])/RAD_TO_DEG;
-  double haversin_a=sin(dlat/2.0)*sin(dlat/2.0)+cos(latlon[1]/RAD_TO_DEG)*cos(r0_coords[1]/RAD_TO_DEG)*sin(dlon/2)*sin(dlon/2);
-  double haversin_c=2*atan2(sqrt(haversin_a),sqrt(1-haversin_a));
-  double haversin_d=3596*haversin_c;   // miles, give or take
-  if (haversin_d>100)    // don't freakin' trust it
+
+  bool retryFix=false;
+  bool fixFailed=false;
+  double haversin_d;
+  if (!(isinf(latlon[0]) || isinf(latlon[1]) || isnan(latlon[0]) || isnan(latlon[1])))
   {
-    cout << " ML fix is pretty much questionable ";
+    // compute very rough distance on sphere with haversine formula:
+    double dlon=(latlon[0]-r0_coords[0])/RAD_TO_DEG;
+    double dlat=(latlon[1]-r0_coords[1])/RAD_TO_DEG;
+    double haversin_a=sin(dlat/2.0)*sin(dlat/2.0)+cos(latlon[1]/RAD_TO_DEG)*cos(r0_coords[1]/RAD_TO_DEG)*sin(dlon/2)*sin(dlon/2);
+    double haversin_c=2*atan2(sqrt(haversin_a),sqrt(1-haversin_a));
+    haversin_d=3596*haversin_c;   // miles, give or take
+    cout << " latlon[0]-r0_coords[0]= " << latlon[0]-r0_coords[0];
+    cout << " latlon[1]-r0_coords[1]= " << latlon[1]-r0_coords[1];
+    cout << " dlon="<<dlon <<endl;
+    cout << " dlat="<<dlat <<endl;
+    cout << " haversin_a="<<haversin_a <<endl;
+    cout << " haversin_c="<<haversin_a <<endl;
+    cout << " haversin_d="<<haversin_a <<endl;
+    if (haversin_d>100)    // don't freakin' trust it
+    {
+      retryFix=true;
+    }
   }
-  cout << " ML Fix is about " << haversin_d
+  else
+  {
+    retryFix=true;
+  }
+  if (retryFix)
+  {
+    NRPoint=LS_fix;
+    rColl.aggressiveComputeMLFix(NRPoint);
+
+    NR_fix = NRPoint.getXY();
+    latlon=NRPoint.getUserCoords();
+    
+    if (!(isinf(latlon[0]) || isinf(latlon[1]) || isnan(latlon[0]) || isnan(latlon[1])))
+    {
+      double dlon=(latlon[0]-r0_coords[0])/RAD_TO_DEG;
+      double dlat=(latlon[1]-r0_coords[1])/RAD_TO_DEG;
+      double haversin_a=sin(dlat/2.0)*sin(dlat/2.0)+cos(latlon[1]/RAD_TO_DEG)*cos(r0_coords[1]/RAD_TO_DEG)*sin(dlon/2)*sin(dlon/2);
+      double haversin_c=2*atan2(sqrt(haversin_a),sqrt(1-haversin_a));
+      haversin_d=3596*haversin_c;   // miles, give or take
+      if (haversin_d>100)
+      {
+        fixFailed=true;
+      }
+    }
+    else
+    {
+      fixFailed=true;
+    }
+    if (fixFailed)
+    {
+      cout << " more aggressive attempt still failed to get a reasonable fix."
+           << endl;
+    }
+  }
+  if (!fixFailed)
+  {
+    cout << " ML Fix is about " << haversin_d
          << " miles from a receiver." << endl;
-  gnuplotFile << "replot " << NR_fix[0] << "," << NR_fix[1] << " with points title \"ML Fix\"" << endl;
-  pointsFile << 102 << "|"<<NR_fix[0]<<"|"<<NR_fix[1]<<"|ML" <<endl;
-  
-  cout << " getting user coordinates " << endl;
-  
-  latlon=NRPoint.getUserCoords();
-  
-  EW='E';
-  NS='N';
-  
-  if (latlon[0] < 0)
-  {
-    latlon[0] *= -1;
-    EW = 'W';
+    gnuplotFile << "replot " << NR_fix[0] << "," << NR_fix[1] << " with points title \"ML Fix\"" << endl;
+    pointsFile << 102 << "|"<<NR_fix[0]<<"|"<<NR_fix[1]<<"|ML" <<endl;
+    
+    cout << " getting user coordinates " << endl;
+    
+    latlon=NRPoint.getUserCoords();
+    
+    EW='E';
+    NS='N';
+    
+    if (latlon[0] < 0)
+    {
+      latlon[0] *= -1;
+      EW = 'W';
+    }
+    
+    if (latlon[1] < 0)
+    {
+      latlon[1] *= -1;
+      NS = 'S';
+    }
+    
+    cout << "  Longitude of ML fix: " << (int) latlon[0] << "d" 
+         << (latlon[0]-(int)latlon[0])*60 << "\"" << EW << endl;
+    
+    cout << "  Latitude of ML fix: " << (int) latlon[1] << "d" 
+         << (latlon[1]-(int)latlon[1])*60 << "\"" << NS << endl;
+    
+    latlon=NRPoint.getXY();
+    cout << " Mercator coords of ML fix" << latlon[0] << " , " << latlon[1] 
+         << endl;
+    cout << "  Offset from LS by " << latlon[0]-LS_point[0] << " , " 
+         << latlon[1]-LS_point[1] << endl; 
+    
   }
-  
-  if (latlon[1] < 0)
-  {
-    latlon[1] *= -1;
-    NS = 'S';
-  }
-  
-  cout << "  Longitude of ML fix: " << (int) latlon[0] << "d" 
-       << (latlon[0]-(int)latlon[0])*60 << "\"" << EW << endl;
-  
-  cout << "  Latitude of ML fix: " << (int) latlon[1] << "d" 
-       << (latlon[1]-(int)latlon[1])*60 << "\"" << NS << endl;
-  
-  latlon=NRPoint.getXY();
-  cout << " Mercator coords of ML fix" << latlon[0] << " , " << latlon[1] 
-       << endl;
-  cout << "  Offset from LS by " << latlon[0]-LS_point[0] << " , " 
-       << latlon[1]-LS_point[1] << endl; 
-
-
   // Lastly, try to compute the stansfield solution using LS fix as staring
   // guess:
   DFLib::Proj::Point StansfieldPoint=LS_fix;
