@@ -294,7 +294,6 @@ namespace DFLib
       throw(Util::Exception("Too many iterations in computeStansfieldFix"));
     else
     {
-      cerr << " stansfield converged in " << numIters << endl;
       // we converged, compute the error ellipse info and save the 
       // fix in the point we were given
       initialFix[0] += deltas[0];
