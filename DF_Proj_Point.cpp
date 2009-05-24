@@ -125,6 +125,12 @@ namespace DFLib
       mercDirty=rhs.mercDirty;
       userDirty=rhs.userDirty;
 
+      // This is OK, because we're copying the dirty bools, too.
+      // we have to copy both of these, otherwise we risk copying only the
+      // ones that haven't been updated for consistency!
+      theMerc=rhs.theMerc;
+      theUserCoords=rhs.theUserCoords;
+
       return (*this);
     }
 
