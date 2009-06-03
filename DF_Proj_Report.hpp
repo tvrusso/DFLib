@@ -5,6 +5,7 @@
 #endif
 #include "port.h"
 #include <cmath>
+using namespace std;
 
 #include "DF_Abstract_Report.hpp"
 #include "DF_Proj_Point.hpp"

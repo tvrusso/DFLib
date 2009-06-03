@@ -12,7 +12,16 @@
 #include <projects.h>
 #undef XY
 
+#ifdef HAVE_CONFIG_H
 #include "config.h"
+#endif
+
+#ifdef WIN32
+#include <cfloat>
+inline bool isnan(double v) {return _isnan(v)!=0;}
+inline bool isinf(double v) {return !_finite(v);}
+#endif
+
 #include "Util_Misc.hpp"
 #include "gaussian_random.hpp"
 #include "DF_Report_Collection.hpp"
