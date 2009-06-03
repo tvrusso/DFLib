@@ -1,0 +1,18 @@
+Tentative documenation for building with CMake.
+
+Linux/BSD:
+
+   mkdir build
+   cd build
+   cmake ..
+   make
+
+Losedows:
+   mkdir build
+   cd build
+   cmake .. -G"NMake Makefiles" -DPROJ_LIBRARY=c:\proj-4.6.1\src\proj.lib -DPROJ_INCLUDE_DIR=c:\proj-4.6.1\src\
+   nmake
+
+   This assumes that proj.4 libraries were built in-place in c:\proj-4.6.1.  No
+   attempt is made to search for them elsewhere.  FIXME.
+
