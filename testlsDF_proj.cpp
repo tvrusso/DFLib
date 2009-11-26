@@ -77,17 +77,20 @@ int main(int argc,char **argv)
   argv++;
   argc--;
 
-  string testArg(argv[0]);
   time_t seed;
-
-  if (testArg == "--seed")
+  if (argc > 0)
   {
-    argv++;
-    argc--;
-    seed=atoi(argv[0]);
-    argv++;
-    argc--;
-    cerr << " using seed " << seed << endl;
+    string testArg(argv[0]);
+
+    if (testArg == "--seed")
+    {
+      argv++;
+      argc--;
+      seed=atoi(argv[0]);
+      argv++;
+      argc--;
+      cerr << " using seed " << seed << endl;
+    }
   }
   else
   {
