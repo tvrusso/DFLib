@@ -16,6 +16,7 @@
 FIND_PATH(PROJ_INCLUDE_DIR proj_api.h
   "$ENV{LIB_DIR}/include/proj"
   "$ENV{LIB_DIR}/include"
+  "$ENV{LIB_DIR}/local/include"
   #mingw
   c:/msys/local/include
   NO_DEFAULT_PATH
@@ -24,6 +25,7 @@ FIND_PATH(PROJ_INCLUDE_DIR proj_api.h)
 
 FIND_LIBRARY(PROJ_LIBRARY NAMES proj PATHS
   "$ENV{LIB_DIR}/lib"
+  "$ENV{LIB_DIR}/local/lib"
   #mingw
   c:/msys/local/lib
   NO_DEFAULT_PATH
