@@ -34,5 +34,10 @@ The program "SimpleDF" is a very trivial example program that uses DFLib to
 compute fixes from DF reports supplied in a rigidly-formatted text file.  Two
 example text files for input to SimpleDF are included.
 
+The program testlsDFfix_proj.cpp is a test harness that was used
+during development of DFLib.  It uses a known transmitter location and
+a list of receiver locations, randomizes the bearing errors from
+receiver to transmitter, and computes fixes from the randomized
+problem.  View the documentation for this program under the "Files" tab.
 
 */
