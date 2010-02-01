@@ -7,6 +7,11 @@
 #include <fstream>
 #include <vector>
 #include <projects.h>
+// projects.h defines "XY" as a synonym for "projUV", polluting the
+// namespace --- that's rude, because we use "XY" all over DFLib as
+// part of identifier names, and this breaks it.  Since we never use
+// proj.4's "XY" define, let's undef it before we try to include DFLib
+// includes.
 #undef XY
 
 #include "DF_Report_Collection.hpp"
@@ -15,6 +20,11 @@
 
 using namespace std;
 void printCoords(const vector<double> &latlon, const string &text);
+
+// The magnetic declination.  This is correct in Albuquerque, NM in mid-2009.
+// CHANGE THIS for your own environment!
+// In this usage, east declination is positive, west negative.
+#define MAG_DEC (9.8)
 
 int main(int argc, char **argv)
 {
@@ -90,6 +100,9 @@ int main(int argc, char **argv)
   {
     while (!infile.eof())
     {
+      // Read in a single line of the input file.  We do next to no error
+      // checking.  We assume that if we can read a report name, we have the
+      // whole line.  This needs to be much more robust in a production code.
       infile >> stationName;
       if (!infile.eof())
       {
@@ -98,11 +111,15 @@ int main(int argc, char **argv)
         infile >> tempstr; // lat
         stationPos[1]=dmstor(tempstr.c_str(),NULL)*RAD_TO_DEG;
         infile >> bearing;
-        bearing += 9.8;  // hard coded magnetic declination
+        // The bearing as input is magnetic.  Convert to true by adding in
+        // the declination (assumes East declination is positive, here)
+        bearing += MAG_DEC;
         infile >> datum;
         infile >> sd;
         infile >> validity;
 
+        // We now have the data for this line, so print it all out and
+        // create a new report object.
         cout << "Station " << stationName << " at (" 
              << stationPos[0] << "," << stationPos[1] << ")" 
              << " with datum "; 
@@ -114,16 +131,22 @@ int main(int argc, char **argv)
         cout << " bearing " << bearing << " sd " << sd << endl;
         cout << string((validity==1)?"VALID":"IGNORE") << endl;
 
+        // Here's the guts.  We create a report object with our characteristics
+        // and with the appropriate datum.
         reportPtr = new DFLib::Proj::Report(stationPos,bearing,sd,stationName,
                                             (datum==0)?NAD27_args:WGS84_args);
         if (validity == 0)
           reportPtr->setInvalid();
 
+        // Now add the new report to the collection
         rColl.addReport(reportPtr);
       }
     }
     cout << " Got " << rColl.size() << " reports " << endl;
-    // Give it a bogus initial point
+
+    // computeLeastSquaresFix doesn't use the actual value of the point
+    // we pass to it, it merely returns the answer.  We give it a bogus
+    // position just to initialize the point properly.
     DFLib::Proj::Point LSFix(stationPos,WGS84_args);
     try {
       rColl.computeLeastSquaresFix(LSFix);
@@ -135,6 +158,9 @@ int main(int argc, char **argv)
            << endl;
     }
 
+    // Fix cut average also doesn't use the input point except as a place to
+    // store the answer.  We initialize it to something valid by merely copying
+    // the LSFix point into FCA.
     DFLib::Proj::Point FCA=LSFix;
     vector<double> FCA_stddev(2);
     try 
@@ -148,6 +174,12 @@ int main(int argc, char **argv)
            << endl;
     }
 
+    // computeMLFix *DOES* use the input point as a starting guess for its
+    // minimization search.  Initialize to the LS fix.  It can also FAIL if
+    // the geometry of bearing measurements leads to a very flat cost surface,
+    // and we *should* be testing the result before reporting it.  But we're
+    // not.  See testlsDF_proj.cpp for a clumsy example of testing the 
+    // ML fix before proceeding.
     DFLib::Proj::Point MLFix=LSFix;
     try 
     {
@@ -160,6 +192,7 @@ int main(int argc, char **argv)
            << endl;
     }
 
+    // That's it.  We've computed all the fixes, now we just display them.
     vector<double> LS_point=LSFix.getUserCoords();
     printCoords(LS_point,string("Least Squares Fix"));
 
