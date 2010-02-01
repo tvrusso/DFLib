@@ -1,0 +1,27 @@
+DFLib is a library of C++ classes for computing the locations of
+transmitters from bearings-only measurements.  See
+docs/html/index.html for detailed documentation fo the classes.
+
+Quick start:
+
+
+Old-style autoconf build:
+
+   mkdir build
+   cd build
+   ../configure
+   make
+
+Add configure command line arguments as needed to find PROJ.4 library.
+See INSTALL for details.
+
+
+New style CMake build (cross-platform): See INSTALL_CMake
+
+
+Two demo programs are built by this process, SimpleDF and
+testlsDF_proj.  See their respective entries in docs/html/index.html
+for some documentation about them.
+
+DFLib is primarily intended as a set of building blocks for DF fix
+programs, not as a finished product itself.  
