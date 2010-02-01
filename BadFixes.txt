@@ -1,0 +1,27 @@
+ML doesn't always converge, especially if the problem geometry is
+pretty bad.  All the receivers off to one side of the
+transmitter, and with bad standard deviations, for example.
+
+Bad fixes: seed numbers
+
+./testlsDF_proj --seed 1242957545 106d59\'W 34d50\'N < receivers6_sloppy
+
+./testlsDF_proj --seed 1242981211  106d14\'W 35d50\'N < receivers6_sloppy 
+
+Both of these let the ML fix go off to never-never land.  I was
+successful at getting the first to converge with a little help
+from Nelder-Mead, but not the second.  Must try harder.
+
+In both cases, the problem is that the cost function is very,
+very flat for a huge part of the space, and very, very steep near
+the LS fix.  The initial line search down the steepest-descents
+direction takes us way out there from the LS fix trying to find
+the minimum in that direction, and it shoots us so far out that
+we're in a vast, very flat area where CG has no hope of ever finding the
+real minimum anymore.
+
+There must be a way to detect this kind of failure mode and nip
+it in the bud, perhaps by not trying to find the real minimum in
+the initial few directions, but settling for 'better than where
+we started'
+
