@@ -38,7 +38,40 @@ using namespace std;
 
 int main(int argc,char **argv)
 {
-  
+  /*!
+    \brief A simple demo program to test out DFLib fixes using the DFLIB::Proj::Report class
+
+    testlsDFfix_proj takes a longitude/latitude pair in PROJ.4 format
+    as command line arguments.  This coordinate pair represents the
+    actual location of a transmitter.  It also takes as standard in a
+    text file of receiver locations with their standard deviations.
+    Several example receivers files are distributed with DFLib.
+
+    The program then computes the actual bearings from the given
+    receiver locations to the known transmitter location, and adds
+    random errors to the bearings.  The random errors are selected
+    from a Gaussian distribution with the standard deviations given in
+    the receivers file.
+
+    From the randomized bearings, the code computes DF fixes using all
+    the methods available in DFLib: the Fix Cut Average, Least Squares
+    (orthogonal vectors), Maximum Likelihood and Stansfield fixes.  It 
+    outputs a file "testlsDFfix.gnuplot" of Gnuplot commands to plot the
+    DF problem and the various fixes.  Error ellipses for the Stansfield
+    solution are also plotted.
+
+    Code to dump out a GeoTIFF file of the Maximum Likelihood method's 
+    cost function is commented out with preprocessor "if 0" statements, and
+    requires GDAL.  Only the Autoconf build method is currently set up to
+    detect and use GDAL.  This stuff is commented out because in at least one
+    version of GDAL it lead to reports of memory access issues from Valgrind.
+    But it can be useful to uncomment it when trying to understand why some
+    geometries of DF problem lead to the Maximum Likelihood and Stansfield
+    fixes failing to converge (one finds that the surface is very flat near
+    the minimum, and the various minimization methods can't do anything but
+    shoot off to infinity).
+
+  */
   double lon,lat;
   vector<double> transPos(2,0.0);
   int i,j;
