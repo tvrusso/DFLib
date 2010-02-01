@@ -19,6 +19,43 @@ void printCoords(const vector<double> &latlon, const string &text);
 int main(int argc, char **argv)
 {
 
+  /*!
+    \brief A very simple text-based DF fixing program demonstrating how to use DFLib classes.
+
+    SimpleDF takes as command line argument the name of a text file
+    with lines in the following format:
+
+    NAME LONGITUDE LATITUDE BEARING Datum STDDEV VALID
+
+    where longitude and latitude are in PROJ.4 format, Bearing is magnetic
+    bearing IN CENTRAL NEW MEXICO IN 2009, Datum is 1 for WGS84/NAD83 and 0 for
+    NAD27, stddev is the standard deviation of bearing error expected for the 
+    equipment and user, and VALID is 0 for invalid and 1 for valid reports.
+
+    The magnetic declination is hard-coded here as 9.8 degrees, which is the
+    correct declination in Albuquerque, NM in mid-2009.  The user must change 
+    the appropriate line of code to fix this for the region and date.
+
+    The DF reports in the input file are input into a DFLib::ReportCollection,
+    and the various DF fixes computed.  The fixes are printed to standard 
+    output.
+
+    This primitive program shows how to use the DFLib report classes.
+    It does very little error checking of the fixes after they're
+    computed.  testlsDF_proj.cpp actually does more error checking.
+    This program is not intended as a finished product, but as a demo.
+
+    The program was not updated to compute Stansfield fix after the Stansfield
+    fix was implemented in DFLib.
+
+    Neither was the program updated to compute the Maximum Likelihood
+    fix more aggressively than by the conjugate gradient method.  See
+    the program "testlsDF_proj.cpp for how to call the more aggressive
+    ML computation when the simple conjugate gradients method fails
+    due to flatness of the cost surface.
+
+  */
+
   string stationName;
   string tempstr;
   vector<double> stationPos(2,0);
