@@ -60,6 +60,10 @@ int main(int argc,char **argv)
     DF problem and the various fixes.  Error ellipses for the Stansfield
     solution are also plotted.
 
+    The program also outputs a file "testlsDFfix.grasspoints" with the
+    station locations and fix locations in a format that can be read by
+    GRASS GIS's v.in.ascii. 
+
     Code to dump out a GeoTIFF file of the Maximum Likelihood method's 
     cost function is commented out with preprocessor "if 0" statements, and
     requires GDAL.  Only the Autoconf build method is currently set up to
