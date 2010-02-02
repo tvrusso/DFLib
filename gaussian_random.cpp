@@ -52,16 +52,15 @@ namespace DFLib
     /// Returns a random double from a uniform distribution
     double gaussian_random_generator::uniformRandom()
     {
-#ifndef _MSC_VER      
+#ifndef _MSC_VER
       return drand48();
 #else
       double dum;
       int j;
-      unsigned i,k;
 
       if (iff == 0)
       {
-        i=2;
+        iff=1;
         maxran=RAND_MAX+1.0;
         srand(time(NULL));
         for (j=0;j<97;++j) dum=rand();
