@@ -400,7 +400,7 @@ namespace DFLib
 #ifdef DFLIB_GRASS_OUTPUT
       ofstream grassVector("testNelderMead.ascii");
       grassVector.precision(16); grassVector.width(20);
-      grassVector << "ORGANIZATION: Crazy Dago Cartographic Services"<<endl;
+      grassVector << "ORGANIZATION: DFLIB Nelder-Mead code"<<endl;
       grassVector << "DIGIT DATE:   5/22/2009"<<endl;
       grassVector << "DIGIT NAME:   -"<<endl;
       grassVector << "MAP NAME:   nelder1"<<endl;
