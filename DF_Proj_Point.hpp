@@ -3,6 +3,7 @@
 
 #include "port.h"
 #include <vector>
+#include <string>
 #include "projects.h"
 // projects.h rudely defines this, and we don't want it:
 #undef XY
