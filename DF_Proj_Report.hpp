@@ -37,12 +37,14 @@ namespace DFLib
       virtual  double getBearing() const;
       virtual  double getBearingStandardDeviationRadians() const;
       virtual  double getSigma() const;
-      virtual  void  setReceiverLocationUser(vector<double> &theLocation);
-      virtual  void  setReceiverLocationMercator(vector<double> &theLocation);
+      virtual  void  setReceiverLocationUser(const vector<double> &theLocation);
+      virtual  void  setReceiverLocationMercator(const vector<double> &theLocation);
       //! set bearing in degrees
       virtual  void  setBearing(double Bearing);
       //! set standard deviation in degrees
       virtual  void  setSigma(double Sigma);
+      //! allow us to change the projection of the user coordinates
+      virtual void setUserProj(const vector<string> &projArgs);
     };
   }
 
@@ -66,14 +68,19 @@ namespace DFLib
     return sigma*180/M_PI;
   }
 
-  inline void DFLib::Proj::Report::setReceiverLocationUser(vector<double> &theLocation)
+  inline void DFLib::Proj::Report::setReceiverLocationUser(const vector<double> &theLocation)
   {
     receiverLocation->setUserCoords(theLocation);
   }
 
-  inline void DFLib::Proj::Report::setReceiverLocationMercator(vector<double> &theLocation)
+  inline void DFLib::Proj::Report::setReceiverLocationMercator(const vector<double> &theLocation)
   {
     receiverLocation->setXY(theLocation);
+  }
+
+  inline void DFLib::Proj::Report::setUserProj(const vector<string> &projArgs)
+  {
+    receiverLocation->setUserProj(projArgs);
   }
 
   inline const vector<double> & DFLib::Proj::Report::getReceiverLocation() 
