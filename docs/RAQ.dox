@@ -1,0 +1,93 @@
+/*!\page RAQ  Randomly Anticipated Questions
+
+DFLib is extremely new and has been downloaded by very few people so
+far.  As a consequence, there \em are no "Frequently Asked Questions."
+But I expect that some questions will come up, and have tried to
+anticipate them.
+
+\section WhatIsIt What is DFLib?
+
+DFLib is a library of algorithms to solve the geolocation problem for
+hidden transmitters given bearings-only measurements.  Given a number
+of such measurements, DFLib provides methods to estimate the location
+of the transmitter.
+
+\subsection Methods What geolocation methods does DFLib provide?
+
+Currently, DFLib provides only four estimators.  The "Fix Cut Average"
+estimator is the most naive, computing the intersection of bearing
+lines from every pair of receivers and averaging the location.  The
+"Least Squares" estimator is a simple geometric estimator that
+minimizes the sum of squares of perpendicular distances from bearing
+line to target point.  The "Stansfield" estimator is a maximum
+likelihood estimator that assumes small bearing error and long
+target-to-receiver distances in order to simplify the algebra to allow
+closed-form solution.  The "Maximum Likelihood" estimator starts at
+the same formula as the Stansfield estimator, but does not make the
+small-angle/long-distance approximation.  It therefore requires
+numerical solution.
+
+\subsection Projection Does DFLib use a "flat earth" approximation?
+
+Well, sorta.  DFLib does all of its calculations using plane geometry.
+The main workhorse class, DFLib::Proj::Report, uses the Mercator
+projection of the WGS84 ellipsoid as the X-Y coordinate system.  But the 
+underlying abstract class DFLib::Abstract::Report is the one actually used
+by DFLib::ReportCollection, and all that class cares about is that there 
+is some X-Y coordinate system associated with reports for which it can get
+coordinates.
+
+\subsection Huh Mercator projection?  That's stupid!
+
+Maybe.
+
+The Mercator projection has a couple of desirable properties that made
+it attractive for a first cut.  It is a conformal projection, meaning
+that angles between small lines in the projected coordinate system are
+the same as the angles between the corresponding lines on the
+ellipsoid.  North is always vertical in this projection.  And straight
+lines of any length and in any orientation on any part of the plane
+represent \em loxodromes or \em rhumb \em lines on the surface of the
+ellipsoid.  A loxodrome is a curve that intersects all meridians of
+longitude at the same angle.
+
+Radio waves do not propagate along loxodromes, so it can be argued
+that this is a poor choice.  Radio waves propagate along curves that
+are more closely \em geodesics on the surface.  But solving the
+geodesic problem is much more computationally intensive, and a
+geodesic departing a receiver at a given azimuth is tangent to the
+loxodrome departing the receiver at the same azimuth.  The error
+becomes appreciable over distance, but so far my experience has shown
+that the distance required is much longer than those typically seen in
+VHF transmitter hunting.  So far, I have found that this choice serves the
+purposes of VHF transmitter hunting fairly well.  
+
+DFLib does not actually care what X-Y coordinate system you use, or
+even if it's a conformal projection --- only that the report objects
+in the collection return correct bearing data and X-Y coordinates. 
+
+A possible improvement to address the geodesic/loxodrome issue would
+be to use a \em gnomonic projection whose center is close to the area
+of interest.  Straight lines on a gnomonic projection are very nearly
+geodesics (they are exactly geodesics when projecting a sphere, but
+only approximately geodesics when projecting an ellipsoid).  But the
+gnomonic projection is not conformal, and so computing the straight
+line corresponding to a given azimuth is not as simple as drawing a
+line that makes that angle with the local direction of North.  One
+would have to solve the "forward geodesic problem" to compute the
+endpoint of the geodesic departing the receiver at the specified
+azimuth, then use the angle made by the straight line between those
+points in the gnomonic projection as the "bearing" in DFLib's
+calculations, and then do everything else in plane geometry as before.
+If this sounds like a lot of work, you now understand why I have not
+implemented that.  But the DFLib abstract report classes are set up in
+such a way that it would not be difficult to implement this
+improvement should it prove necessary.
+
+For a nice discussion of the errors involved in using projected
+coordinate systems as a basis for DF computations, see Houston,
+R.S. and Nelson,<em>Model Error and the Direction-Finder Problem</em>,
+J, IEEE Transactions on Aerospace and Electronic Systems, Volume
+AES-16, Number 5, pages 729-732.
+
+*/
