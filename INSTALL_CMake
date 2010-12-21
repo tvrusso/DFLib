@@ -7,12 +7,48 @@ Linux/BSD:
    cmake ..
    make
 
+This assumes you have proj.4 installed properly where cmake can just find it.
+
 Losedows:
-   mkdir build
-   cd build
-   cmake .. -G"NMake Makefiles" -DPROJ_LIBRARY=c:\proj-4.6.1\src\proj.lib -DPROJ_INCLUDE_DIR=c:\proj-4.6.1\src\
+
+It is tricky here, because Losedows debug and release builds of
+libraries cannot be used interchangeably in debug or release
+executables.  If you intend to build release binaries for distribution
+(because debug binaries are not freely distributable according to the
+Visual C++ license), then you need to make both versions of libraries
+and link with the right one at build time.
+
+Here's how to make the debug library:
+
+   mkdir build_debug
+   cd build_debug
+   cmake .. -G"NMake Makefiles" -DPROJ_LIBRARY=c:\proj-4.6.1\debug\lib\proj.lib -DPROJ_INCLUDE_DIR=c:\proj-4.6.1\src\
    nmake
 
-   This assumes that proj.4 libraries were built in-place in c:\proj-4.6.1.  No
-   attempt is made to search for them elsewhere.  FIXME.
+   This assumes that proj.4 libraries were built in c:\proj-4.6.1 and
+   that the proj-4 nmake.opt file was edited to use debugging options
+   *and* that INSTDIR was set to the debug subdirectory, and that
+   nmake /f makefile.vc install-all was run after build.  No attempt
+   is made to search for them elsewhere.  FIXME.
+
+And here's how to do the release library:
+   mkdir build_release
+   cd build_release
+   cmake .. -DCMAKE_BUILD_TYPE=release -G"NMake Makefiles" -DPROJ_LIBRARY=c:\proj-4.6.1\release\lib\proj.lib -DPROJ_INCLUDE_DIR=c:\proj-4.6.1\src\
+   nmake
+
+   This assumes that proj.4 libraries were built in c:\proj-4.6.1 and
+   that the proj-4 nmake.opt file was edited to use release options
+   *and* that INSTDIR was set to the release subdirectory, *and* that
+   nmake /f makefile.vc install-all was run after build.  No attempt
+   is made to search for them elsewhere.  FIXME.
+
+If you don't do this carefully and attempt to link the debug version
+of DFLib with the release version of proj (or vice-versa) the link
+phase of DFLib will report "MSVCRT conflicts with other libraries" or
+some such, and the resulting .exe files for SimpleDF or testlsDF_proj
+will crash.  Same goes for othe codes built against DFLib, such as
+qDF.  This is a royal pain in the neck on windows, but once one gets
+it figured out and all the libraries built in both versions, it works
+out OK.  
 
