@@ -355,7 +355,57 @@ namespace DFLib
     */
     void aggressiveComputeMLFix(DFLib::Abstract::Point &MLFix);
 
-    
+    /*! \brief compute Cramer-Rao bounding ellipse parameters
+
+      This function returns the inverse squares and rotation angle for
+      the 1-sigma Cramer-Rao bound of our probability distribution.
+
+      The Cramer-Rao theory states that the inverse of the
+      Fisher information matrix is the best approximation to the covariance
+      matrix obtainable from an unbiased estimator of the maximum likelihood.
+
+      This method simply computes the Fisher information matrix elements and
+      computes from them the parameters of the ellipse.
+
+      If one compares the matrix elements of the FIM to the lambda, nu, and
+      mu variables computed by the Stansfield estimator, one finds that they
+      are equivalent if one makes the Stansfield approximation of small angles.
+      Thus, this method provides precisely the same sort of error estimates
+      for the Maximum Likelihood fix as the equivalent parameters returned by
+      the Stansfield fix.  They may be used in exactly the same manner to 
+      draw error ellipses around the ML fix.
+
+      The Fisher Information Matrix for the probability distribution 
+      associated with the ML fix is just:
+      \f[
+      I=\sum_i \frac{\left[ 
+      \begin{array}{cc}
+      (y_e-y_i)^2&-(x_e-x_i)(y_e-y_i)\\
+      -(x_e-x_i)(y_e-y_i)&(x_e-x_i)^2
+      \end{array} \right]}{\sigma_i^2[(x_e-x_i)^2+(y_e-y_i)^2]^2}
+      \f]
+
+      where \f$x_e\f$ and $y_e$ are the coordinates of the fix, 
+      \f$x_i\f$ and $y_i$ are the coordinates of the $i^{th}$ receiver,
+      and \f$sigma_i\f$ the standard deviation associated with the 
+      $i^{th}$ receiver.
+
+      Thus, the correspondence with the Stansfield parameters is this:
+
+      \f{eqnarray*}{
+
+      \lambda&=&\sum_i \frac{(y_e-y_i)^2}{\sigma_i^2[(x_e-x_i)^2+(y_e-y_i)^2]^2}\\
+      \nu&=&\sum_i \frac{(x_e-x_i)(y_e-y_i)}{\sigma_i^2[(x_e-x_i)^2+(y_e-y_i)^2]^2}\\
+      \mu&=&\sum_i \frac{(x_e-x_i)^2}{\sigma_i^2[(x_e-x_i)^2+(y_e-y_i)^2]^2}\\
+      tan(2\phi) &=& -\frac{2\nu}{\lambda-\mu}\\
+      \frac{1}{a^2}&=&\lambda - \nu\tan(\phi)\\
+      \frac{1}{b^2}&=&\mu + \nu\tan(\phi)
+      \f}
+
+    */
+    void computeCramerRaoBounds(DFLib::Abstract::Point &MLFix,
+                                double &am2, double &bm2, double &phi);
+
     /*!
       \brief compute cost function for point x,y
       

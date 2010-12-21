@@ -242,6 +242,9 @@ namespace DFLib
       }
     }
 
+    // we only set these nonzero if we converge.    
+    am2=bm2=0;
+
     // we are now ready to iterate.
     do 
     {
@@ -306,6 +309,44 @@ namespace DFLib
       bm2=(mu+nu*tan(phi));
     }
   }
+
+  /// \brief Compute Cramer-Rao bounds
+  void ReportCollection::computeCramerRaoBounds(DFLib::Abstract::Point &MLFix,
+                                                double &am2, double &bm2, 
+                                                double &phi)
+  {
+    am2=0;
+    bm2=0;
+    vector<double> initialFix = MLFix.getXY();
+    vector<double> temp(2);
+    double lambda=0;
+    double mu=0;
+    double nu=0;
+    vector<DFLib::Abstract::Report *>::iterator iterReport;
+    vector<DFLib::Abstract::Report *>::iterator reportEnd=theReports.end();
+    for (iterReport=theReports.begin(); iterReport!=reportEnd; ++iterReport)
+    {
+      if ((*iterReport)->isValid())
+      {
+        temp=(*iterReport)->getReceiverLocation();
+        double dx=initialFix[0]-temp[0];
+        double dy=initialFix[1]-temp[1];
+        double sigma=(*iterReport)->getBearingStandardDeviationRadians();
+        double ds2=dx*dx+dy*dy;
+        double denom=sigma*sigma*ds2*ds2;
+
+        lambda += dy*dy/denom;
+        nu += dx*dy/denom;
+        mu += dx*dx/denom;
+      }
+    }
+
+    phi=.5*atan2(-2*nu,lambda-mu);
+    am2=(lambda-nu*tan(phi));
+    bm2=(mu+nu*tan(phi));
+    
+  }
+
 
   /// \brief Compute Cost Function
 
