@@ -385,10 +385,10 @@ namespace DFLib
       \end{array} \right]}{\sigma_i^2[(x_e-x_i)^2+(y_e-y_i)^2]^2}
       \f]
 
-      where \f$x_e\f$ and $y_e$ are the coordinates of the fix, 
-      \f$x_i\f$ and $y_i$ are the coordinates of the $i^{th}$ receiver,
-      and \f$sigma_i\f$ the standard deviation associated with the 
-      $i^{th}$ receiver.
+      where \f$x_e\f$ and \f$y_e\f$ are the coordinates of the fix, 
+      \f$x_i\f$ and \f$y_i\f$ are the coordinates of the \f$i^{th}\f$ receiver,
+      and \f$\sigma_i\f$ the standard deviation associated with the 
+      \f$i^{th}\f$ receiver.
 
       Thus, the correspondence with the Stansfield parameters is this:
 
