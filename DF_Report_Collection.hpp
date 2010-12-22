@@ -114,26 +114,63 @@ namespace DFLib
       deviation, computes the point of maximum likelihood in the
       approximation of small angles.  It is based on the paper
       "Statistical Theory of D.F. Fixing" by R. G. Stansfield,
-      J. I.E.E. Vol 94, Part IIA, 1947.
+      J. I.E.E. Vol 94, Part IIA, 1947.  Unfortunately, this paper is
+      not available anywhere on the web, and it is hard to find it
+      even in well stocked technical libraries.  I was able to obtain
+      a copy through IEEE Document Search, but paid through the nose
+      for it --- and due to copyright issues I am not permitted to
+      make copies available.  If you wish to obtain this paper, you'll
+      have to get a copy yourself.  A more easily obtained paper is
+      "Airborne Direction Finding---The Theory of Navigation Errors"
+      by C.J. Ancker in IRE Transactions on Aeronautical and
+      Navigational Electronics, pp 199-210 (1958).  While paper is
+      this paper available in PDF format through IEEE Xplore at
+      http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=4201630&tag=1
+      it is unfortunately accessible only to those who have access
+      through a library or IEEE membership.  Ancker's paper is much
+      more readable than Stansfield's, as he uses a somewhat less
+      opaque notation and is much more explicit about the
+      approximations being made.
+
+      Since it is so difficult to obtain primary sources describing
+      the Stansfield estimator, I'll present the theory in full.
+
 
       Stansfield's approach approximates the bearing error
       \f$\theta_i(x,y)-\tilde{\theta}_i\f$ by
-      \f$\sin(\theta_i(x,y)-\tilde{\theta}_i)\f$. 
+      \f$\sin(\theta_i(x,y)-\tilde{\theta}_i)\f$.  This is a valid
+      approximation for small enough bearing error, and is the primary
+      limitation of the Stansfield method.
 
       Fly in the ointment: Stansfield uses angles measured
-      counter-clockwise from the East in those equations.  To
-      translate to our usage (bearings clockwise from North) simply
-      interchange cosine and sine in the final expressions below.  To keep
-      consistent with Stansfield's paper, I retain his convention throughout
-      this documentation.
+      counter-clockwise from the East in those equations.  To keep
+      consistent with Stansfield's paper, I retain his convention
+      throughout this documentation.  Do remember when reading DFLib
+      code that we use a different convention, and therefore the code
+      does not exactly match the theoretical exposition.  To translate
+      from Stansfield's to our usage (bearings clockwise from North)
+      simply interchange cosine and sine in the final expressions
+      below.
 
-      Starting as in the Maximum Likelihood fix,
+      Starting as in the Maximum Likelihood fix, we assume that the
+      probability of the true bearing from any given receiver to the
+      actual target location being \f$\theta_i\f$ given a measurement
+      by that receiver of a bearing-to-target of
+      \f$\tilde{\theta_i}\f$ is zero-mean gaussian with standard
+      deviation \f$\sigma_i\f$ depending on the error between true and
+      measured bearings.  Therefore, the probability of the
+      transmitter being at a point \f$(x,y)\f$ is the product of the
+      individual receiver gaussians:
 
       \f$
       P(x,y) = K*\exp(-\sum_{i=0}^n (\tilde{\theta_i} - \theta_i(x,y))^2/(2\sigma_i^2))
       \f$
 
-      Making the substitution that \f$\tilde{\theta_i} -
+      In this expression, \f$\tilde{\theta_i}\f$ is the bearing actually
+      measured by receiver \f$i\f$, and \f$\theta_i(x,y)\f$ is the bearing
+      from receiver \f$i\f$ to the point \f$(x,y)\f$.
+
+      Making the substitution of small angular error, \f$\tilde{\theta_i} -
       \theta_i(x,y)\approx\sin(\tilde{\theta_i} - \theta_i(x,y))\f$
       and that \f$\sin(\tilde{\theta_i} - \theta_i(x,y))=q_i/d_i\f$,
       where \f$q_i\f$ is the perpendicular distance from our bearing
@@ -145,24 +182,29 @@ namespace DFLib
       P(q) = K*\exp(-\sum_{i=0}^n (q_i)^2/(2(d_i\sigma_i)^2))
       \f$
 
-      Unfortunately, the \f$d_i\f$ all depend on \f$(x,y)\f$, making this a fairly ugly
-      nonlinear problem to solve.  To simplify matters, Stansfield introduced
-      a point which he repeatedly refers to as the actual position of the
-      transmitter, making the approximation that \f$d_i\f$ is approximately the
-      distance to that point and using it instead.  But really any point
-      O (for Origin) can be used instead in what follows, so long as O isn't
-      too far from (x,y).
+      Unfortunately, the \f$d_i\f$ all depend on \f$(x,y)\f$, making
+      this a fairly ugly nonlinear problem to solve.  To simplify
+      matters, Stansfield introduced a point which he repeatedly
+      refers to as the actual position of the transmitter, making the
+      approximation that \f$d_i\f$ is approximately the distance to
+      that point and using it instead.  But really any point O (for
+      Origin) can be used instead in what follows, so long as O isn't
+      too far from (x,y) --- the point is that we are approximating
+      the \f$d_i\f$, the distances from receivers to (x,y), by
+      distances to O, which are independent of (x,y).  If the
+      distances are long enough, this is an appropriate approximation.
 
-      Assume that \f$p_i\f$ is the perpendicular distance from our bearing line i
-      to O and that \f$\Delta x\f$ and \f$\Delta y\f$ are the offsets from
-      point O to point Q.  Then 
-      \f$
-      q_i = p_i+\Delta x \sin(\tilde{\theta}_i)-\Delta y\cos(\tilde{\theta}_i)
-      \f$
-      by a very simple geometric argument.  Substituting this mess into the
-      new cost function and solving the least squares problem, one concludes
-      that the values of \f$\Delta x\f$ and \f$\Delta y\f$ that maximize the
-      probability are:
+      Assume that \f$p_i\f$ is the perpendicular distance from our
+      bearing line i to O and that \f$\Delta x\f$ and \f$\Delta y\f$
+      are the offsets from point O to point Q.  Then \f$ q_i =
+      p_i+\Delta x \sin(\tilde{\theta}_i)-\Delta
+      y\cos(\tilde{\theta}_i) \f$ by a very simple geometric argument.
+      Substituting this mess into the new cost function and solving
+      the minimization problem (differentiate the cost function w.r.t
+      \f$\Delta x\f$ and \f$\Delta y\f$ assuming constant \f$d_i\f$,
+      set to zero, solve the resulting pair of linear, coupled
+      equations), one concludes that the values of \f$\Delta x\f$ and
+      \f$\Delta y\f$ that maximize the probability are:
 
       \f$
       \Delta x = \frac{1}{\lambda\mu-\nu^2}\sum_i p_i\frac{\nu\cos(\tilde{\theta}_i)-\mu\sin(\tilde{\theta}_i)}{(d_i\sigma_i)^2}
@@ -246,27 +288,34 @@ namespace DFLib
 
       http://www.dsto.defence.gov.au/publications/4949/DSTO-RR-0319.pdf
 
-      Since the Stansfield fix is supposed to be a least squares solution to
-      the minimization of the cost function (and therefore the maximization of
-      the probability density), the presence of the distance from receiver to
-      test point in the cost function is a problem that interferes with the
-      solution.  So an iterative process is employed.  Practically, this is the
-      algorithm:
+      Since the Stansfield fix is supposed to be a solution to the
+      minimization of the cost function (and therefore the
+      maximization of the probability density), the presence of the
+      distance from receiver to test point in the cost function is a
+      problem that interferes with the solution.  To get the
+      closed-form solution, we have to assume that the \f$d_i\f$ are
+      independent of the solution point, and this (false) assumption
+      leads to a simple pair of linear equations to solve. To account
+      for this an iterative process is employed.  Practically, this is
+      the algorithm:
 
-      0) starting with an initial guess point O, compute the distances from 
-         receivers to O, call them \f$d_i\f$ and use them as an approximation to
-         the distances to the test point.
+      0) starting with an initial guess point O, compute the distances
+         from receivers to O, call them \f$d_i\f$ and use them as an
+         approximation to the distances to the test point.
 
       Iterate:
 
-        1) Using the \f$d_i\f$ determined above, solve the least squares problem using
-           the expressions above.  This yields an offset vector \f$(\Delta x, \Delta y)\f$ from O to the approximate fix.
+        1) Using the \f$d_i\f$ determined in the last step, solve the
+           minimization problem using the expressions above.  This
+           yields an offset vector \f$(\Delta x, \Delta y)\f$ from O
+           to the approximate fix.
          
-        2) Compute the distances from receivers to \f$O+(\Delta x, \Delta y)\f$ and
-           call them \f$d_i\f$ again.
+        2) Compute the distances from receivers to \f$O+(\Delta x,
+           \Delta y)\f$ and call them \f$d_i\f$ again.
            
-        3) If \f$(\Delta x, \Delta y)\f$ has changed appreciably this iteration,
-           return to step 1 and iterate again.  Otherwise, use \f$O+(\Delta x, \Delta y)\f$ as the Stansfield fix.
+        3) If \f$(\Delta x, \Delta y)\f$ has changed appreciably this
+           iteration, return to step 1 and iterate again.  Otherwise,
+           use \f$O+(\Delta x, \Delta y)\f$ as the Stansfield fix.
 
       The "changed appreciably" bit will take a little black art, I
       think.  I propose that we simply check that the norm of the
@@ -284,7 +333,7 @@ namespace DFLib
 
       The probability of a transmitter being at a particular location x,y
       given that each transmitter \f$i\f$ has heard the signal at bearing 
-      \f$\theta_i\f$ is given by a multivariate gaussian probability
+      \f$\tilde{\theta_i}\f$ is given by a multivariate gaussian probability
       distribution:
 
       \f$
@@ -301,24 +350,25 @@ namespace DFLib
       The ML fix is the point that minimizes the cost function, thereby
       maximizing the probability of that point.
 
-      Note that it is not correct to use \f$P(x,y)\f$ directly as a
-      probability distribution in \f$x\f$ and \f$y\f$, because it is
-      really the probability density in \f$\theta\f$ space.  To get
-      the real probability density in \f$(x,y)\f$ space requires a
-      change of variables factor \f$det(JJ^T)\f$ where \f$J\f$ is the
-      jacobian of the transformation between \f$\theta\f$ and
-      \f$(x,y)\f$ space.
+      To compute the ML fix requires an initial guess, as from the
+      least squares fix.  This method uses the method of Conjugate
+      Gradients to find the minimum of the cost function.  Note that
+      it is often the case in DF problems that the cost function is
+      too flat near the minimum for conjugate gradients to converge.
+      I have not characterized these pathological cases very well, but
+      it does seem to be worst when the receivers are all off to one
+      side of the transmitter.  In these pathological cases, the first
+      step of conjugate gradients shoots off to a very distant point
+      where the function is almost completely flat, and never
+      recovers.  The only thing to do is to test the point returned by
+      this method and make sure it is not unreasonably far from any
+      receiver.  I tend to use 100 miles as the test distance for a
+      "ridiculous" solution.
 
-      The correct transformation would be necessary if one were trying
-      to compute the probability of the transmitter being in some area
-      of \f$(x,y)\f$ space.  One potential future development in this 
-      library would be to compute the probability on a grid around the ML fix,
-      then find the convex hull containing points that sum to a particular
-      confidence level.  This would be very time consuming and maybe not
-      worth the trouble.
-
-      To compute the ML fix requires an initial guess, as from the least
-      squares fix.  
+      If this method returns a ridiculous answer, one can try
+      aggressiveComputeMLFix instead.  That method uses a more 
+      robust---but possibly less efficient---minimization method as a 
+      first step to refine the initial guess to conjugate gradients.
 
     */
 
@@ -422,7 +472,7 @@ namespace DFLib
       where \f$\tilde{\theta_i}\f$ is the measured bearing from receiver
       location i and \f$\theta_i(x,y)\f$ is the bearing from receiver
       location i to point (x,y).  Care must be taken to assure that the
-      bearing differences are are always kept in the range e
+      bearing differences are are always kept in the range 
       \f$-\pi<\tilde{\theta_i} - \theta_i(x,y)<=\pi\f$ to avoid
       discontinuities that break the minimization operation.
     */
