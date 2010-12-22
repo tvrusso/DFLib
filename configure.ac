@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.60)
-AC_INIT(DFLib, 0.01, russo@bogodyn.org)
+AC_INIT(DFLib, 1.00, russo@bogodyn.org)
 AM_INIT_AUTOMAKE(DFLib,0.01)
 AC_CONFIG_SRCDIR([DF_Abstract_Point.hpp])
 AC_CONFIG_HEADER([config.h])
