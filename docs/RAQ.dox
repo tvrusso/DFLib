@@ -12,6 +12,77 @@ hidden transmitters given bearings-only measurements.  Given a number
 of such measurements, DFLib provides methods to estimate the location
 of the transmitter.
 
+\subsection Why  Why did you write DFLib?
+
+DFLib was inspired by a program called "ELT DFer" by Jim Baremore,
+K5QQ.  That program was designed for use by Search and Rescue
+volunteers who were looking for Emergency Location Transmitters in
+downed aircraft.  It implemented the Fix Cut Average and Stansfield
+estimators of transmitter position in a Visual Basic program that
+displayed its results through the program "All Topo Maps" by iGage.
+
+Unfortunately, several issues led me to write my own program
+independent of this well-used program.  Since it was written in an old
+version of Visual Basic that is no longer available, and could not
+easily be ported to any recent vintage of that execrable language,
+even having access to the source was not particularly useful.  While
+Jim had done a great deal of work getting ELT DFer written and used,
+he was not interested in open-sourcing it or distributing it widely
+outside of the search and rescue team of which he had been a member,
+primarily because supporting the code on a large scale would be vastly
+more work than he'd already done writing it in the first place.  And
+finally, ELT DFer is written in Visual Basic, meaning it can only run
+on Microsoft platforms --- and I am not now and will never be a
+Windows user.  My goal, therefore, was to start from scratch, learn
+how to do the necessary computations, and to write a code that was as
+portable as possible.
+
+In doing so, I learned a great deal more about bearings-only target
+location than I had ever known.  I was also able to extend DFLib's
+capabilities beyond those of ELT DFer.
+
+\subsection Platforms On what platforms does DFLib run?
+
+DFLib is written in standard C++, and can be built on any platform
+with a C++ compiler and the necessary third-party libraries.  To date,
+DFLib has been compiled on Linux, FreeBSD and Windows.  The only
+required third-party library is proj.4, the cartographic projections
+library, which is written in standard C and is available for Windows,
+any Unix variant, and Mac.  Therefore, there is no real impediment for
+DFLib to be ported to Mac as well.  But I don't have a Mac, so haven't
+done so.
+
+\subsection License How is DFLib licensed?
+
+DFLib is licensed under the GNU Public License Version 2.  A copy of the
+license is included in the source code.
+
+In short, you may download DFLib, use it, modify it and redistribute
+it under a very broad range of conditions.  What you may <em>not</em>
+do is create proprietary versions of it that are not open-sourced.  If
+you have any questions about whether your use of DFLib is consistent
+with the license, read the COPYING file carefully.
+
+\subsection GUI Does DFLib have a GUI?
+
+No.  DFLib is a library of geolocation algorithms.  It does not
+contain a driver program with a graphical user interface.  There are
+only a few example command-line programs in the source directory.
+These include SimpleDF and testlsDF_proj.  The former takes a
+rigidly-formatted input file of DF reports and produces textual output
+of the fixes.  The latter is a test harness that takes a transmitter
+location on the command line and an input file of receiver locations
+and parameters, producing a randomly-generated set of DF reports and
+showing DFLib's prediction of the transmitter location.  It can be
+used to get a feel for how wrong the answers can be in the presence of
+random bearing errors.
+
+That said, I have written a program called "qDF" that uses DFLib and
+provides a graphical user interface and several different display
+methods, including APRS and Google Earth displays.  It is not included
+with DFLib, but is available separately under the same open source
+license.
+
 \subsection Methods What geolocation methods does DFLib provide?
 
 Currently, DFLib provides only four estimators.  The "Fix Cut Average"
@@ -27,19 +98,114 @@ the same formula as the Stansfield estimator, but does not make the
 small-angle/long-distance approximation.  It therefore requires
 numerical solution.
 
-\subsection Projection Does DFLib use a "flat earth" approximation?
+\subsection MoreMethods  That's a lot of methods.  You mean there are more?
+
+Yes.  Research into the solution of the geolocation problem for
+bearings-only target location is quite vigorous, and there are many
+methods with different properties.  The four I implemented in DFLib
+are the simplest and oldest.  Additional methods, including methods
+that take into account uncertainty in receiver location as well as
+bearing, are out there in the literature.  I do intend to create a
+bibliography to go with DFLib, but haven't gotten around to it yet.
+See the documentation of the DFLib::ReportCollection class for some
+references.  The individual methods in that class do have a few web
+links to papers on the subject.
+
+\subsection FlatEarth Does DFLib use a "flat earth" approximation?
 
 Well, sorta.  DFLib does all of its calculations using plane geometry.
-The main workhorse class, DFLib::Proj::Report, uses the Mercator
-projection of the WGS84 ellipsoid as the X-Y coordinate system.  But the 
-underlying abstract class DFLib::Abstract::Report is the one actually used
-by DFLib::ReportCollection, and all that class cares about is that there 
-is some X-Y coordinate system associated with reports for which it can get
-coordinates.
+The underlying abstract class DFLib::Abstract::Report is the one
+actually used by DFLib::ReportCollection, and all the ReportCollection
+class cares about is that there is some consistent X-Y coordinate
+system used by reports for which it can get coordinates through the
+getReceiverLocation method of the report class.
+
+\subsection Subclassing What's the deal with all the abstract classes?
+
+It was intended that the use of abstract classes would allow more
+flexibility in the use of the library.
+
+The DFLib::ReportCollection class expects only that every report given
+to it implements the DFLib::Abstract::Report interface.  Primarily
+that means that the ReportCollection can expect Report objects to
+provide methods that return coordinates in some X-Y coordinate system,
+return report bearings in the appropriate range, compute a distance
+between a receiver and some other point, and so on.
+
+By using only the abstract interface of a Report, the
+ReportCollection is very flexible and allows you, the library user, to
+pick the appropriate way to store reports, so long as you implement the
+required interface. 
+
+In my original planning for this library, I anticipated DFLib being
+used by applications that already had data structures for DF reports.
+In that case, if the application were already in C++ and the data
+structures were objects of some existing class, all that would be
+necessary to use the existing structure with DFLib would be to add an
+inheritance from the DFLib::Abstract::Report class and implement the
+interface.  Those could then be passed as-is to the
+DFLib::ReportCollection::addReport method without any other changes to
+the existing application.
+
+Whether this is going to be the way DFLib is used or not remains to be
+seen.  In the end, I wound up writing my own new programs to use DFLib
+instead of retrofitting DFLib into existing programs.
+
+\subsection Proj What is the DFLib::Proj namespace for?
+
+While DFLib::ReportCollection is very general and assumes only a
+low-level interface for reports, I found that it was much more
+convenient to deal with a more elaborate, higher-level set of classes
+from applications.  The DFLib::Proj namespace contains those classes,
+specifically DFLib::Proj::Point, DFLib::Proj::Report.
+
+As currently written, DFLib::Proj::Point allows each point to have a
+"user coordinate system" that is supported by the proj.4 cartographic
+projections library.  These include things like latitude/longitude
+coordinates and Universal Transverse Mercator Coordinates.  The
+projection library is used to convert the user's coordinate system
+into an X-Y coordinate system usable by the ReportCollection class.
+
+DFLib::Proj::Report is an implementation of DFLib::Abstract::Report
+that includes a DFLib::Proj::Point as the receiver location.  Thus,
+one can enter reports in whatever coordinate system is in use by the
+person operating the receiver, and be consistent in the use of a
+single X-Y coordinate system by the ReportCollection class.
+
+DFLib::ProjReportCollection is not actually in the DFLib::Proj
+namespace, but is a derived class of DFLib::ReportCollection.
+DFLib::ReportCollection never attempts to use any methods of a Report
+other than those included in the DFLib::Abstract::Report interface,
+and therefore its addReport method can take any object that derives
+from that interface.  I found it convenient in applications, however,
+to have a version of a report collection that could be assured of
+having only DFLib::Proj::Reports in it.  In its current incarnation,
+DFLib::ProjReportCollection is nothing more than a wrapper around a
+DFLib::ReportCollection that can only take DFLib::Proj::Report objects
+in its addReport method.  My thinking was that at some point the
+ProjReportCollection might want to take advantage of methods of the
+DFLib::Proj::Report that were extensions of the abstract interface,
+and therefore it had to have only the right kinds of objects in it.
+
+My graphical user interface for DFLib, qDF, subclasses the
+ProjReportCollection and makes heavy use of methods outside the
+abstract interface.  To do this without having the specialized class
+would require all sorts of dangerous upcasts of pointers from abstract
+to concrete types.
+
+\subsection XY What X-Y coordinate system does the DFLib::Proj::Point class use?
+
+The getXY method of the DFLib::Proj::Point class returns the Mercator
+coordinates of the point using the equator as the latitude of true
+scale.  That is, when using DFLib::Proj::Report objects in the
+ReportCollection class, the X-Y coordinate system is the Mercator
+projection, whose coordinates are in meters.  The proj.4 cartographic
+projections library is used to convert coordinates in the user's
+coordinate system to their Mercator coordinates.
 
 \subsection Huh Mercator projection?  That's stupid!
 
-Maybe.
+Maybe.  Maybe not.
 
 The Mercator projection has a couple of desirable properties that made
 it attractive for a first cut.  It is a conformal projection, meaning

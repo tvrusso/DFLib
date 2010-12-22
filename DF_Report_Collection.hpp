@@ -353,17 +353,17 @@ namespace DFLib
       To compute the ML fix requires an initial guess, as from the
       least squares fix.  This method uses the method of Conjugate
       Gradients to find the minimum of the cost function.  Note that
-      it is often the case in DF problems that the cost function is
-      too flat near the minimum for conjugate gradients to converge.
-      I have not characterized these pathological cases very well, but
-      it does seem to be worst when the receivers are all off to one
-      side of the transmitter.  In these pathological cases, the first
-      step of conjugate gradients shoots off to a very distant point
-      where the function is almost completely flat, and never
-      recovers.  The only thing to do is to test the point returned by
-      this method and make sure it is not unreasonably far from any
-      receiver.  I tend to use 100 miles as the test distance for a
-      "ridiculous" solution.
+      it is sometimes (though rarely) the case in DF problems that the
+      cost function is too flat near the minimum for conjugate
+      gradients to converge.  I have not characterized these
+      pathological cases very well, but it does seem to be worst when
+      the receivers are all off to one side of the transmitter.  In
+      these pathological cases, the first step of conjugate gradients
+      shoots off to a very distant point where the function is almost
+      completely flat, and never recovers.  The only thing to do is to
+      test the point returned by this method and make sure it is not
+      unreasonably far from any receiver.  I tend to use 100 miles as
+      the test distance for a "ridiculous" solution.
 
       If this method returns a ridiculous answer, one can try
       aggressiveComputeMLFix instead.  That method uses a more 
