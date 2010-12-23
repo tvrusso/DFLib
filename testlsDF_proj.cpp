@@ -128,6 +128,11 @@ int main(int argc,char **argv)
       argc--;
       cerr << " using seed " << seed << endl;
     }
+    else
+    {
+      seed=time(NULL);
+      cerr << " using time " << seed << " as random number seed." << endl;
+    }
   }
   else
   {
