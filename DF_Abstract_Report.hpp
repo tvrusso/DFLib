@@ -13,13 +13,12 @@ namespace DFLib
 {
   enum FixStatus {NO_DATA,GOOD_FIX,NO_FIX};
 
-  /// \class DFReportInterface
-  /// \brief Abstract interface for DFReport.
-  ///  This is the base class for DF report classes. 
 
   namespace Abstract
   {
     // Forward declaration:
+    /// \brief Abstract interface for DFReport.
+    ///  This is the base class for DF report classes. 
     class CPL_DLL Report
     {
     private:
@@ -81,11 +80,22 @@ namespace DFLib
       ///
       /// \param aPoint point to which bearing requested.
       /// \return bearing in radians, in range \f$0<\theta<2\pi\f$
+      ///
+      /// The base class computes the bearing in X-Y coordinates by taking the 
+      /// arctangent of "rise over run."  This is certainly the appropriate
+      /// thing to do when the X-Y coordinate system is a conformal projection.
+      /// When working with non-conformal projections the computation could possibly be more involved.
+
       double computeBearingToPoint(vector<double> &aPoint);
 
       /// \brief compute distance from this reporting location to some other point.
       /// \param aPoint point to which distance is requested
       /// \return distance
+      ///
+      /// The distance returned is the Cartesian distance in X-Y coordinates,
+      /// \f$d = \sqrt{\Delta x^2 + \Delta y^2}\f$.  It is <em>not</em> the
+      /// geodesic distance on the ellipsoid.
+      ///  
       double computeDistanceToPoint(vector<double> &aPoint);
     };
   }
