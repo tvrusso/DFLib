@@ -4,10 +4,15 @@ Linux/BSD:
 
    mkdir build
    cd build
-   cmake ..
+   cmake .. -DCMAKE_BUILD_TYPE=release
    make
 
 This assumes you have proj.4 installed properly where cmake can just find it.
+
+We're using -DCMAKE_BUILD_TYPE=release because otherwise CMake doesn't use 
+optimization.  It's easy to fail to notice that, since CMake makefiles
+hide the actual compile line from you.  To force it to display them, use
+make VERBOSE=true
 
 Losedows:
 

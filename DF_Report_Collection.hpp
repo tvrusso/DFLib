@@ -57,7 +57,7 @@ namespace DFLib
     /// specifying a non-zero value for minAngle (in degrees).
     ///
     /// \param FCA Returned fix cut average
-    /// \param FCA_stddev standard deviation of fix cuts
+    /// \param FCA_stddev standard deviation of fix cuts <em>in user coordinates corresponding to the point provided in FCA</em>
     /// \param minAngle reports whose fix cut occur at less than this angle will not be included in the average.
     bool computeFixCutAverage(DFLib::Abstract::Point &FCA, 
                                       vector<double> &FCA_stddev,
