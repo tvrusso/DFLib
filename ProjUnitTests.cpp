@@ -13,7 +13,7 @@ main(int argc, char **argv)
   vector<double> xyVals(2);
   xyVals[0]=-106.482;
   xyVals[1]=35.0913;
-  cout << " Creating a point using values x=1,y=2 " << endl;
+  cout << " Creating a point using values lon="<<xyVals[0]<<",lat= " <<xyVals[1]<< endl;
 
   vector<string> projArgs;
   projArgs.push_back("proj=latlong");
