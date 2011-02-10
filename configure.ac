@@ -3,7 +3,7 @@
 
 AC_PREREQ(2.60)
 AC_INIT(DFLib, 1.00, russo@bogodyn.org)
-AM_INIT_AUTOMAKE(DFLib,0.01)
+AM_INIT_AUTOMAKE(DFLib,1.00)
 AC_CONFIG_SRCDIR([DF_Abstract_Point.hpp])
 AC_CONFIG_HEADER([config.h])
 
