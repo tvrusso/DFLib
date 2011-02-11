@@ -9,6 +9,22 @@ libDFLib_a_SOURCES=DF_Abstract_Report.cpp \
                    Util_Minimization_Methods.cpp \
                    gaussian_random.cpp
 
+include_HEADERS = DF_Abstract_Point.hpp \
+                  DF_Abstract_Report.hpp \
+                  DF_LatLon_Point.hpp \
+                  DF_LatLon_Report.hpp \
+                  DF_ProjReport_Collection.hpp \
+                  DF_Proj_Point.hpp \
+                  DF_Proj_Report.hpp \
+                  DF_Report_Collection.hpp \
+                   DF_XY_Point.hpp \
+                  DF_XY_Report.hpp \
+                  Util_Abstract_Group.hpp \
+                  Util_Minimization_Methods.hpp \
+                  Util_Misc.hpp \
+                  gaussian_random.hpp  \
+                  DFLib_port.h
+
 bin_PROGRAMS = testlsDFfix testlsDF_ll testlsDF_proj SimpleDF SimpleDF2
 testlsDFfix_SOURCES = testlsDFfix.cpp
 testlsDFfix_LDADD=-L. -lDFLib

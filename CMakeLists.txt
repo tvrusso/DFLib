@@ -16,3 +16,13 @@ target_link_libraries(testlsDF_proj DFLib ${PROJ_LIBRARY})
 
 add_executable(SimpleDF SimpleDF.cpp)
 target_link_libraries(SimpleDF DFLib ${PROJ_LIBRARY})
+
+install(TARGETS SimpleDF testlsDF_proj DFLib
+        RUNTIME DESTINATION bin
+        LIBRARY DESTINATION lib
+        ARCHIVE DESTINATION lib)
+
+install(FILES  DF_Abstract_Point.hpp DF_Abstract_Report.hpp DF_LatLon_Point.hpp DF_LatLon_Report.hpp DF_ProjReport_Collection.hpp DF_Proj_Point.hpp DF_Proj_Report.hpp DF_Report_Collection.hpp DF_XY_Point.hpp DF_XY_Report.hpp Util_Abstract_Group.hpp Util_Minimization_Methods.hpp Util_Misc.hpp gaussian_random.hpp DFLib_port.h
+        DESTINATION include)
+
+
