@@ -30,7 +30,7 @@ if test "${found_gdal_config}" = "yes"; then
                      LDFLAGS=${save_ldflags}
                      LIBS=${save_libs}])])
 else
-   AC_MSG_WARN([*** Cannot find gdal-config:  Checking standard locations ***])
+   AC_MSG_NOTICE([Cannot find gdal-config:  Checking standard locations.])
    AC_CHECK_HEADERS(gdal.h, [AC_CHECK_LIB(gdal, GDALAllRegister,
                     [use_gdal="yes"
                      LIBS="$LIBS -lgdal"
