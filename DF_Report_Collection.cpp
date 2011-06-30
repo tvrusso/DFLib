@@ -1,4 +1,56 @@
 //-*- mode:C++ ; c-basic-offset: 2 -*-
+//    DFLib: A library of Bearings Only Target Localization algorithms
+//    Copyright (C) 2009-2011  Thomas V. Russo
+//
+//    This program is free software: you can redistribute it and/or modify
+//    it under the terms of the GNU General Public License as published by
+//    the Free Software Foundation, either version 3 of the License, or
+//    (at your option) any later version.
+//
+//    This program is distributed in the hope that it will be useful,
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//    GNU General Public License for more details.
+//
+//    You should have received a copy of the GNU General Public License
+//    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//-------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------
+// Filename       : $RCSfile$
+//
+// Purpose        : Provide a generic class to hold DF reports and provide
+//                  fix-computing methods that are independent of the actual
+//                  choice of report types
+//
+// Special Notes  : This class can take any type of report that implements the
+//                  DFLib::Abstract::Report interface, and is not constrained
+//                  to require that all reports be of the same concrete class.
+//                  This design may or may not be the best way to do the job.
+//
+//                  By design, the class assumes that the user is managing the
+//                  creation and destruction of objects, and makes no attempt
+//                  to destroy the collected objects in its destructor.  In
+//                  the case where the user does not want to keep track of 
+//                  these objects, this class provides a deleteReports()
+//                  method that will delete all objects in the collection, 
+//                  but this method is NEVER called unless the user
+//                  does so.  That method must be called by the user before 
+//                  deleting the ReportCollection object.
+//
+// Creator        : 
+//
+// Creation Date  : 
+//
+// Revision Information:
+// ---------------------
+//
+// Revision Number: $Revision$
+//
+// Revision Date  : $Date$
+//
+// Current Owner  : $Author$
+//-------------------------------------------------------------------------
 #ifdef _MSC_VER
 #define _USE_MATH_DEFINES
 #endif

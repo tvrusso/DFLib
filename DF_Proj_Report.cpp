@@ -1,3 +1,51 @@
+//    DFLib: A library of Bearings Only Target Localization algorithms
+//    Copyright (C) 2009-2011  Thomas V. Russo
+//
+//    This program is free software: you can redistribute it and/or modify
+//    it under the terms of the GNU General Public License as published by
+//    the Free Software Foundation, either version 3 of the License, or
+//    (at your option) any later version.
+//
+//    This program is distributed in the hope that it will be useful,
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//    GNU General Public License for more details.
+//
+//    You should have received a copy of the GNU General Public License
+//    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//-------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------
+// Filename       : $RCSfile$
+//
+// Purpose        : Implements the DFLib::Abstract::Report interface such that
+//                  the "user" coordinate system is specified using a proj.4
+//                  spatial reference system and the "XY" coordinate system
+//                  is a mercator projection on the WGS84 ellipsoid.
+//
+// Special Notes  : Use of this class treats bearing lines to target 
+//                  transmitter as loxodromes, not geodesics.  Technically,
+//                  that is incorrect.  For practical VHF target localization,
+//                  it is probably good enough.  To implement a Report class
+//                  that implements completely correct geodesic calculations
+//                  would be much harder, and I haven't done it yet.  One
+//                  would require an X-Y coordinate system in which straight 
+//                  lines are geodesics rather than loxodromes, and there is no
+//                  conformal projection that does that.  
+//
+// Creator        : 
+//
+// Creation Date  : 
+//
+// Revision Information:
+// ---------------------
+//
+// Revision Number: $Revision$
+//
+// Revision Date  : $Date$
+//
+// Current Owner  : $Author$
+//-------------------------------------------------------------------------
 #include "DF_Proj_Report.hpp"
 
 namespace DFLib
