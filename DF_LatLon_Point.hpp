@@ -43,7 +43,7 @@
 
 #include "DFLib_port.h"
 #include <vector>
-#include "projects.h"
+#include "proj_api.h"
 // projects.h rudely defines this, and we don't want it:
 #undef XY
 #include "DF_Abstract_Point.hpp"
