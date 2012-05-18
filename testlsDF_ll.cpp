@@ -48,9 +48,11 @@
 #include <sstream>
 #include <fstream>
 #include <vector>
-// we need this for dmstor and various conversion factors
-#include <projects.h>
-#undef XY
+#include <proj_api.h>
+
+extern "C" {
+  double dmstor(const char *, char **);
+}
 
 #include "Util_Misc.hpp"
 #include "gaussian_random.hpp"

@@ -48,8 +48,10 @@
 #include <fstream>
 #include <vector>
 // we need this for dmstor and various conversion factors
-#include <projects.h>
-#undef XY
+#include <proj_api.h>
+extern "C" {
+  double dmstor(const char *, char **);
+}
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"

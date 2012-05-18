@@ -46,9 +46,10 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <projects.h>
-// projects.h rudely pollutes our namespace!
-#undef XY 
+#include <proj_api.h>
+extern "C" {
+  double dmstor(const char *, char **);
+}
 
 #include "Util_Misc.hpp"
 #include "gaussian_random.hpp"

@@ -42,8 +42,12 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <projects.h>
-#undef XY
+#include <proj_api.h>
+
+extern "C" {
+  double dmstor(const char *, char **);
+}
+
 
 #include "DF_Proj_Report.hpp"
 #include "DF_ProjReport_Collection.hpp"

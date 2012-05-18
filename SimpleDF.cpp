@@ -50,13 +50,11 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <projects.h>
-// projects.h defines "XY" as a synonym for "projUV", polluting the
-// namespace --- that's rude, because we use "XY" all over DFLib as
-// part of identifier names, and this breaks it.  Since we never use
-// proj.4's "XY" define, let's undef it before we try to include DFLib
-// includes.
-#undef XY
+#include <proj_api.h>
+
+extern "C" {
+  double dmstor(const char *, char **);
+}
 
 #include "DF_Report_Collection.hpp"
 #include "DF_Proj_Report.hpp"
