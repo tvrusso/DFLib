@@ -7,10 +7,6 @@
   has proven to be a short-sighted design choice and one that complicates use
   of the classes.
 
-- Add computation of Fisher Information Matrix and Cramer-Rao Lower Bound
-  ellipses for ML fix.  1sigma=39.4%, 95%=2.447 sigma.  Should be very 
-  straightforward.
-
 - Fix up SimpleDF to do more error checking.  Use error checks in testlsDF_proj
   as example.
 
