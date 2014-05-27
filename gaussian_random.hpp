@@ -60,7 +60,7 @@ namespace DFLib
       /// return double precision uniform deviates.
       double uniformRandom();
 #ifdef _MSC_VER
-      double y,maxran,v[97];
+      double y,maxran,v[98];
       int iff;
 #endif
     public:

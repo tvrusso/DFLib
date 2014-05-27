@@ -102,12 +102,12 @@ namespace DFLib
         iff=1;
         maxran=RAND_MAX+1.0;
         srand(time(NULL));
-        for (j=0;j<97;++j) dum=rand();
-        for (j=0;j<97;++j) v[j]=rand();
+        for (j=0;j<98;++j) dum=rand();
+        for (j=0;j<98;++j) v[j]=rand();
         y=rand();
       }
-      j=97*y/maxran;
-      if (j>=97||j<0)
+      j=98.0*y/maxran;
+      if (j>97||j<0)
         throw(Exception("uniformRandom: This cannot happen."));
       y=v[j];
       v[j]=rand();
