@@ -1,0 +1,11 @@
+<map id="DFLib::Abstract::Point::setXY" name="DFLib::Abstract::Point::setXY">
+<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Report.html#a983bcbd2bc6fa9bab2b1081d759ca2b2" title="compute point at which the line from this report intersects that from another " alt="" coords="224,5,393,47"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1ReportCollection.html#aae93d643b545080d22987bf18d1bdf73" title="return the fix cut average of this collection&#39;s reports " alt="" coords="219,71,398,112"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1ReportCollection.html#aa91199f4a9e034857a043bc5aee0d34a" title="more aggressive attempt to get at an ML fix " alt="" coords="212,201,405,243"/>
+<area shape="rect" id="node7" href="$classDFLib_1_1ReportCollection.html#adffd170257322f58734acb369bb720a4" title="Computes Maximum Likelihood solution of DF problem. " alt="" coords="224,332,393,373"/>
+<area shape="rect" id="node9" href="$classDFLib_1_1ReportCollection.html#a254385b14ca3a2708123f2fce980cc3a" title="Computes Stansfield estimate of Maximum Likelihood solution of DF problem. " alt="" coords="224,267,393,308"/>
+<area shape="rect" id="node10" href="$classDFLib_1_1ReportCollection.html#a4f37e88da4347af97dfdc2f7ac63f6f1" title="Computes least squares solution of DF problem. " alt="" coords="213,136,405,177"/>
+<area shape="rect" id="node4" href="$nonoise_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="453,111,508,138"/>
+<area shape="rect" id="node6" href="$testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="453,242,508,269"/>
+<area shape="rect" id="node8" href="$SimpleDF_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="453,339,508,366"/>
+</map>

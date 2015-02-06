@@ -1,0 +1,6 @@
+<map id="DFLib::ReportCollection::computeFixCutAverage" name="DFLib::ReportCollection::computeFixCutAverage">
+<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Point.html#ad21d8288fcacc615451b632be60dccbf" title="Clone Self. " alt="" coords="232,5,391,47"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1Abstract_1_1Point.html#abb3e5afd43b7d869953db4a8c858e311" title="Set X&#45;Y coordinates of the point. " alt="" coords="232,71,391,112"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1Abstract_1_1Point.html#a76f5e11f829509129f05b0c8f4240f71" title="Get coordinates in the user&#39;s coordinate system. " alt="" coords="232,136,391,177"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1Abstract_1_1Point.html#ac24019510945a7f2683279938ab58a6a" title="Set coordinates in the user&#39;s coordinate system. " alt="" coords="232,201,391,243"/>
+</map>

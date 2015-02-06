@@ -1,0 +1,7 @@
+<map id="DFLib::XY::Report" name="DFLib::XY::Report">
+<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Report.html" title="Abstract interface for DFReport. This is the base class for DF report classes. " alt="" coords="5,185,175,212"/>
+<area shape="rect" id="node3" title="STL class. " alt="" coords="47,96,133,123"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="21,5,159,47"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1XY_1_1Point.html" title="DFLib::XY::Point" alt="" coords="199,185,322,212"/>
+<area shape="rect" id="node6" href="$classDFLib_1_1Abstract_1_1Point.html" title="Abstract base class for generic &quot;point&quot; objects. " alt="" coords="169,96,328,123"/>
+</map>

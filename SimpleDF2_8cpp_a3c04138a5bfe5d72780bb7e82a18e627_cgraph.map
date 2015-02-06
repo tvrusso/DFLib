@@ -1,0 +1,20 @@
+<map id="main" name="main">
+<area shape="rect" id="node2" href="$SimpleDF2_8cpp.html#a6d69f1d0add8bb63c930b2c013879652" title="dmstor" alt="" coords="171,5,239,32"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1Abstract_1_1Report.html#ad79e7a5839266eb0b4cef3c1c53b9bfa" title="Set this report as invalid. " alt="" coords="120,57,289,98"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1ProjReportCollection.html#a8c191d92d17d826943376457d57777b3" title="DFLib::ProjReportCollection\l::addReport" alt="" coords="108,122,301,163"/>
+<area shape="rect" id="node6" href="$classDFLib_1_1ReportCollection.html#ad5949ddc82d7af6361821c2c7ede9334" title="DFLib::ReportCollection\l::size" alt="" coords="120,187,289,229"/>
+<area shape="rect" id="node7" href="$classDFLib_1_1ReportCollection.html#a4f37e88da4347af97dfdc2f7ac63f6f1" title="Computes least squares solution of DF problem. " alt="" coords="109,318,301,359"/>
+<area shape="rect" id="node10" href="$classDFLib_1_1Util_1_1Exception.html#a3bd768700cd606d77d10a75f1fc91791" title="DFLib::Util::Exception\l::getEmsg" alt="" coords="127,449,283,490"/>
+<area shape="rect" id="node11" href="$classDFLib_1_1ReportCollection.html#aae93d643b545080d22987bf18d1bdf73" title="return the fix cut average of this collection&#39;s reports " alt="" coords="115,253,294,294"/>
+<area shape="rect" id="node15" href="$classDFLib_1_1ReportCollection.html#adffd170257322f58734acb369bb720a4" title="Computes Maximum Likelihood solution of DF problem. " alt="" coords="120,383,289,425"/>
+<area shape="rect" id="node17" href="$classDFLib_1_1Proj_1_1Point.html#a58e96f4fb00640ec762c709df6e0f573" title="get user position " alt="" coords="140,514,269,555"/>
+<area shape="rect" id="node19" href="$SimpleDF2_8cpp.html#afe2a9a82bb7fcd2de26d50dacd662836" title="printCoords" alt="" coords="157,580,253,607"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1ReportCollection.html#ae9f1b6bf5605ae826957c6dcdd4a18ea" title="Add a DF report to the collection. " alt="" coords="367,57,536,98"/>
+<area shape="rect" id="node8" href="$classDFLib_1_1Abstract_1_1Point.html#abb3e5afd43b7d869953db4a8c858e311" title="Set X&#45;Y coordinates of the point. " alt="" coords="372,318,531,359"/>
+<area shape="rect" id="node9" href="$classDFLib_1_1Abstract_1_1Point.html#a3fdd1fbfecb806f64b7315e507f05c12" title="Get X&#45;Y coordinates of the point. " alt="" coords="372,383,531,425"/>
+<area shape="rect" id="node12" href="$classDFLib_1_1Abstract_1_1Point.html#ad21d8288fcacc615451b632be60dccbf" title="Clone Self. " alt="" coords="372,122,531,163"/>
+<area shape="rect" id="node13" href="$classDFLib_1_1Abstract_1_1Point.html#a76f5e11f829509129f05b0c8f4240f71" title="Get coordinates in the user&#39;s coordinate system. " alt="" coords="372,187,531,229"/>
+<area shape="rect" id="node14" href="$classDFLib_1_1Abstract_1_1Point.html#ac24019510945a7f2683279938ab58a6a" title="Set coordinates in the user&#39;s coordinate system. " alt="" coords="372,253,531,294"/>
+<area shape="rect" id="node16" href="$classDFLib_1_1Util_1_1Minimizer.html#aa3937c0251c1becacd2d938b51f46c79" title="minimize function of vector value by method of conjugate gradients " alt="" coords="349,449,553,490"/>
+<area shape="rect" id="node18" href="$classDFLib_1_1Proj_1_1Point.html#a50d73db1c4ff9d4037e4cc3ce276b433" title="DFLib::Proj::Point\l::mercToUser" alt="" coords="387,514,516,555"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="DFLib::ReportCollection::aggressiveComputeMLFix" name="DFLib::ReportCollection::aggressiveComputeMLFix">
+<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Point.html#a3fdd1fbfecb806f64b7315e507f05c12" title="Get X&#45;Y coordinates of the point. " alt="" coords="293,5,451,47"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1ReportCollection.html#a3ac75e598fff9481fa4d4cec0e934d9c" title="compute cost function for point x,y and its gradient " alt="" coords="247,71,497,112"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1Util_1_1Minimizer.html#a6b07402d90d7cb8caf689f3869ab78fb" title="minimuze function of vector argument by Nelder&#45;Mead simplex method. " alt="" coords="291,136,453,177"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1Util_1_1Exception.html#a3bd768700cd606d77d10a75f1fc91791" title="DFLib::Util::Exception\l::getEmsg" alt="" coords="294,201,450,243"/>
+<area shape="rect" id="node6" href="$classDFLib_1_1Util_1_1Minimizer.html#aa3937c0251c1becacd2d938b51f46c79" title="minimize function of vector value by method of conjugate gradients " alt="" coords="270,267,474,308"/>
+<area shape="rect" id="node7" href="$classDFLib_1_1Abstract_1_1Point.html#abb3e5afd43b7d869953db4a8c858e311" title="Set X&#45;Y coordinates of the point. " alt="" coords="293,332,451,373"/>
+</map>

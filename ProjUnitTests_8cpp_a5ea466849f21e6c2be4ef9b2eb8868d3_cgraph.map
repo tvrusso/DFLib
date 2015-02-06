@@ -1,0 +1,10 @@
+<map id="main" name="main">
+<area shape="rect" id="node2" href="$classDFLib_1_1Proj_1_1Point.html#a58e96f4fb00640ec762c709df6e0f573" title="get user position " alt="" coords="121,5,251,47"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1Proj_1_1Point.html#aa4e10ed14f4f1e505e992b78de20bd49" title="get mercator projection (XY) position " alt="" coords="121,71,251,112"/>
+<area shape="rect" id="node6" href="$classDFLib_1_1Proj_1_1Point.html#a4b69111729f316c5ddcb5b60ab0a481b" title="set mercator projection (XY) position " alt="" coords="121,136,251,177"/>
+<area shape="rect" id="node7" href="$classDFLib_1_1Proj_1_1Point.html#a924b68869eb9de9ac5e5c5c227017313" title="Clone Self. " alt="" coords="121,201,251,243"/>
+<area shape="rect" id="node9" href="$classDFLib_1_1Util_1_1Exception.html#a3bd768700cd606d77d10a75f1fc91791" title="DFLib::Util::Exception\l::getEmsg" alt="" coords="108,267,264,308"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1Proj_1_1Point.html#a50d73db1c4ff9d4037e4cc3ce276b433" title="DFLib::Proj::Point\l::mercToUser" alt="" coords="312,5,441,47"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1Proj_1_1Point.html#a8a57c7fa0776c5e5cc077fcd87e3fd79" title="DFLib::Proj::Point\l::userToMerc" alt="" coords="312,71,441,112"/>
+<area shape="rect" id="node8" href="$classDFLib_1_1Proj_1_1Point.html#ab059612db8d9a543872957a4d7676bf5" title="Constructor. " alt="" coords="312,201,441,243"/>
+</map>

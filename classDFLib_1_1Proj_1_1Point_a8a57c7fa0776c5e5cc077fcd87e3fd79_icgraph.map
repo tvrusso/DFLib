@@ -1,0 +1,6 @@
+<map id="DFLib::Proj::Point::userToMerc" name="DFLib::Proj::Point::userToMerc">
+<area shape="rect" id="node2" href="$classDFLib_1_1Proj_1_1Point.html#ac7849475a8ec229b5d4672420e4c036f" title="set user projection information " alt="" coords="183,5,312,47"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1Proj_1_1Point.html#aa4e10ed14f4f1e505e992b78de20bd49" title="get mercator projection (XY) position " alt="" coords="183,71,312,112"/>
+<area shape="rect" id="node3" href="$testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="360,13,415,39"/>
+<area shape="rect" id="node5" href="$ProjUnitTests_8cpp.html#a5ea466849f21e6c2be4ef9b2eb8868d3" title="main" alt="" coords="360,78,415,105"/>
+</map>

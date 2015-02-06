@@ -1,0 +1,33 @@
+<map id="main" name="main">
+<area shape="rect" id="node2" href="$testlsDF__proj_8cpp.html#a6d69f1d0add8bb63c930b2c013879652" title="dmstor" alt="" coords="189,5,257,32"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1Proj_1_1Point.html#aa4e10ed14f4f1e505e992b78de20bd49" title="get mercator projection (XY) position " alt="" coords="159,57,288,98"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1ReportCollection.html#ad5949ddc82d7af6361821c2c7ede9334" title="DFLib::ReportCollection\l::size" alt="" coords="139,187,308,229"/>
+<area shape="rect" id="node6" href="$classDFLib_1_1Abstract_1_1Report.html#a1055d2754b4c3f5229a0f032acf1d93b" title="compute bearing from this reporting location to some other point " alt="" coords="132,253,315,294"/>
+<area shape="rect" id="node7" href="$classDFLib_1_1Util_1_1gaussian__random__generator.html#a010d5efcf21cd1a326d2c47a5f7d3e4a" title="DFLib::Util::gaussian\l_random_generator::getRandom" alt="" coords="108,318,339,359"/>
+<area shape="rect" id="node9" href="$classDFLib_1_1Proj_1_1Report.html#a678a18c1573b303cb8ffa67412532a6a" title="set bearing in degrees " alt="" coords="154,383,293,425"/>
+<area shape="rect" id="node10" href="$classDFLib_1_1ReportCollection.html#ae9f1b6bf5605ae826957c6dcdd4a18ea" title="Add a DF report to the collection. " alt="" coords="139,449,308,490"/>
+<area shape="rect" id="node11" href="$classDFLib_1_1ReportCollection.html#a56e5cff0f6df67b5da9bd8291caa99da" title="DFLib::ReportCollection\l::getReceiverLocationXY" alt="" coords="135,514,311,555"/>
+<area shape="rect" id="node12" href="$classDFLib_1_1ReportCollection.html#ad40068b03a0754de1ec85ffc943fc69d" title="DFLib::ReportCollection\l::getReport" alt="" coords="139,579,308,621"/>
+<area shape="rect" id="node13" href="$classDFLib_1_1Abstract_1_1Report.html#a68b62f719f4c09f8aff4d8890c6f0b3e" title="return reported bearing to target " alt="" coords="127,645,319,686"/>
+<area shape="rect" id="node14" href="$classDFLib_1_1ReportCollection.html#a4f37e88da4347af97dfdc2f7ac63f6f1" title="Computes least squares solution of DF problem. " alt="" coords="127,775,319,817"/>
+<area shape="rect" id="node17" href="$classDFLib_1_1ReportCollection.html#aae93d643b545080d22987bf18d1bdf73" title="return the fix cut average of this collection&#39;s reports " alt="" coords="134,710,313,751"/>
+<area shape="rect" id="node21" href="$classDFLib_1_1Proj_1_1Point.html#a58e96f4fb00640ec762c709df6e0f573" title="get user position " alt="" coords="159,1089,288,1130"/>
+<area shape="rect" id="node23" href="$classDFLib_1_1ReportCollection.html#a7af0e03b2cf975bda110fa78887ac691" title="compute cost function for point x,y " alt="" coords="138,1154,309,1195"/>
+<area shape="rect" id="node24" href="$classDFLib_1_1ReportCollection.html#adffd170257322f58734acb369bb720a4" title="Computes Maximum Likelihood solution of DF problem. " alt="" coords="139,906,308,947"/>
+<area shape="rect" id="node26" href="$classDFLib_1_1Proj_1_1Report.html#a7a33f236ce4d2607f43b4ec4dba227eb" title="return a copy (yes, a COPY) of the receiver point object " alt="" coords="154,1219,293,1261"/>
+<area shape="rect" id="node27" href="$classDFLib_1_1Proj_1_1Point.html#ac7849475a8ec229b5d4672420e4c036f" title="set user projection information " alt="" coords="159,122,288,163"/>
+<area shape="rect" id="node28" href="$classDFLib_1_1ReportCollection.html#aa91199f4a9e034857a043bc5aee0d34a" title="more aggressive attempt to get at an ML fix " alt="" coords="127,971,320,1013"/>
+<area shape="rect" id="node31" href="$classDFLib_1_1Util_1_1Exception.html#a3bd768700cd606d77d10a75f1fc91791" title="DFLib::Util::Exception\l::getEmsg" alt="" coords="438,1102,594,1143"/>
+<area shape="rect" id="node32" href="$classDFLib_1_1ReportCollection.html#a254385b14ca3a2708123f2fce980cc3a" title="Computes Stansfield estimate of Maximum Likelihood solution of DF problem. " alt="" coords="139,841,308,882"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1Proj_1_1Point.html#a8a57c7fa0776c5e5cc077fcd87e3fd79" title="DFLib::Proj::Point\l::userToMerc" alt="" coords="451,90,581,131"/>
+<area shape="rect" id="node8" href="$classDFLib_1_1Util_1_1gaussian__random__generator.html#a55dc337e95f1532aa5c100fc7e4c8ab1" title="return double precision uniform deviates. " alt="" coords="387,318,645,359"/>
+<area shape="rect" id="node15" href="$classDFLib_1_1Abstract_1_1Point.html#abb3e5afd43b7d869953db4a8c858e311" title="Set X&#45;Y coordinates of the point. " alt="" coords="437,775,595,817"/>
+<area shape="rect" id="node16" href="$classDFLib_1_1Abstract_1_1Point.html#a3fdd1fbfecb806f64b7315e507f05c12" title="Get X&#45;Y coordinates of the point. " alt="" coords="437,841,595,882"/>
+<area shape="rect" id="node18" href="$classDFLib_1_1Abstract_1_1Point.html#ad21d8288fcacc615451b632be60dccbf" title="Clone Self. " alt="" coords="437,579,595,621"/>
+<area shape="rect" id="node19" href="$classDFLib_1_1Abstract_1_1Point.html#a76f5e11f829509129f05b0c8f4240f71" title="Get coordinates in the user&#39;s coordinate system. " alt="" coords="437,645,595,686"/>
+<area shape="rect" id="node20" href="$classDFLib_1_1Abstract_1_1Point.html#ac24019510945a7f2683279938ab58a6a" title="Set coordinates in the user&#39;s coordinate system. " alt="" coords="437,710,595,751"/>
+<area shape="rect" id="node22" href="$classDFLib_1_1Proj_1_1Point.html#a50d73db1c4ff9d4037e4cc3ce276b433" title="DFLib::Proj::Point\l::mercToUser" alt="" coords="451,1167,581,1209"/>
+<area shape="rect" id="node25" href="$classDFLib_1_1Util_1_1Minimizer.html#aa3937c0251c1becacd2d938b51f46c79" title="minimize function of vector value by method of conjugate gradients " alt="" coords="414,906,618,947"/>
+<area shape="rect" id="node29" href="$classDFLib_1_1ReportCollection.html#a3ac75e598fff9481fa4d4cec0e934d9c" title="compute cost function for point x,y and its gradient " alt="" coords="391,971,641,1013"/>
+<area shape="rect" id="node30" href="$classDFLib_1_1Util_1_1Minimizer.html#a6b07402d90d7cb8caf689f3869ab78fb" title="minimuze function of vector argument by Nelder&#45;Mead simplex method. " alt="" coords="435,1037,597,1078"/>
+</map>
