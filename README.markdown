@@ -1,8 +1,9 @@
 # DFLib
 
 DFLib is a library of C++ classes for computing the locations of
-transmitters from bearings-only measurements.  See
-docs/html/index.html for detailed documentation fo the classes.
+transmitters from bearings-only measurements.  See [the Doxygen
+documentation](http://tvrusso.github.io/DFLib)  for detailed
+documentation of the classes and for additional references.
 
 ##Quick start:
 
