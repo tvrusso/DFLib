@@ -1,3 +1,9 @@
+******
+Fix Doxygen "mainpage.dox" to link to basic build instructions!  Now that
+we have a GitHub site, it's going to be the first order of business to make
+it so that the build is documented.
+*****
+
 - Improve interface of the Report and ReportCollection classes.  It is 
   woefully incomplete, as evidenced by how much work the qDF subclassed 
   versions have to fix up on their own.  Things like looking up by name,  
