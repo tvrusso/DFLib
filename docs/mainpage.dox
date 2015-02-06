@@ -45,4 +45,7 @@ runs of testlsDF_proj will use different randomized bearings, and
 therefore produce very different DF fixes.  It can be used to see the
 variability of the different methods.
 
+DFLib can be downloaded at <a href="https://github.com/tvrusso/DFLib">its GitHub project page.</a>
+
+A companion GUI program, <a href="https://github.com/tvrusso/qDF">qDF</a>, is also on GitHub.
 */
