@@ -7,6 +7,16 @@ Quick start:
 
 Old-style autoconf build:
 
+  Bootstrapping:
+  You must have GNU Autoconf (version 2.60) or later, GNU Automake
+  (version 1.11 or later) and GNU Libtool (version 2.x) to get started
+  with the code if you have cloned it directly from github.  The bootstrap.sh
+  script must be run once upon checking out the code --- this will create the
+  configure script necessary to do the build.  This only needs to be done
+  on initial checkout and when either of the files configure.ac or Makefile.am
+  gets modified.  Released versions of the code (when this happens someday)
+  will have configure already generated in the tarball.
+
    mkdir build
    cd build
    ../configure
