@@ -46,6 +46,8 @@
 //
 // Current Owner  : $Author$
 //-------------------------------------------------------------------------
+
+#include "DF_Proj_Point.hpp" 
 #include "DF_Proj_Report.hpp"
 
 namespace DFLib

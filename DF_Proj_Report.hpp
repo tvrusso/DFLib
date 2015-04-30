@@ -56,12 +56,13 @@
 using namespace std;
 
 #include "DF_Abstract_Report.hpp"
-#include "DF_Proj_Point.hpp"
 
 namespace DFLib
 {
   namespace Proj
   {
+    class Point;
+
     /// \brief DF report in user-specified coordinates
     class CPL_DLL Report 
       : public DFLib::Abstract::Report

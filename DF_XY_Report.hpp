@@ -48,12 +48,14 @@
 #include <cmath>
 
 #include "DF_Abstract_Report.hpp"
-#include "DF_XY_Point.hpp"
 
 namespace DFLib
 {
   namespace XY
   {
+
+    class Point;
+
     /// \brief DF report in XY coordinates
     /// This class is meant for simplistic DF codes that work in X/Y 
     ///  coordinates already.  Mostly intended for testing the interface.

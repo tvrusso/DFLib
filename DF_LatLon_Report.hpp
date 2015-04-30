@@ -46,12 +46,14 @@
 #include <cmath>
 
 #include "DF_Abstract_Report.hpp"
-#include "DF_LatLon_Point.hpp"
 
 namespace DFLib
 {
   namespace LatLon
   {
+
+    class Point;
+
     /// \brief DF report in Lat/Lon coordinates
     class CPL_DLL Report 
       : public DFLib::Abstract::Report

@@ -57,6 +57,7 @@ extern "C" {
 #include "Util_Misc.hpp"
 #include "gaussian_random.hpp"
 #include "DF_Report_Collection.hpp"
+#include "DF_LatLon_Point.hpp"
 #include "DF_LatLon_Report.hpp"
 #include "Util_Minimization_Methods.hpp"
 

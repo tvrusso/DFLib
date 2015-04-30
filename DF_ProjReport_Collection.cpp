@@ -50,6 +50,7 @@
 #endif
 #include <iostream>
 #include <cmath>
+#include "DF_Proj_Point.hpp"
 #include "DF_Proj_Report.hpp"
 #include "DF_ProjReport_Collection.hpp"
 

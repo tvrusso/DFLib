@@ -49,6 +49,7 @@ extern "C" {
 }
 
 
+#include "DF_Proj_Point.hpp"
 #include "DF_Proj_Report.hpp"
 #include "DF_ProjReport_Collection.hpp"
 #include "Util_Misc.hpp"

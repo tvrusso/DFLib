@@ -65,6 +65,7 @@ inline bool isinf(double v) {return !_finite(v);}
 
 #include "Util_Misc.hpp"
 #include "gaussian_random.hpp"
+#include "DF_Proj_Point.hpp"
 #include "DF_Report_Collection.hpp"
 #include "DF_Proj_Report.hpp"
 

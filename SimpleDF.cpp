@@ -56,6 +56,7 @@ extern "C" {
   double dmstor(const char *, char **);
 }
 
+#include "DF_Proj_Point.hpp"
 #include "DF_Report_Collection.hpp"
 #include "DF_Proj_Report.hpp"
 #include "Util_Misc.hpp"

@@ -54,6 +54,7 @@ extern "C" {
 #include "Util_Misc.hpp"
 #include "gaussian_random.hpp"
 #include "DF_Report_Collection.hpp"
+#include "DF_XY_Point.hpp"
 #include "DF_XY_Report.hpp"
 #include "Util_Minimization_Methods.hpp"
 using namespace std;
