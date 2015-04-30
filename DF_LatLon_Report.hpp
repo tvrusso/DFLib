@@ -62,17 +62,17 @@ namespace DFLib
       Point receiverLocation;            
       double bearing,sigma;
     public:
-      Report(const vector<double> &theLocationLL, 
+      Report(const std::vector<double> &theLocationLL, 
                      const double &bearing,const double &std_dev,
-                     const string &theName);
+                     const std::string &theName);
       ~Report();
-      virtual  const  vector<double> &getReceiverLocation();
+      virtual  const  std::vector<double> &getReceiverLocation();
       virtual  double getReportBearingRadians() const;
       virtual  double getBearing() const;
       virtual  double getBearingStandardDeviationRadians() const;
       virtual  double getSigma() const;
-      virtual  void  setReceiverLocationLL(vector<double> &theLocation);
-      virtual  void  setReceiverLocationMercator(vector<double> &theLocation);
+      virtual  void  setReceiverLocationLL(std::vector<double> &theLocation);
+      virtual  void  setReceiverLocationMercator(std::vector<double> &theLocation);
       //! set bearing in degrees
       virtual  void  setBearing(double Bearing);
       //! set standard deviation in degrees
@@ -84,9 +84,9 @@ namespace DFLib
   /// \param theLocation position vector <em>in lat/lon</em> of this report.
   /// \param Bearing bearing IN DEGREES
   /// \param std_dev standard deviation in degrees
-  inline DFLib::LatLon::Report::Report(const vector<double> &theLocation,
+  inline DFLib::LatLon::Report::Report(const std::vector<double> &theLocation,
                                        const double &Bearing,const double &std_dev,
-                                       const string &theName)
+                                       const std::string &theName)
     :  DFLib::Abstract::Report(theName,true),
        receiverLocation(theLocation),
       bearing(Bearing*M_PI/180.0),
@@ -126,17 +126,17 @@ namespace DFLib
     return sigma*180/M_PI;
   }
 
-  inline void DFLib::LatLon::Report::setReceiverLocationLL(vector<double> &theLocation)
+  inline void DFLib::LatLon::Report::setReceiverLocationLL(std::vector<double> &theLocation)
   {
     receiverLocation.setLL(theLocation);
   }
 
-  inline void DFLib::LatLon::Report::setReceiverLocationMercator(vector<double> &theLocation)
+  inline void DFLib::LatLon::Report::setReceiverLocationMercator(std::vector<double> &theLocation)
   {
     receiverLocation.setXY(theLocation);
   }
 
-  inline const vector<double> & DFLib::LatLon::Report::getReceiverLocation() 
+  inline const std::vector<double> & DFLib::LatLon::Report::getReceiverLocation() 
   { 
     return receiverLocation.getXY();
   }

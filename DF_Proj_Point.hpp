@@ -47,7 +47,6 @@
 #include <string>
 #include "proj_api.h"
 #include "DF_Abstract_Point.hpp"
-using namespace std;
 
 namespace DFLib
 {
@@ -56,9 +55,9 @@ namespace DFLib
     class CPL_DLL Point : public DFLib::Abstract::Point
     {
     private:
-      vector<double> theMerc;
+      std::vector<double> theMerc;
       bool mercDirty;
-      vector<double> theUserCoords;
+      std::vector<double> theUserCoords;
       bool userDirty;
       projPJ userProj, mercProj;
     public:
@@ -69,7 +68,7 @@ namespace DFLib
       /// \param projArgs a vector of strings representing the Proj.4
       /// description of the user's coordinate system.
       ///
-      Point(const vector<double> &uPosition,const vector<string> &projArgs);
+      Point(const std::vector<double> &uPosition,const std::vector<std::string> &projArgs);
 
 
       /// \brief Copy Constructor
@@ -91,7 +90,7 @@ namespace DFLib
       /// will therefore return the point's coordinates in the new coordinate
       /// system.
 
-      void setUserProj(const vector<string> &projArgs);
+      void setUserProj(const std::vector<std::string> &projArgs);
 
       /// \brief return true if user projection is a lat/lon system
       ///
@@ -104,12 +103,12 @@ namespace DFLib
       /// 
       /// \param aPosition coordinates in mercator projection
       ///
-      virtual void setXY(const vector<double> &mPosition);
+      virtual void setXY(const std::vector<double> &mPosition);
       /// \brief get mercator projection (XY) position
       /// 
       /// \return vector of coordinates in mercator projection
       ///
-      virtual const vector<double> &getXY();
+      virtual const std::vector<double> &getXY();
 
 
       /// \brief get user position
@@ -122,7 +121,7 @@ namespace DFLib
       /// cartographic projection library if the mercator coordinates 
       /// or user projection have changed since the last call. 
 
-      virtual const vector<double> &getUserCoords();
+      virtual const std::vector<double> &getUserCoords();
 
       /// \brief set user position
       ///
@@ -133,7 +132,7 @@ namespace DFLib
       ///
       /// \param uPosition vector of doubles with user coordinates.
 
-      virtual void setUserCoords(const vector<double> &uPosition)  ;
+      virtual void setUserCoords(const std::vector<double> &uPosition)  ;
 
       virtual Point * Clone();
     private:

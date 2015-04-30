@@ -40,10 +40,8 @@
 #define UTIL_MISC_HPP
 #include "DFLib_port.h"
 
-#include <vector>
 #include <string>
 
-using namespace std;
 
 namespace DFLib
 {
@@ -54,12 +52,12 @@ namespace DFLib
     class CPL_DLL Exception
     {
     private:
-      string ErrorMessage;
+      std::string ErrorMessage;
     public:
-      Exception(const string &eMsg)
+      Exception(const std::string &eMsg)
         :ErrorMessage(eMsg)
       {};
-      const string &getEmsg() const
+      const std::string &getEmsg() const
       {
         return ErrorMessage;
       };

@@ -41,7 +41,6 @@
 #include "DFLib_port.h"
 
 #include <vector>
-using namespace std;
 
 namespace DFLib
 {
@@ -55,7 +54,7 @@ namespace DFLib
     {
     public:
       /// Set the point at which to evaluate the function
-      virtual  void setEvaluationPoint(vector<double> &ep) = 0;
+      virtual  void setEvaluationPoint(std::vector<double> &ep) = 0;
       /// evaluate the function at the evaluation point
       /// \return value of function
       virtual  double getFunctionValue() = 0;
@@ -63,14 +62,14 @@ namespace DFLib
       /// \param gradient STL vector containing gradient on return
       /// \return value of function
       virtual  double 
-      getFunctionValueAndGradient(vector<double> &gradient) = 0;
+      getFunctionValueAndGradient(std::vector<double> &gradient) = 0;
       /// evaluate the function and its gradient  at the evaluation point
       /// \param gradient STL vector containing gradient on return
       /// \param hessian contains hessian on return
       /// \return value of function
       virtual  double
-      getFunctionValueAndHessian(vector<double> &gradient,
-                                 vector<vector<double> > &hessian)=0;
+      getFunctionValueAndHessian(std::vector<double> &gradient,
+                                 std::vector<std::vector<double> > &hessian)=0;
     };
   }
 }

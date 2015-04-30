@@ -52,26 +52,26 @@ namespace DFLib
     class CPL_DLL Point : public DFLib::Abstract::Point
     {
     private:
-      vector<double> myXY;
+      std::vector<double> myXY;
     public:
       /// Default
       Point();
 
       /// Constructor
-      Point(const vector<double> &aPosition);
+      Point(const std::vector<double> &aPosition);
       /// Copy Constructor
       Point(Point &right);
       // no destructor needed
       /// Set position from X-Y
-      virtual void setXY(const vector<double> &aPosition);
+      virtual void setXY(const std::vector<double> &aPosition);
       /// Set X-Y position
-      virtual const vector<double> &getXY();
+      virtual const std::vector<double> &getXY();
 
       /// get User Coords (wrapper as required by abstract interface)
-      virtual const vector<double> &getUserCoords() { return getXY();};
+      virtual const std::vector<double> &getUserCoords() { return getXY();};
 
       /// set User Coords (wrapper as required by abstract interface)
-      virtual void setUserCoords(const vector<double> &uPosition) 
+      virtual void setUserCoords(const std::vector<double> &uPosition) 
       { setXY(uPosition);};
 
       /// Clone Self

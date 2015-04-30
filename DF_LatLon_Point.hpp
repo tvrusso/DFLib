@@ -45,7 +45,6 @@
 #include <vector>
 #include "proj_api.h"
 #include "DF_Abstract_Point.hpp"
-using namespace std;
 
 namespace DFLib
 {
@@ -54,9 +53,9 @@ namespace DFLib
     class CPL_DLL Point : public DFLib::Abstract::Point
     {
     private:
-      vector<double> theMerc;
+      std::vector<double> theMerc;
       bool mercDirty;
-      vector<double> theLatLon;
+      std::vector<double> theLatLon;
       bool llDirty;
       projPJ latlonProj, mercProj;
     public:
@@ -66,7 +65,7 @@ namespace DFLib
       /// \brief Constructor
       ///
       /// \param llPosition coordinates <em>in Lat Lon</em>
-      Point(const vector<double> &llPosition);
+      Point(const std::vector<double> &llPosition);
 
 
       /// \brief Copy Constructor
@@ -76,12 +75,12 @@ namespace DFLib
       /// 
       /// \param aPosition coordinates in mercator projection
       ///
-      virtual void setXY(const vector<double> &aPosition);
+      virtual void setXY(const std::vector<double> &aPosition);
       /// \brief get mercator projection (XY) position
       /// 
       /// \return vector of coordinates in mercator projection
       ///
-      virtual const vector<double> &getXY();
+      virtual const std::vector<double> &getXY();
 
 
       /// \brief get user position
@@ -89,26 +88,26 @@ namespace DFLib
       /// This is just a wrapper for getLL as needed by the abstract
       /// interface
 
-      virtual const vector<double> &getUserCoords() { return getLL(); };
+      virtual const std::vector<double> &getUserCoords() { return getLL(); };
 
       /// \brief set user position
       ///
       /// This is just a wrapper for setLL as needed by the abstract
       /// interface
 
-      virtual void setUserCoords(const vector<double> &uPosition)  
+      virtual void setUserCoords(const std::vector<double> &uPosition)  
       { setLL(uPosition); };
 	  
       /// \brief set lat/lon position
       /// 
       /// \param llPosition coordinates in Lat/Lon
       ///
-      void setLL(const vector<double> &llPosition);
+      void setLL(const std::vector<double> &llPosition);
       /// \brief get Lat/Lon position
       /// 
       /// \return vector of coordinates in lat/lon
       ///
-      const vector<double> &getLL();
+      const std::vector<double> &getLL();
 
 
       Point * Clone();

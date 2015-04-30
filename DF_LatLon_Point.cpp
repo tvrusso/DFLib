@@ -44,7 +44,6 @@
 
 #include <vector>
 #include <iostream>
-using namespace std;
 
 namespace DFLib
 {
@@ -75,7 +74,7 @@ namespace DFLib
       theMerc.resize(2,0.0);
     }
 
-    Point::Point(const vector<double> &aPosition)
+    Point::Point(const std::vector<double> &aPosition)
       : theLatLon(aPosition),
         llDirty(true),
         mercDirty(false)
@@ -124,7 +123,7 @@ namespace DFLib
       }
     }
 
-    void Point::setXY(const vector<double> &aPosition)
+    void Point::setXY(const std::vector<double> &aPosition)
     {
       theMerc = aPosition;
       // Essential to set llDirty=false, otherwise getXY will try to 
@@ -133,7 +132,7 @@ namespace DFLib
       llDirty=false;
     }
 
-    const vector<double> & Point::getXY()
+    const std::vector<double> & Point::getXY()
     {
       if (llDirty)
       {
@@ -143,14 +142,14 @@ namespace DFLib
       return(theMerc);
     }
 
-    void Point::setLL(const vector<double> &llPosition)
+    void Point::setLL(const std::vector<double> &llPosition)
     {
       theLatLon = llPosition;
       // If we set ll, must now trump mercator.
       llDirty=true; mercDirty=false;
     }
 
-    const vector<double> & Point::getLL()
+    const std::vector<double> & Point::getLL()
     {
       if (mercDirty)
       {

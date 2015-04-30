@@ -7,8 +7,6 @@
 
 #include "DF_Abstract_Point.hpp"
 
-using namespace std;
-
 namespace DFLib 
 {
   enum FixStatus {NO_DATA,GOOD_FIX,NO_FIX};
@@ -22,7 +20,7 @@ namespace DFLib
     class CPL_DLL Report
     {
     private:
-      string ReportName_;
+      std::string ReportName_;
       bool validReport_;
     public:
       // pure virtual functions:
@@ -34,7 +32,7 @@ namespace DFLib
       ///
       /// This cannot be used to create an abstract report, because this is
       /// an abstract class.
-      Report(string n,bool v);
+      Report(std::string n,bool v);
 
       /// \brief copy constructor for base Report class
       ///
@@ -43,7 +41,7 @@ namespace DFLib
       Report(const Report & right);
 
       /// \brief return receiver location in double vector of XY coords
-      virtual  const vector<double> &getReceiverLocation() = 0;
+      virtual  const std::vector<double> &getReceiverLocation() = 0;
       /// \brief return reported bearing to target
       ///
       /// It is essential that getReportBearingRadians always return
@@ -53,10 +51,10 @@ namespace DFLib
       virtual  double getBearingStandardDeviationRadians() const = 0;
 
       ///\brief Return the name of this report
-      virtual const string &getReportName() const { return ReportName_;};
+      virtual const std::string &getReportName() const { return ReportName_;};
 
       ///\brief set the name of this report
-      virtual void setReportName(const string &theName) { ReportName_=theName;};
+      virtual void setReportName(const std::string &theName) { ReportName_=theName;};
 
       ///\brief Set this report as valid
       virtual void setValid() { validReport_=true;};
@@ -86,7 +84,7 @@ namespace DFLib
       /// thing to do when the X-Y coordinate system is a conformal projection.
       /// When working with non-conformal projections the computation could possibly be more involved.
 
-      double computeBearingToPoint(vector<double> &aPoint);
+      double computeBearingToPoint(std::vector<double> &aPoint);
 
       /// \brief compute distance from this reporting location to some other point.
       /// \param aPoint point to which distance is requested
@@ -96,7 +94,7 @@ namespace DFLib
       /// \f$d = \sqrt{\Delta x^2 + \Delta y^2}\f$.  It is <em>not</em> the
       /// geodesic distance on the ellipsoid.
       ///  
-      double computeDistanceToPoint(vector<double> &aPoint);
+      double computeDistanceToPoint(std::vector<double> &aPoint);
     };
   }
 

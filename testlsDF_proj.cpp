@@ -75,8 +75,6 @@ inline bool isinf(double v) {return !_finite(v);}
 #endif
 #endif
 
-using namespace std;
-
 
 int main(int argc,char **argv)
 {
@@ -119,13 +117,13 @@ int main(int argc,char **argv)
 
   */
   double lon,lat;
-  vector<double> transPos(2,0.0);
+  std::vector<double> transPos(2,0.0);
   int i,j;
   char dms_string[128];
   
-  vector<double> FCA_stddev;
-  vector<double> NR_fix;
-  vector<string> projArgs;
+  std::vector<double> FCA_stddev;
+  std::vector<double> NR_fix;
+  std::vector<std::string> projArgs;
   projArgs.push_back("proj=latlong");
   projArgs.push_back("datum=WGS84");
   DFLib::Proj::Point LS_fix(transPos,projArgs);
@@ -139,27 +137,27 @@ int main(int argc,char **argv)
   
   // newton-raphson temporaries
   double f;
-  vector<double> gradf;
-  vector<vector<double> > jac;
+  std::vector<double> gradf;
+  std::vector<std::vector<double> > jac;
 
-  ofstream gnuplotFile("testlsDFfix.gnuplot");
-  ofstream gridFile("function.grid");
-  ofstream pointsFile("testlsDFfix.grasspoints");
-  gnuplotFile << "set angles degrees" << endl;
-  gnuplotFile << "set size square" << endl;
-  gnuplotFile << "set parametric" << endl;
+  std::ofstream gnuplotFile("testlsDFfix.gnuplot");
+  std::ofstream gridFile("function.grid");
+  std::ofstream pointsFile("testlsDFfix.grasspoints");
+  gnuplotFile << "set angles degrees" << std::endl;
+  gnuplotFile << "set size square" << std::endl;
+  gnuplotFile << "set parametric" << std::endl;
   gnuplotFile.precision(16); gnuplotFile.width(20);
   pointsFile.precision(16); pointsFile.width(20);
-  cout.precision(16); cout.width(20);
+  std::cout.precision(16); std::cout.width(20);
 
-  string progName(argv[0]);
+  std::string progName(argv[0]);
   argv++;
   argc--;
 
   time_t seed;
   if (argc > 0)
   {
-    string testArg(argv[0]);
+    std::string testArg(argv[0]);
 
     if (testArg == "--seed")
     {
@@ -168,18 +166,18 @@ int main(int argc,char **argv)
       seed=atoi(argv[0]);
       argv++;
       argc--;
-      cerr << " using seed " << seed << endl;
+      std::cerr << " using seed " << seed << std::endl;
     }
     else
     {
       seed=time(NULL);
-      cerr << " using time " << seed << " as random number seed." << endl;
+      std::cerr << " using time " << seed << " as random number seed." << std::endl;
     }
   }
   else
   {
     seed=time(NULL);
-    cerr << " using time " << seed << " as random number seed." << endl;
+    std::cerr << " using time " << seed << " as random number seed." << std::endl;
   }
 #ifdef _MSC_VER
   srand(seed);
@@ -190,17 +188,17 @@ int main(int argc,char **argv)
 #if 0
 #ifdef HAVE_LIBGDAL  
   testArg=argv[0];
-  string geotiffName;
+  std::string geotiffName;
   bool geotiffRequested=false;
 
   if (testArg == "--geotiff")
   {
-    cout<< "You asked for a geotiff ... not yet." << endl;
+    std::cout<< "You asked for a geotiff ... not yet." << std::endl;
     argv++;
     argc--;
     geotiffRequested=true;
     geotiffName=argv[0];
-    cout << "Geotiff name: " << geotiffName << endl;
+    std::cout << "Geotiff name: " << geotiffName << std::endl;
     argv++;
     argc--;
   }
@@ -209,72 +207,72 @@ int main(int argc,char **argv)
 
   if (argc < 2)
   {
-    cerr << "Usage: " << progName;
+    std::cerr << "Usage: " << progName;
 #if 0
 #ifdef HAVE_LIBGDAL    
-    cerr << " [--geotiff <geotiffname>]";
+    std::cerr << " [--geotiff <geotiffname>]";
 #endif
 #endif
-    cerr << " <trans lon> <trans lat> " << endl;
-    cerr << " Remember to pipe list of receiver lon/lats into stdin!" << endl;
+    std::cerr << " <trans lon> <trans lat> " << std::endl;
+    std::cerr << " Remember to pipe list of receiver lon/lats into stdin!" << std::endl;
     exit(1);
   }
 
   lon=dmstor(argv[0],NULL);
   lat=dmstor(argv[1],NULL);
 
-  cout << "Transmitter location in decimal degrees: Lon: " << lon*RAD_TO_DEG
-       << " Lat: " << lat*RAD_TO_DEG << endl;
+  std::cout << "Transmitter location in decimal degrees: Lon: " << lon*RAD_TO_DEG
+       << " Lat: " << lat*RAD_TO_DEG << std::endl;
 
   transPos[0]=lon*RAD_TO_DEG;
   transPos[1]=lat*RAD_TO_DEG;
-  cout << " making point from transPos " << endl;
-  cout << " projArgs is currently: " << endl;
+  std::cout << " making point from transPos " << std::endl;
+  std::cout << " projArgs is currently: " << std::endl;
   for (int junk=0; junk<projArgs.size();++junk)
   {
-    cout << "   " << projArgs[junk];
+    std::cout << "   " << projArgs[junk];
   }
 
   DFLib::Proj::Point transPoint(transPos,projArgs);
   transPos=transPoint.getXY();
 
-  cout << " Transmitter " << " at X=" << transPos[0]
-       << " Y= " << transPos[1] << endl;
+  std::cout << " Transmitter " << " at X=" << transPos[0]
+       << " Y= " << transPos[1] << std::endl;
 
 
   // Now read receiver lon/lats from stdin.  These are in dms format per
   // proj.4 standard, space delimited.
-  while (!cin.eof())
+  while (!std::cin.eof())
   {
     double temp_sigma;
     char junk_space;
     DFLib::Proj::Report *reportPtr;
-    vector<double> tempVector(2);
-    string reportName;
-    ostringstream ost;
+    std::vector<double> tempVector(2);
+    std::string reportName;
+    std::ostringstream ost;
 
-    cin.get(dms_string,sizeof(dms_string),' ');
-    if (cin.eof())
+    std::cin.get(dms_string,sizeof(dms_string),' ');
+    if (std::cin.eof())
       break;
     lon=dmstor(dms_string,NULL);
     // get the space: 
-    cin.get(junk_space);
-    cin.get(dms_string,sizeof(dms_string),' ');
-    if (cin.eof())
+    std::cin.get(junk_space);
+    std::cin.get(dms_string,sizeof(dms_string),' ');
+    if (std::cin.eof())
       break;
     lat=dmstor(dms_string,NULL);
-    cin.get(junk_space);
+    std::cin.get(junk_space);
 
-    cin >>  temp_sigma;
+    std::cin >>  temp_sigma;
 
-    if (cin.eof())
+    if (std::cin.eof())
       break;
     DFLib::Util::gaussian_random_generator rand_gen(0,temp_sigma);
 
-    cout << " Got receiver number " << rColl.size()
+    std::cout << " Got receiver number " << rColl.size()
          << " Position = " << lon*RAD_TO_DEG << " " << lat*RAD_TO_DEG 
          << " With standard deviation " << temp_sigma
-         << endl;
+         << std::endl;
     tempVector[0]=lon*RAD_TO_DEG;
     tempVector[1]=lat*RAD_TO_DEG;
     double bearing=0; // temporary
@@ -286,10 +284,10 @@ int main(int argc,char **argv)
 
 
     bearing=reportPtr->computeBearingToPoint(transPos)*RAD_TO_DEG;
-    cout << " True bearing to transmitter is " << bearing << endl;
+    std::cout << " True bearing to transmitter is " << bearing << std::endl;
 
     bearing += rand_gen.getRandom();
-    cout << " after randomizing, bearing to transmitter is " << bearing << endl;
+    std::cout << " after randomizing, bearing to transmitter is " << bearing << std::endl;
     reportPtr->setBearing(bearing);
 
     rColl.addReport(reportPtr);
@@ -298,55 +296,55 @@ int main(int argc,char **argv)
   }
   gnuplotFile << "plot [t=0:40000] ";
 
-  cout << "Receiver locations in mercator: " << endl;
+  std::cout << "Receiver locations in mercator: " << std::endl;
   for (i=0;i<rColl.size();++i)
   {
-    vector<double> receiverLoc = 
+    std::vector<double> receiverLoc = 
       rColl.getReceiverLocationXY(i);
     double rb=dynamic_cast<DFLib::Proj::Report const *>(rColl.getReport(i))->getBearing();
     double rbr=rColl.getReport(i)->getReportBearingRadians();
-    cout << " Receiver " << i << " at X=" << receiverLoc[0]
-         << " Y= " << receiverLoc[1] << endl;
-    cout << "  bearing from this receiver to transmitter is "
+    std::cout << " Receiver " << i << " at X=" << receiverLoc[0]
+         << " Y= " << receiverLoc[1] << std::endl;
+    std::cout << "  bearing from this receiver to transmitter is "
          <<  rb
-         << " degrees (" << rbr << " radians)"<< endl;
+         << " degrees (" << rbr << " radians)"<< std::endl;
 
     if (i != 0)
       gnuplotFile << ",";
     gnuplotFile << receiverLoc[0] << "+sin("<<rb<<")*t,"
                 << receiverLoc[1] << "+cos("<<rb<<")*t with lines title \"station " << i << "\" ";
 
-    pointsFile << i << "|"<<receiverLoc[0]<<"|"<<receiverLoc[1]<<"|Receiver "<<i<<endl;
+    pointsFile << i << "|"<<receiverLoc[0]<<"|"<<receiverLoc[1]<<"|Receiver "<<i<<std::endl;
   }
-  gnuplotFile << endl;
+  gnuplotFile << std::endl;
 
   rColl.computeLeastSquaresFix(LS_fix);
   rColl.computeFixCutAverage(FixCutAverage,FCA_stddev);
-  vector <double> LS_point=LS_fix.getXY();
-  vector <double> FCA_point=FixCutAverage.getXY();
+  std::vector <double> LS_point=LS_fix.getXY();
+  std::vector <double> FCA_point=FixCutAverage.getXY();
 
-  gnuplotFile << "replot " << LS_point[0] << "," << LS_point[1] << " with points title \"LS Fix\"" << endl;
-  gnuplotFile << "replot " << transPos[0] << "," << transPos[1] << " with points title \"Actual Location\"" << endl;
-  gnuplotFile << "replot " << FCA_point[0] << "," << FCA_point[1] << " with points title \"Fix Cut Average\"" << endl;
+  gnuplotFile << "replot " << LS_point[0] << "," << LS_point[1] << " with points title \"LS Fix\"" << std::endl;
+  gnuplotFile << "replot " << transPos[0] << "," << transPos[1] << " with points title \"Actual Location\"" << std::endl;
+  gnuplotFile << "replot " << FCA_point[0] << "," << FCA_point[1] << " with points title \"Fix Cut Average\"" << std::endl;
 
-  pointsFile << 100 << "|"<<LS_point[0]<<"|"<<LS_point[1]<<"|LSFix" <<endl;
-  pointsFile << 101 << "|"<<FCA_point[0]<<"|"<<FCA_point[1]<<"|FCA" <<endl;
-  pointsFile << 666 << "|"<<transPos[0]<<"|"<<transPos[1]<<"|Transmitter" <<endl;
+  pointsFile << 100 << "|"<<LS_point[0]<<"|"<<LS_point[1]<<"|LSFix" <<std::endl;
+  pointsFile << 101 << "|"<<FCA_point[0]<<"|"<<FCA_point[1]<<"|FCA" <<std::endl;
+  pointsFile << 666 << "|"<<transPos[0]<<"|"<<transPos[1]<<"|Transmitter" <<std::endl;
 
   for(i = 0; i<rColl.size() ; ++i)
   {
-    const vector<double> &receiverLoc = 
+    const std::vector<double> &receiverLoc = 
       rColl.getReceiverLocationXY(i);
     gnuplotFile << "replot " << receiverLoc[0] << "," << receiverLoc[1] 
-                << " with points title \"Station "<< i << "\"" << endl;
+                << " with points title \"Station "<< i << "\"" << std::endl;
   }
 
-  cout << " Mercator coordinates of LS fix: " 
-       << "X = " << LS_point[0] << " Y = " << LS_point[1] << endl;
-  cout << " Mercator coordinates of Fix Cut Average: " 
-       << "X = " << FCA_point[0] << " Y = " << FCA_point[1] << endl;
+  std::cout << " Mercator coordinates of LS fix: " 
+       << "X = " << LS_point[0] << " Y = " << LS_point[1] << std::endl;
+  std::cout << " Mercator coordinates of Fix Cut Average: " 
+       << "X = " << FCA_point[0] << " Y = " << FCA_point[1] << std::endl;
   
-  vector<double> latlon=LS_fix.getUserCoords();
+  std::vector<double> latlon=LS_fix.getUserCoords();
 
   EW='E';
   NS='N';
@@ -363,11 +361,11 @@ int main(int argc,char **argv)
     NS = 'S';
   }
 
-  cout << "  Longitude of LS fix: " << (int) latlon[0] << "d" 
-       << (latlon[0]-(int)latlon[0])*60 << "\"" << EW << endl;
+  std::cout << "  Longitude of LS fix: " << (int) latlon[0] << "d" 
+       << (latlon[0]-(int)latlon[0])*60 << "\"" << EW << std::endl;
 
-  cout << "  Latitude of LS fix: " << (int) latlon[1] << "d" 
-       << (latlon[1]-(int)latlon[1])*60 << "\"" << NS << endl;
+  std::cout << "  Latitude of LS fix: " << (int) latlon[1] << "d" 
+       << (latlon[1]-(int)latlon[1])*60 << "\"" << NS << std::endl;
 
   /*
   //  for (double minCutAngle=0; minCutAngle < 50; minCutAngle += 5.0)
@@ -375,7 +373,7 @@ int main(int argc,char **argv)
   {
     if (rColl.computeFixCutAverage(FixCutAverage,FCA_stddev,minCutAngle))
     {
-      vector<double> latlon=FixCutAverage.getUserCoords();
+      std::vector<double> latlon=FixCutAverage.getUserCoords();
 	
 	
       EW='E';
@@ -393,14 +391,14 @@ int main(int argc,char **argv)
         NS = 'S';
       }
 	
-      cout << "  Longitude of Fix Cut Average (min cut angle="<< minCutAngle <<"): " << (int) latlon[0] << "d" 
-           << (latlon[0]-(int)latlon[0])*60 << "\"" << EW << endl;
+      std::cout << "  Longitude of Fix Cut Average (min cut angle="<< minCutAngle <<"): " << (int) latlon[0] << "d" 
+           << (latlon[0]-(int)latlon[0])*60 << "\"" << EW << std::endl;
 	
-      cout << "  Latitude of Fix Cut Average (min cut angle="<< minCutAngle <<"): " << (int) latlon[1] << "d" 
-           << (latlon[1]-(int)latlon[1])*60 << "\"" << NS << endl;
+      std::cout << "  Latitude of Fix Cut Average (min cut angle="<< minCutAngle <<"): " << (int) latlon[1] << "d" 
+           << (latlon[1]-(int)latlon[1])*60 << "\"" << NS << std::endl;
 	
-      cout << "   Std Dev of FCA = (" << FCA_stddev[0] << " , " 
-           << " , " << FCA_stddev[1] << ")" << endl;
+      std::cout << "   Std Dev of FCA = (" << FCA_stddev[0] << " , " 
+           << " , " << FCA_stddev[1] << ")" << std::endl;
     }
   }
   */
@@ -417,7 +415,7 @@ int main(int argc,char **argv)
 //       NR_fix[1] = LS_point[1]+10.0*j;
 //       gridFile << rColl.computeCostFunction(NR_fix) << " ";
 //     }
-//     gridFile << endl;
+//     gridFile << std::endl;
 //   }
 
 #if 0
@@ -472,7 +470,7 @@ int main(int argc,char **argv)
     }
     else
     {
-      cerr << "Could not open GeoTiff driver." << endl;
+      std::cerr << "Could not open GeoTiff driver." << std::endl;
     }
   }
 #endif
@@ -490,7 +488,7 @@ int main(int argc,char **argv)
 
   // assure we're in WGS84 lat/lon like our ML point
   rPoint0.setUserProj(projArgs);
-  vector<double> r0_coords=rPoint0.getUserCoords();
+  std::vector<double> r0_coords=rPoint0.getUserCoords();
 
   NR_fix = NRPoint.getXY();
   latlon=NRPoint.getUserCoords();
@@ -507,13 +505,13 @@ int main(int argc,char **argv)
     double haversin_a=sin(dlat/2.0)*sin(dlat/2.0)+cos(latlon[1]/RAD_TO_DEG)*cos(r0_coords[1]/RAD_TO_DEG)*sin(dlon/2)*sin(dlon/2);
     double haversin_c=2*atan2(sqrt(haversin_a),sqrt(1-haversin_a));
     haversin_d=3596*haversin_c;   // miles, give or take
-    cout << " latlon[0]-r0_coords[0]= " << latlon[0]-r0_coords[0];
-    cout << " latlon[1]-r0_coords[1]= " << latlon[1]-r0_coords[1];
-    cout << " dlon="<<dlon <<endl;
-    cout << " dlat="<<dlat <<endl;
-    cout << " haversin_a="<<haversin_a <<endl;
-    cout << " haversin_c="<<haversin_c <<endl;
-    cout << " haversin_d="<<haversin_d <<endl;
+    std::cout << " latlon[0]-r0_coords[0]= " << latlon[0]-r0_coords[0];
+    std::cout << " latlon[1]-r0_coords[1]= " << latlon[1]-r0_coords[1];
+    std::cout << " dlon="<<dlon <<std::endl;
+    std::cout << " dlat="<<dlat <<std::endl;
+    std::cout << " haversin_a="<<haversin_a <<std::endl;
+    std::cout << " haversin_c="<<haversin_c <<std::endl;
+    std::cout << " haversin_d="<<haversin_d <<std::endl;
     if (haversin_d>100)    // don't freakin' trust it
     {
       retryFix=true;
@@ -521,11 +519,11 @@ int main(int argc,char **argv)
   }
   else
   {
-    cout << " Simple attempt returned bogus numbers. " << endl;
-    cout << "latlon[0]=" << latlon[0] << endl;
-    cout << "latlon[1]=" << latlon[1] << endl;
-    cout << "NR_fix[0]=" << NR_fix[0] << endl;
-    cout << "NR_fix[1]=" << NR_fix[1] << endl;
+    std::cout << " Simple attempt returned bogus numbers. " << std::endl;
+    std::cout << "latlon[0]=" << latlon[0] << std::endl;
+    std::cout << "latlon[1]=" << latlon[1] << std::endl;
+    std::cout << "NR_fix[0]=" << NR_fix[0] << std::endl;
+    std::cout << "NR_fix[1]=" << NR_fix[1] << std::endl;
     retryFix=true;
   }
   if (retryFix)
@@ -544,13 +542,13 @@ int main(int argc,char **argv)
       double haversin_a=sin(dlat/2.0)*sin(dlat/2.0)+cos(latlon[1]/RAD_TO_DEG)*cos(r0_coords[1]/RAD_TO_DEG)*sin(dlon/2)*sin(dlon/2);
       double haversin_c=2*atan2(sqrt(haversin_a),sqrt(1-haversin_a));
       haversin_d=3596*haversin_c;   // miles, give or take
-      cout << " latlon[0]-r0_coords[0]= " << latlon[0]-r0_coords[0];
-      cout << " latlon[1]-r0_coords[1]= " << latlon[1]-r0_coords[1];
-      cout << " dlon="<<dlon <<endl;
-      cout << " dlat="<<dlat <<endl;
-      cout << " haversin_a="<<haversin_a <<endl;
-      cout << " haversin_c="<<haversin_c <<endl;
-      cout << " haversin_d="<<haversin_d <<endl;
+      std::cout << " latlon[0]-r0_coords[0]= " << latlon[0]-r0_coords[0];
+      std::cout << " latlon[1]-r0_coords[1]= " << latlon[1]-r0_coords[1];
+      std::cout << " dlon="<<dlon <<std::endl;
+      std::cout << " dlat="<<dlat <<std::endl;
+      std::cout << " haversin_a="<<haversin_a <<std::endl;
+      std::cout << " haversin_c="<<haversin_c <<std::endl;
+      std::cout << " haversin_d="<<haversin_d <<std::endl;
       if (haversin_d>100)
       {
         fixFailed=true;
@@ -563,26 +561,26 @@ int main(int argc,char **argv)
     else
     {
       fixFailed=true;
-      cout << " Second attempt returned bogus numbers. " << endl;
-      cout << "latlon[0]=" << latlon[0] << endl;
-      cout << "latlon[1]=" << latlon[1] << endl;
-      cout << "NR_fix[0]=" << NR_fix[0] << endl;
-      cout << "NR_fix[1]=" << NR_fix[1] << endl;
+      std::cout << " Second attempt returned bogus numbers. " << std::endl;
+      std::cout << "latlon[0]=" << latlon[0] << std::endl;
+      std::cout << "latlon[1]=" << latlon[1] << std::endl;
+      std::cout << "NR_fix[0]=" << NR_fix[0] << std::endl;
+      std::cout << "NR_fix[1]=" << NR_fix[1] << std::endl;
     }
     if (fixFailed)
     {
-      cout << " more aggressive attempt still failed to get a reasonable fix."
-           << endl;
+      std::cout << " more aggressive attempt still failed to get a reasonable fix."
+           << std::endl;
     }
   }
   if (!fixFailed)
   {
-    cout << " ML Fix is about " << haversin_d
-         << " miles from a receiver." << endl;
-    gnuplotFile << "replot " << NR_fix[0] << "," << NR_fix[1] << " with points title \"ML Fix\"" << endl;
-    pointsFile << 102 << "|"<<NR_fix[0]<<"|"<<NR_fix[1]<<"|ML" <<endl;
+    std::cout << " ML Fix is about " << haversin_d
+         << " miles from a receiver." << std::endl;
+    gnuplotFile << "replot " << NR_fix[0] << "," << NR_fix[1] << " with points title \"ML Fix\"" << std::endl;
+    pointsFile << 102 << "|"<<NR_fix[0]<<"|"<<NR_fix[1]<<"|ML" <<std::endl;
     
-    cout << " getting user coordinates " << endl;
+    std::cout << " getting user coordinates " << std::endl;
     
     latlon=NRPoint.getUserCoords();
     
@@ -601,17 +599,17 @@ int main(int argc,char **argv)
       NS = 'S';
     }
     
-    cout << "  Longitude of ML fix: " << (int) latlon[0] << "d" 
-         << (latlon[0]-(int)latlon[0])*60 << "\"" << EW << endl;
+    std::cout << "  Longitude of ML fix: " << (int) latlon[0] << "d" 
+         << (latlon[0]-(int)latlon[0])*60 << "\"" << EW << std::endl;
     
-    cout << "  Latitude of ML fix: " << (int) latlon[1] << "d" 
-         << (latlon[1]-(int)latlon[1])*60 << "\"" << NS << endl;
+    std::cout << "  Latitude of ML fix: " << (int) latlon[1] << "d" 
+         << (latlon[1]-(int)latlon[1])*60 << "\"" << NS << std::endl;
     
     latlon=NRPoint.getXY();
-    cout << " Mercator coords of ML fix" << latlon[0] << " , " << latlon[1] 
-         << endl;
-    cout << "  Offset from LS by " << latlon[0]-LS_point[0] << " , " 
-         << latlon[1]-LS_point[1] << endl; 
+    std::cout << " Mercator coords of ML fix" << latlon[0] << " , " << latlon[1] 
+         << std::endl;
+    std::cout << "  Offset from LS by " << latlon[0]-LS_point[0] << " , " 
+         << latlon[1]-LS_point[1] << std::endl; 
     
   }
   // Lastly, try to compute the stansfield solution using LS fix as staring
@@ -623,10 +621,10 @@ int main(int argc,char **argv)
     rColl.computeStansfieldFix(StansfieldPoint,am2,bm2,phi);
 
     NR_fix = StansfieldPoint.getXY();
-    gnuplotFile << "replot " << NR_fix[0] << "," << NR_fix[1] << " with points title \"Stansfield Fix\"" << endl;
-    pointsFile << 103 << "|"<<NR_fix[0]<<"|"<<NR_fix[1]<<"|Stansfield" <<endl;
+    gnuplotFile << "replot " << NR_fix[0] << "," << NR_fix[1] << " with points title \"Stansfield Fix\"" << std::endl;
+    pointsFile << 103 << "|"<<NR_fix[0]<<"|"<<NR_fix[1]<<"|Stansfield" <<std::endl;
     
-    cout << " getting user coordinates " << endl;
+    std::cout << " getting user coordinates " << std::endl;
     
     latlon=StansfieldPoint.getUserCoords();
     
@@ -645,25 +643,25 @@ int main(int argc,char **argv)
       NS = 'S';
     }
     
-    cout << "  Longitude of Stansfield fix: " << (int) latlon[0] << "d" 
-         << (latlon[0]-(int)latlon[0])*60 << "\"" << EW << endl;
+    std::cout << "  Longitude of Stansfield fix: " << (int) latlon[0] << "d" 
+         << (latlon[0]-(int)latlon[0])*60 << "\"" << EW << std::endl;
     
-    cout << "  Latitude of Stansfield fix: " << (int) latlon[1] << "d" 
-         << (latlon[1]-(int)latlon[1])*60 << "\"" << NS << endl;
+    std::cout << "  Latitude of Stansfield fix: " << (int) latlon[1] << "d" 
+         << (latlon[1]-(int)latlon[1])*60 << "\"" << NS << std::endl;
     
     latlon=StansfieldPoint.getXY();
-    cout << " Mercator coords of Stansfield fix" << latlon[0] << " , " << latlon[1] 
-         << endl;
-    cout << "  Offset from LS by " << latlon[0]-LS_point[0] << " , " 
-         << latlon[1]-LS_point[1] << endl; 
+    std::cout << " Mercator coords of Stansfield fix" << latlon[0] << " , " << latlon[1] 
+         << std::endl;
+    std::cout << "  Offset from LS by " << latlon[0]-LS_point[0] << " , " 
+         << latlon[1]-LS_point[1] << std::endl; 
 
     if (am2>0 && bm2>0)
     {
       double a=sqrt(1/am2);
       double b=sqrt(1/bm2);
-      cout << " Stansfield ellipse: a="<<a << "  b=" << b << " phi=" << phi
+      std::cout << " Stansfield ellipse: a="<<a << "  b=" << b << " phi=" << phi
            << " rotation in degrees="<<phi*RAD_TO_DEG 
-           << endl;
+           << std::endl;
       
       double rho=sqrt(-2*log(.5));   // 50% confidence interval
       double cosphi=cos(phi);
@@ -673,14 +671,14 @@ int main(int argc,char **argv)
                   <<"*sin(360.0/40000.0*t),"
                   <<NR_fix[1] << "+"<<a<<"*"<<rho<<"*"<<sinphi
                   <<"*cos(360.0/40000.0*t)+"<<b<<"*"<<rho<<"*"<<cosphi
-                  <<"*sin(360.0/40000.0*t) w l title \"50% Stansfield confidence\"" << endl;
+                  <<"*sin(360.0/40000.0*t) w l title \"50% Stansfield confidence\"" << std::endl;
       rho=sqrt(-2*log(.25));   // 75% confidence interval
       gnuplotFile << "replot " << NR_fix[0] << "+"<<a<<"*"<<rho<<"*"<<cosphi
                   <<"*cos(360.0/40000.0*t)-"<<b<<"*"<<rho<<"*"<<sinphi
                   <<"*sin(360.0/40000.0*t),"
                   <<NR_fix[1] << "+"<<a<<"*"<<rho<<"*"<<sinphi
                   <<"*cos(360.0/40000.0*t)+"<<b<<"*"<<rho<<"*"<<cosphi
-                  <<"*sin(360.0/40000.0*t) w l title \"75% Stansfield confidence\"" << endl;
+                  <<"*sin(360.0/40000.0*t) w l title \"75% Stansfield confidence\"" << std::endl;
       
       rho=sqrt(-2*log(.05));   // 95% confidence interval
       gnuplotFile << "replot " << NR_fix[0] << "+"<<a<<"*"<<rho<<"*"<<cosphi
@@ -688,22 +686,22 @@ int main(int argc,char **argv)
                   <<"*sin(360.0/40000.0*t),"
                   <<NR_fix[1] << "+"<<a<<"*"<<rho<<"*"<<sinphi
                   <<"*cos(360.0/40000.0*t)+"<<b<<"*"<<rho<<"*"<<cosphi
-                  <<"*sin(360.0/40000.0*t) w l title \"95% Stansfield confidence\"" << endl;
+                  <<"*sin(360.0/40000.0*t) w l title \"95% Stansfield confidence\"" << std::endl;
     }
     else
     {
-      cerr << "Stansfield ellipse parameters came back bogus: 1/a^2=" << am2
-           << " and 1/b^2="<< bm2 << endl;
+      std::cerr << "Stansfield ellipse parameters came back bogus: 1/a^2=" << am2
+           << " and 1/b^2="<< bm2 << std::endl;
     }
   }
   catch(DFLib::Util::Exception x)
   {
-    cerr << "Ooops, got exception trying to compute Stansfield fix:" << endl
+    std::cerr << "Ooops, got exception trying to compute Stansfield fix:" << std::endl
          << x.getEmsg()
-         << endl;
+         << std::endl;
   }
 
 
-  gnuplotFile << "pause -1" << endl;
+  gnuplotFile << "pause -1" << std::endl;
   gnuplotFile.close();
 }

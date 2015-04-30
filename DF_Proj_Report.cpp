@@ -62,10 +62,10 @@ namespace DFLib
   /// \param std_dev standard deviation in degrees
   /// \param projArgs a vector of strings to pass to pj_init in order to 
   ///        define the user coordinate system.
-    Report::Report(const vector<double> &theLocation,
+    Report::Report(const std::vector<double> &theLocation,
                    const double &Bearing,const double &std_dev,
-                   const string &theName,
-                   const vector<string> &projArgs)
+                   const std::string &theName,
+                   const std::vector<std::string> &projArgs)
       : DFLib::Abstract::Report(theName,true),
         bearing(Bearing*M_PI/180.0),
         sigma(std_dev*M_PI/180.0)

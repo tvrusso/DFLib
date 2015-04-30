@@ -3,7 +3,6 @@
 
 #include "DFLib_port.h"
 #include <vector>
-using namespace std;
 
 namespace DFLib
 {
@@ -35,7 +34,7 @@ namespace DFLib
       /// \param aPosition a vector containing the X and Y coordinates
       ///
 
-      virtual void setXY(const vector<double> &aPosition)=0;
+      virtual void setXY(const std::vector<double> &aPosition)=0;
             
       /// \brief Get X-Y coordinates of the point
       /// 
@@ -51,17 +50,17 @@ namespace DFLib
       ///
       /// \return reference to an STL vector containing the coordinates 
       ///
-      virtual const vector<double> &getXY() = 0;
+      virtual const std::vector<double> &getXY() = 0;
 
       /// \brief Get coordinates in the user's coordinate system
       ///
 	  
-      virtual const vector<double> &getUserCoords() = 0;
+      virtual const std::vector<double> &getUserCoords() = 0;
 
       /// \brief Set coordinates in the user's coordinate system
       ///
 	  
-      virtual void setUserCoords(const vector<double> &uPosition) = 0;
+      virtual void setUserCoords(const std::vector<double> &uPosition) = 0;
 
       /// \brief Clone Self
       ///

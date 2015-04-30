@@ -57,7 +57,6 @@ extern "C" {
 #include "DF_XY_Point.hpp"
 #include "DF_XY_Report.hpp"
 #include "Util_Minimization_Methods.hpp"
-using namespace std;
 
 char *latlon_argv[2]={"proj=latlong",
                       "datum=WGS84"};
@@ -66,7 +65,7 @@ char *mercator_argv[3]={"proj=merc",
                         "lat_ts=0"};
 projPJ latlonProj, mercProj;
 
-void convertMercToLatLon(vector<double> &merc, double &lon, double &lat)
+void convertMercToLatLon(std::vector<double> &merc, double &lon, double &lat)
 {
   projUV data;
   double z;
@@ -76,7 +75,7 @@ void convertMercToLatLon(vector<double> &merc, double &lon, double &lat)
   if (pj_transform(mercProj,latlonProj,1,0,&(data.u),&(data.v),&z) != 0)
   {
     cerr << "Converting " << merc[0] << ", " << merc[1] << 
-      " to lat/lon failed" << endl;
+      " to lat/lon failed" << std::endl;
     exit(1);
   }
   
@@ -85,7 +84,7 @@ void convertMercToLatLon(vector<double> &merc, double &lon, double &lat)
   lat=data.v*RAD_TO_DEG;
 }
 
-void convertLatLonToMerc(vector<double> &merc, double &lon, double &lat)
+void convertLatLonToMerc(std::vector<double> &merc, double &lon, double &lat)
 {
   projUV data;
   double z;
@@ -95,7 +94,7 @@ void convertLatLonToMerc(vector<double> &merc, double &lon, double &lat)
   if (pj_transform(latlonProj,mercProj,1,0,&(data.u),&(data.v),&z) != 0)
   {
     cerr << "Converting " << merc[0] << ", " << merc[1] << 
-      " to lat/lon failed" << endl;
+      " to lat/lon failed" << std::endl;
     exit(1);
   }
   
@@ -108,13 +107,13 @@ int main(int argc,char **argv)
 {
   
   double lon,lat;
-  vector<double> transPos(2);
+  std::vector<double> transPos(2);
   int i,j;
   char dms_string[128];
   
-  vector<double> FixCutAverage,FCA_stddev;
-  vector<double> LS_fix;
-  vector<double> NR_fix;
+  std::vector<double> FixCutAverage,FCA_stddev;
+  std::vector<double> LS_fix;
+  std::vector<double> NR_fix;
   char EW,NS;
   bool done;
   double normf,lastnormf;
@@ -125,12 +124,12 @@ int main(int argc,char **argv)
   
   // newton-raphson temporaries
   double f;
-  vector<double> gradf;
-  vector<vector<double> > jac;
+  std::vector<double> gradf;
+  std::vector<std::vector<double> > jac;
 
   ofstream gnuplotFile("testlsDFfix.gnuplot");
-  gnuplotFile << "set angles degrees" << endl;
-  gnuplotFile << "set parametric" << endl;
+  gnuplotFile << "set angles degrees" << std::endl;
+  gnuplotFile << "set parametric" << std::endl;
   gnuplotFile.precision(16); gnuplotFile.width(20);
 
 
@@ -141,8 +140,8 @@ int main(int argc,char **argv)
 #endif
   if (argc < 3)
   {
-    cerr << "Usage: " << argv[0] << " <trans lon> <trans lat> " << endl;
-    cerr << " Remember to pipe list of receiver lon/lats into stdin!" << endl;
+    cerr << "Usage: " << argv[0] << " <trans lon> <trans lat> " << std::endl;
+    cerr << " Remember to pipe list of receiver lon/lats into stdin!" << std::endl;
     exit(1);
   }
 
@@ -172,51 +171,51 @@ int main(int argc,char **argv)
   lat=dmstor(argv[2],NULL);
 
   cout << "Transmitter location in decimal degrees: Lon: " << lon*RAD_TO_DEG
-       << " Lat: " << lat*RAD_TO_DEG << endl;
+       << " Lat: " << lat*RAD_TO_DEG << std::endl;
 
   convertLatLonToMerc(transPos,lon,lat);
 
   cout << " Transmitter " << " at X=" << transPos[0]
-       << " Y= " << transPos[1] << endl;
+       << " Y= " << transPos[1] << std::endl;
 
 
   // Now read receiver lon/lats from stdin.  These are in dms format per
   // proj.4 standard, space delimited.
-  while (!cin.eof())
+  while (!std::cin.eof())
   {
     double temp_sigma;
     char junk_space;
     DFLib::XY::Report *reportPtr;
-    vector<double> tempVector(2);
+    std::vector<double> tempVector(2);
 
-    cin.get(dms_string,sizeof(dms_string),' ');
-    if (cin.eof())
+    std::cin.get(dms_string,sizeof(dms_string),' ');
+    if (std::cin.eof())
       break;
     lon=dmstor(dms_string,NULL);
     // get the space: 
-    cin.get(junk_space);
-    cin.get(dms_string,sizeof(dms_string),' ');
-    if (cin.eof())
+    std::cin.get(junk_space);
+    std::cin.get(dms_string,sizeof(dms_string),' ');
+    if (std::cin.eof())
       break;
     lat=dmstor(dms_string,NULL);
-    cin.get(junk_space);
+    std::cin.get(junk_space);
 
-    cin >>  temp_sigma;
-    if (cin.eof())
+    std::cin >>  temp_sigma;
+    if (std::cin.eof())
       break;
     DFLib::Util::gaussian_random_generator rand_gen(0,temp_sigma);
 
     cout << " Got receiver number " << rColl.size()
          << " Position = " << lon*RAD_TO_DEG << " " << lat*RAD_TO_DEG 
          << " With standard deviation " << temp_sigma
-         << endl;
+         << std::endl;
     convertLatLonToMerc(tempVector,lon,lat);
 
     double bearing=atan2((transPos[0]-tempVector[0]),(transPos[1]-tempVector[1]))*RAD_TO_DEG;
-    cout << " True bearing to transmitter is " << bearing << endl;
+    cout << " True bearing to transmitter is " << bearing << std::endl;
 
     //    bearing += rand_gen.getRandom();
-    cout << "  no randomizing done "  << endl;
+    cout << "  no randomizing done "  << std::endl;
 
 
     reportPtr = new DFLib::XY::Report(tempVector,bearing,temp_sigma);
@@ -225,18 +224,18 @@ int main(int argc,char **argv)
   }
   gnuplotFile << "plot [t=0:40000] ";
 
-  cout << "Receiver locations in mercator: " << endl;
+  cout << "Receiver locations in mercator: " << std::endl;
   for (i=0;i<rColl.size();++i)
   {
-    const vector<double> &receiverLoc = 
+    const std::vector<double> &receiverLoc = 
       rColl.getReport(i)->getReceiverLocation();
     double rb=dynamic_cast<DFLib::XY::Report const *>(rColl.getReport(i))->getBearing();
     double rbr=rColl.getReport(i)->getReportBearingRadians();
     cout << " Receiver " << i << " at X=" << receiverLoc[0]
-         << " Y= " << receiverLoc[1] << endl;
+         << " Y= " << receiverLoc[1] << std::endl;
     cout << "  bearing from this receiver to transmitter is "
          <<  rb
-         << " degrees (" << rbr << " radians)"<< endl;
+         << " degrees (" << rbr << " radians)"<< std::endl;
 
     if (i != 0)
       gnuplotFile << ",";
@@ -244,30 +243,30 @@ int main(int argc,char **argv)
                 << receiverLoc[1] << "+cos("<<rb<<")*t with lines title \"station " << i << "\" ";
 
   }
-  gnuplotFile << endl;
+  gnuplotFile << std::endl;
 
   rColl.computeLeastSquaresFix(LS_fix);
   rColl.computeFixCutAverage(FixCutAverage,FCA_stddev);
 
 
-  gnuplotFile << "replot " << LS_fix[0] << "," << LS_fix[1] << " with points title \"LS Fix\"" << endl;
-  gnuplotFile << "replot " << transPos[0] << "," << transPos[1] << " with points title \"Actual Location\"" << endl;
-  gnuplotFile << "replot " << FixCutAverage[0] << "," << FixCutAverage[1] << " with points title \"Fix Cut Average\"" << endl;
+  gnuplotFile << "replot " << LS_fix[0] << "," << LS_fix[1] << " with points title \"LS Fix\"" << std::endl;
+  gnuplotFile << "replot " << transPos[0] << "," << transPos[1] << " with points title \"Actual Location\"" << std::endl;
+  gnuplotFile << "replot " << FixCutAverage[0] << "," << FixCutAverage[1] << " with points title \"Fix Cut Average\"" << std::endl;
 
   for(i = 0; i<rColl.size() ; ++i)
   {
-    const vector<double> &receiverLoc = 
+    const std::vector<double> &receiverLoc = 
       rColl.getReport(i)->getReceiverLocation();
     gnuplotFile << "replot " << receiverLoc[0] << "," << receiverLoc[1] 
-                << " with points title \"Station "<< i << "\"" << endl;
+                << " with points title \"Station "<< i << "\"" << std::endl;
   }
 
   cout << " Mercator coordinates of LS fix: " 
-       << "X = " << LS_fix[0] << " Y = " << LS_fix[1] << endl;
+       << "X = " << LS_fix[0] << " Y = " << LS_fix[1] << std::endl;
   cout << " Mercator coordinates of Fix Cut Average: " 
-       << "X = " << FixCutAverage[0] << " Y = " << FixCutAverage[1] << endl;
+       << "X = " << FixCutAverage[0] << " Y = " << FixCutAverage[1] << std::endl;
   cout << " Fix Cut Average Standard Deviations: " 
-       << "X = " << FCA_stddev[0] << " Y = " << FCA_stddev[1] << endl;
+       << "X = " << FCA_stddev[0] << " Y = " << FCA_stddev[1] << std::endl;
 
   convertMercToLatLon(LS_fix,lon,lat);
 
@@ -287,10 +286,10 @@ int main(int argc,char **argv)
   }
 
   cout << "  Longitude of LS fix: " << (int) lon << "d" 
-       << (lon-(int)lon)*60 << "\"" << EW << endl;
+       << (lon-(int)lon)*60 << "\"" << EW << std::endl;
 
   cout << "  Latitude of LS fix: " << (int) lat << "d" 
-       << (lat-(int)lat)*60 << "\"" << NS << endl;
+       << (lat-(int)lat)*60 << "\"" << NS << std::endl;
 
   for (double minCutAngle=0; minCutAngle < 50; minCutAngle += 5.0)
   {
@@ -313,10 +312,10 @@ int main(int argc,char **argv)
     }
 
     cout << "  Longitude of Fix Cut Average (min cut angle="<< minCutAngle <<"): " << (int) lon << "d" 
-         << (lon-(int)lon)*60 << "\"" << EW << endl;
+         << (lon-(int)lon)*60 << "\"" << EW << std::endl;
 
     cout << "  Latitude of Fix Cut Average (min cut angle="<< minCutAngle <<"): " << (int) lat << "d" 
-         << (lat-(int)lat)*60 << "\"" << NS << endl;
+         << (lat-(int)lat)*60 << "\"" << NS << std::endl;
   }
   // Now try Conjugate Gradients on Jml, always starting from OV fix.
   NR_fix=LS_fix;
@@ -332,16 +331,16 @@ int main(int argc,char **argv)
     {
       tempF=bogus.conjugateGradientMinimize(NR_fix,1e-5,j);
       cout << " CG says minimum at  " << NR_fix[0] << "," << NR_fix[1] 
-           << " where the function is " << tempF << endl;
+           << " where the function is " << tempF << std::endl;
     }
     catch (DFLib::Util::Exception x)
     {
-      cerr << " Ooops... got exception " << x.getEmsg() << endl;
+      cerr << " Ooops... got exception " << x.getEmsg() << std::endl;
     }
   }
 
-  cout << "Final C-G ML result took " << j  << " iterations: X=" << NR_fix[0] << " Y=" << NR_fix[1] << endl;
-  gnuplotFile << "replot " << NR_fix[0] << "," << NR_fix[1] << " with points title \"ML Fix\"" << endl;
+  cout << "Final C-G ML result took " << j  << " iterations: X=" << NR_fix[0] << " Y=" << NR_fix[1] << std::endl;
+  gnuplotFile << "replot " << NR_fix[0] << "," << NR_fix[1] << " with points title \"ML Fix\"" << std::endl;
   convertMercToLatLon(NR_fix,lon,lat);
 
   EW='E';
@@ -360,10 +359,10 @@ int main(int argc,char **argv)
   }
 
   cout << "  Longitude of ML fix: " << (int) lon << "d" 
-       << (lon-(int)lon)*60 << "\"" << EW << endl;
+       << (lon-(int)lon)*60 << "\"" << EW << std::endl;
 
   cout << "  Latitude of ML fix: " << (int) lat << "d" 
-       << (lat-(int)lat)*60 << "\"" << NS << endl;
+       << (lat-(int)lat)*60 << "\"" << NS << std::endl;
 
 #if 0
   while (!done && j < 100)
@@ -375,19 +374,19 @@ int main(int argc,char **argv)
     determJ=jac[0][0]*jac[1][1]-jac[0][1]*jac[1][0];
     normf = sqrt(gradf[0]*gradf[0]+gradf[1]*gradf[1]);
 
-    cout << " Before step: f = " << f << endl;
+    cout << " Before step: f = " << f << std::endl;
 
     if (j!= 0) 
     {
       cout << "   normf = " << normf
            << "   lastnormf=" << lastnormf
-           << "   difference = " << normf-lastnormf << endl;
-      cout << "   Function value = " << f << endl;
-      cout << "   Gradf=("<<gradf[0]<<","<<gradf[1]<<")"<<endl;
+           << "   difference = " << normf-lastnormf << std::endl;
+      cout << "   Function value = " << f << std::endl;
+      cout << "   Gradf=("<<gradf[0]<<","<<gradf[1]<<")"<<std::endl;
     }
     if (j!=0 && fabs(determJ) <1e-10)
     {
-      cout << " Oops --- determinant getting small: " << determJ << endl;
+      cout << " Oops --- determinant getting small: " << determJ << std::endl;
     }
 
     // Newton direction
@@ -408,15 +407,15 @@ int main(int argc,char **argv)
     j++;
     cout << " N-R Iteration " << j << "X " << NR_fix[0] << " Y " 
          << NR_fix[1] 
-         << " dx " << deltax << " dy " << deltay << endl;
-    cout << "   f = " << f << endl;
+         << " dx " << deltax << " dy " << deltay << std::endl;
+    cout << "   f = " << f << std::endl;
 
     if ( deltax*deltax + deltay*deltay < 1e-4) // norm less than 1e-8
       done=true;
   }
 
-  cout << "Final N-R result: X=" << NR_fix[0] << " Y=" << NR_fix[1] << endl;
-  gnuplotFile << "replot " << NR_fix[0] << "," << NR_fix[1] << " with points title \"N-R ML Fix\"" << endl;
+  cout << "Final N-R result: X=" << NR_fix[0] << " Y=" << NR_fix[1] << std::endl;
+  gnuplotFile << "replot " << NR_fix[0] << "," << NR_fix[1] << " with points title \"N-R ML Fix\"" << std::endl;
   convertMercToLatLon(NR_fix,lon,lat);
 
   EW='E';
@@ -435,13 +434,13 @@ int main(int argc,char **argv)
   }
 
   cout << "  Longitude of NR fix: " << (int) lon << "d" 
-       << (lon-(int)lon)*60 << "\"" << EW << endl;
+       << (lon-(int)lon)*60 << "\"" << EW << std::endl;
 
   cout << "  Latitude of NR fix: " << (int) lat << "d" 
-       << (lat-(int)lat)*60 << "\"" << NS << endl;
+       << (lat-(int)lat)*60 << "\"" << NS << std::endl;
       
 #endif
 
-  gnuplotFile << "pause -1" << endl;
+  gnuplotFile << "pause -1" << std::endl;
   gnuplotFile.close();
 }

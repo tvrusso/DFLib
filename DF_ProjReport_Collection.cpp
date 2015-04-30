@@ -54,7 +54,6 @@
 #include "DF_Proj_Report.hpp"
 #include "DF_ProjReport_Collection.hpp"
 
-using namespace std;
 namespace DFLib
 {
 

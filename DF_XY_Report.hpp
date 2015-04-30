@@ -66,16 +66,16 @@ namespace DFLib
       Point receiverLocation;            
       double bearing,sigma;
     public:
-      Report(const vector<double> &theLocation, 
+      Report(const std::vector<double> &theLocation, 
                      const double &bearing,const double &std_dev,
-                     const string &theName);
+                     const std::string &theName);
       ~Report();
-      virtual  const  vector<double> &getReceiverLocation();
+      virtual  const  std::vector<double> &getReceiverLocation();
       virtual  double getReportBearingRadians() const;
       virtual  double getBearing() const;
       virtual  double getBearingStandardDeviationRadians() const;
       virtual  double getSigma() const;
-      virtual  void  setReceiverLocation(vector<double> &theLocation);
+      virtual  void  setReceiverLocation(std::vector<double> &theLocation);
       //! set bearing in degrees
       virtual  void  setBearing(double Bearing);
       //! set standard deviation in degrees
@@ -88,9 +88,9 @@ namespace DFLib
   /// \param theLocation position vector of this report.
   /// \param Bearing bearing IN DEGREES
   /// \param std_dev standard deviation in degrees
-  inline DFLib::XY::Report::Report(const vector<double> &theLocation,
+  inline DFLib::XY::Report::Report(const std::vector<double> &theLocation,
                                    const double &Bearing,const double &std_dev,
-                                   const string &theName)
+                                   const std::string &theName)
     : DFLib::Abstract::Report(theName,true),
       receiverLocation(theLocation),
       bearing(Bearing*M_PI/180.0),
@@ -132,12 +132,12 @@ namespace DFLib
     return sigma*180/M_PI;
   }
 
-  inline void DFLib::XY::Report::setReceiverLocation(vector<double> &theLocation)
+  inline void DFLib::XY::Report::setReceiverLocation(std::vector<double> &theLocation)
   {
     receiverLocation.setXY(theLocation);
   }
 
-  inline const vector<double> & DFLib::XY::Report::getReceiverLocation() 
+  inline const std::vector<double> & DFLib::XY::Report::getReceiverLocation() 
   { 
     return receiverLocation.getXY();
   }

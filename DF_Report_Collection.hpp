@@ -56,7 +56,6 @@
 #include "DFLib_port.h"
 
 #include <vector>
-using namespace std;
 
 #include "Util_Abstract_Group.hpp"
 #include "DF_Abstract_Report.hpp"
@@ -67,14 +66,14 @@ namespace DFLib
   class CPL_DLL ReportCollection : public DFLib::Abstract::Group
   {
   private: 
-    vector<DFLib::Abstract::Report * > theReports;
-    vector<double> evaluationPoint;
+    std::vector<DFLib::Abstract::Report * > theReports;
+    std::vector<double> evaluationPoint;
     bool f_is_valid;
     bool g_is_valid;
     bool h_is_valid;
     double function_value;
-    vector<double> gradient;
-    vector<vector<double> > hessian;
+    std::vector<double> gradient;
+    std::vector<std::vector<double> > hessian;
 
     // Declare the copy constructor and assignment operators, but
     // don't define them.  We should *never* copy a collection or attempt
@@ -113,7 +112,7 @@ namespace DFLib
     /// \param FCA_stddev standard deviation of fix cuts <em>in user coordinates corresponding to the point provided in FCA</em>
     /// \param minAngle reports whose fix cut occur at less than this angle will not be included in the average.
     bool computeFixCutAverage(DFLib::Abstract::Point &FCA, 
-                                      vector<double> &FCA_stddev,
+                                      std::vector<double> &FCA_stddev,
                                       double minAngle=0);
 
     /*!
@@ -530,14 +529,14 @@ namespace DFLib
       discontinuities that break the minimization operation.
     */
     
-    double computeCostFunction(vector<double> &evaluationPoint);
-    void computeCostFunctionAndGradient(vector<double> &evaluationPoint,
+    double computeCostFunction(std::vector<double> &evaluationPoint);
+    void computeCostFunctionAndGradient(std::vector<double> &evaluationPoint,
                                                 double &f,
-                                                vector<double> &gradf);
-    void computeCostFunctionAndHessian(vector<double> &evaluationPoint,
+                                                std::vector<double> &gradf);
+    void computeCostFunctionAndHessian(std::vector<double> &evaluationPoint,
                                                double &f,
-                                               vector<double> &gradf,
-                                               vector<vector<double> > &h);
+                                               std::vector<double> &gradf,
+                                               std::vector<std::vector<double> > &h);
 
     // Note, unlike size(), this one doesn't count reports that are marked
     // invalid
@@ -567,13 +566,13 @@ namespace DFLib
       return (0);
     };
 
-    int getReportIndex(const string &name) const;
+    int getReportIndex(const std::string &name) const;
     int getReportIndex(const DFLib::Abstract::Report *reportPtr) const;
 
-    inline const vector<double> &getReceiverLocationXY(int i) 
+    inline const std::vector<double> &getReceiverLocationXY(int i) 
     { return (theReports[i]->getReceiverLocation()); };
 
-    inline virtual void setEvaluationPoint(vector<double> &ep)
+    inline virtual void setEvaluationPoint(std::vector<double> &ep)
     {
       evaluationPoint = ep;
       f_is_valid=false;
@@ -594,7 +593,7 @@ namespace DFLib
 
     /// \param g gradient returned
     /// \return function value
-    inline virtual double getFunctionValueAndGradient(vector<double> &g)
+    inline virtual double getFunctionValueAndGradient(std::vector<double> &g)
     {
       if (!g_is_valid)
       {
@@ -611,8 +610,8 @@ namespace DFLib
     /// \param h hessian returned
     /// \return function value
     inline virtual double 
-    getFunctionValueAndHessian(vector<double> &g,
-                               vector<vector<double> > &h)
+    getFunctionValueAndHessian(std::vector<double> &g,
+                               std::vector<std::vector<double> > &h)
     {
       if (!h_is_valid)
       {

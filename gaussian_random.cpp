@@ -46,7 +46,6 @@
 #include <cstdlib>
 #include "Util_Misc.hpp"
 #include "gaussian_random.hpp"
-using namespace std;
 
 namespace DFLib
 {

@@ -46,7 +46,6 @@
 #include <vector>
 #include <iostream>
 #include <cstdlib>
-using namespace std;
 
 namespace DFLib
 {
@@ -54,7 +53,7 @@ namespace DFLib
   {
 
     // class Point
-    Point::Point(const vector<double> &uPosition,const vector<string> &projArgs)
+    Point::Point(const std::vector<double> &uPosition,const std::vector<std::string> &projArgs)
       : theUserCoords(uPosition),
         userDirty(true),
         mercDirty(false)
@@ -175,7 +174,7 @@ namespace DFLib
       return (*this);
     }
 
-    void Point::setXY(const vector<double> &mPosition)
+    void Point::setXY(const std::vector<double> &mPosition)
     {
       theMerc = mPosition;
       // Essential to set userDirty=false, otherwise getXY will try to 
@@ -184,7 +183,7 @@ namespace DFLib
       userDirty=false;
     }
 
-    void Point::setUserProj(const vector<string> &projArgs)
+    void Point::setUserProj(const std::vector<std::string> &projArgs)
     {
       int numUserArgs = projArgs.size();
       char **user_argv = new char * [numUserArgs];
@@ -232,7 +231,7 @@ namespace DFLib
       return (pj_is_latlong(userProj));
     }
     
-    const vector<double> & Point::getXY()
+    const std::vector<double> & Point::getXY()
     {
       if (userDirty)
       {
@@ -242,14 +241,14 @@ namespace DFLib
       return(theMerc);
     }
 
-    void Point::setUserCoords(const vector<double> &llPosition)
+    void Point::setUserCoords(const std::vector<double> &llPosition)
     {
       theUserCoords = llPosition;
       // If we set ll, must now trump mercator.
       userDirty=true; mercDirty=false;
     }
 
-    const vector<double> & Point::getUserCoords()
+    const std::vector<double> & Point::getUserCoords()
     {
       if (mercDirty)
       {

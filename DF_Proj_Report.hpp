@@ -53,7 +53,6 @@
 #endif
 #include "DFLib_port.h"
 #include <cmath>
-using namespace std;
 
 #include "DF_Abstract_Report.hpp"
 
@@ -71,29 +70,29 @@ namespace DFLib
       Point *receiverLocation;            
       double bearing,sigma;
     public:
-      Report(const vector<double> &theLocationUser, 
+      Report(const std::vector<double> &theLocationUser, 
                      const double &bearing,const double &std_dev,
-                     const string &theName,const vector<string>&projArgs);
+                     const std::string &theName,const std::vector<std::string>&projArgs);
 
 
       Report(const Report & right);
       Report & operator=(const Report& rhs);
 
       virtual ~Report();
-      virtual  const  vector<double> &getReceiverLocation();
+      virtual  const  std::vector<double> &getReceiverLocation();
       virtual Point getReceiverPoint() const;
       virtual  double getReportBearingRadians() const;
       virtual  double getBearing() const;
       virtual  double getBearingStandardDeviationRadians() const;
       virtual  double getSigma() const;
-      virtual  void  setReceiverLocationUser(const vector<double> &theLocation);
-      virtual  void  setReceiverLocationMercator(const vector<double> &theLocation);
+      virtual  void  setReceiverLocationUser(const std::vector<double> &theLocation);
+      virtual  void  setReceiverLocationMercator(const std::vector<double> &theLocation);
       //! set bearing in degrees
       virtual  void  setBearing(double Bearing);
       //! set standard deviation in degrees
       virtual  void  setSigma(double Sigma);
       //! allow us to change the projection of the user coordinates
-      virtual void setUserProj(const vector<string> &projArgs);
+      virtual void setUserProj(const std::vector<std::string> &projArgs);
     };
   }
 
@@ -117,22 +116,22 @@ namespace DFLib
     return sigma*180/M_PI;
   }
 
-  inline void DFLib::Proj::Report::setReceiverLocationUser(const vector<double> &theLocation)
+  inline void DFLib::Proj::Report::setReceiverLocationUser(const std::vector<double> &theLocation)
   {
     receiverLocation->setUserCoords(theLocation);
   }
 
-  inline void DFLib::Proj::Report::setReceiverLocationMercator(const vector<double> &theLocation)
+  inline void DFLib::Proj::Report::setReceiverLocationMercator(const std::vector<double> &theLocation)
   {
     receiverLocation->setXY(theLocation);
   }
 
-  inline void DFLib::Proj::Report::setUserProj(const vector<string> &projArgs)
+  inline void DFLib::Proj::Report::setUserProj(const std::vector<std::string> &projArgs)
   {
     receiverLocation->setUserProj(projArgs);
   }
 
-  inline const vector<double> & DFLib::Proj::Report::getReceiverLocation() 
+  inline const std::vector<double> & DFLib::Proj::Report::getReceiverLocation() 
   { 
     return receiverLocation->getXY();
   }

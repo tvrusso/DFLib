@@ -54,19 +54,17 @@
 #include "Util_Abstract_Group.hpp"
 #include "Util_Minimization_Methods.hpp"
 
-using namespace std;
-
 namespace DFLib
 {
   namespace Util
   {
-    double Minimizer::simpleF(double &x,vector<double> &X0, 
-                              vector<double> &dir)
+    double Minimizer::simpleF(double &x,std::vector<double> &X0, 
+                              std::vector<double> &dir)
     {
       int vecSize=X0.size();
       int i;
 
-      vector<double> X(vecSize);
+      std::vector<double> X(vecSize);
         
       for (i=0;i<vecSize;++i)
         X[i]=X0[i]+x*dir[i];
@@ -75,15 +73,15 @@ namespace DFLib
     }
 
 
-    double Minimizer::simpleFandDeriv(double &x,vector<double> &X0, 
-                                      vector<double> &dir, double &df)
+    double Minimizer::simpleFandDeriv(double &x,std::vector<double> &X0, 
+                                      std::vector<double> &dir, double &df)
     {
       int vecSize=X0.size();
       int i;
       double f;
 
-      vector<double> X(vecSize);
-      vector<double> grad(vecSize);
+      std::vector<double> X(vecSize);
+      std::vector<double> grad(vecSize);
 
       for (i=0;i<vecSize;++i)
         X[i]=X0[i]+x*dir[i];
@@ -96,8 +94,8 @@ namespace DFLib
     }
     
     void Minimizer::bracketMinimum(double &a, double &b, double &c,
-                                   vector<double> &X0, 
-                                   vector<double> &direction)
+                                   std::vector<double> &X0, 
+                                   std::vector<double> &direction)
     {
 
       double fa,fb,fc,fu;
@@ -194,13 +192,13 @@ namespace DFLib
     }
 
     double Minimizer::brentMinimize(double ax, double bx, double cx, 
-                                    vector<double> &X0,
-                                    vector<double> &dir,
+                                    std::vector<double> &X0,
+                                    std::vector<double> &dir,
                                     double &xmin
                                     )
     {
 
-      double tol=sqrt(numeric_limits<double>::epsilon());
+      double tol=sqrt(std::numeric_limits<double>::epsilon());
       bool ok1,ok2;
       int iter;
       double a,b,d,d1,d2,du,dv,dw,dx,e=0.0;
@@ -324,7 +322,7 @@ namespace DFLib
       return fx;
     }
 
-    double Minimizer::lineSearch(vector<double> &X0,vector<double> &dir)
+    double Minimizer::lineSearch(std::vector<double> &X0,std::vector<double> &dir)
     {
 
       double a=0.0,b=1.0,c=2.0;
@@ -344,16 +342,16 @@ namespace DFLib
       return fret;
     }
 
-    double Minimizer::conjugateGradientMinimize(vector<double>&X0,
+    double Minimizer::conjugateGradientMinimize(std::vector<double>&X0,
                                                 double ftol,
                                                 int &iter)
     {
       int j,its;
       double gg,gam,fp,dgg;
       int vecSize=X0.size();
-      vector<double> g(vecSize);
-      vector<double> h(vecSize);
-      vector<double> xi(vecSize);
+      std::vector<double> g(vecSize);
+      std::vector<double> h(vecSize);
+      std::vector<double> xi(vecSize);
       const int ITMAX=200;
       const double EPS=1e-10;
       double fret;
@@ -400,7 +398,7 @@ namespace DFLib
     }
 
     // returns index of simplex vertex with best function value
-    int Minimizer::nelderMeadMinimize(vector<vector<double> >&Simplex)
+    int Minimizer::nelderMeadMinimize(std::vector<std::vector<double> >&Simplex)
     {
       int ndim=Simplex[0].size();
       int npts=Simplex.size();
@@ -408,12 +406,12 @@ namespace DFLib
       if (npts != ndim+1)
         throw(Exception("Number of points in simplex must be one more than number of dimensions of vectors"));
 
-      vector<double> fVals(npts);
+      std::vector<double> fVals(npts);
       // wasteful of space, but who cares.  
-      vector<double> x0(ndim); // centroid of face through which we reflect
-      vector<double> xr(ndim); // reflected vertex
-      vector<double> xe(ndim); // reflected/expanded vertex
-      vector<double> xc(ndim); // contracted vertex
+      std::vector<double> x0(ndim); // centroid of face through which we reflect
+      std::vector<double> xr(ndim); // reflected vertex
+      std::vector<double> xe(ndim); // reflected/expanded vertex
+      std::vector<double> xc(ndim); // contracted vertex
       
       int indexOfBest, indexOfWorst, indexOfSecondWorst;
       int i;
@@ -428,7 +426,7 @@ namespace DFLib
       double fTestR,fTestE,fTestC;
       int nFunctionEvals=0;
       int niters=0;
-      double ftol=sqrt(numeric_limits<double>::epsilon());
+      double ftol=sqrt(std::numeric_limits<double>::epsilon());
       double rtol;
 
       // compute the function values for our simplex corners
@@ -442,33 +440,33 @@ namespace DFLib
 #ifdef DFLIB_GRASS_OUTPUT
       ofstream grassVector("testNelderMead.ascii");
       grassVector.precision(16); grassVector.width(20);
-      grassVector << "ORGANIZATION: DFLIB Nelder-Mead code"<<endl;
-      grassVector << "DIGIT DATE:   5/22/2009"<<endl;
-      grassVector << "DIGIT NAME:   -"<<endl;
-      grassVector << "MAP NAME:   nelder1"<<endl;
-      grassVector << "MAP DATE:   2009"<<endl;
-      grassVector << "MAP SCALE:  24000"<<endl;
-      grassVector << "OTHER INFO:   Minimization Simplexes"<<endl;
-      grassVector << "ZONE:   0"<<endl;
-      grassVector << "MAP_THRESH:   0.500000"<<endl;
-      grassVector << "VERTI:"<<endl;
+      grassVector << "ORGANIZATION: DFLIB Nelder-Mead code"<<std::endl;
+      grassVector << "DIGIT DATE:   5/22/2009"<<std::endl;
+      grassVector << "DIGIT NAME:   -"<<std::endl;
+      grassVector << "MAP NAME:   nelder1"<<std::endl;
+      grassVector << "MAP DATE:   2009"<<std::endl;
+      grassVector << "MAP SCALE:  24000"<<std::endl;
+      grassVector << "OTHER INFO:   Minimization Simplexes"<<std::endl;
+      grassVector << "ZONE:   0"<<std::endl;
+      grassVector << "MAP_THRESH:   0.500000"<<std::endl;
+      grassVector << "VERTI:"<<std::endl;
 #endif
       
       while (!done)
       {
 #ifdef DFLIB_GRASS_OUTPUT
         // dump the current simplex to a GRASS vector
-        grassVector << "B 4" << endl;
+        grassVector << "B 4" << std::endl;
         for (i=0;i<npts;i++)
         {
           for (int j=0;j<ndim;j++)
             grassVector << " " << Simplex[i][j];
-          grassVector<<endl;
+          grassVector<<std::endl;
         }
         for (int j=0;j<ndim;j++)
           grassVector << " " << Simplex[0][j];
-        grassVector<<endl;
-        grassVector<<"C  1 1" << endl;
+        grassVector<<std::endl;
+        grassVector<<"C  1 1" << std::endl;
         for (int j=0;j<ndim;j++)
         {
           double temp=0;
@@ -477,7 +475,7 @@ namespace DFLib
           temp /= npts;
           grassVector << " " << temp;
         }
-        grassVector<< endl << " 1 " << niters << endl;
+        grassVector<< std::endl << " 1 " << niters << std::endl;
 #endif
 
         // locate best, worst, and second worst values.  An extraordinarily
@@ -509,20 +507,20 @@ namespace DFLib
         }
 
 #ifdef DFLIB_DEBUG
-        cout << "nM " << niters++ << " nfuncs=" << nFunctionEvals << " "
+        std::cout << "nM " << niters++ << " nfuncs=" << nFunctionEvals << " "
              << "fVals["<<indexOfBest<<"]="<<fVals[indexOfBest] << " ";
         for (i=0;i<ndim;i++)
-          cout << Simplex[indexOfBest][i] << " ";
+          std::cout << Simplex[indexOfBest][i] << " ";
 
-        cout << "fVals["<<indexOfSecondWorst<<"]="<<fVals[indexOfSecondWorst] 
+        std::cout << "fVals["<<indexOfSecondWorst<<"]="<<fVals[indexOfSecondWorst] 
              << " " ;
         for (i=0;i<ndim;i++)
-          cout << Simplex[indexOfSecondWorst][i] << " ";
+          std::cout << Simplex[indexOfSecondWorst][i] << " ";
 
-        cout << "fVals["<<indexOfWorst<<"]="<<fVals[indexOfWorst] << " ";
+        std::cout << "fVals["<<indexOfWorst<<"]="<<fVals[indexOfWorst] << " ";
         for (i=0;i<ndim;i++)
-          cout << Simplex[indexOfWorst][i] << " ";
-        cout << endl;
+          std::cout << Simplex[indexOfWorst][i] << " ";
+        std::cout << std::endl;
 #endif
           
         rtol=2*abs(fVals[indexOfWorst]-fVals[indexOfBest])
@@ -551,10 +549,10 @@ namespace DFLib
             x0[j]/=ndim;
 
 #ifdef DFLIB_DEBUG
-          cout << "x0=";
+          std::cout << "x0=";
           for (i=0;i<ndim;i++)
-            cout << x0[i] << " ";
-          cout << endl;
+            std::cout << x0[i] << " ";
+          std::cout << std::endl;
 #endif
           
           // Compute the reflection point through the centroid
@@ -567,10 +565,10 @@ namespace DFLib
           nFunctionEvals++;
 
 #ifdef DFLIB_DEBUG
-          cout << " fTestR = " << fTestR << " Xr=";
+          std::cout << " fTestR = " << fTestR << " Xr=";
           for (i=0;i<ndim;i++)
-            cout << xr[i] << " ";
-          cout << endl;
+            std::cout << xr[i] << " ";
+          std::cout << std::endl;
 #endif
 
           // If this is the best of all....
@@ -590,8 +588,8 @@ namespace DFLib
               fVals[indexOfWorst]=fTestE;
               Simplex[indexOfWorst]=xe;
 #ifdef DFLIB_DEBUG
-              cout << " nM expanded best, " << fTestE << " replacing " 
-                   << indexOfWorst << endl;
+              std::cout << " nM expanded best, " << fTestE << " replacing " 
+                   << indexOfWorst << std::endl;
 #endif
             }
             else
@@ -600,8 +598,8 @@ namespace DFLib
               fVals[indexOfWorst]=fTestR;
               Simplex[indexOfWorst]=xr;
 #ifdef DFLIB_DEBUG
-              cout << " nM reflected best, " << fTestR << " replacing " 
-                   << indexOfWorst << endl;
+              std::cout << " nM reflected best, " << fTestR << " replacing " 
+                   << indexOfWorst << std::endl;
 #endif
             }
           }
@@ -614,9 +612,9 @@ namespace DFLib
               fVals[indexOfWorst]=fTestR;
               Simplex[indexOfWorst]=xr;
 #ifdef DFLIB_DEBUG
-              cout << " nM reflected better than second worst, " 
+              std::cout << " nM reflected better than second worst, " 
                    << fTestR << " replacing " 
-                   << indexOfWorst << endl;
+                   << indexOfWorst << std::endl;
 #endif
             }
             else
@@ -634,10 +632,10 @@ namespace DFLib
               nFunctionEvals++;
               
 #ifdef DFLIB_DEBUG
-              cout << " fTestC = " << fTestC << " Xc=";
+              std::cout << " fTestC = " << fTestC << " Xc=";
               for (i=0;i<ndim;i++)
-                cout << xc[i] << " ";
-              cout << endl;
+                std::cout << xc[i] << " ";
+              std::cout << std::endl;
 #endif
               // is this better than the worst point?
               if (fTestC<=fVals[indexOfWorst])
@@ -646,9 +644,9 @@ namespace DFLib
                 fVals[indexOfWorst]=fTestC;
                 Simplex[indexOfWorst]=xc;
 #ifdef DFLIB_DEBUG
-                cout << " nM contracted better than worst, " 
+                std::cout << " nM contracted better than worst, " 
                    << fTestC << " replacing " 
-                   << indexOfWorst << endl;
+                   << indexOfWorst << std::endl;
 #endif
               }
               else
@@ -656,9 +654,9 @@ namespace DFLib
                 // we really can't win, can we?  Reduce the whole thing
                 // toward the best point
 #ifdef DFLIB_DEBUG
-                cout << " nM reducing the whole deal " << endl;
-                cout << "   best one is " << indexOfBest 
-                     << " with function value " << fVals[indexOfBest] << endl;
+                std::cout << " nM reducing the whole deal " << std::endl;
+                std::cout << "   best one is " << indexOfBest 
+                     << " with function value " << fVals[indexOfBest] << std::endl;
 #endif
 
                 for (int vertex=0;vertex<npts;vertex++)
@@ -674,22 +672,22 @@ namespace DFLib
                     theGroup->setEvaluationPoint(Simplex[vertex]);
                     fVals[vertex]=theGroup->getFunctionValue();
 #ifdef DFLIB_DEBUG
-                    cout << " Just changed vertex " << vertex << " value to " 
-                         << fVals[vertex]<<endl;
-                    cout << "  value of best is still fVals["
+                    std::cout << " Just changed vertex " << vertex << " value to " 
+                         << fVals[vertex]<<std::endl;
+                    std::cout << "  value of best is still fVals["
                          <<indexOfBest<<"]=" << fVals[indexOfBest] 
-                         << endl;
+                         << std::endl;
 #endif
                     nFunctionEvals++;
                   }
 #ifdef DFLIB_DEBUG
-                cout << " Finished reducing... " << endl;
-                cout << "nM  nfuncs=" << nFunctionEvals << " "
+                std::cout << " Finished reducing... " << std::endl;
+                std::cout << "nM  nfuncs=" << nFunctionEvals << " "
                      << "fVals["<<indexOfBest<<"]="<<fVals[indexOfBest] << " " 
                      << "fVals["<<indexOfSecondWorst<<"]="
                      <<fVals[indexOfSecondWorst] << " " 
                      << "fVals["<<indexOfWorst<<"]="<<fVals[indexOfWorst] 
-                     << endl;
+                     << std::endl;
 #endif
               }
             }

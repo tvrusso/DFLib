@@ -62,7 +62,6 @@
 #include "Util_Minimization_Methods.hpp"
 #include "Util_Misc.hpp"
 
-using namespace std;
 namespace DFLib
 {
   // Class DFReportCollection
@@ -81,8 +80,8 @@ namespace DFLib
 
   void ReportCollection::deleteReports()
   {
-    vector<DFLib::Abstract::Report *>::iterator iterReport=theReports.begin();
-    vector<DFLib::Abstract::Report *>::iterator lastReport=theReports.end();
+    std::vector<DFLib::Abstract::Report *>::iterator iterReport=theReports.begin();
+    std::vector<DFLib::Abstract::Report *>::iterator lastReport=theReports.end();
     while (iterReport != lastReport)
     {
       delete *iterReport;
@@ -98,15 +97,15 @@ namespace DFLib
   }
 
   bool ReportCollection::computeFixCutAverage(DFLib::Abstract::Point &FCA,
-                                              vector<double> &FCA_stddev,
+                                              std::vector<double> &FCA_stddev,
                                               double minAngle)
   {
-    vector<double> tempVec;
+    std::vector<double> tempVec;
     FixStatus fs;
     bool retval;
     int numCuts=0;
-    vector<double> tempFCA;
-    vector<double> tempScratch;
+    std::vector<double> tempFCA;
+    std::vector<double> tempScratch;
     DFLib::Abstract::Point *tempPoint;
 
     // Make a point object that uses the same coordinate system that our
@@ -119,8 +118,8 @@ namespace DFLib
     FCA_stddev.resize(2);
     FCA_stddev[0]=FCA_stddev[1]=0;
 
-    vector<DFLib::Abstract::Report *>::iterator iterReportI;
-    vector<DFLib::Abstract::Report *>::iterator reportEnd=theReports.end();
+    std::vector<DFLib::Abstract::Report *>::iterator iterReportI;
+    std::vector<DFLib::Abstract::Report *>::iterator reportEnd=theReports.end();
     // loop over all reports
     for (iterReportI=theReports.begin();iterReportI!=reportEnd;
          ++iterReportI)
@@ -128,7 +127,7 @@ namespace DFLib
       if ((*iterReportI)->isValid())
       {
         // loop over all reports after this one
-        vector<DFLib::Abstract::Report *>::iterator iterReportJ;
+        std::vector<DFLib::Abstract::Report *>::iterator iterReportJ;
         for (iterReportJ=iterReportI,++iterReportJ;
              iterReportJ != reportEnd;
              ++iterReportJ)
@@ -188,17 +187,17 @@ namespace DFLib
   {
 
     DFLib::Util::Minimizer bogus(this);
-    vector<double> NR_fix = MLFix.getXY();
+    std::vector<double> NR_fix = MLFix.getXY();
     int j;
 
     // First do a quickie Nelder-Mead simplex minimize
-    vector<vector<double> > Simplex(3);
+    std::vector<std::vector<double> > Simplex(3);
     Simplex[0]=NR_fix;
     Simplex[1]=NR_fix;
     Simplex[2]=NR_fix;
     
     // get gradient of cost function at base point.
-    vector<double> gradient;
+    std::vector<double> gradient;
     double f;
     computeCostFunctionAndGradient(Simplex[0],f,gradient);
     // normalize:
@@ -220,8 +219,8 @@ namespace DFLib
     }
     catch (DFLib::Util::Exception x)
     {
-      cerr << " Caught exception in nelderMeadMinimize:" << endl
-           << x.getEmsg() << endl;
+      std::cerr << " Caught exception in nelderMeadMinimize:" << std::endl
+           << x.getEmsg() << std::endl;
     }
     
     double tempF=bogus.conjugateGradientMinimize(NR_fix,1e-5,j);
@@ -233,7 +232,7 @@ namespace DFLib
   {
 
     DFLib::Util::Minimizer bogus(this);
-    vector<double> NR_fix = MLFix.getXY();
+    std::vector<double> NR_fix = MLFix.getXY();
     int j;
 
     double tempF=bogus.conjugateGradientMinimize(NR_fix,1e-5,j);
@@ -245,23 +244,23 @@ namespace DFLib
                                               double &am2, double &bm2,
                                               double &phi)
   {
-    vector<double> initialFix = SFix.getXY();
-    vector<double> distances;
-    vector<double> sines;
-    vector<double> cosines;
-    vector<double> sigmas;
-    vector<double> p;   // Stansfield's "p_i"
-    vector<double> temp(2);
-    vector<double> deltas(2);
+    std::vector<double> initialFix = SFix.getXY();
+    std::vector<double> distances;
+    std::vector<double> sines;
+    std::vector<double> cosines;
+    std::vector<double> sigmas;
+    std::vector<double> p;   // Stansfield's "p_i"
+    std::vector<double> temp(2);
+    std::vector<double> deltas(2);
 
     double mu, nu, lambda;
     double lastNorm=1e100; 
     double currentNorm=1e100; // a ridiculous value to start with
     int numIters=0;
-    double tol=sqrt(numeric_limits<double>::epsilon());
+    double tol=sqrt(std::numeric_limits<double>::epsilon());
 
-    vector<DFLib::Abstract::Report *>::iterator iterReport;
-    vector<DFLib::Abstract::Report *>::iterator reportEnd=theReports.end();
+    std::vector<DFLib::Abstract::Report *>::iterator iterReport;
+    std::vector<DFLib::Abstract::Report *>::iterator reportEnd=theReports.end();
     distances.clear();
     sines.clear();
     cosines.clear();
@@ -369,13 +368,13 @@ namespace DFLib
   {
     am2=0;
     bm2=0;
-    vector<double> initialFix = MLFix.getXY();
-    vector<double> temp(2);
+    std::vector<double> initialFix = MLFix.getXY();
+    std::vector<double> temp(2);
     double lambda=0;
     double mu=0;
     double nu=0;
-    vector<DFLib::Abstract::Report *>::iterator iterReport;
-    vector<DFLib::Abstract::Report *>::iterator reportEnd=theReports.end();
+    std::vector<DFLib::Abstract::Report *>::iterator iterReport;
+    std::vector<DFLib::Abstract::Report *>::iterator reportEnd=theReports.end();
     for (iterReport=theReports.begin(); iterReport!=reportEnd; ++iterReport)
     {
       if ((*iterReport)->isValid())
@@ -402,11 +401,11 @@ namespace DFLib
 
   /// \brief Compute Cost Function
 
-  double ReportCollection::computeCostFunction(vector<double> &evaluationPoint)
+  double ReportCollection::computeCostFunction(std::vector<double> &evaluationPoint)
   {
     double f=0;
-    vector<DFLib::Abstract::Report *>::iterator iterReport;
-    vector<DFLib::Abstract::Report *>::iterator reportEnd=theReports.end();
+    std::vector<DFLib::Abstract::Report *>::iterator iterReport;
+    std::vector<DFLib::Abstract::Report *>::iterator reportEnd=theReports.end();
 
     // Loop over all reports, sum up 
     //    (1/(2*sigma^2)*(measured_bearing-bearing_to_point)^2
@@ -440,14 +439,14 @@ namespace DFLib
   void 
   ReportCollection::computeCostFunctionAndGradient
   (
-   vector<double> &evaluationPoint,
+   std::vector<double> &evaluationPoint,
    double &f,
-   vector<double> &gradient
+   std::vector<double> &gradient
    )
   {
 
-    vector<DFLib::Abstract::Report *>::iterator iterReport;
-    vector<DFLib::Abstract::Report *>::iterator reportEnd=theReports.end();
+    std::vector<DFLib::Abstract::Report *>::iterator iterReport;
+    std::vector<DFLib::Abstract::Report *>::iterator reportEnd=theReports.end();
 
     f=0;
     gradient.resize(2);
@@ -493,13 +492,13 @@ namespace DFLib
   void 
   ReportCollection::computeCostFunctionAndHessian
   (
-   vector<double> &evaluationPoint, 
-   double &f, vector<double> &gradient, vector<vector<double> > &hessian
+   std::vector<double> &evaluationPoint, 
+   double &f, std::vector<double> &gradient, std::vector<std::vector<double> > &hessian
    )
   {
 
-    vector<DFLib::Abstract::Report *>::iterator iterReport;
-    vector<DFLib::Abstract::Report *>::iterator reportEnd=theReports.end();
+    std::vector<DFLib::Abstract::Report *>::iterator iterReport;
+    std::vector<DFLib::Abstract::Report *>::iterator reportEnd=theReports.end();
 
     f=0;
     gradient.resize(2);
@@ -558,10 +557,10 @@ namespace DFLib
     double atb1,atb2,a11,a12,a22;
     atb1=atb2=a11=a12=a22=0.0;
     double det;
-    vector <double> LS_point;
+    std::vector <double> LS_point;
     
-    vector<DFLib::Abstract::Report *>::iterator iterReport;
-    vector<DFLib::Abstract::Report *>::iterator reportEnd=theReports.end();
+    std::vector<DFLib::Abstract::Report *>::iterator iterReport;
+    std::vector<DFLib::Abstract::Report *>::iterator reportEnd=theReports.end();
     
     LS_point.resize(2);
     
@@ -606,7 +605,7 @@ namespace DFLib
   /// \brief return the index of the report that has the given name, or -1
   ///
   /// Stupid linear search, but should be OK for a realistic size of collection.
-  int ReportCollection::getReportIndex(const string & name) const
+  int ReportCollection::getReportIndex(const std::string & name) const
   {
     int reportIndex=-1;
     for (int i=0; i< theReports.size(); i++) 

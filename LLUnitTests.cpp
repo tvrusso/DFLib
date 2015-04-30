@@ -39,7 +39,6 @@
 #include <iostream>
 #include <vector>
 #include <limits>
-using namespace std;
 
 #include "DF_LatLon_Point.hpp"
 
@@ -47,87 +46,87 @@ main(int argc, char **argv)
 {
 
   double dtol=10*sqrt(numeric_limits<double>::epsilon());
-  vector<double> xyVals(2);
+  std::vector<double> xyVals(2);
   xyVals[0]=-106.482;
   xyVals[1]=35.0913;
-  cout << " Creating a point using values x=1,y=2 " << endl;
+  std::cout << " Creating a point using values x=1,y=2 " << std::endl;
     
   DFLib::LatLon::Point myFirstPoint(xyVals);
-  cout << " Point created. " << endl;
+  std::cout << " Point created. " << std::endl;
 
-  vector<double> xyStored = myFirstPoint.getLL();
+  std::vector<double> xyStored = myFirstPoint.getLL();
 
-  cout << " Retrieved XY from stored point.  Lon = " << xyStored[0]
+  std::cout << " Retrieved XY from stored point.  Lon = " << xyStored[0]
        << " Lat = " << xyStored[1];
 
   if (xyStored[0] == xyVals[0] && xyStored[1] == xyVals[1])
-    cout << " PASSED " << endl;
+    std::cout << " PASSED " << std::endl;
   else
-    cout << " FAILED " << endl;
+    std::cout << " FAILED " << std::endl;
 
   xyVals = myFirstPoint.getXY();
   xyVals[0] += 200;
   xyVals[1] += 200;
-  cout << " Resetting XY in stored point to X=" << xyVals[0]  << ",Y= "
-       << xyVals[1] << endl;
+  std::cout << " Resetting XY in stored point to X=" << xyVals[0]  << ",Y= "
+       << xyVals[1] << std::endl;
   myFirstPoint.setXY(xyVals);
   xyStored = myFirstPoint.getXY();
 
-  cout << " Retrieved XY from stored point.  X = " << xyStored[0]
+  std::cout << " Retrieved XY from stored point.  X = " << xyStored[0]
        << " Y = " << xyStored[1];
 
   if (xyStored[0] == xyVals[0] && xyStored[1] == xyVals[1])
-    cout << " PASSED " << endl;
+    std::cout << " PASSED " << std::endl;
   else
   {
-    cout << " FAILED " << endl;
-    cout << "       storedX=" << xyStored[0] << " Should be " << xyVals[0]
-         << endl;
-    cout << "       storedY=" << xyStored[1] << " Should be " << xyVals[1]
-         << endl;
+    std::cout << " FAILED " << std::endl;
+    std::cout << "       storedX=" << xyStored[0] << " Should be " << xyVals[0]
+         << std::endl;
+    std::cout << "       storedY=" << xyStored[1] << " Should be " << xyVals[1]
+         << std::endl;
   }
 
   xyStored = myFirstPoint.getLL();
-  cout << " Lat Lon values of stored, modified point are " 
+  std::cout << " Lat Lon values of stored, modified point are " 
        << " Lon=" << xyStored[0]
-       << " Lat=" << xyStored[1] << endl;
+       << " Lat=" << xyStored[1] << std::endl;
 
-  cout << " Cloning point. " << endl;
+  std::cout << " Cloning point. " << std::endl;
   DFLib::LatLon::Point *mySecondPointPtr = myFirstPoint.Clone();
   xyStored = mySecondPointPtr->getXY();
 
-  cout << " Retrieved XY from cloned point.  X = " << xyStored[0]
+  std::cout << " Retrieved XY from cloned point.  X = " << xyStored[0]
        << " Y = " << xyStored[1];
 
   if (fabs(xyStored[0]-xyVals[0])< dtol && fabs(xyStored[1]-xyVals[1])<dtol)
-    cout << " PASSED " << endl;
+    std::cout << " PASSED " << std::endl;
   else
   {
-    cout << " FAILED " << endl;
-    cout << "       storedX=" << xyStored[0] << " Should be " << xyVals[0]
-         << " difference " << xyStored[0]-xyVals[0] << endl;
-    cout << "       storedY=" << xyStored[1] << " Should be " << xyVals[1]
-         << " difference " << xyStored[1]-xyVals[1] << endl;
-    cout << "       Tolerance is " << dtol << endl;
+    std::cout << " FAILED " << std::endl;
+    std::cout << "       storedX=" << xyStored[0] << " Should be " << xyVals[0]
+         << " difference " << xyStored[0]-xyVals[0] << std::endl;
+    std::cout << "       storedY=" << xyStored[1] << " Should be " << xyVals[1]
+         << " difference " << xyStored[1]-xyVals[1] << std::endl;
+    std::cout << "       Tolerance is " << dtol << std::endl;
         
   }
         
-  cout << " Resetting XY in cloned point to X=0,Y=1 " << endl;
+  std::cout << " Resetting XY in cloned point to X=0,Y=1 " << std::endl;
   xyVals[0]=0;
   xyVals[1]=1;
   mySecondPointPtr->setXY(xyVals);
   xyStored = mySecondPointPtr->getXY();
 
-  cout << " Retrieved XY from cloned point.  X = " << xyStored[0]
+  std::cout << " Retrieved XY from cloned point.  X = " << xyStored[0]
        << " Y = " << xyStored[1];
 
   if (xyStored[0] == xyVals[0] && xyStored[1] == xyVals[1])
-    cout << " PASSED " << endl;
+    std::cout << " PASSED " << std::endl;
   else
-    cout << " FAILED " << endl;
+    std::cout << " FAILED " << std::endl;
 
   xyStored = mySecondPointPtr->getLL();
-  cout << " Retrieved LL from modified, cloned point.  Lon = " << xyStored[0]
-       << " Lat = " << xyStored[1] << endl;
+  std::cout << " Retrieved LL from modified, cloned point.  Lon = " << xyStored[0]
+       << " Lat = " << xyStored[1] << std::endl;
     
 }

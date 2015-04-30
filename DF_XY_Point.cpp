@@ -41,7 +41,6 @@
 #include "DF_XY_Point.hpp"
 
 #include <vector>
-using namespace std;
 
 namespace DFLib
 {
@@ -55,7 +54,7 @@ namespace DFLib
       myXY.resize(2,0.0);
     }
 
-    Point::Point(const vector<double> &aPosition)
+    Point::Point(const std::vector<double> &aPosition)
       :myXY(aPosition)
     {
     }
@@ -65,12 +64,12 @@ namespace DFLib
     {
     }
 
-    void Point::setXY(const vector<double> &aPosition)
+    void Point::setXY(const std::vector<double> &aPosition)
     {
       myXY = aPosition;
     }
 
-    const vector<double> & Point::getXY()
+    const std::vector<double> & Point::getXY()
     {
       return(myXY);
     }

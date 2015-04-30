@@ -54,20 +54,19 @@ extern "C" {
 #include "DF_ProjReport_Collection.hpp"
 #include "Util_Misc.hpp"
 
-using namespace std;
-void printCoords(const vector<double> &latlon, const string &text);
+void printCoords(const std::vector<double> &latlon, const std::string &text);
 
 int main(int argc, char **argv)
 {
 
-  string stationName;
-  string tempstr;
-  vector<double> stationPos(2,0);
+  std::string stationName;
+  std::string tempstr;
+  std::vector<double> stationPos(2,0);
   int datum; // 0=NAD27, 1=NAD83/WGS84
   double bearing; // magnetic
   double sd; // standard deviation
-  vector<string> NAD27_args;
-  vector<string> WGS84_args;
+  std::vector<std::string> NAD27_args;
+  std::vector<std::string> WGS84_args;
   DFLib::ProjReportCollection rColl;
   DFLib::Proj::Report *reportPtr;
   int validity;
@@ -80,15 +79,15 @@ int main(int argc, char **argv)
 
   if (argc < 2)
   {
-    cerr << "Usage: " << argv[0] << " <inputfile>" << endl;
+    std::cerr << "Usage: " << argv[0] << " <inputfile>" << std::endl;
     exit(1);
   }
 
-  ifstream infile(argv[1],ifstream::in);
+  std::ifstream infile(argv[1],std::ifstream::in);
   
   if (!infile.good())
   {
-    cout << " Failed to open file " << argv[1] << endl;
+    std::cout << " Failed to open file " << argv[1] << std::endl;
   }
   else
   {
@@ -107,16 +106,16 @@ int main(int argc, char **argv)
         infile >> sd;
         infile >> validity;
 
-        cout << "Station " << stationName << " at (" 
+        std::cout << "Station " << stationName << " at (" 
              << stationPos[0] << "," << stationPos[1] << ")" 
              << " with datum "; 
         if (datum==0)
-          cout << "NAD27";
+          std::cout << "NAD27";
         else
-          cout << "WGS84/NAD83" ;
+          std::cout << "WGS84/NAD83" ;
         
-        cout << " bearing " << bearing << " sd " << sd << endl;
-        cout << string((validity==1)?"VALID":"IGNORE") << endl;
+        std::cout << " bearing " << bearing << " sd " << sd << std::endl;
+        std::cout << std::string((validity==1)?"VALID":"IGNORE") << std::endl;
 
         reportPtr = new DFLib::Proj::Report(stationPos,bearing,sd,stationName,
                                             (datum==0)?NAD27_args:WGS84_args);
@@ -126,7 +125,7 @@ int main(int argc, char **argv)
         rColl.addReport(reportPtr);
       }
     }
-    cout << " Got " << rColl.size() << " reports " << endl;
+    std::cout << " Got " << rColl.size() << " reports " << std::endl;
     // Give it a bogus initial point
     DFLib::Proj::Point LSFix(stationPos,WGS84_args);
     try {
@@ -134,22 +133,22 @@ int main(int argc, char **argv)
     }
     catch (DFLib::Util::Exception x)
     {
-      cerr << " Ooops .... got exception trying to compute LS fix: " 
+      std::cerr << " Ooops .... got exception trying to compute LS fix: " 
            << x.getEmsg()
-           << endl;
+           << std::endl;
     }
 
     DFLib::Proj::Point FCA=LSFix;
-    vector<double> FCA_stddev(2);
+    std::vector<double> FCA_stddev(2);
     try 
     {
       rColl.computeFixCutAverage(FCA,FCA_stddev);
     }
     catch (DFLib::Util::Exception x)
     {
-      cerr << " Ooops .... got exception trying to compute FCA: " 
+      std::cerr << " Ooops .... got exception trying to compute FCA: " 
            << x.getEmsg()
-           << endl;
+           << std::endl;
     }
 
     DFLib::Proj::Point MLFix=LSFix;
@@ -159,24 +158,24 @@ int main(int argc, char **argv)
     }
     catch (DFLib::Util::Exception x)
     {
-      cerr << " Ooops .... got exception trying to compute ML Fix: " 
+      std::cerr << " Ooops .... got exception trying to compute ML Fix: " 
            << x.getEmsg()
-           << endl;
+           << std::endl;
     }
 
-    vector<double> LS_point=LSFix.getUserCoords();
-    printCoords(LS_point,string("Least Squares Fix"));
+    std::vector<double> LS_point=LSFix.getUserCoords();
+    printCoords(LS_point,std::string("Least Squares Fix"));
 
-    vector<double> FCA_point=FCA.getUserCoords();
-    printCoords(FCA_point,string("Fix Cut Average"));
-    cout << " Standard deviation of FCA is " << FCA_stddev[0] << " longitude"
-         << " and " << FCA_stddev[1] << " latitude." << endl;
-    vector<double> ML_point=MLFix.getUserCoords();
-    printCoords(ML_point,string("Maximum Likelihood Fix"));
+    std::vector<double> FCA_point=FCA.getUserCoords();
+    printCoords(FCA_point,std::string("Fix Cut Average"));
+    std::cout << " Standard deviation of FCA is " << FCA_stddev[0] << " longitude"
+         << " and " << FCA_stddev[1] << " latitude." << std::endl;
+    std::vector<double> ML_point=MLFix.getUserCoords();
+    printCoords(ML_point,std::string("Maximum Likelihood Fix"));
   }
 }
 
-void printCoords(const vector<double> &latlon,const string &text)
+void printCoords(const std::vector<double> &latlon,const std::string &text)
 {
   int latfac=1;  int lonfac=1;
   char EW,NS;
@@ -196,18 +195,18 @@ void printCoords(const vector<double> &latlon,const string &text)
     NS='S';
   }
 
-  cout << " Longitude of " << text << ": " 
+  std::cout << " Longitude of " << text << ": " 
        << static_cast<int>(latlon[0]*lonfac)
        << "d" 
        << (latlon[0]*lonfac-static_cast<int>(latlon[0]*lonfac))*60 
        << "'" << EW 
-       << endl;
+       << std::endl;
 
-  cout << " Latitude of " << text << ": " 
+  std::cout << " Latitude of " << text << ": " 
        << static_cast<int>(latlon[1]*latfac)
        << "d" 
        << (latlon[1]*latfac-static_cast<int>(latlon[1]*latfac))*60 
        << "'" << NS 
-       << endl;
+       << std::endl;
 
 }

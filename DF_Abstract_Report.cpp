@@ -46,11 +46,10 @@
 #include "DF_Abstract_Point.hpp"
 #include <cmath>
 
-using namespace std;
 
 namespace DFLib
 {
-  DFLib::Abstract::Report::Report(string n, bool v)
+  DFLib::Abstract::Report::Report(std::string n, bool v)
     : ReportName_(n),
       validReport_(v)
   { }
@@ -65,8 +64,8 @@ namespace DFLib
                                               double &cutAngle,
                                               FixStatus &fs)
   {
-    vector<double> p2,p2p;
-    vector<double> rp;
+    std::vector<double> p2,p2p;
+    std::vector<double> rp;
     double theta2;
     double thetaprime;
     double phi;
@@ -151,7 +150,7 @@ namespace DFLib
     returnPoint.setXY(rp);
   }
 
-  double DFLib::Abstract::Report::computeBearingToPoint(vector<double> &aPoint)
+  double DFLib::Abstract::Report::computeBearingToPoint(std::vector<double> &aPoint)
   {
     double dx=aPoint[0]-getReceiverLocation()[0];
     double dy=aPoint[1]-getReceiverLocation()[1];
@@ -163,7 +162,7 @@ namespace DFLib
     return (bearingToPoint);
   }
 
-  double DFLib::Abstract::Report::computeDistanceToPoint(vector<double> &aPoint)
+  double DFLib::Abstract::Report::computeDistanceToPoint(std::vector<double> &aPoint)
   {
     double dx=aPoint[0]-getReceiverLocation()[0];
     double dy=aPoint[1]-getReceiverLocation()[1];
