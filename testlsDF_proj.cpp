@@ -578,6 +578,40 @@ int main(int argc,char **argv)
     std::cout << " ML Fix is about " << haversin_d
          << " miles from a receiver." << std::endl;
     gnuplotFile << "replot " << NR_fix[0] << "," << NR_fix[1] << " with points title \"ML Fix\"" << std::endl;
+
+    double am2ML,bm2ML,phiML;
+    rColl.computeCramerRaoBounds(NRPoint,am2ML,bm2ML,phiML);
+    double a=sqrt(1/am2ML);
+    double b=sqrt(1/bm2ML);
+      std::cout << " ML ellipse: a="<<a << "  b=" << b << " phi=" << phiML
+           << " rotation in degrees="<<phiML*RAD_TO_DEG 
+           << std::endl;
+      
+      double rho=sqrt(-2*log(.5));   // 50% confidence interval
+      double cosphi=cos(phiML);
+      double sinphi=sin(phiML);
+      gnuplotFile << "replot " << NR_fix[0] << "+"<<a<<"*"<<rho<<"*"<<cosphi
+                  <<"*cos(360.0/40000.0*t)-"<<b<<"*"<<rho<<"*"<<sinphi
+                  <<"*sin(360.0/40000.0*t),"
+                  <<NR_fix[1] << "+"<<a<<"*"<<rho<<"*"<<sinphi
+                  <<"*cos(360.0/40000.0*t)+"<<b<<"*"<<rho<<"*"<<cosphi
+                  <<"*sin(360.0/40000.0*t) w l title \"50% ML confidence\"" << std::endl;
+      rho=sqrt(-2*log(.25));   // 75% confidence interval
+      gnuplotFile << "replot " << NR_fix[0] << "+"<<a<<"*"<<rho<<"*"<<cosphi
+                  <<"*cos(360.0/40000.0*t)-"<<b<<"*"<<rho<<"*"<<sinphi
+                  <<"*sin(360.0/40000.0*t),"
+                  <<NR_fix[1] << "+"<<a<<"*"<<rho<<"*"<<sinphi
+                  <<"*cos(360.0/40000.0*t)+"<<b<<"*"<<rho<<"*"<<cosphi
+                  <<"*sin(360.0/40000.0*t) w l title \"75% ML confidence\"" << std::endl;
+      
+      rho=sqrt(-2*log(.05));   // 95% confidence interval
+      gnuplotFile << "replot " << NR_fix[0] << "+"<<a<<"*"<<rho<<"*"<<cosphi
+                  <<"*cos(360.0/40000.0*t)-"<<b<<"*"<<rho<<"*"<<sinphi
+                  <<"*sin(360.0/40000.0*t),"
+                  <<NR_fix[1] << "+"<<a<<"*"<<rho<<"*"<<sinphi
+                  <<"*cos(360.0/40000.0*t)+"<<b<<"*"<<rho<<"*"<<cosphi
+                  <<"*sin(360.0/40000.0*t) w l title \"95% ML confidence\"" << std::endl;
+
     pointsFile << 102 << "|"<<NR_fix[0]<<"|"<<NR_fix[1]<<"|ML" <<std::endl;
     
     std::cout << " getting user coordinates " << std::endl;
