@@ -523,8 +523,8 @@ namespace DFLib
         std::cout << std::endl;
 #endif
           
-        rtol=2*abs(fVals[indexOfWorst]-fVals[indexOfBest])
-          /(abs(fVals[indexOfWorst])+abs(fVals[indexOfBest]));
+        rtol=2*fabs(fVals[indexOfWorst]-fVals[indexOfBest])
+          /(fabs(fVals[indexOfWorst])+fabs(fVals[indexOfBest]));
         if (rtol<ftol)
         {
           done=true;

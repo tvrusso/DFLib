@@ -340,7 +340,7 @@ namespace DFLib
       }
       
       ++numIters;
-    } while (abs(currentNorm-lastNorm)>tol && numIters<=100);
+    } while (fabs(currentNorm-lastNorm)>tol && numIters<=100);
 
     // we get here either because we failed to converge or because we did
     // converge.  Check.
