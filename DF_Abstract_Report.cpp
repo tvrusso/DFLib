@@ -108,7 +108,7 @@ namespace DFLib
 
     // Special cases.  We treat degenerate fixes as "no fix" for now.
 
-    if (p2[0] == 0 && p2[1] == 0    // he and I are in same spot!
+    if ((p2[0] == 0 && p2[1] == 0)    // he and I are in same spot!
         || p2[0] ==0             // he is on my beam or back beam (degenerate)
         || fabs(theta2) < 1e-6          // our beams are parallel, no fix
         || fabs(fabs(theta2)-M_PI)<1e-6) // parallel, opp direction

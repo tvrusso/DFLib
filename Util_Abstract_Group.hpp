@@ -53,6 +53,8 @@ namespace DFLib
     class CPL_DLL Group
     {
     public:
+      /// Provide a virtual destructor
+      virtual ~Group(){};
       /// Set the point at which to evaluate the function
       virtual  void setEvaluationPoint(std::vector<double> &ep) = 0;
       /// evaluate the function at the evaluation point

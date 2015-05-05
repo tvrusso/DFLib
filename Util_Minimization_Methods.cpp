@@ -278,7 +278,7 @@ namespace DFLib
         }
         else
         {
-          u=x+(d>0)?fabs(tol1):-fabs(tol1);
+          u=x+((d>0)?fabs(tol1):-fabs(tol1));
           fu=simpleFandDeriv(u,X0,dir,du);
           if (fu>fx) // if the minimum step in downhil direction takes us uphill,
             // we're done.
