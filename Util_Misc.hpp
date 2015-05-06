@@ -1,5 +1,5 @@
 //    DFLib: A library of Bearings Only Target Localization algorithms
-//    Copyright (C) 2009-2011  Thomas V. Russo
+//    Copyright (C) 2009-2015  Thomas V. Russo
 //
 //    This program is free software: you can redistribute it and/or modify
 //    it under the terms of the GNU General Public License as published by
