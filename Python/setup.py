@@ -10,8 +10,8 @@ DFLib_module = Extension('_DFLib',
 
 setup ( name='DFLib',
         version = '0.1',
-        author = 'Cuthbert Twillie',
-        description = """Toy swig module""",
+        author = 'Tom Russo',
+        description = 'DFLib python extension for bearings-only target localization problems',
         ext_modules = [DFLib_module],
-        py_modules = ["DFLib"],
+        py_modules = ['DFLib'],
         )

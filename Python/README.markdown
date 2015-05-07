@@ -23,9 +23,18 @@ where it's called "swig3.0") then include the last option and let
 setup know how to run swig.
 
 You are now able to import the DFLib python module in your own
-scripts, so long as they're in this directory.  I have not yet
-progressed to the stage where this process will actually install this
-module where it can be found centrally.
+scripts, so long as your current working directory is this directory.  
+
+If you want to install this centrally instead, do try:
+```
+  python setup.py build_ext [--swig <your swig path>]
+  sudo python setup.py install
+```
+
+This works on my system if I make sure the install got the access
+permissions right.  Executing "import DFLib" in python when you start
+it outside of this directory should give no error, and you should be able
+to run the test scripts.
 
 There are two test codes in this directory, "pyPointTest.py" and
 "pyProjPoint.py".  Both make use of the python module "pyproj" that
