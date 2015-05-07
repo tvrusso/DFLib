@@ -1,0 +1,9 @@
+<map id="DFLib::Util::Minimizer::lineSearch" name="DFLib::Util::Minimizer::lineSearch">
+<area shape="rect" id="node2" href="$classDFLib_1_1Util_1_1Minimizer.html#a5e4b72771d67e950842a6fa8cebe2583" title="bracket minimum of function " alt="" coords="208,39,363,80"/>
+<area shape="rect" id="node6" href="$classDFLib_1_1Util_1_1Minimizer.html#a974666891284930ce15f2f1b80ed45c6" title="minimize by Brent&#39;s method with derivatives given a,b,c scalars that bracket the minimum in given dir..." alt="" coords="208,104,363,145"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1Util_1_1Minimizer.html#ac1a357c746cdefe2f20d8784f1f00ab4" title="Evaluate &#160;where x0 and dir are vectors. " alt="" coords="411,39,565,80"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1Abstract_1_1Group.html#ad00c7b727dc9a41733a454dd69f1c0ea" title="Set the point at which to evaluate the function. " alt="" coords="639,71,806,112"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1Abstract_1_1Group.html#a56e8978276976b053afac5939c0fbafb" title="DFLib::Abstract::Group\l::getFunctionValue" alt="" coords="639,5,806,47"/>
+<area shape="rect" id="node7" href="$classDFLib_1_1Util_1_1Minimizer.html#af4cb8dd8cd1ee7c40a27e4ecbc219917" title="DFLib::Util::Minimizer\l::simpleFandDeriv" alt="" coords="411,104,565,145"/>
+<area shape="rect" id="node8" href="$classDFLib_1_1Abstract_1_1Group.html#a82c14ff935f1152550862ce916112483" title="DFLib::Abstract::Group\l::getFunctionValueAndGradient" alt="" coords="613,136,832,177"/>
+</map>

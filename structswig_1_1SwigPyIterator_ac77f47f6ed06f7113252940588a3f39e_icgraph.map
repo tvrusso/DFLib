@@ -1,0 +1,12 @@
+<map id="swig::SwigPyIterator::descriptor" name="swig::SwigPyIterator::descriptor">
+<area shape="rect" id="node2" href="$DFLib__wrap_8cpp.html#ac6438f1dbeaf3ff97d39f414da6757ac" title="_wrap_vectord_begin" alt="" coords="204,5,360,32"/>
+<area shape="rect" id="node3" href="$DFLib__wrap_8cpp.html#a201bbb4481fdadd6d5f1916b6d813357" title="_wrap_vectord_end" alt="" coords="209,56,355,83"/>
+<area shape="rect" id="node4" href="$DFLib__wrap_8cpp.html#ad2397eb5b7d3e6fee246018d97903f07" title="_wrap_vectord_rbegin" alt="" coords="201,107,363,133"/>
+<area shape="rect" id="node5" href="$DFLib__wrap_8cpp.html#a4664a8158bdc2f456a648c2a0c5bf3fd" title="_wrap_vectord_rend" alt="" coords="207,157,357,184"/>
+<area shape="rect" id="node6" href="$DFLib__wrap_8cpp.html#afd3fb0ff81c9c988e2e5e7ffe6a47cfd" title="_wrap_vectord_erase\l__SWIG_0" alt="" coords="203,209,361,250"/>
+<area shape="rect" id="node7" href="$DFLib__wrap_8cpp.html#a54e8331c8fdae3af73d4e53f748ad47c" title="_wrap_vectord_erase" alt="" coords="411,275,568,301"/>
+<area shape="rect" id="node8" href="$DFLib__wrap_8cpp.html#a9b1de890be4c6195c39a820be8ea8d1a" title="_wrap_vectord_erase\l__SWIG_1" alt="" coords="203,326,361,367"/>
+<area shape="rect" id="node9" href="$DFLib__wrap_8cpp.html#a8e2292323add4a8363b2e7ed75eb4a12" title="_wrap_vectord_insert\l__SWIG_0" alt="" coords="203,391,361,433"/>
+<area shape="rect" id="node10" href="$DFLib__wrap_8cpp.html#a7bb3b382adaaceb0f822013bac83c1a6" title="_wrap_vectord_insert" alt="" coords="411,457,568,484"/>
+<area shape="rect" id="node11" href="$DFLib__wrap_8cpp.html#a48b8da3512f2035d1c9e48793907b157" title="_wrap_vectord_insert\l__SWIG_1" alt="" coords="203,509,361,550"/>
+</map>

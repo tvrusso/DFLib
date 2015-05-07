@@ -1,0 +1,10 @@
+<map id="pyProjPoint.pyProjPoint.Clone" name="pyProjPoint.pyProjPoint.Clone">
+<area shape="rect" id="node2" href="$classDFLib_1_1Point.html#aca6c27cbd5da9f0c9500f50f7c4de27d" title="DFLib.Point.__disown__" alt="" coords="225,5,393,32"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1Abstract_1_1Point.html#aa7837d850b5ea3bcd35da21b0dbe9669" title="Get X&#45;Y coordinates of the point. " alt="" coords="230,57,389,98"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1LatLon_1_1Point.html#a7b20fb68764d7328a4ff3300e80ad21b" title="get mercator projection (XY) position " alt="" coords="235,122,383,163"/>
+<area shape="rect" id="node6" href="$classDFLib_1_1Proj_1_1Point.html#a624b4b542d3f68be5b99205ffdd621dc" title="get mercator projection (XY) position " alt="" coords="245,187,374,229"/>
+<area shape="rect" id="node8" href="$classDFLib_1_1XY_1_1Point.html#a8cc0551c1b78581a9ec7083b9a4a1990" title="Set X&#45;Y position. " alt="" coords="228,253,391,280"/>
+<area shape="rect" id="node9" href="$classDFLib_1_1Point.html#aacc17078f57a15af04f5e47a1d48c654" title="DFLib.Point.getXY" alt="" coords="243,304,376,331"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1LatLon_1_1Point.html#aff611575c4201216580c0324b76fd199" title="DFLib::LatLon::Point\l::llToMerc" alt="" coords="441,122,589,163"/>
+<area shape="rect" id="node7" href="$classDFLib_1_1Proj_1_1Point.html#a8a57c7fa0776c5e5cc077fcd87e3fd79" title="DFLib::Proj::Point\l::userToMerc" alt="" coords="451,187,580,229"/>
+</map>

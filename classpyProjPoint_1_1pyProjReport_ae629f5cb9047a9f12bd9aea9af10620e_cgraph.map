@@ -1,0 +1,7 @@
+<map id="pyProjPoint.pyProjReport.getBearing" name="pyProjPoint.pyProjReport.getBearing">
+<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Report.html#a68b62f719f4c09f8aff4d8890c6f0b3e" title="return reported bearing to target " alt="" coords="269,5,460,47"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1LatLon_1_1Report.html#a084a3d24419106be436c3c8f20893700" title="return reported bearing to target " alt="" coords="269,71,460,112"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1Proj_1_1Report.html#a8f2a64a72e33519b950c5bfa93ae5727" title="return reported bearing to target " alt="" coords="269,136,460,177"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1XY_1_1Report.html#a5f4c6d3e0fb79a9fa620c701bfae70a7" title="return reported bearing to target " alt="" coords="273,201,456,243"/>
+<area shape="rect" id="node6" href="$classDFLib_1_1Report.html#a0e02180388cd1e9ce42e73d9c06d6d7a" title="DFLib.Report.getReportBearing\lRadians" alt="" coords="256,267,473,308"/>
+</map>

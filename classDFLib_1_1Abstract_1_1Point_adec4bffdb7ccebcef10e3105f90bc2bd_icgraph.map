@@ -1,0 +1,18 @@
+<map id="DFLib::Abstract::Point::setXY" name="DFLib::Abstract::Point::setXY">
+<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Report.html#a983bcbd2bc6fa9bab2b1081d759ca2b2" title="compute point at which the line from this report intersects that from another " alt="" coords="227,5,395,47"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1ReportCollection.html#a1a6391703b54c14f3e0dd2f0194ef0fa" title="return the fix cut average of this collection&#39;s reports " alt="" coords="223,201,400,243"/>
+<area shape="rect" id="node6" href="$classDFLib_1_1ReportCollection.html#aa91199f4a9e034857a043bc5aee0d34a" title="more aggressive attempt to get at an ML fix " alt="" coords="215,71,407,112"/>
+<area shape="rect" id="node9" href="$classDFLib_1_1ReportCollection.html#adffd170257322f58734acb369bb720a4" title="Computes Maximum Likelihood solution of DF problem. " alt="" coords="227,332,395,373"/>
+<area shape="rect" id="node12" href="$classDFLib_1_1ReportCollection.html#a254385b14ca3a2708123f2fce980cc3a" title="Computes Stansfield estimate of Maximum Likelihood solution of DF problem. " alt="" coords="227,136,395,177"/>
+<area shape="rect" id="node14" href="$classDFLib_1_1ReportCollection.html#a4f37e88da4347af97dfdc2f7ac63f6f1" title="Computes least squares solution of DF problem. " alt="" coords="216,267,407,308"/>
+<area shape="rect" id="node16" href="$classpyPointTest_1_1pyPoint.html#adb2e5cc3530d3bfcbd7a6c744a3f0b0c" title="pyPointTest.pyPoint.setUser\lCoords" alt="" coords="212,397,411,439"/>
+<area shape="rect" id="node17" href="$classpyProjPoint_1_1pyProjPoint.html#a63330e51a3919be68cff2ed88093357f" title="pyProjPoint.pyProjPoint.set\lUserCoords" alt="" coords="215,463,407,504"/>
+<area shape="rect" id="node4" href="$nonoise_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="550,265,605,291"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1ReportCollection.html#a4395b7cdfbecf04647dd4a849c7c8e46" title="DFLib.ReportCollection.compute\lFixCutAverage" alt="" coords="465,199,690,240"/>
+<area shape="rect" id="node7" href="$classDFLib_1_1ReportCollection.html#a26fbfcd2754a1d10d0247ba08605107c" title="DFLib.ReportCollection.aggressive\lComputeMLFix" alt="" coords="459,16,696,57"/>
+<area shape="rect" id="node8" href="$testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="550,82,605,109"/>
+<area shape="rect" id="node10" href="$classDFLib_1_1ReportCollection.html#afdf9714357f8884360caaff355ab2799" title="DFLib.ReportCollection.compute\lMLFix" alt="" coords="465,433,690,475"/>
+<area shape="rect" id="node11" href="$SimpleDF_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="550,382,605,409"/>
+<area shape="rect" id="node13" href="$classDFLib_1_1ReportCollection.html#ad69d8cc7639434bb6cab2a39f1e5fd65" title="DFLib.ReportCollection.compute\lStansfieldFix" alt="" coords="465,133,690,175"/>
+<area shape="rect" id="node15" href="$classDFLib_1_1ReportCollection.html#ab9a392794a3e3274cf7c3d21020a18cb" title="DFLib.ReportCollection.compute\lLeastSquaresFix" alt="" coords="465,316,690,357"/>
+</map>

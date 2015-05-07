@@ -1,0 +1,9 @@
+<map id="_wrap_Report_getReportName" name="_wrap_Report_getReportName">
+<area shape="rect" id="node2" href="$classSwig_1_1Director.html#a3be0f6ca820c2022375d82f3c624ee4b" title="Swig::Director::swig\l_get_self" alt="" coords="279,5,425,47"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1Abstract_1_1Report.html#af30d76b92d8dc82393de693b664fb870" title="Return the name of this report. " alt="" coords="268,71,436,112"/>
+<area shape="rect" id="node4" href="$DFLib__wrap_8cpp.html#a751fc5e32f466f11fb39cb1162f191ad" title="SWIG_From_std_string" alt="" coords="270,137,434,163"/>
+<area shape="rect" id="node8" href="$classSwig_1_1Director.html#a2afeea9ed7dce7f96d43e2d057015611" title="Swig::Director::swig\l_release_ownership" alt="" coords="279,188,425,229"/>
+<area shape="rect" id="node5" href="$DFLib__wrap_8cpp.html#aab193d49d264f79c432d393916bf35bc" title="SWIG_FromCharPtrAndSize" alt="" coords="484,137,679,163"/>
+<area shape="rect" id="node6" href="$DFLib__wrap_8cpp.html#ae71b7c9eeb1f89aa554cb897ecef348f" title="SWIG_pchar_descriptor" alt="" coords="727,111,896,138"/>
+<area shape="rect" id="node7" href="$DFLib__wrap_8cpp.html#a695030dbc62bde212c7b7a9169c6eee9" title="SWIG_Py_Void" alt="" coords="756,162,867,189"/>
+</map>

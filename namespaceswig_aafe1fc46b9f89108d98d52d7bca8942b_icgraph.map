@@ -1,0 +1,19 @@
+<map id="swig::asptr" name="swig::asptr">
+<area shape="rect" id="node2" href="$structswig_1_1traits__check_3_01Type_00_01pointer__category_01_4.html#ae3cc14b7411d171e1cf97aabd9ff92c5" title="swig::traits_check\l\&lt; Type, pointer_category\l \&gt;::check" alt="" coords="153,5,335,61"/>
+<area shape="rect" id="node3" href="$classSwigDirector__Point.html#aaff78c8d5c6144db1a736f45696a37a1" title="Get X&#45;Y coordinates of the point. " alt="" coords="173,85,315,126"/>
+<area shape="rect" id="node4" href="$classSwigDirector__Point.html#a640148d2dc8bbe356d7d9547462d6ff6" title="Get coordinates in the user&#39;s coordinate system. " alt="" coords="173,150,315,191"/>
+<area shape="rect" id="node5" href="$classSwigDirector__Report.html#a4dbdec8f67f98b481a7961a15cc5fc4b" title="return receiver location in double vector of XY coords " alt="" coords="165,215,323,257"/>
+<area shape="rect" id="node6" href="$DFLib__wrap_8cpp.html#a8e396f23734e656bde0ee18505843d7f" title="_wrap_vectord___setslice\l____SWIG_0" alt="" coords="153,281,335,322"/>
+<area shape="rect" id="node7" href="$DFLib__wrap_8cpp.html#af26b91c35304798e9edc995f9b2d402e" title="_wrap_vectord___setslice__" alt="" coords="393,317,590,344"/>
+<area shape="rect" id="node8" href="$DFLib__wrap_8cpp.html#afe1d64477625d45069d3c667ddb26a17" title="_wrap_vectord___setitem\l____SWIG_0" alt="" coords="152,398,336,439"/>
+<area shape="rect" id="node9" href="$DFLib__wrap_8cpp.html#a731d86adccc928e967fd34ee463dc867" title="_wrap_vectord___setitem__" alt="" coords="392,435,591,461"/>
+<area shape="rect" id="node10" href="$DFLib__wrap_8cpp.html#a3803ec1ac9966802898a5d016222570b" title="_wrap_vectord___delitem__" alt="" coords="145,515,343,541"/>
+<area shape="rect" id="node11" href="$DFLib__wrap_8cpp.html#aa018c2d7642dee5465d3e892cde3e97a" title="_wrap_vectord___getitem__" alt="" coords="145,565,343,592"/>
+<area shape="rect" id="node12" href="$DFLib__wrap_8cpp.html#a2be81de1313f9f15da720ca59298c996" title="_wrap_new_vectord_\l_SWIG_1" alt="" coords="167,617,321,658"/>
+<area shape="rect" id="node13" href="$DFLib__wrap_8cpp.html#ae0162dc2dbb653fb430e7009bee96fc8" title="_wrap_new_vectord" alt="" coords="418,653,565,680"/>
+<area shape="rect" id="node14" href="$DFLib__wrap_8cpp.html#a54e8331c8fdae3af73d4e53f748ad47c" title="_wrap_vectord_erase" alt="" coords="165,733,323,760"/>
+<area shape="rect" id="node15" href="$DFLib__wrap_8cpp.html#a87409a3bbaa2da7d914ce9d343c6b111" title="_wrap_vectord_resize" alt="" coords="165,784,323,811"/>
+<area shape="rect" id="node16" href="$DFLib__wrap_8cpp.html#a7bb3b382adaaceb0f822013bac83c1a6" title="_wrap_vectord_insert" alt="" coords="165,835,323,861"/>
+<area shape="rect" id="node17" href="$DFLib__wrap_8cpp.html#aa584607f1ad89d95a16abfd44b0bc284" title="_wrap_Point_setXY" alt="" coords="174,885,314,912"/>
+<area shape="rect" id="node18" href="$DFLib__wrap_8cpp.html#a1952986cf6bcda9f6077ccf5877324b1" title="_wrap_Point_setUserCoords" alt="" coords="144,936,344,963"/>
+</map>

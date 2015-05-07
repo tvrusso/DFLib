@@ -1,0 +1,51 @@
+<map id="SWIG_AsVal_double" name="SWIG_AsVal_double">
+<area shape="rect" id="node2" href="$DFLib__wrap_8cpp.html#a41e8e3f07bd0f6952fa4aed604822081" title="SWIG_AsVal_unsigned\l_SS_long" alt="" coords="228,496,391,537"/>
+<area shape="rect" id="node9" href="$DFLib__wrap_8cpp.html#ae0162dc2dbb653fb430e7009bee96fc8" title="_wrap_new_vectord" alt="" coords="963,593,1110,619"/>
+<area shape="rect" id="node11" href="$DFLib__wrap_8cpp.html#a87409a3bbaa2da7d914ce9d343c6b111" title="_wrap_vectord_resize" alt="" coords="957,74,1116,101"/>
+<area shape="rect" id="node12" href="$DFLib__wrap_8cpp.html#a7801a0dd4faef2afb837241ddb610d41" title="_wrap_new_vectord_\l_SWIG_3" alt="" coords="713,617,867,659"/>
+<area shape="rect" id="node13" href="$DFLib__wrap_8cpp.html#a4013e16181abda37bda6f90526388b92" title="_wrap_vectord_assign" alt="" coords="709,734,871,761"/>
+<area shape="rect" id="node14" href="$DFLib__wrap_8cpp.html#aab44712aee65cd1e3ad67c617296a9d6" title="_wrap_vectord_resize\l__SWIG_1" alt="" coords="711,33,869,75"/>
+<area shape="rect" id="node15" href="$DFLib__wrap_8cpp.html#a48b8da3512f2035d1c9e48793907b157" title="_wrap_vectord_insert\l__SWIG_1" alt="" coords="711,836,869,877"/>
+<area shape="rect" id="node16" href="$DFLib__wrap_8cpp.html#a7bb3b382adaaceb0f822013bac83c1a6" title="_wrap_vectord_insert" alt="" coords="958,873,1115,899"/>
+<area shape="rect" id="node18" href="$DFLib__wrap_8cpp.html#aca3c78b106b24b292a156d1f2e9d6bf7" title="SWIG_AsVal_long" alt="" coords="244,1053,375,1079"/>
+<area shape="rect" id="node34" href="$DFLib__wrap_8cpp.html#ada4951a823c71885f9e78d87c490dfc3" title="_wrap_vectord___setitem\l____SWIG_2" alt="" coords="698,1900,882,1941"/>
+<area shape="rect" id="node35" href="$DFLib__wrap_8cpp.html#a731d86adccc928e967fd34ee463dc867" title="_wrap_vectord___setitem__" alt="" coords="937,1907,1136,1934"/>
+<area shape="rect" id="node37" href="$structswig_1_1traits__asval_3_01double_01_4.html#aa2b3a8491625ce70a1bb03c1cc851d9a" title="swig::traits_asval\l\&lt; double \&gt;::asval" alt="" coords="241,1155,377,1196"/>
+<area shape="rect" id="node38" href="$classSwigDirector__Report.html#a570330880eb46a2c290ad3a93167752e" title="return reported bearing to target " alt="" coords="214,1220,405,1261"/>
+<area shape="rect" id="node39" href="$classSwigDirector__Report.html#aed9dfd8d102f81b5aefd2538227644b1" title="SwigDirector_Report\l::getBearingStandardDeviation\lRadians" alt="" coords="200,1285,419,1341"/>
+<area shape="rect" id="node40" href="$classSwigDirector__Group.html#a08ea5d2fe51d97ab4902dcba261ae265" title="SwigDirector_Group\l::getFunctionValue" alt="" coords="235,1364,383,1405"/>
+<area shape="rect" id="node41" href="$classSwigDirector__Group.html#a3df8fac6f4cebab4ba968b53c30dd4ec" title="SwigDirector_Group\l::getFunctionValueAndGradient" alt="" coords="200,1429,419,1471"/>
+<area shape="rect" id="node42" href="$classSwigDirector__Group.html#ad82af24b774708a18e166e293430e108" title="SwigDirector_Group\l::getFunctionValueAndHessian" alt="" coords="202,1495,417,1536"/>
+<area shape="rect" id="node43" href="$classSwigDirector__ReportCollection.html#a2ba1fed2911e93563f8f60f01fc27580" title="SwigDirector_ReportCollection\l::getFunctionValue" alt="" coords="203,1560,415,1601"/>
+<area shape="rect" id="node44" href="$classSwigDirector__ReportCollection.html#a164ba77775e1f7bdd210f036b9e658b3" title="SwigDirector_ReportCollection\l::getFunctionValueAndGradient" alt="" coords="200,1625,419,1667"/>
+<area shape="rect" id="node45" href="$classSwigDirector__ReportCollection.html#aac29f001404704e3cd1b5dbd0474b3aa" title="SwigDirector_ReportCollection\l::getFunctionValueAndHessian" alt="" coords="202,1691,417,1732"/>
+<area shape="rect" id="node46" href="$DFLib__wrap_8cpp.html#a9c1c05b467ed954ee574ac34ebb2cddf" title="_wrap_vectord_append" alt="" coords="225,1757,394,1783"/>
+<area shape="rect" id="node47" href="$DFLib__wrap_8cpp.html#ac164dfe101657480171263e8fadeadd2" title="_wrap_vectord_push_back" alt="" coords="215,1807,404,1834"/>
+<area shape="rect" id="node48" href="$DFLib__wrap_8cpp.html#a8e2292323add4a8363b2e7ed75eb4a12" title="_wrap_vectord_insert\l__SWIG_0" alt="" coords="476,988,633,1029"/>
+<area shape="rect" id="node49" href="$DFLib__wrap_8cpp.html#a422b703bc636f2d20a4d7a9a4f6124ef" title="_wrap_ReportCollection\l_computeFixCutAverage\l__SWIG_0" alt="" coords="221,2067,397,2123"/>
+<area shape="rect" id="node50" href="$DFLib__wrap_8cpp.html#af9b783b673558d3c0f5ffb66c3bab503" title="_wrap_ReportCollection\l_computeFixCutAverage" alt="" coords="467,2047,643,2088"/>
+<area shape="rect" id="node3" href="$DFLib__wrap_8cpp.html#a6f5d947844c7cd735027e0bbe1f62683" title="SWIG_AsVal_size_t" alt="" coords="484,442,625,469"/>
+<area shape="rect" id="node4" href="$DFLib__wrap_8cpp.html#afaa4bb45d9448ff69cd8b6b3b2ff86e9" title="_wrap_SwigPyIterator\l_incr__SWIG_0" alt="" coords="711,317,869,359"/>
+<area shape="rect" id="node5" href="$DFLib__wrap_8cpp.html#a353c72b676f4c268ef74848026899bd0" title="_wrap_SwigPyIterator_incr" alt="" coords="943,270,1130,297"/>
+<area shape="rect" id="node6" href="$DFLib__wrap_8cpp.html#ab22e5de84325d0531d9a31afb542c8db" title="_wrap_SwigPyIterator\l_decr__SWIG_0" alt="" coords="711,435,869,476"/>
+<area shape="rect" id="node7" href="$DFLib__wrap_8cpp.html#a915d24981eb71d52edcf53818bc4f3ba" title="_wrap_SwigPyIterator_decr" alt="" coords="941,413,1133,439"/>
+<area shape="rect" id="node8" href="$DFLib__wrap_8cpp.html#ada1a615c03adaee4a6a83a8c521f8c90" title="_wrap_new_vectord_\l_SWIG_2" alt="" coords="713,552,867,593"/>
+<area shape="rect" id="node10" href="$DFLib__wrap_8cpp.html#ad57f6c6ccd73079f4da75123dc6e78db" title="_wrap_vectord_resize\l__SWIG_0" alt="" coords="711,99,869,140"/>
+<area shape="rect" id="node17" href="$DFLib__wrap_8cpp.html#a80b0a44c656dca2dee27b2b2ce91a71c" title="_wrap_vectord_reserve" alt="" coords="705,266,875,293"/>
+<area shape="rect" id="node19" href="$DFLib__wrap_8cpp.html#a948f15c8f6c5529e88264cd36b626407" title="SWIG_AsVal_ptrdiff_t" alt="" coords="478,1343,631,1370"/>
+<area shape="rect" id="node36" href="$DFLib__wrap_8cpp.html#ac5d34218467df201deab1b9f5cad6691" title="SWIG_AsVal_int" alt="" coords="495,1054,615,1081"/>
+<area shape="rect" id="node20" href="$DFLib__wrap_8cpp.html#afe407e84a961efb5262f238036b739a9" title="_wrap_SwigPyIterator\l_advance" alt="" coords="711,1237,869,1279"/>
+<area shape="rect" id="node21" href="$DFLib__wrap_8cpp.html#a683dbf4a4255a16998788d3c3e1410dd" title="_wrap_SwigPyIterator\l___iadd__" alt="" coords="711,1303,869,1344"/>
+<area shape="rect" id="node22" href="$DFLib__wrap_8cpp.html#a7f2d00d120850eadcff1c5d68e5efdd2" title="_wrap_SwigPyIterator\l___isub__" alt="" coords="711,1368,869,1409"/>
+<area shape="rect" id="node23" href="$DFLib__wrap_8cpp.html#a8aabb414b49275b5f9e2376b9354f755" title="_wrap_SwigPyIterator\l___add__" alt="" coords="711,1433,869,1475"/>
+<area shape="rect" id="node24" href="$DFLib__wrap_8cpp.html#aa9d42377326e6c30f1e1a67021ac4ae5" title="_wrap_SwigPyIterator\l___sub____SWIG_0" alt="" coords="711,1499,869,1540"/>
+<area shape="rect" id="node25" href="$DFLib__wrap_8cpp.html#a9a6706c66497a00c02b2d32b8164f7ba" title="_wrap_SwigPyIterator\l___sub__" alt="" coords="958,1528,1115,1569"/>
+<area shape="rect" id="node26" href="$DFLib__wrap_8cpp.html#a689dd2a95c926c61b7dea514cd9b4dd5" title="_wrap_vectord___getslice__" alt="" coords="691,1615,889,1642"/>
+<area shape="rect" id="node27" href="$DFLib__wrap_8cpp.html#a8e396f23734e656bde0ee18505843d7f" title="_wrap_vectord___setslice\l____SWIG_0" alt="" coords="699,1732,881,1773"/>
+<area shape="rect" id="node28" href="$DFLib__wrap_8cpp.html#af26b91c35304798e9edc995f9b2d402e" title="_wrap_vectord___setslice__" alt="" coords="938,1739,1135,1766"/>
+<area shape="rect" id="node29" href="$DFLib__wrap_8cpp.html#ae324869f3755a10dd468d0af7b282fe1" title="_wrap_vectord___setslice\l____SWIG_1" alt="" coords="699,1667,881,1708"/>
+<area shape="rect" id="node30" href="$DFLib__wrap_8cpp.html#abf35a9c228edb4925cf5dd184a9248d3" title="_wrap_vectord___delslice__" alt="" coords="692,1003,888,1030"/>
+<area shape="rect" id="node31" href="$DFLib__wrap_8cpp.html#ac3262bcf6433c72457f88c8114f67b44" title="_wrap_vectord___delitem\l____SWIG_0" alt="" coords="699,1055,881,1096"/>
+<area shape="rect" id="node32" href="$DFLib__wrap_8cpp.html#a3803ec1ac9966802898a5d016222570b" title="_wrap_vectord___delitem__" alt="" coords="938,1125,1135,1151"/>
+<area shape="rect" id="node33" href="$DFLib__wrap_8cpp.html#a45c2417f4aa7a80014fc0e336a4c1bcc" title="_wrap_vectord___getitem\l____SWIG_1" alt="" coords="697,1120,883,1161"/>
+</map>

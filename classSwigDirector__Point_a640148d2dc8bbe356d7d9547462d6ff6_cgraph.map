@@ -1,0 +1,11 @@
+<map id="SwigDirector_Point::getUserCoords" name="SwigDirector_Point::getUserCoords">
+<area shape="rect" id="node2" href="$classSwig_1_1Director.html#a3be0f6ca820c2022375d82f3c624ee4b" title="Swig::Director::swig\l_get_self" alt="" coords="222,5,367,47"/>
+<area shape="rect" id="node3" href="$classSwig_1_1DirectorException.html#ac611787f45da3da04b1a4a13ac2a3790" title="Swig::DirectorException\l::raise" alt="" coords="209,71,381,112"/>
+<area shape="rect" id="node6" href="$namespaceswig.html#aafe1fc46b9f89108d98d52d7bca8942b" title="swig::asptr" alt="" coords="249,137,340,163"/>
+<area shape="rect" id="node8" href="$classSwig_1_1DirectorTypeMismatchException.html#a2304d4f86f65ca73c21785a20de35528" title="Swig::DirectorTypeMismatch\lException::raise" alt="" coords="195,188,395,229"/>
+<area shape="rect" id="node10" href="$classSwig_1_1Director.html#aa6cad9982ac36d55c7ffa5eae47d4da4" title="Swig::Director::swig\l_acquire_ownership" alt="" coords="221,253,368,295"/>
+<area shape="rect" id="node4" href="$classSwig_1_1DirectorException.html#a8c8b029182ef5c96c88830f5db9e9734" title="Swig::DirectorException\l::DirectorException" alt="" coords="473,64,645,105"/>
+<area shape="rect" id="node5" href="$classSwig_1_1DirectorException.html#aa43637932bf0b895ecdadf1c8c2c3cf8" title="Swig::DirectorException\l::what" alt="" coords="724,64,896,105"/>
+<area shape="rect" id="node7" href="$structswig_1_1traits__asptr.html#aa24007f1d4126e9a4162bce7bf231931" title="swig::traits_asptr\l::asptr" alt="" coords="494,129,625,171"/>
+<area shape="rect" id="node9" href="$classSwig_1_1DirectorTypeMismatchException.html#a8e149796c051d0c425a4dd54370e74fe" title="Swig::DirectorTypeMismatch\lException::DirectorTypeMismatch\lException" alt="" coords="443,194,676,250"/>
+</map>

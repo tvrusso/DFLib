@@ -1,0 +1,15 @@
+<map id="swig::SwigPyIterator::incr" name="swig::SwigPyIterator::incr">
+<area shape="rect" id="node2" href="$structswig_1_1SwigPyIterator.html#aafe564ca6084dccf9e98425363c8f9fc" title="swig::SwigPyIterator\l::next" alt="" coords="206,64,354,105"/>
+<area shape="rect" id="node6" href="$structswig_1_1SwigPyIterator.html#ac14880767f73c71e8adb59cac6bed3ef" title="swig::SwigPyIterator\l::advance" alt="" coords="206,283,354,324"/>
+<area shape="rect" id="node12" href="$DFLib__wrap_8cpp.html#afaa4bb45d9448ff69cd8b6b3b2ff86e9" title="_wrap_SwigPyIterator\l_incr__SWIG_0" alt="" coords="201,355,359,396"/>
+<area shape="rect" id="node14" href="$DFLib__wrap_8cpp.html#ac4941fb0fd3fdd645c8d44474d561650" title="_wrap_SwigPyIterator\l_incr__SWIG_1" alt="" coords="201,435,359,476"/>
+<area shape="rect" id="node3" href="$structswig_1_1SwigPyIterator.html#a441c6d2f704560c0552a70077b92f749" title="swig::SwigPyIterator\l::__next__" alt="" coords="429,5,577,47"/>
+<area shape="rect" id="node5" href="$DFLib__wrap_8cpp.html#ab3e484bc95f2bef42e20cca227fb87d6" title="_wrap_SwigPyIterator_next" alt="" coords="407,71,599,98"/>
+<area shape="rect" id="node4" href="$DFLib__wrap_8cpp.html#ac812eb4f8f21a6fe784105793805ff96" title="_wrap_SwigPyIterator\l___next__" alt="" coords="647,5,804,47"/>
+<area shape="rect" id="node7" href="$structswig_1_1SwigPyIterator.html#a81afed8a7dfb6c44a8d31069e44aabc2" title="swig::SwigPyIterator\l::operator+=" alt="" coords="429,123,577,164"/>
+<area shape="rect" id="node8" href="$structswig_1_1SwigPyIterator.html#a1de70234523e1e2512586c06ad697f21" title="swig::SwigPyIterator\l::operator&#45;=" alt="" coords="429,188,577,229"/>
+<area shape="rect" id="node9" href="$structswig_1_1SwigPyIterator.html#afb94d5e5c795d63fc54a3831789e2997" title="swig::SwigPyIterator\l::operator+" alt="" coords="429,253,577,295"/>
+<area shape="rect" id="node10" href="$structswig_1_1SwigPyIterator.html#af83adc5dcc576f1224a03202443aa3f7" title="swig::SwigPyIterator\l::operator&#45;" alt="" coords="429,319,577,360"/>
+<area shape="rect" id="node11" href="$DFLib__wrap_8cpp.html#afe407e84a961efb5262f238036b739a9" title="_wrap_SwigPyIterator\l_advance" alt="" coords="424,384,581,425"/>
+<area shape="rect" id="node13" href="$DFLib__wrap_8cpp.html#a353c72b676f4c268ef74848026899bd0" title="_wrap_SwigPyIterator_incr" alt="" coords="409,450,596,477"/>
+</map>

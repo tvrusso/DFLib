@@ -1,0 +1,9 @@
+<map id="swig::from" name="swig::from">
+<area shape="rect" id="node2" href="$structswig_1_1from__oper.html#a5326a4471e2a7e374b63b06d3c0a44ce" title="swig::from_oper::operator()" alt="" coords="143,5,339,32"/>
+<area shape="rect" id="node3" href="$classSwigDirector__Point.html#a768248bbd866bc66a627e4d8c7b5cb67" title="SwigDirector_Point\l::setXY" alt="" coords="170,57,311,98"/>
+<area shape="rect" id="node4" href="$classSwigDirector__Point.html#a74d76ea32a637487eed9453d693a5f1b" title="SwigDirector_Point\l::setUserCoords" alt="" coords="170,122,311,163"/>
+<area shape="rect" id="node5" href="$DFLib__wrap_8cpp.html#a31dcf544bda728af39ad631c601cb182" title="_wrap_Point_getXY" alt="" coords="170,188,311,215"/>
+<area shape="rect" id="node6" href="$DFLib__wrap_8cpp.html#a5a775eb338cc6100dbc7a3b7725469ab" title="_wrap_Point_getUserCoords" alt="" coords="140,239,341,265"/>
+<area shape="rect" id="node7" href="$DFLib__wrap_8cpp.html#a4f4a3596b1b24ad7d95fa72893306fef" title="_wrap_Report_getReceiver\lLocation" alt="" coords="147,290,335,331"/>
+<area shape="rect" id="node8" href="$DFLib__wrap_8cpp.html#acb0b06122389ba0fa5f884eb708d6544" title="_wrap_ReportCollection\l_getReceiverLocationXY" alt="" coords="155,355,327,397"/>
+</map>

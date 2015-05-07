@@ -1,0 +1,5 @@
+<map id="DFLib::Util::Minimizer::brentMinimize" name="DFLib::Util::Minimizer::brentMinimize">
+<area shape="rect" id="node2" href="$classDFLib_1_1Util_1_1Minimizer.html#af4cb8dd8cd1ee7c40a27e4ecbc219917" title="DFLib::Util::Minimizer\l::simpleFandDeriv" alt="" coords="208,39,363,80"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1Abstract_1_1Group.html#ad00c7b727dc9a41733a454dd69f1c0ea" title="Set the point at which to evaluate the function. " alt="" coords="437,5,603,47"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1Abstract_1_1Group.html#a82c14ff935f1152550862ce916112483" title="DFLib::Abstract::Group\l::getFunctionValueAndGradient" alt="" coords="411,71,629,112"/>
+</map>

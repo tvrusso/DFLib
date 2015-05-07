@@ -1,0 +1,12 @@
+<map id="SwigDirector_ReportCollection::addReport" name="SwigDirector_ReportCollection::addReport">
+<area shape="rect" id="node2" href="$classSwig_1_1Director.html#a3be0f6ca820c2022375d82f3c624ee4b" title="Swig::Director::swig\l_get_self" alt="" coords="293,5,438,47"/>
+<area shape="rect" id="node3" href="$classSwig_1_1DirectorException.html#ac611787f45da3da04b1a4a13ac2a3790" title="Swig::DirectorException\l::raise" alt="" coords="279,71,451,112"/>
+<area shape="rect" id="node6" href="$DFLib__wrap_8cpp.html#ac5d34218467df201deab1b9f5cad6691" title="SWIG_AsVal_int" alt="" coords="305,137,425,163"/>
+<area shape="rect" id="node10" href="$classSwig_1_1DirectorTypeMismatchException.html#a2304d4f86f65ca73c21785a20de35528" title="Swig::DirectorTypeMismatch\lException::raise" alt="" coords="265,191,465,232"/>
+<area shape="rect" id="node4" href="$classSwig_1_1DirectorException.html#a8c8b029182ef5c96c88830f5db9e9734" title="Swig::DirectorException\l::DirectorException" alt="" coords="544,71,716,112"/>
+<area shape="rect" id="node5" href="$classSwig_1_1DirectorException.html#aa43637932bf0b895ecdadf1c8c2c3cf8" title="Swig::DirectorException\l::what" alt="" coords="797,71,969,112"/>
+<area shape="rect" id="node7" href="$DFLib__wrap_8cpp.html#aca3c78b106b24b292a156d1f2e9d6bf7" title="SWIG_AsVal_long" alt="" coords="565,137,695,163"/>
+<area shape="rect" id="node8" href="$DFLib__wrap_8cpp.html#a14604bc0932d6a4a99475970ac783697" title="SWIG_AsVal_double" alt="" coords="810,137,957,163"/>
+<area shape="rect" id="node9" href="$DFLib__wrap_8cpp.html#a4101ce628ad9db6a901cca96a6d36ae6" title="SWIG_CanCastAsInteger" alt="" coords="795,187,972,214"/>
+<area shape="rect" id="node11" href="$classSwig_1_1DirectorTypeMismatchException.html#a8e149796c051d0c425a4dd54370e74fe" title="Swig::DirectorTypeMismatch\lException::DirectorTypeMismatch\lException" alt="" coords="513,187,747,243"/>
+</map>

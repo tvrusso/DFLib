@@ -1,0 +1,31 @@
+<map id="Swig::DirectorException::what" name="Swig::DirectorException::what">
+<area shape="rect" id="node2" href="$classSwig_1_1DirectorException.html#a8c8b029182ef5c96c88830f5db9e9734" title="Swig::DirectorException\l::DirectorException" alt="" coords="254,803,426,844"/>
+<area shape="rect" id="node29" href="$classSwig_1_1DirectorException.html#ab28d5a5764492b6643ab816c4251a3ac" title="Swig::DirectorException\l::getMessage" alt="" coords="254,868,426,909"/>
+<area shape="rect" id="node30" href="$classSwig_1_1UnknownExceptionHandler.html#a6115bb6cb9f32d01618a334961138dbf" title="Swig::UnknownExceptionHandler\l::handler" alt="" coords="225,933,455,975"/>
+<area shape="rect" id="node3" href="$classSwig_1_1DirectorException.html#ac611787f45da3da04b1a4a13ac2a3790" title="Swig::DirectorException\l::raise" alt="" coords="503,803,675,844"/>
+<area shape="rect" id="node4" href="$classSwigDirector__Point.html#a768248bbd866bc66a627e4d8c7b5cb67" title="SwigDirector_Point\l::setXY" alt="" coords="761,5,903,47"/>
+<area shape="rect" id="node5" href="$classSwigDirector__Point.html#aaff78c8d5c6144db1a736f45696a37a1" title="Get X&#45;Y coordinates of the point. " alt="" coords="761,71,903,112"/>
+<area shape="rect" id="node6" href="$classSwigDirector__Point.html#a640148d2dc8bbe356d7d9547462d6ff6" title="Get coordinates in the user&#39;s coordinate system. " alt="" coords="761,136,903,177"/>
+<area shape="rect" id="node7" href="$classSwigDirector__Point.html#a74d76ea32a637487eed9453d693a5f1b" title="SwigDirector_Point\l::setUserCoords" alt="" coords="761,201,903,243"/>
+<area shape="rect" id="node8" href="$classSwigDirector__Point.html#a7b0588d0346c495ac42fef7f9cee11a5" title="Clone Self. " alt="" coords="761,267,903,308"/>
+<area shape="rect" id="node9" href="$classSwigDirector__Report.html#a4dbdec8f67f98b481a7961a15cc5fc4b" title="return receiver location in double vector of XY coords " alt="" coords="753,332,911,373"/>
+<area shape="rect" id="node10" href="$classSwigDirector__Report.html#a570330880eb46a2c290ad3a93167752e" title="return reported bearing to target " alt="" coords="737,397,927,439"/>
+<area shape="rect" id="node11" href="$classSwigDirector__Report.html#aed9dfd8d102f81b5aefd2538227644b1" title="SwigDirector_Report\l::getBearingStandardDeviation\lRadians" alt="" coords="723,462,941,518"/>
+<area shape="rect" id="node12" href="$classSwigDirector__Report.html#a678fd8218e9b67e4c562d07d9b8b5b50" title="Return the name of this report. " alt="" coords="757,541,907,583"/>
+<area shape="rect" id="node13" href="$classSwigDirector__Report.html#ab7bbc4b1e21e01f6428e71db82ba29fe" title="set the name of this report " alt="" coords="757,607,907,648"/>
+<area shape="rect" id="node14" href="$classSwigDirector__Report.html#a9ac7c8f15a1832be80947b83b84ebdea" title="Set this report as valid. " alt="" coords="757,672,907,713"/>
+<area shape="rect" id="node15" href="$classSwigDirector__Report.html#a47ff40b3217707f3281a079cc4b2c5fb" title="Set this report as invalid. " alt="" coords="757,737,907,779"/>
+<area shape="rect" id="node16" href="$classSwigDirector__Report.html#aefa280058e437d554c2241889cd0e5b8" title="SwigDirector_Report\l::toggleValidity" alt="" coords="757,803,907,844"/>
+<area shape="rect" id="node17" href="$classSwigDirector__Report.html#a9f1ba1f6bce0d11a4d0515f2e7ab4edd" title="check this report&#39;s validity " alt="" coords="757,868,907,909"/>
+<area shape="rect" id="node18" href="$classSwigDirector__Group.html#a25af34a84bd70421c0dd3cb38dc4f918" title="SwigDirector_Group\l::setEvaluationPoint" alt="" coords="758,933,906,975"/>
+<area shape="rect" id="node19" href="$classSwigDirector__Group.html#a08ea5d2fe51d97ab4902dcba261ae265" title="SwigDirector_Group\l::getFunctionValue" alt="" coords="758,999,906,1040"/>
+<area shape="rect" id="node20" href="$classSwigDirector__Group.html#a3df8fac6f4cebab4ba968b53c30dd4ec" title="SwigDirector_Group\l::getFunctionValueAndGradient" alt="" coords="723,1064,941,1105"/>
+<area shape="rect" id="node21" href="$classSwigDirector__Group.html#ad82af24b774708a18e166e293430e108" title="SwigDirector_Group\l::getFunctionValueAndHessian" alt="" coords="725,1129,939,1171"/>
+<area shape="rect" id="node22" href="$classSwigDirector__ReportCollection.html#a5f030734bd65f01883562b72736da63f" title="SwigDirector_ReportCollection\l::setEvaluationPoint" alt="" coords="726,1195,938,1236"/>
+<area shape="rect" id="node23" href="$classSwigDirector__ReportCollection.html#a2ba1fed2911e93563f8f60f01fc27580" title="SwigDirector_ReportCollection\l::getFunctionValue" alt="" coords="726,1260,938,1301"/>
+<area shape="rect" id="node24" href="$classSwigDirector__ReportCollection.html#a164ba77775e1f7bdd210f036b9e658b3" title="SwigDirector_ReportCollection\l::getFunctionValueAndGradient" alt="" coords="723,1325,941,1367"/>
+<area shape="rect" id="node25" href="$classSwigDirector__ReportCollection.html#aac29f001404704e3cd1b5dbd0474b3aa" title="SwigDirector_ReportCollection\l::getFunctionValueAndHessian" alt="" coords="725,1391,939,1432"/>
+<area shape="rect" id="node26" href="$classSwigDirector__ReportCollection.html#a1a88a35cfbbd92f71df7656d4c524b4a" title="destroy all reports stored in collection " alt="" coords="726,1456,938,1497"/>
+<area shape="rect" id="node27" href="$classSwigDirector__ReportCollection.html#a71188a8172fdf3252005571786b981a1" title="Add a DF report to the collection. " alt="" coords="726,1521,938,1563"/>
+<area shape="rect" id="node28" href="$classSwigDirector__ReportCollection.html#a17c5e4fc38407de5e5906a948ab421b0" title="SwigDirector_ReportCollection\l::toggleValidity" alt="" coords="726,1587,938,1628"/>
+</map>

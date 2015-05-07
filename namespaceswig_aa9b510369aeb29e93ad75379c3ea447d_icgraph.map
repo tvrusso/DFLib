@@ -1,0 +1,24 @@
+<map id="swig::slice_adjust" name="swig::slice_adjust">
+<area shape="rect" id="node2" href="$namespaceswig.html#a45270051abad591470793777e97cc8ee" title="swig::getslice" alt="" coords="184,78,291,105"/>
+<area shape="rect" id="node8" href="$namespaceswig.html#a697380d209f2d60ec96b1b461779d181" title="swig::setslice" alt="" coords="185,229,290,255"/>
+<area shape="rect" id="node16" href="$namespaceswig.html#a9d3d629d8459e58b1e78a5a1ff378bf0" title="swig::delslice" alt="" coords="185,358,289,385"/>
+<area shape="rect" id="node3" href="$DFLib__wrap_8cpp.html#aaa384fcc8bc66c064619912266015d68" title="std_vector_Sl_double\l_Sg____getslice__" alt="" coords="359,5,518,47"/>
+<area shape="rect" id="node5" href="$DFLib__wrap_8cpp.html#a30e0a16d696fce29145d79bcacafc79f" title="std_vector_Sl_double\l_Sg____getitem____SWIG_0" alt="" coords="339,71,539,112"/>
+<area shape="rect" id="node4" href="$DFLib__wrap_8cpp.html#a689dd2a95c926c61b7dea514cd9b4dd5" title="_wrap_vectord___getslice__" alt="" coords="587,13,785,39"/>
+<area shape="rect" id="node6" href="$DFLib__wrap_8cpp.html#a796703808ee9a198767e949cc19e0bf1" title="_wrap_vectord___getitem\l____SWIG_0" alt="" coords="593,67,779,108"/>
+<area shape="rect" id="node7" href="$DFLib__wrap_8cpp.html#aa018c2d7642dee5465d3e892cde3e97a" title="_wrap_vectord___getitem__" alt="" coords="833,74,1032,101"/>
+<area shape="rect" id="node9" href="$DFLib__wrap_8cpp.html#af2578c4212ba82202f7cdf76a23d4e8f" title="std_vector_Sl_double\l_Sg____setslice____SWIG_0" alt="" coords="339,188,538,229"/>
+<area shape="rect" id="node13" href="$DFLib__wrap_8cpp.html#a7852e7931b754232ed677133b1435094" title="std_vector_Sl_double\l_Sg____setitem____SWIG_0" alt="" coords="339,253,538,295"/>
+<area shape="rect" id="node10" href="$DFLib__wrap_8cpp.html#a8e396f23734e656bde0ee18505843d7f" title="_wrap_vectord___setslice\l____SWIG_0" alt="" coords="595,132,777,173"/>
+<area shape="rect" id="node12" href="$DFLib__wrap_8cpp.html#ae324869f3755a10dd468d0af7b282fe1" title="_wrap_vectord___setslice\l____SWIG_1" alt="" coords="595,197,777,239"/>
+<area shape="rect" id="node11" href="$DFLib__wrap_8cpp.html#af26b91c35304798e9edc995f9b2d402e" title="_wrap_vectord___setslice__" alt="" coords="834,173,1031,199"/>
+<area shape="rect" id="node14" href="$DFLib__wrap_8cpp.html#afe1d64477625d45069d3c667ddb26a17" title="_wrap_vectord___setitem\l____SWIG_0" alt="" coords="594,263,778,304"/>
+<area shape="rect" id="node15" href="$DFLib__wrap_8cpp.html#a731d86adccc928e967fd34ee463dc867" title="_wrap_vectord___setitem__" alt="" coords="833,330,1032,357"/>
+<area shape="rect" id="node17" href="$DFLib__wrap_8cpp.html#afc521b993758f15b1d38a467ee5f07e3" title="std_vector_Sl_double\l_Sg____delslice__" alt="" coords="359,319,518,360"/>
+<area shape="rect" id="node19" href="$DFLib__wrap_8cpp.html#a07196a416a0d051a3e3305c86a2dad32" title="std_vector_Sl_double\l_Sg____setitem____SWIG_1" alt="" coords="339,384,538,425"/>
+<area shape="rect" id="node21" href="$DFLib__wrap_8cpp.html#a4fbfe85f87083d26ce0d0f8a9f1180b0" title="std_vector_Sl_double\l_Sg____delitem____SWIG_1" alt="" coords="339,449,538,491"/>
+<area shape="rect" id="node18" href="$DFLib__wrap_8cpp.html#abf35a9c228edb4925cf5dd184a9248d3" title="_wrap_vectord___delslice__" alt="" coords="588,329,784,355"/>
+<area shape="rect" id="node20" href="$DFLib__wrap_8cpp.html#af7230a697e6a933f9a77f4c5394a66e3" title="_wrap_vectord___setitem\l____SWIG_1" alt="" coords="594,383,778,424"/>
+<area shape="rect" id="node22" href="$DFLib__wrap_8cpp.html#abffb76a6f66ce187e523e8ced68029b2" title="_wrap_vectord___delitem\l____SWIG_1" alt="" coords="595,449,777,491"/>
+<area shape="rect" id="node23" href="$DFLib__wrap_8cpp.html#a3803ec1ac9966802898a5d016222570b" title="_wrap_vectord___delitem__" alt="" coords="834,457,1031,483"/>
+</map>

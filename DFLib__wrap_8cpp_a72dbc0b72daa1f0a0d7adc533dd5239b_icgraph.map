@@ -1,0 +1,12 @@
+<map id="SWIG_From_int" name="SWIG_From_int">
+<area shape="rect" id="node2" href="$classSwigDirector__ReportCollection.html#a17c5e4fc38407de5e5906a948ab421b0" title="SwigDirector_ReportCollection\l::toggleValidity" alt="" coords="171,5,383,47"/>
+<area shape="rect" id="node3" href="$DFLib__wrap_8cpp.html#acc5bea223fc894f199c7c12ceadcdc55" title="NO_DATA_swigconstant" alt="" coords="191,71,363,98"/>
+<area shape="rect" id="node4" href="$DFLib__wrap_8cpp.html#a1bc80fdbfd6be3ceb9a1a1b98945a091" title="GOOD_FIX_swigconstant" alt="" coords="188,122,365,149"/>
+<area shape="rect" id="node5" href="$DFLib__wrap_8cpp.html#a01865553f6c854835c20c2872220599b" title="NO_FIX_swigconstant" alt="" coords="198,173,355,199"/>
+<area shape="rect" id="node6" href="$DFLib__wrap_8cpp.html#ae29dbd57ce61e5eaef380249d7c3165b" title="_wrap_ReportCollection\l_addReport" alt="" coords="192,224,361,265"/>
+<area shape="rect" id="node7" href="$DFLib__wrap_8cpp.html#ade2938c0ab2c4dd92983f420557ad79f" title="_wrap_ReportCollection\l_numValidReports" alt="" coords="192,289,361,331"/>
+<area shape="rect" id="node8" href="$DFLib__wrap_8cpp.html#ab7cb5a7573f5d7160d16b30079093322" title="_wrap_ReportCollection_size" alt="" coords="176,355,377,382"/>
+<area shape="rect" id="node9" href="$DFLib__wrap_8cpp.html#ad368fbdc2bbc5e1cdbfc83ec98d72d8c" title="_wrap_ReportCollection\l_getReportIndex__SWIG_0" alt="" coords="183,407,370,448"/>
+<area shape="rect" id="node11" href="$DFLib__wrap_8cpp.html#aa92bc947fdcebe3750be414390e07a4c" title="_wrap_ReportCollection\l_getReportIndex__SWIG_1" alt="" coords="183,472,370,513"/>
+<area shape="rect" id="node10" href="$DFLib__wrap_8cpp.html#ac9df089605f30c3071577e5b8f2352a6" title="_wrap_ReportCollection\l_getReportIndex" alt="" coords="431,440,600,481"/>
+</map>

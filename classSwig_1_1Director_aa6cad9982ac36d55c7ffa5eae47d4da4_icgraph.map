@@ -1,0 +1,6 @@
+<map id="Swig::Director::swig_acquire_ownership" name="Swig::Director::swig_acquire_ownership">
+<area shape="rect" id="node2" href="$classSwigDirector__Point.html#aaff78c8d5c6144db1a736f45696a37a1" title="Get X&#45;Y coordinates of the point. " alt="" coords="209,5,350,47"/>
+<area shape="rect" id="node3" href="$classSwigDirector__Point.html#a640148d2dc8bbe356d7d9547462d6ff6" title="Get coordinates in the user&#39;s coordinate system. " alt="" coords="209,71,350,112"/>
+<area shape="rect" id="node4" href="$classSwigDirector__Report.html#a4dbdec8f67f98b481a7961a15cc5fc4b" title="return receiver location in double vector of XY coords " alt="" coords="200,136,359,177"/>
+<area shape="rect" id="node5" href="$classSwigDirector__Report.html#a678fd8218e9b67e4c562d07d9b8b5b50" title="Return the name of this report. " alt="" coords="204,201,355,243"/>
+</map>

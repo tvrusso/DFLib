@@ -1,0 +1,19 @@
+<map id="SwigPyObject_append" name="SwigPyObject_append">
+<area shape="rect" id="node2" href="$DFLib__wrap_8cpp.html#a918ad69f91e617193f190aed101c3cc4" title="SwigPyObject_Check" alt="" coords="216,330,369,357"/>
+<area shape="rect" id="node18" href="$DFLib__wrap_8cpp.html#a695030dbc62bde212c7b7a9169c6eee9" title="SWIG_Py_Void" alt="" coords="237,381,348,407"/>
+<area shape="rect" id="node3" href="$DFLib__wrap_8cpp.html#a70268be3151a2c800628b561be2b3d6d" title="SwigPyObject_type" alt="" coords="417,330,560,357"/>
+<area shape="rect" id="node4" href="$DFLib__wrap_8cpp.html#aea7d4126c1b77d06d8fcdf22619e9d77" title="SwigPyObject_TypeOnce" alt="" coords="608,229,783,255"/>
+<area shape="rect" id="node5" href="$DFLib__wrap_8cpp.html#abc24d5684dfe838e99fc155a38160d84" title="SwigPyObject_long" alt="" coords="1321,26,1462,53"/>
+<area shape="rect" id="node6" href="$DFLib__wrap_8cpp.html#ac19d035c2f2617b773fb7b3bea5a26b3" title="SwigPyObject_oct" alt="" coords="861,127,995,154"/>
+<area shape="rect" id="node9" href="$DFLib__wrap_8cpp.html#a655c2dc99f0ce059357b97600a9d274a" title="SwigPyObject_hex" alt="" coords="859,77,997,103"/>
+<area shape="rect" id="node10" href="$DFLib__wrap_8cpp.html#a31a09386e839d2080e2f56602c011263" title="SwigPyObject_dealloc" alt="" coords="849,381,1007,407"/>
+<area shape="rect" id="node13" href="$DFLib__wrap_8cpp.html#a68eddc0684157ef121380451acbbfa1f" title="SwigPyObject_getattr" alt="" coords="849,279,1007,306"/>
+<area shape="rect" id="node14" href="$DFLib__wrap_8cpp.html#a72434475ffb4b712774fb65344cf0292" title="SwigPyObject_compare" alt="" coords="1073,229,1244,255"/>
+<area shape="rect" id="node15" href="$DFLib__wrap_8cpp.html#a72e362e1099bd1b9a1d124c11a101a81" title="SwigPyObject_repr" alt="" coords="858,330,998,357"/>
+<area shape="rect" id="node16" href="$DFLib__wrap_8cpp.html#ae977913145e8a243228c8e90fbe5f2ca" title="SwigPyObject_richcompare" alt="" coords="831,178,1025,205"/>
+<area shape="rect" id="node7" href="$DFLib__wrap_8cpp.html#a6d2977b4ede610f6c7ef7fcad053237b" title="SwigPyObject_format" alt="" coords="1080,77,1237,103"/>
+<area shape="rect" id="node8" href="$DFLib__wrap_8cpp.html#a0ba3b72d0eb29ff47379e6e77b21d78a" title="SWIG_Python_str_FromChar" alt="" coords="1292,77,1491,103"/>
+<area shape="rect" id="node11" href="$DFLib__wrap_8cpp.html#adaf049b6445afcfd0890cabe0d5539d4" title="SwigPyObject_New" alt="" coords="1088,419,1229,446"/>
+<area shape="rect" id="node12" href="$DFLib__wrap_8cpp.html#a3f38ea686cb3f85bf6a15b08416f2684" title="SWIG_TypePrettyName" alt="" coords="1075,343,1242,370"/>
+<area shape="rect" id="node17" href="$DFLib__wrap_8cpp.html#a9e8dba7cf79abba80fcd013e115ff3ce" title="PyBool_FromLong" alt="" coords="1091,178,1226,205"/>
+</map>

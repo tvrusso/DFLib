@@ -1,0 +1,6 @@
+<map id="SwigPyObject_own" name="SwigPyObject_own">
+<area shape="rect" id="node2" href="$DFLib__wrap_8cpp.html#a9e8dba7cf79abba80fcd013e115ff3ce" title="PyBool_FromLong" alt="" coords="205,5,340,32"/>
+<area shape="rect" id="node3" href="$DFLib__wrap_8cpp.html#a668721644f7dbe75a1fbf943cf95970b" title="SwigPyObject_acquire" alt="" coords="192,56,353,83"/>
+<area shape="rect" id="node5" href="$DFLib__wrap_8cpp.html#a43969c210565e7f0816802cd8e23f1e3" title="SwigPyObject_disown" alt="" coords="194,107,351,133"/>
+<area shape="rect" id="node4" href="$DFLib__wrap_8cpp.html#a695030dbc62bde212c7b7a9169c6eee9" title="SWIG_Py_Void" alt="" coords="401,81,512,108"/>
+</map>
