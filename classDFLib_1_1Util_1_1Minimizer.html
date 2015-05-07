@@ -71,26 +71,26 @@ Collaboration diagram for DFLib::Util::Minimizer:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a65045177e7765dc349d09106fedeff84"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#a65045177e7765dc349d09106fedeff84">Minimizer</a> (<a class="el" href="classDFLib_1_1Abstract_1_1Group.html">DFLib::Abstract::Group</a> *aGroup)</td></tr>
 <tr class="separator:a65045177e7765dc349d09106fedeff84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a276ee473f3c9d3dfe847b6b845d60166"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#a276ee473f3c9d3dfe847b6b845d60166">bracketMinimum</a> (double &amp;a, double &amp;b, double &amp;c, vector&lt; double &gt; &amp;X0, vector&lt; double &gt; &amp;direction)</td></tr>
-<tr class="memdesc:a276ee473f3c9d3dfe847b6b845d60166"><td class="mdescLeft">&#160;</td><td class="mdescRight">bracket minimum of function  <a href="#a276ee473f3c9d3dfe847b6b845d60166">More...</a><br /></td></tr>
-<tr class="separator:a276ee473f3c9d3dfe847b6b845d60166"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82856e030143b0dc75733fac6e0bdc99"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#a82856e030143b0dc75733fac6e0bdc99">brentMinimize</a> (double a, double b, double c, vector&lt; double &gt; &amp;X0, vector&lt; double &gt; &amp;direction, double &amp;xmin)</td></tr>
-<tr class="memdesc:a82856e030143b0dc75733fac6e0bdc99"><td class="mdescLeft">&#160;</td><td class="mdescRight">minimize by Brent's method with derivatives given a,b,c scalars that bracket the minimum in given direction from X0, search for minimum using Brent's method Returns function value, sets "xmin" to abscissa at minimum. Almost verbatim port out of Numerical Recipes in C  <a href="#a82856e030143b0dc75733fac6e0bdc99">More...</a><br /></td></tr>
-<tr class="separator:a82856e030143b0dc75733fac6e0bdc99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a144e57b3492287fc57c1cdce8198cb3d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#a144e57b3492287fc57c1cdce8198cb3d">lineSearch</a> (vector&lt; double &gt; &amp;X0, vector&lt; double &gt; &amp;dir)</td></tr>
-<tr class="memdesc:a144e57b3492287fc57c1cdce8198cb3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">minimize function in given direction perform a line search along the given direction for the minimum value of the function.  <a href="#a144e57b3492287fc57c1cdce8198cb3d">More...</a><br /></td></tr>
-<tr class="separator:a144e57b3492287fc57c1cdce8198cb3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3937c0251c1becacd2d938b51f46c79"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#aa3937c0251c1becacd2d938b51f46c79">conjugateGradientMinimize</a> (vector&lt; double &gt; &amp;X0, double ftol, int &amp;iter)</td></tr>
-<tr class="memdesc:aa3937c0251c1becacd2d938b51f46c79"><td class="mdescLeft">&#160;</td><td class="mdescRight">minimize function of vector value by method of conjugate gradients  <a href="#aa3937c0251c1becacd2d938b51f46c79">More...</a><br /></td></tr>
-<tr class="separator:aa3937c0251c1becacd2d938b51f46c79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b07402d90d7cb8caf689f3869ab78fb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#a6b07402d90d7cb8caf689f3869ab78fb">nelderMeadMinimize</a> (vector&lt; vector&lt; double &gt; &gt; &amp;Simplex)</td></tr>
-<tr class="memdesc:a6b07402d90d7cb8caf689f3869ab78fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">minimuze function of vector argument by Nelder-Mead simplex method.  <a href="#a6b07402d90d7cb8caf689f3869ab78fb">More...</a><br /></td></tr>
-<tr class="separator:a6b07402d90d7cb8caf689f3869ab78fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93cf5064966c0a606c44c7ed355482e9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#a93cf5064966c0a606c44c7ed355482e9">simpleF</a> (double &amp;x, vector&lt; double &gt; &amp;X0, vector&lt; double &gt; &amp;dir)</td></tr>
-<tr class="memdesc:a93cf5064966c0a606c44c7ed355482e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate <img class="formulaInl" alt="$F(x0+x*dir)$" src="form_70.png"/> where x0 and dir are vectors.  <a href="#a93cf5064966c0a606c44c7ed355482e9">More...</a><br /></td></tr>
-<tr class="separator:a93cf5064966c0a606c44c7ed355482e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab64f9b5f80364ad4d8249e6a5597bcc"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#aab64f9b5f80364ad4d8249e6a5597bcc">simpleFandDeriv</a> (double &amp;x, vector&lt; double &gt; &amp;X0, vector&lt; double &gt; &amp;dir, double &amp;df)</td></tr>
-<tr class="separator:aab64f9b5f80364ad4d8249e6a5597bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e4b72771d67e950842a6fa8cebe2583"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#a5e4b72771d67e950842a6fa8cebe2583">bracketMinimum</a> (double &amp;a, double &amp;b, double &amp;c, std::vector&lt; double &gt; &amp;X0, std::vector&lt; double &gt; &amp;direction)</td></tr>
+<tr class="memdesc:a5e4b72771d67e950842a6fa8cebe2583"><td class="mdescLeft">&#160;</td><td class="mdescRight">bracket minimum of function  <a href="#a5e4b72771d67e950842a6fa8cebe2583">More...</a><br /></td></tr>
+<tr class="separator:a5e4b72771d67e950842a6fa8cebe2583"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a974666891284930ce15f2f1b80ed45c6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#a974666891284930ce15f2f1b80ed45c6">brentMinimize</a> (double a, double b, double c, std::vector&lt; double &gt; &amp;X0, std::vector&lt; double &gt; &amp;direction, double &amp;xmin)</td></tr>
+<tr class="memdesc:a974666891284930ce15f2f1b80ed45c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">minimize by Brent's method with derivatives given a,b,c scalars that bracket the minimum in given direction from X0, search for minimum using Brent's method Returns function value, sets "xmin" to abscissa at minimum. Almost verbatim port out of Numerical Recipes in C  <a href="#a974666891284930ce15f2f1b80ed45c6">More...</a><br /></td></tr>
+<tr class="separator:a974666891284930ce15f2f1b80ed45c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8044e0bb85656cbdf67f40f673cb82e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#af8044e0bb85656cbdf67f40f673cb82e">lineSearch</a> (std::vector&lt; double &gt; &amp;X0, std::vector&lt; double &gt; &amp;dir)</td></tr>
+<tr class="memdesc:af8044e0bb85656cbdf67f40f673cb82e"><td class="mdescLeft">&#160;</td><td class="mdescRight">minimize function in given direction perform a line search along the given direction for the minimum value of the function.  <a href="#af8044e0bb85656cbdf67f40f673cb82e">More...</a><br /></td></tr>
+<tr class="separator:af8044e0bb85656cbdf67f40f673cb82e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a345f790e649eaf0092e5590e3e21acd7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#a345f790e649eaf0092e5590e3e21acd7">conjugateGradientMinimize</a> (std::vector&lt; double &gt; &amp;X0, double ftol, int &amp;iter)</td></tr>
+<tr class="memdesc:a345f790e649eaf0092e5590e3e21acd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">minimize function of vector value by method of conjugate gradients  <a href="#a345f790e649eaf0092e5590e3e21acd7">More...</a><br /></td></tr>
+<tr class="separator:a345f790e649eaf0092e5590e3e21acd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbca147bc6a2f9113a5f9d9f4095f2e4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#afbca147bc6a2f9113a5f9d9f4095f2e4">nelderMeadMinimize</a> (std::vector&lt; std::vector&lt; double &gt; &gt; &amp;Simplex)</td></tr>
+<tr class="memdesc:afbca147bc6a2f9113a5f9d9f4095f2e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">minimuze function of vector argument by Nelder-Mead simplex method.  <a href="#afbca147bc6a2f9113a5f9d9f4095f2e4">More...</a><br /></td></tr>
+<tr class="separator:afbca147bc6a2f9113a5f9d9f4095f2e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1a357c746cdefe2f20d8784f1f00ab4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#ac1a357c746cdefe2f20d8784f1f00ab4">simpleF</a> (double &amp;x, std::vector&lt; double &gt; &amp;X0, std::vector&lt; double &gt; &amp;dir)</td></tr>
+<tr class="memdesc:ac1a357c746cdefe2f20d8784f1f00ab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate <img class="formulaInl" alt="$F(x0+x*dir)$" src="form_70.png"/> where x0 and dir are vectors.  <a href="#ac1a357c746cdefe2f20d8784f1f00ab4">More...</a><br /></td></tr>
+<tr class="separator:ac1a357c746cdefe2f20d8784f1f00ab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4cb8dd8cd1ee7c40a27e4ecbc219917"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#af4cb8dd8cd1ee7c40a27e4ecbc219917">simpleFandDeriv</a> (double &amp;x, std::vector&lt; double &gt; &amp;X0, std::vector&lt; double &gt; &amp;dir, double &amp;df)</td></tr>
+<tr class="separator:af4cb8dd8cd1ee7c40a27e4ecbc219917"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -123,7 +123,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a276ee473f3c9d3dfe847b6b845d60166"></a>
+<a class="anchor" id="a5e4b72771d67e950842a6fa8cebe2583"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -148,13 +148,13 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>X0</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>direction</em>&#160;</td>
         </tr>
         <tr>
@@ -168,9 +168,27 @@ Private Attributes</h2></td></tr>
 <p>bracket minimum of function </p>
 <p>Given scalars <img class="formulaInl" alt="$a,b,c$" src="form_63.png"/> and an initial point <img class="formulaInl" alt="$X0$" src="form_64.png"/> and direction, find new values of <img class="formulaInl" alt="$a, b,$" src="form_65.png"/> and <img class="formulaInl" alt="$c$" src="form_66.png"/> such that the minimum value of theGroup's function in the chosen direction is bracketed (i.e. <img class="formulaInl" alt="$f(x0+direction*b)<f(x0+direction*a) $" src="form_67.png"/> and <img class="formulaInl" alt="$f(x0+direction*b) < f(x0+direction*c))$" src="form_68.png"/> Nearly verbatim port to C++ from Numerical Recipes in C </p>
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classDFLib_1_1Util_1_1Minimizer_a5e4b72771d67e950842a6fa8cebe2583_cgraph.png" border="0" usemap="#classDFLib_1_1Util_1_1Minimizer_a5e4b72771d67e950842a6fa8cebe2583_cgraph" alt=""/></div>
+<map name="classDFLib_1_1Util_1_1Minimizer_a5e4b72771d67e950842a6fa8cebe2583_cgraph" id="classDFLib_1_1Util_1_1Minimizer_a5e4b72771d67e950842a6fa8cebe2583_cgraph">
+<area shape="rect" id="node2" href="classDFLib_1_1Util_1_1Minimizer.html#ac1a357c746cdefe2f20d8784f1f00ab4" title="Evaluate &#160;where x0 and dir are vectors. " alt="" coords="208,39,363,80"/><area shape="rect" id="node3" href="classDFLib_1_1Abstract_1_1Group.html#ad00c7b727dc9a41733a454dd69f1c0ea" title="Set the point at which to evaluate the function. " alt="" coords="411,5,577,47"/><area shape="rect" id="node4" href="classDFLib_1_1Abstract_1_1Group.html#a56e8978276976b053afac5939c0fbafb" title="DFLib::Abstract::Group\l::getFunctionValue" alt="" coords="411,71,577,112"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classDFLib_1_1Util_1_1Minimizer_a5e4b72771d67e950842a6fa8cebe2583_icgraph.png" border="0" usemap="#classDFLib_1_1Util_1_1Minimizer_a5e4b72771d67e950842a6fa8cebe2583_icgraph" alt=""/></div>
+<map name="classDFLib_1_1Util_1_1Minimizer_a5e4b72771d67e950842a6fa8cebe2583_icgraph" id="classDFLib_1_1Util_1_1Minimizer_a5e4b72771d67e950842a6fa8cebe2583_icgraph">
+<area shape="rect" id="node2" href="classDFLib_1_1Util_1_1Minimizer.html#af8044e0bb85656cbdf67f40f673cb82e" title="minimize function in given direction perform a line search along the given direction for the minimum ..." alt="" coords="208,127,363,168"/><area shape="rect" id="node3" href="classDFLib_1_1Util_1_1Minimizer.html#a345f790e649eaf0092e5590e3e21acd7" title="minimize function of vector value by method of conjugate gradients " alt="" coords="411,127,615,168"/><area shape="rect" id="node4" href="classDFLib_1_1ReportCollection.html#aa91199f4a9e034857a043bc5aee0d34a" title="more aggressive attempt to get at an ML fix " alt="" coords="663,61,855,103"/><area shape="rect" id="node7" href="classDFLib_1_1ReportCollection.html#adffd170257322f58734acb369bb720a4" title="Computes Maximum Likelihood solution of DF problem. " alt="" coords="675,127,843,168"/><area shape="rect" id="node10" href="nonoise_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="731,193,786,219"/><area shape="rect" id="node5" href="classDFLib_1_1ReportCollection.html#a26fbfcd2754a1d10d0247ba08605107c" title="DFLib.ReportCollection.aggressive\lComputeMLFix" alt="" coords="903,5,1140,47"/><area shape="rect" id="node6" href="testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="994,71,1049,98"/><area shape="rect" id="node8" href="classDFLib_1_1ReportCollection.html#afdf9714357f8884360caaff355ab2799" title="DFLib.ReportCollection.compute\lMLFix" alt="" coords="909,124,1134,165"/><area shape="rect" id="node9" href="SimpleDF_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="994,190,1049,217"/></map>
+</div>
+</p>
+
 </div>
 </div>
-<a class="anchor" id="a82856e030143b0dc75733fac6e0bdc99"></a>
+<a class="anchor" id="a974666891284930ce15f2f1b80ed45c6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -195,13 +213,13 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>X0</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>direction</em>, </td>
         </tr>
         <tr>
@@ -220,16 +238,34 @@ Private Attributes</h2></td></tr>
 
 <p>minimize by Brent's method with derivatives given a,b,c scalars that bracket the minimum in given direction from X0, search for minimum using Brent's method Returns function value, sets "xmin" to abscissa at minimum. Almost verbatim port out of Numerical Recipes in C </p>
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classDFLib_1_1Util_1_1Minimizer_a974666891284930ce15f2f1b80ed45c6_cgraph.png" border="0" usemap="#classDFLib_1_1Util_1_1Minimizer_a974666891284930ce15f2f1b80ed45c6_cgraph" alt=""/></div>
+<map name="classDFLib_1_1Util_1_1Minimizer_a974666891284930ce15f2f1b80ed45c6_cgraph" id="classDFLib_1_1Util_1_1Minimizer_a974666891284930ce15f2f1b80ed45c6_cgraph">
+<area shape="rect" id="node2" href="classDFLib_1_1Util_1_1Minimizer.html#af4cb8dd8cd1ee7c40a27e4ecbc219917" title="DFLib::Util::Minimizer\l::simpleFandDeriv" alt="" coords="208,39,363,80"/><area shape="rect" id="node3" href="classDFLib_1_1Abstract_1_1Group.html#ad00c7b727dc9a41733a454dd69f1c0ea" title="Set the point at which to evaluate the function. " alt="" coords="437,5,603,47"/><area shape="rect" id="node4" href="classDFLib_1_1Abstract_1_1Group.html#a82c14ff935f1152550862ce916112483" title="DFLib::Abstract::Group\l::getFunctionValueAndGradient" alt="" coords="411,71,629,112"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classDFLib_1_1Util_1_1Minimizer_a974666891284930ce15f2f1b80ed45c6_icgraph.png" border="0" usemap="#classDFLib_1_1Util_1_1Minimizer_a974666891284930ce15f2f1b80ed45c6_icgraph" alt=""/></div>
+<map name="classDFLib_1_1Util_1_1Minimizer_a974666891284930ce15f2f1b80ed45c6_icgraph" id="classDFLib_1_1Util_1_1Minimizer_a974666891284930ce15f2f1b80ed45c6_icgraph">
+<area shape="rect" id="node2" href="classDFLib_1_1Util_1_1Minimizer.html#af8044e0bb85656cbdf67f40f673cb82e" title="minimize function in given direction perform a line search along the given direction for the minimum ..." alt="" coords="208,127,363,168"/><area shape="rect" id="node3" href="classDFLib_1_1Util_1_1Minimizer.html#a345f790e649eaf0092e5590e3e21acd7" title="minimize function of vector value by method of conjugate gradients " alt="" coords="411,127,615,168"/><area shape="rect" id="node4" href="classDFLib_1_1ReportCollection.html#aa91199f4a9e034857a043bc5aee0d34a" title="more aggressive attempt to get at an ML fix " alt="" coords="663,61,855,103"/><area shape="rect" id="node7" href="classDFLib_1_1ReportCollection.html#adffd170257322f58734acb369bb720a4" title="Computes Maximum Likelihood solution of DF problem. " alt="" coords="675,127,843,168"/><area shape="rect" id="node10" href="nonoise_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="731,193,786,219"/><area shape="rect" id="node5" href="classDFLib_1_1ReportCollection.html#a26fbfcd2754a1d10d0247ba08605107c" title="DFLib.ReportCollection.aggressive\lComputeMLFix" alt="" coords="903,5,1140,47"/><area shape="rect" id="node6" href="testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="994,71,1049,98"/><area shape="rect" id="node8" href="classDFLib_1_1ReportCollection.html#afdf9714357f8884360caaff355ab2799" title="DFLib.ReportCollection.compute\lMLFix" alt="" coords="909,124,1134,165"/><area shape="rect" id="node9" href="SimpleDF_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="994,190,1049,217"/></map>
+</div>
+</p>
+
 </div>
 </div>
-<a class="anchor" id="aa3937c0251c1becacd2d938b51f46c79"></a>
+<a class="anchor" id="a345f790e649eaf0092e5590e3e21acd7"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">double DFLib::Util::Minimizer::conjugateGradientMinimize </td>
           <td>(</td>
-          <td class="paramtype">vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>X0</em>, </td>
         </tr>
         <tr>
@@ -264,30 +300,39 @@ Private Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>value of function at minimum. </dd></dl>
 
 <p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classDFLib_1_1Util_1_1Minimizer_a345f790e649eaf0092e5590e3e21acd7_cgraph.png" border="0" usemap="#classDFLib_1_1Util_1_1Minimizer_a345f790e649eaf0092e5590e3e21acd7_cgraph" alt=""/></div>
+<map name="classDFLib_1_1Util_1_1Minimizer_a345f790e649eaf0092e5590e3e21acd7_cgraph" id="classDFLib_1_1Util_1_1Minimizer_a345f790e649eaf0092e5590e3e21acd7_cgraph">
+<area shape="rect" id="node2" href="classDFLib_1_1Abstract_1_1Group.html#ad00c7b727dc9a41733a454dd69f1c0ea" title="Set the point at which to evaluate the function. " alt="" coords="891,5,1058,47"/><area shape="rect" id="node3" href="classDFLib_1_1Abstract_1_1Group.html#a82c14ff935f1152550862ce916112483" title="DFLib::Abstract::Group\l::getFunctionValueAndGradient" alt="" coords="865,149,1084,191"/><area shape="rect" id="node4" href="classDFLib_1_1Util_1_1Minimizer.html#af8044e0bb85656cbdf67f40f673cb82e" title="minimize function in given direction perform a line search along the given direction for the minimum ..." alt="" coords="257,84,412,125"/><area shape="rect" id="node5" href="classDFLib_1_1Util_1_1Minimizer.html#a5e4b72771d67e950842a6fa8cebe2583" title="bracket minimum of function " alt="" coords="460,51,615,92"/><area shape="rect" id="node8" href="classDFLib_1_1Util_1_1Minimizer.html#a974666891284930ce15f2f1b80ed45c6" title="minimize by Brent&#39;s method with derivatives given a,b,c scalars that bracket the minimum in given dir..." alt="" coords="460,116,615,157"/><area shape="rect" id="node6" href="classDFLib_1_1Util_1_1Minimizer.html#ac1a357c746cdefe2f20d8784f1f00ab4" title="Evaluate &#160;where x0 and dir are vectors. " alt="" coords="663,51,817,92"/><area shape="rect" id="node7" href="classDFLib_1_1Abstract_1_1Group.html#a56e8978276976b053afac5939c0fbafb" title="DFLib::Abstract::Group\l::getFunctionValue" alt="" coords="891,71,1058,112"/><area shape="rect" id="node9" href="classDFLib_1_1Util_1_1Minimizer.html#af4cb8dd8cd1ee7c40a27e4ecbc219917" title="DFLib::Util::Minimizer\l::simpleFandDeriv" alt="" coords="663,116,817,157"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classDFLib_1_1Util_1_1Minimizer_aa3937c0251c1becacd2d938b51f46c79_icgraph.png" border="0" usemap="#classDFLib_1_1Util_1_1Minimizer_aa3937c0251c1becacd2d938b51f46c79_icgraph" alt=""/></div>
-<map name="classDFLib_1_1Util_1_1Minimizer_aa3937c0251c1becacd2d938b51f46c79_icgraph" id="classDFLib_1_1Util_1_1Minimizer_aa3937c0251c1becacd2d938b51f46c79_icgraph">
-<area shape="rect" id="node2" href="classDFLib_1_1ReportCollection.html#aa91199f4a9e034857a043bc5aee0d34a" title="more aggressive attempt to get at an ML fix " alt="" coords="257,5,451,47"/><area shape="rect" id="node4" href="classDFLib_1_1ReportCollection.html#adffd170257322f58734acb369bb720a4" title="Computes Maximum Likelihood solution of DF problem. " alt="" coords="269,71,439,112"/><area shape="rect" id="node6" href="nonoise_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="327,137,381,163"/><area shape="rect" id="node3" href="testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="499,13,553,39"/><area shape="rect" id="node5" href="SimpleDF_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="499,78,553,105"/></map>
+<div class="center"><img src="classDFLib_1_1Util_1_1Minimizer_a345f790e649eaf0092e5590e3e21acd7_icgraph.png" border="0" usemap="#classDFLib_1_1Util_1_1Minimizer_a345f790e649eaf0092e5590e3e21acd7_icgraph" alt=""/></div>
+<map name="classDFLib_1_1Util_1_1Minimizer_a345f790e649eaf0092e5590e3e21acd7_icgraph" id="classDFLib_1_1Util_1_1Minimizer_a345f790e649eaf0092e5590e3e21acd7_icgraph">
+<area shape="rect" id="node2" href="classDFLib_1_1ReportCollection.html#aa91199f4a9e034857a043bc5aee0d34a" title="more aggressive attempt to get at an ML fix " alt="" coords="257,61,449,103"/><area shape="rect" id="node5" href="classDFLib_1_1ReportCollection.html#adffd170257322f58734acb369bb720a4" title="Computes Maximum Likelihood solution of DF problem. " alt="" coords="269,127,437,168"/><area shape="rect" id="node8" href="nonoise_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="326,193,381,219"/><area shape="rect" id="node3" href="classDFLib_1_1ReportCollection.html#a26fbfcd2754a1d10d0247ba08605107c" title="DFLib.ReportCollection.aggressive\lComputeMLFix" alt="" coords="497,5,735,47"/><area shape="rect" id="node4" href="testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="589,71,643,98"/><area shape="rect" id="node6" href="classDFLib_1_1ReportCollection.html#afdf9714357f8884360caaff355ab2799" title="DFLib.ReportCollection.compute\lMLFix" alt="" coords="503,124,729,165"/><area shape="rect" id="node7" href="SimpleDF_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="589,190,643,217"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a144e57b3492287fc57c1cdce8198cb3d"></a>
+<a class="anchor" id="af8044e0bb85656cbdf67f40f673cb82e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">double DFLib::Util::Minimizer::lineSearch </td>
           <td>(</td>
-          <td class="paramtype">vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>X0</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>dir</em>&#160;</td>
         </tr>
         <tr>
@@ -308,16 +353,34 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>function value at minimum. Nearly verbatim port out of Numerical Recipes in C </dd></dl>
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classDFLib_1_1Util_1_1Minimizer_af8044e0bb85656cbdf67f40f673cb82e_cgraph.png" border="0" usemap="#classDFLib_1_1Util_1_1Minimizer_af8044e0bb85656cbdf67f40f673cb82e_cgraph" alt=""/></div>
+<map name="classDFLib_1_1Util_1_1Minimizer_af8044e0bb85656cbdf67f40f673cb82e_cgraph" id="classDFLib_1_1Util_1_1Minimizer_af8044e0bb85656cbdf67f40f673cb82e_cgraph">
+<area shape="rect" id="node2" href="classDFLib_1_1Util_1_1Minimizer.html#a5e4b72771d67e950842a6fa8cebe2583" title="bracket minimum of function " alt="" coords="208,39,363,80"/><area shape="rect" id="node6" href="classDFLib_1_1Util_1_1Minimizer.html#a974666891284930ce15f2f1b80ed45c6" title="minimize by Brent&#39;s method with derivatives given a,b,c scalars that bracket the minimum in given dir..." alt="" coords="208,104,363,145"/><area shape="rect" id="node3" href="classDFLib_1_1Util_1_1Minimizer.html#ac1a357c746cdefe2f20d8784f1f00ab4" title="Evaluate &#160;where x0 and dir are vectors. " alt="" coords="411,39,565,80"/><area shape="rect" id="node4" href="classDFLib_1_1Abstract_1_1Group.html#ad00c7b727dc9a41733a454dd69f1c0ea" title="Set the point at which to evaluate the function. " alt="" coords="639,71,806,112"/><area shape="rect" id="node5" href="classDFLib_1_1Abstract_1_1Group.html#a56e8978276976b053afac5939c0fbafb" title="DFLib::Abstract::Group\l::getFunctionValue" alt="" coords="639,5,806,47"/><area shape="rect" id="node7" href="classDFLib_1_1Util_1_1Minimizer.html#af4cb8dd8cd1ee7c40a27e4ecbc219917" title="DFLib::Util::Minimizer\l::simpleFandDeriv" alt="" coords="411,104,565,145"/><area shape="rect" id="node8" href="classDFLib_1_1Abstract_1_1Group.html#a82c14ff935f1152550862ce916112483" title="DFLib::Abstract::Group\l::getFunctionValueAndGradient" alt="" coords="613,136,832,177"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classDFLib_1_1Util_1_1Minimizer_af8044e0bb85656cbdf67f40f673cb82e_icgraph.png" border="0" usemap="#classDFLib_1_1Util_1_1Minimizer_af8044e0bb85656cbdf67f40f673cb82e_icgraph" alt=""/></div>
+<map name="classDFLib_1_1Util_1_1Minimizer_af8044e0bb85656cbdf67f40f673cb82e_icgraph" id="classDFLib_1_1Util_1_1Minimizer_af8044e0bb85656cbdf67f40f673cb82e_icgraph">
+<area shape="rect" id="node2" href="classDFLib_1_1Util_1_1Minimizer.html#a345f790e649eaf0092e5590e3e21acd7" title="minimize function of vector value by method of conjugate gradients " alt="" coords="208,127,412,168"/><area shape="rect" id="node3" href="classDFLib_1_1ReportCollection.html#aa91199f4a9e034857a043bc5aee0d34a" title="more aggressive attempt to get at an ML fix " alt="" coords="460,61,652,103"/><area shape="rect" id="node6" href="classDFLib_1_1ReportCollection.html#adffd170257322f58734acb369bb720a4" title="Computes Maximum Likelihood solution of DF problem. " alt="" coords="472,127,640,168"/><area shape="rect" id="node9" href="nonoise_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="529,193,583,219"/><area shape="rect" id="node4" href="classDFLib_1_1ReportCollection.html#a26fbfcd2754a1d10d0247ba08605107c" title="DFLib.ReportCollection.aggressive\lComputeMLFix" alt="" coords="700,5,937,47"/><area shape="rect" id="node5" href="testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="791,71,846,98"/><area shape="rect" id="node7" href="classDFLib_1_1ReportCollection.html#afdf9714357f8884360caaff355ab2799" title="DFLib.ReportCollection.compute\lMLFix" alt="" coords="706,124,931,165"/><area shape="rect" id="node8" href="SimpleDF_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="791,190,846,217"/></map>
+</div>
+</p>
+
 </div>
 </div>
-<a class="anchor" id="a6b07402d90d7cb8caf689f3869ab78fb"></a>
+<a class="anchor" id="afbca147bc6a2f9113a5f9d9f4095f2e4"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int DFLib::Util::Minimizer::nelderMeadMinimize </td>
           <td>(</td>
-          <td class="paramtype">vector&lt; vector&lt; double &gt; &gt; &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; double &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>Simplex</em></td><td>)</td>
           <td></td>
         </tr>
@@ -347,17 +410,26 @@ worst" fucntion values at the vertices and at each step attempts to modify the s
 <p>The method stops when we have either exceeded the maximum number of function evaluations (here hard-coded to 5000) or the spread of values between best and worst has been reduced to a sufficiently small fraction of the average of best and worst. The stopping criterion is (abs(diff)/average)&lt;sqrt(machine_epsilon) </p>
 
 <p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classDFLib_1_1Util_1_1Minimizer_afbca147bc6a2f9113a5f9d9f4095f2e4_cgraph.png" border="0" usemap="#classDFLib_1_1Util_1_1Minimizer_afbca147bc6a2f9113a5f9d9f4095f2e4_cgraph" alt=""/></div>
+<map name="classDFLib_1_1Util_1_1Minimizer_afbca147bc6a2f9113a5f9d9f4095f2e4_cgraph" id="classDFLib_1_1Util_1_1Minimizer_afbca147bc6a2f9113a5f9d9f4095f2e4_cgraph">
+<area shape="rect" id="node2" href="classDFLib_1_1Abstract_1_1Group.html#ad00c7b727dc9a41733a454dd69f1c0ea" title="Set the point at which to evaluate the function. " alt="" coords="215,5,381,47"/><area shape="rect" id="node3" href="classDFLib_1_1Abstract_1_1Group.html#a56e8978276976b053afac5939c0fbafb" title="DFLib::Abstract::Group\l::getFunctionValue" alt="" coords="215,71,381,112"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classDFLib_1_1Util_1_1Minimizer_a6b07402d90d7cb8caf689f3869ab78fb_icgraph.png" border="0" usemap="#classDFLib_1_1Util_1_1Minimizer_a6b07402d90d7cb8caf689f3869ab78fb_icgraph" alt=""/></div>
-<map name="classDFLib_1_1Util_1_1Minimizer_a6b07402d90d7cb8caf689f3869ab78fb_icgraph" id="classDFLib_1_1Util_1_1Minimizer_a6b07402d90d7cb8caf689f3869ab78fb_icgraph">
-<area shape="rect" id="node2" href="classDFLib_1_1ReportCollection.html#aa91199f4a9e034857a043bc5aee0d34a" title="more aggressive attempt to get at an ML fix " alt="" coords="215,5,408,47"/><area shape="rect" id="node3" href="testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="456,13,511,39"/></map>
+<div class="center"><img src="classDFLib_1_1Util_1_1Minimizer_afbca147bc6a2f9113a5f9d9f4095f2e4_icgraph.png" border="0" usemap="#classDFLib_1_1Util_1_1Minimizer_afbca147bc6a2f9113a5f9d9f4095f2e4_icgraph" alt=""/></div>
+<map name="classDFLib_1_1Util_1_1Minimizer_afbca147bc6a2f9113a5f9d9f4095f2e4_icgraph" id="classDFLib_1_1Util_1_1Minimizer_afbca147bc6a2f9113a5f9d9f4095f2e4_icgraph">
+<area shape="rect" id="node2" href="classDFLib_1_1ReportCollection.html#aa91199f4a9e034857a043bc5aee0d34a" title="more aggressive attempt to get at an ML fix " alt="" coords="215,35,407,76"/><area shape="rect" id="node3" href="classDFLib_1_1ReportCollection.html#a26fbfcd2754a1d10d0247ba08605107c" title="DFLib.ReportCollection.aggressive\lComputeMLFix" alt="" coords="455,5,692,47"/><area shape="rect" id="node4" href="testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="546,71,601,98"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a93cf5064966c0a606c44c7ed355482e9"></a>
+<a class="anchor" id="ac1a357c746cdefe2f20d8784f1f00ab4"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -370,13 +442,13 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>X0</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>dir</em>&#160;</td>
         </tr>
         <tr>
@@ -390,9 +462,27 @@ Here is the caller graph for this function:</div>
 <p>Evaluate <img class="formulaInl" alt="$F(x0+x*dir)$" src="form_70.png"/> where x0 and dir are vectors. </p>
 <p>F is the group's function "computeFunctionValue" </p><dl class="section return"><dt>Returns</dt><dd>function value at <img class="formulaInl" alt="$X0+x*dir$" src="form_71.png"/> </dd></dl>
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classDFLib_1_1Util_1_1Minimizer_ac1a357c746cdefe2f20d8784f1f00ab4_cgraph.png" border="0" usemap="#classDFLib_1_1Util_1_1Minimizer_ac1a357c746cdefe2f20d8784f1f00ab4_cgraph" alt=""/></div>
+<map name="classDFLib_1_1Util_1_1Minimizer_ac1a357c746cdefe2f20d8784f1f00ab4_cgraph" id="classDFLib_1_1Util_1_1Minimizer_ac1a357c746cdefe2f20d8784f1f00ab4_cgraph">
+<area shape="rect" id="node2" href="classDFLib_1_1Abstract_1_1Group.html#ad00c7b727dc9a41733a454dd69f1c0ea" title="Set the point at which to evaluate the function. " alt="" coords="208,5,375,47"/><area shape="rect" id="node3" href="classDFLib_1_1Abstract_1_1Group.html#a56e8978276976b053afac5939c0fbafb" title="DFLib::Abstract::Group\l::getFunctionValue" alt="" coords="208,71,375,112"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classDFLib_1_1Util_1_1Minimizer_ac1a357c746cdefe2f20d8784f1f00ab4_icgraph.png" border="0" usemap="#classDFLib_1_1Util_1_1Minimizer_ac1a357c746cdefe2f20d8784f1f00ab4_icgraph" alt=""/></div>
+<map name="classDFLib_1_1Util_1_1Minimizer_ac1a357c746cdefe2f20d8784f1f00ab4_icgraph" id="classDFLib_1_1Util_1_1Minimizer_ac1a357c746cdefe2f20d8784f1f00ab4_icgraph">
+<area shape="rect" id="node2" href="classDFLib_1_1Util_1_1Minimizer.html#a5e4b72771d67e950842a6fa8cebe2583" title="bracket minimum of function " alt="" coords="208,127,363,168"/><area shape="rect" id="node3" href="classDFLib_1_1Util_1_1Minimizer.html#af8044e0bb85656cbdf67f40f673cb82e" title="minimize function in given direction perform a line search along the given direction for the minimum ..." alt="" coords="411,127,565,168"/><area shape="rect" id="node4" href="classDFLib_1_1Util_1_1Minimizer.html#a345f790e649eaf0092e5590e3e21acd7" title="minimize function of vector value by method of conjugate gradients " alt="" coords="613,127,817,168"/><area shape="rect" id="node5" href="classDFLib_1_1ReportCollection.html#aa91199f4a9e034857a043bc5aee0d34a" title="more aggressive attempt to get at an ML fix " alt="" coords="865,61,1057,103"/><area shape="rect" id="node8" href="classDFLib_1_1ReportCollection.html#adffd170257322f58734acb369bb720a4" title="Computes Maximum Likelihood solution of DF problem. " alt="" coords="877,127,1045,168"/><area shape="rect" id="node11" href="nonoise_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="934,193,989,219"/><area shape="rect" id="node6" href="classDFLib_1_1ReportCollection.html#a26fbfcd2754a1d10d0247ba08605107c" title="DFLib.ReportCollection.aggressive\lComputeMLFix" alt="" coords="1105,5,1343,47"/><area shape="rect" id="node7" href="testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1197,71,1251,98"/><area shape="rect" id="node9" href="classDFLib_1_1ReportCollection.html#afdf9714357f8884360caaff355ab2799" title="DFLib.ReportCollection.compute\lMLFix" alt="" coords="1111,124,1337,165"/><area shape="rect" id="node10" href="SimpleDF_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1197,190,1251,217"/></map>
+</div>
+</p>
+
 </div>
 </div>
-<a class="anchor" id="aab64f9b5f80364ad4d8249e6a5597bcc"></a>
+<a class="anchor" id="af4cb8dd8cd1ee7c40a27e4ecbc219917"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -405,13 +495,13 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>X0</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>dir</em>, </td>
         </tr>
         <tr>
@@ -428,6 +518,24 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 <p>Evaluate F(x0+x*dir) and its directional derivative where x0 and dir are vectors. The directional derivative is the inner product of the gradient and the direction: <img class="formulaInl" alt="$df = dir\cdot\nabla f$" src="form_72.png"/>. </p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classDFLib_1_1Util_1_1Minimizer_af4cb8dd8cd1ee7c40a27e4ecbc219917_cgraph.png" border="0" usemap="#classDFLib_1_1Util_1_1Minimizer_af4cb8dd8cd1ee7c40a27e4ecbc219917_cgraph" alt=""/></div>
+<map name="classDFLib_1_1Util_1_1Minimizer_af4cb8dd8cd1ee7c40a27e4ecbc219917_cgraph" id="classDFLib_1_1Util_1_1Minimizer_af4cb8dd8cd1ee7c40a27e4ecbc219917_cgraph">
+<area shape="rect" id="node2" href="classDFLib_1_1Abstract_1_1Group.html#ad00c7b727dc9a41733a454dd69f1c0ea" title="Set the point at which to evaluate the function. " alt="" coords="234,5,401,47"/><area shape="rect" id="node3" href="classDFLib_1_1Abstract_1_1Group.html#a82c14ff935f1152550862ce916112483" title="DFLib::Abstract::Group\l::getFunctionValueAndGradient" alt="" coords="208,71,427,112"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classDFLib_1_1Util_1_1Minimizer_af4cb8dd8cd1ee7c40a27e4ecbc219917_icgraph.png" border="0" usemap="#classDFLib_1_1Util_1_1Minimizer_af4cb8dd8cd1ee7c40a27e4ecbc219917_icgraph" alt=""/></div>
+<map name="classDFLib_1_1Util_1_1Minimizer_af4cb8dd8cd1ee7c40a27e4ecbc219917_icgraph" id="classDFLib_1_1Util_1_1Minimizer_af4cb8dd8cd1ee7c40a27e4ecbc219917_icgraph">
+<area shape="rect" id="node2" href="classDFLib_1_1Util_1_1Minimizer.html#a974666891284930ce15f2f1b80ed45c6" title="minimize by Brent&#39;s method with derivatives given a,b,c scalars that bracket the minimum in given dir..." alt="" coords="208,127,363,168"/><area shape="rect" id="node3" href="classDFLib_1_1Util_1_1Minimizer.html#af8044e0bb85656cbdf67f40f673cb82e" title="minimize function in given direction perform a line search along the given direction for the minimum ..." alt="" coords="411,127,565,168"/><area shape="rect" id="node4" href="classDFLib_1_1Util_1_1Minimizer.html#a345f790e649eaf0092e5590e3e21acd7" title="minimize function of vector value by method of conjugate gradients " alt="" coords="613,127,817,168"/><area shape="rect" id="node5" href="classDFLib_1_1ReportCollection.html#aa91199f4a9e034857a043bc5aee0d34a" title="more aggressive attempt to get at an ML fix " alt="" coords="865,61,1057,103"/><area shape="rect" id="node8" href="classDFLib_1_1ReportCollection.html#adffd170257322f58734acb369bb720a4" title="Computes Maximum Likelihood solution of DF problem. " alt="" coords="877,127,1045,168"/><area shape="rect" id="node11" href="nonoise_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="934,193,989,219"/><area shape="rect" id="node6" href="classDFLib_1_1ReportCollection.html#a26fbfcd2754a1d10d0247ba08605107c" title="DFLib.ReportCollection.aggressive\lComputeMLFix" alt="" coords="1105,5,1343,47"/><area shape="rect" id="node7" href="testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1197,71,1251,98"/><area shape="rect" id="node9" href="classDFLib_1_1ReportCollection.html#afdf9714357f8884360caaff355ab2799" title="DFLib.ReportCollection.compute\lMLFix" alt="" coords="1111,124,1337,165"/><area shape="rect" id="node10" href="SimpleDF_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1197,190,1251,217"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -453,13 +561,13 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/users/tvrusso/src/DFLib/<a class="el" href="Util__Minimization__Methods_8hpp.html">Util_Minimization_Methods.hpp</a></li>
-<li>/users/tvrusso/src/DFLib/<a class="el" href="Util__Minimization__Methods_8cpp.html">Util_Minimization_Methods.cpp</a></li>
+<li>/users/russo/DFLIB_Git/DFLib/<a class="el" href="Util__Minimization__Methods_8hpp.html">Util_Minimization_Methods.hpp</a></li>
+<li>/users/russo/DFLIB_Git/DFLib/<a class="el" href="Util__Minimization__Methods_8cpp.html">Util_Minimization_Methods.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 30 2015 10:47:07 for DFLib by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 6 2015 20:27:46 for DFLib by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

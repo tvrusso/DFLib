@@ -1,4 +1,6 @@
 <map id="DFLib::Abstract::Group" name="DFLib::Abstract::Group">
-<area shape="rect" id="node2" href="$classDFLib_1_1ReportCollection.html" title="DFLib::ReportCollection" alt="" coords="17,80,187,107"/>
-<area shape="rect" id="node3" href="$classDFLib_1_1ProjReportCollection.html" title="DFLib::ProjReportCollection" alt="" coords="5,155,199,181"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1ReportCollection.html" title="DFLib::ReportCollection" alt="" coords="131,80,299,107"/>
+<area shape="rect" id="node5" href="$classSwigDirector__Group.html" title="SwigDirector_Group" alt="" coords="323,80,471,107"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1ProjReportCollection.html" title="DFLib::ProjReportCollection" alt="" coords="5,155,197,181"/>
+<area shape="rect" id="node4" href="$classSwigDirector__ReportCollection.html" title="SwigDirector_ReportCollection" alt="" coords="222,155,434,181"/>
 </map>

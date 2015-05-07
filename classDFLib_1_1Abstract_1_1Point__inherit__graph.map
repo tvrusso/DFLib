@@ -1,5 +1,6 @@
 <map id="DFLib::Abstract::Point" name="DFLib::Abstract::Point">
 <area shape="rect" id="node2" href="$classDFLib_1_1LatLon_1_1Point.html" title="DFLib::LatLon::Point" alt="" coords="5,80,153,107"/>
 <area shape="rect" id="node3" href="$classDFLib_1_1Proj_1_1Point.html" title="DFLib::Proj::Point" alt="" coords="177,80,307,107"/>
-<area shape="rect" id="node4" href="$classDFLib_1_1XY_1_1Point.html" title="DFLib::XY::Point" alt="" coords="331,80,454,107"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1XY_1_1Point.html" title="DFLib::XY::Point" alt="" coords="331,80,449,107"/>
+<area shape="rect" id="node5" href="$classSwigDirector__Point.html" title="SwigDirector_Point" alt="" coords="473,80,614,107"/>
 </map>
