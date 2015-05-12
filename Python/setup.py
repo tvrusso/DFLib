@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from distutils.core import setup, Extension
+from setuptools import setup, Extension
 
 DFLib_module = Extension('_DFLib',
                        sources=['DFLib.i', '../DF_Abstract_Report.cpp','../DF_Report_Collection.cpp', '../Util_Minimization_Methods.cpp'],
