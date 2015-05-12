@@ -21,28 +21,33 @@ import copy
 import math
 from pyproj import Proj
 
-"""
-  The two classes below constitute a simplistic implementation of the minimum
-  work you'd have to do to use DFLib in Python.
-
-  The "pyProjPoint" class derives from the DFLib::Abstract::Point interface,
-  and implements its interface methods:
-    __init__ : the constructor for the class
-    setXY:     Sets coordinates in "XY" space, the one that is actually used
-               by the ReportCollection class for computation.
-    getXY:     Returns an STL vector containing the XY position.
-    Clone:     Makes a new pyProjPoint and populates it with the values in the
-               current object, returning a pointer to it.  This method is ONLY
-               used by the "Fix Cut Average" computation.
-    setUserCoords:  Allows you to specify the point location in some coordinate
-                    system other than the XY coordinates used for computation.
-                    In this implementation, XY is Mercator Projection 
-                    coordinates, and UserCoords are lat/lon.
-    getUserCoords:  Returns the point location in the user coordinates.
-"""
+#  The two classes below constitute a simplistic implementation of the minimum
+#  work you'd have to do to use DFLib in Python.
+#
+#  The "pyProjPoint" class derives from the DFLib::Abstract::Point interface,
+#  and implements its interface methods:
+#    __init__ : the constructor for the class
+#    setXY:     Sets coordinates in "XY" space, the one that is actually used
+#               by the ReportCollection class for computation.
+#    getXY:     Returns an STL vector containing the XY position.
+#    Clone:     Makes a new pyProjPoint and populates it with the values in the
+#               current object, returning a pointer to it.  This method is ONLY
+#               used by the "Fix Cut Average" computation.
+#    setUserCoords:  Allows you to specify the point location in some coordinate
+#                    system other than the XY coordinates used for computation.
+#                    In this implementation, XY is Mercator Projection 
+#                    coordinates, and UserCoords are lat/lon.
+#    getUserCoords:  Returns the point location in the user coordinates.
 
 class pyProjPoint(DFLib.Point):
+   """
+   The "pyProjPoint" class derives from the DFLib::Abstract::Point interface,
+   and implements its interface methods
+   """
    def __init__(self):
+      """
+      pyProjPoint constructor
+      """
       super(pyProjPoint,self).__init__()
       self.myXY=DFLib.vectord(2)
       self.myXY[0]=0
@@ -50,70 +55,112 @@ class pyProjPoint(DFLib.Point):
       self.myMercProj=Proj('+proj=merc +datum=WGS84 +lat_ts=0')   
       self.myUserCoords=DFLib.vectord(2)
    def setXY(self,aPosition):
+      """
+      given a vector (or list) set the location of this point in X-Y coordinates.
+      """
       self.myXY[0]=aPosition[0]
       self.myXY[1]=aPosition[1]
    def getXY(self):
+      """
+      Return a pointer to the point's internal XY vector (an STL vector of 
+      doubles).
+
+      In C++ implementations, we return a const reference, not a pointer, to
+      prevent changing the position by direct manipulation of the vector.
+      I don't know how to do that in python to prevent abuse of the vector.
+      It should be used only to *query* the position, never to change it.
+      Do NOT use this to change the location of the point.
+      """
       return self.myXY
   # This is NOT really a "clone" operation, but it serves the purpose enough
   # for DFLib
    def Clone(self):
+      """
+      Create a new object that is an exact copy of this one in every way.
+      Typically used only by the Fix Cut Average computation routine, but
+      can be used to generate new objects as needed without knowing what
+      type they are.
+      """
       foo=pyProjPoint().__disown__()
       foo.setXY(self.getXY())
       return foo
    def getUserCoords(self):
+      """
+      Return a vector of coordinates of this point in a user coordinate
+      system (which may be different from the XY coordinate system 
+      used for computation of fixes).
+      """
       self.myUserCoords[0],self.myUserCoords[1]=self.myMercProj(self.myXY[0],self.myXY[1],inverse=True)
       return self.myUserCoords
    def setUserCoords(self,uPosition):
+      """
+      Set the position of this point using a vector or list of coordinates in
+      the user coordinate system.
+      """
       tempVect=DFLib.vectord(2)
       tempVect[0],tempVect[1]=self.myMercProj(uPosition[0],uPosition[1])
       self.setXY(tempVect)
 
-"""
-  The pyProjReport class implements the DFLib::Abstract::Report interface.
-
-  setReceiverLocation:  Sets the receiver location in XY coordinates.
-  getReceiverLocation:  Returns the receiver location in XY coordinates (in 
-                        an STL vector)
-  setBearing:           Sets the report's bearing (in the XY space,
-                        which means it needs to have grid convergence and
-                        magnetic declination taken into account!) This is in
-                        degrees.
-  setSigma:             Sets the standard deviation of the distribution of
-                        random errors expected from this type of receiver.
-  getReportBearingRadians:  Returns the bearing converted to radians.
-                        (0<=bearing<=2pi)
-  getBearing:           Returns the bearing in degrees
-  getBearingStandardDeviationRadians:  Returns sigma in units of radians
-                        (0<=sigma<=2pi)
-  getSigma:             Returns sigma in degrees.
-"""
-
 class pyProjReport(DFLib.Report):
+   """
+     The pyProjReport class implements the DFLib::Abstract::Report interface.
+   """
    def __init__(self,name,valid,Point,bearing,sigma):
+      """
+      pyProjReport constructor
+      """
       super(pyProjReport,self).__init__(name,valid)
       self.myPoint=pyProjPoint()
       self.myPoint.setXY(Point.getXY())
       self.setBearing(bearing)
       self.setSigma(sigma)
    def setReceiverLocation(self,theLocation):
+      """
+      Sets the receiver location in XY coordinates.
+      """
       self.myPoint.setXY(theLocation)
    def getReceiverLocation(self):
+      """
+      Returns the receiver location in XY coordinates.
+      This is returned as a vectord (STL vector<double>) pointer.
+      """
       return self.myPoint.getXY()
    def setBearing(self,theBearing):
+      """
+      Sets the report's bearing (in the XY space, which means it needs
+      to have grid convergence and magnetic declination taken into
+      account!) This is in degrees.
+      """
       self.bearing=theBearing*math.pi/180.0
       while (self.bearing < 0):
          self.bearing = self.bearing + 2*math.pi
       while (self.bearing >= 2*math.pi):
          self.bearing = self.bearing - 2*math.pi
    def setSigma(self,theSigma):
+      """
+      Sets the standard deviation of the distribution of
+      random errors expected from this type of receiver.  This is in degrees.
+      """
       self.sigma = theSigma*math.pi/180.0
    def getReportBearingRadians(self):
+      """
+      Returns the report bearing relative to grid north (Y) in radians.
+      """
       return self.bearing
    def getBearing(self):
+      """
+      Returns the report bearing in degrees.
+      """
       return self.getReportBearingRadians()*180.0/math.pi
    def getBearingStandardDeviationRadians(self):
+      """
+      Returns receiver standard deviation in radians.
+      """
       return self.sigma
    def getSigma(self):
+      """
+      Returns receiver standard deviation in degrees.
+      """
       return self.getBearingStandardDeviationRadians()*180.0/math.pi
 
 #Create 3 reports.  These correspond exactly to the "receivers3" points
@@ -123,22 +170,19 @@ class pyProjReport(DFLib.Report):
 # according to the sigmas associated with the transmitters
 #
 
-v=DFLib.vectord(2)
-v[0],v[1]=-(106+38./60.+15.4/3600.) , (34+56./60.+48.7/3600)
+
 r1Point=pyProjPoint()
-r1Point.setUserCoords(v)
+r1Point.setUserCoords([-(106+38./60.+15.4/3600.) , (34+56./60.+48.7/3600)])
 r1=pyProjReport("r1",True,r1Point,123.866,1.0)
 r1p=r1.getReceiverLocation()
 
-v[0],v[1]=-(106+18./60.+17.0/3600.) , (34+58./60.+12.5/3600)
 r2Point=pyProjPoint()
-r2Point.setUserCoords(v)
+r2Point.setUserCoords([-(106+18./60.+17.0/3600.) , (34+58./60.+12.5/3600)])
 r2=pyProjReport("r2",True,r2Point,-104.265,3.0)
 r2p=r2.getReceiverLocation()
 
-v[0],v[1]=-(106+28./60.+53.8/3600.) , (35+10./60.+33.9/3600)
 r3Point=pyProjPoint()
-r3Point.setUserCoords(v)
+r3Point.setUserCoords([-(106+28./60.+53.8/3600.) , (35+10./60.+33.9/3600)])
 r3=pyProjReport("r3",True,r3Point,-160.354,2.0)
 r3p=r3.getReceiverLocation()
 
