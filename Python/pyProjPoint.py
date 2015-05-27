@@ -44,16 +44,18 @@ class pyProjPoint(DFLib.Point):
    The "pyProjPoint" class derives from the DFLib::Abstract::Point interface,
    and implements its interface methods
    """
-   def __init__(self):
+   def __init__(self,*args):
       """
       pyProjPoint constructor
       """
       super(pyProjPoint,self).__init__()
       self.myXY=DFLib.vectord(2)
-      self.myXY[0]=0
-      self.myXY[1]=0
       self.myMercProj=Proj('+proj=merc +datum=WGS84 +lat_ts=0')   
       self.myUserCoords=DFLib.vectord(2)
+      if (len(args)!=0):
+         self.setUserCoords(args[0])
+      else:
+         self.setXY((0,0))
    def setXY(self,aPosition):
       """
       given a vector (or list) set the location of this point in X-Y coordinates.
@@ -81,8 +83,7 @@ class pyProjPoint(DFLib.Point):
       can be used to generate new objects as needed without knowing what
       type they are.
       """
-      foo=pyProjPoint().__disown__()
-      foo.setXY(self.getXY())
+      foo=pyProjPoint(self.getUserCoords()).__disown__()
       return foo
    def getUserCoords(self):
       """
@@ -97,9 +98,7 @@ class pyProjPoint(DFLib.Point):
       Set the position of this point using a vector or list of coordinates in
       the user coordinate system.
       """
-      tempVect=DFLib.vectord(2)
-      tempVect[0],tempVect[1]=self.myMercProj(uPosition[0],uPosition[1])
-      self.setXY(tempVect)
+      self.setXY(self.myMercProj(uPosition[0],uPosition[1]))
 
 class pyProjReport(DFLib.Report):
    """
@@ -110,8 +109,7 @@ class pyProjReport(DFLib.Report):
       pyProjReport constructor
       """
       super(pyProjReport,self).__init__(name,valid)
-      self.myPoint=pyProjPoint()
-      self.myPoint.setXY(Point.getXY())
+      self.myPoint=pyProjPoint(Point.getUserCoords())
       self.setBearing(bearing)
       self.setSigma(sigma)
    def setReceiverLocation(self,theLocation):
@@ -171,18 +169,15 @@ class pyProjReport(DFLib.Report):
 #
 
 
-r1Point=pyProjPoint()
-r1Point.setUserCoords([-(106+38./60.+15.4/3600.) , (34+56./60.+48.7/3600)])
+r1Point=pyProjPoint([-(106+38./60.+15.4/3600.) , (34+56./60.+48.7/3600)])
 r1=pyProjReport("r1",True,r1Point,123.866,1.0)
 r1p=r1.getReceiverLocation()
 
-r2Point=pyProjPoint()
-r2Point.setUserCoords([-(106+18./60.+17.0/3600.) , (34+58./60.+12.5/3600)])
+r2Point=pyProjPoint([-(106+18./60.+17.0/3600.) , (34+58./60.+12.5/3600)])
 r2=pyProjReport("r2",True,r2Point,-104.265,3.0)
 r2p=r2.getReceiverLocation()
 
-r3Point=pyProjPoint()
-r3Point.setUserCoords([-(106+28./60.+53.8/3600.) , (35+10./60.+33.9/3600)])
+r3Point=pyProjPoint([-(106+28./60.+53.8/3600.) , (35+10./60.+33.9/3600)])
 r3=pyProjReport("r3",True,r3Point,-160.354,2.0)
 r3p=r3.getReceiverLocation()
 
