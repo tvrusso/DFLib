@@ -173,16 +173,13 @@ class arcpyReport(DFLib.Report):
 
 theSR=arcpy.SpatialReference("WGS 1984")
 
-r1Point=arcpyPoint(theSR,[-(106+38./60.+15.4/3600.) , (34+56./60.+48.7/3600)])
-r1=arcpyReport("r1",True,r1Point,123.866,1.0)
+r1=arcpyReport("r1",True,arcpyPoint(theSR,[-(106+38./60.+15.4/3600.) , (34+56./60.+48.7/3600)]),123.866,1.0)
 r1p=r1.getReceiverLocation()
 
-r2Point=arcpyPoint(theSR,[-(106+18./60.+17.0/3600.) , (34+58./60.+12.5/3600)])
-r2=arcpyReport("r2",True,r2Point,-104.265,3.0)
+r2=arcpyReport("r2",True,arcpyPoint(theSR,[-(106+18./60.+17.0/3600.) , (34+58./60.+12.5/3600)]),-104.265,3.0)
 r2p=r2.getReceiverLocation()
 
-r3Point=arcpyPoint(theSR,[-(106+28./60.+53.8/3600.) , (35+10./60.+33.9/3600)])
-r3=arcpyReport("r3",True,r3Point,-160.354,2.0)
+r3=arcpyReport("r3",True,arcpyPoint(theSR,[-(106+28./60.+53.8/3600.) , (35+10./60.+33.9/3600)]),-160.354,2.0)
 r3p=r3.getReceiverLocation()
 
 print 'r1: (x,y)=(%f,%f)  bearing=%f sigma=%f'%(r1p[0],r1p[1],r1.getBearing(),r1.getSigma())
