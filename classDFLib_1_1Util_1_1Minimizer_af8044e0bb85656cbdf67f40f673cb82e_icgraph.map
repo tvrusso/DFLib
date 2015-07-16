@@ -1,10 +1,8 @@
 <map id="DFLib::Util::Minimizer::lineSearch" name="DFLib::Util::Minimizer::lineSearch">
-<area shape="rect" id="node2" href="$classDFLib_1_1Util_1_1Minimizer.html#a345f790e649eaf0092e5590e3e21acd7" title="minimize function of vector value by method of conjugate gradients " alt="" coords="208,127,412,168"/>
-<area shape="rect" id="node3" href="$classDFLib_1_1ReportCollection.html#aa91199f4a9e034857a043bc5aee0d34a" title="more aggressive attempt to get at an ML fix " alt="" coords="460,61,652,103"/>
-<area shape="rect" id="node6" href="$classDFLib_1_1ReportCollection.html#adffd170257322f58734acb369bb720a4" title="Computes Maximum Likelihood solution of DF problem. " alt="" coords="472,127,640,168"/>
-<area shape="rect" id="node9" href="$nonoise_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="529,193,583,219"/>
-<area shape="rect" id="node4" href="$classDFLib_1_1ReportCollection.html#a26fbfcd2754a1d10d0247ba08605107c" title="DFLib.ReportCollection.aggressive\lComputeMLFix" alt="" coords="700,5,937,47"/>
-<area shape="rect" id="node5" href="$testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="791,71,846,98"/>
-<area shape="rect" id="node7" href="$classDFLib_1_1ReportCollection.html#afdf9714357f8884360caaff355ab2799" title="DFLib.ReportCollection.compute\lMLFix" alt="" coords="706,124,931,165"/>
-<area shape="rect" id="node8" href="$SimpleDF_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="791,190,846,217"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1Util_1_1Minimizer.html#a345f790e649eaf0092e5590e3e21acd7" title="minimize function of vector value by method of conjugate gradients " alt="" coords="208,71,412,112"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1ReportCollection.html#aa91199f4a9e034857a043bc5aee0d34a" title="more aggressive attempt to get at an ML fix " alt="" coords="460,5,652,47"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1ReportCollection.html#adffd170257322f58734acb369bb720a4" title="Computes Maximum Likelihood solution of DF problem. " alt="" coords="472,71,640,112"/>
+<area shape="rect" id="node7" href="$nonoise_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="529,137,583,163"/>
+<area shape="rect" id="node4" href="$testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="700,13,755,39"/>
+<area shape="rect" id="node6" href="$SimpleDF_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="700,78,755,105"/>
 </map>

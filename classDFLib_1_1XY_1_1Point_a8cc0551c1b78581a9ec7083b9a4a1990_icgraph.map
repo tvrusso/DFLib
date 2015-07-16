@@ -1,5 +1,6 @@
 <map id="DFLib::XY::Point::getXY" name="DFLib::XY::Point::getXY">
 <area shape="rect" id="node2" href="$classpyPointTest_1_1pyPoint.html#a67c0faef6eaad7913a0c4f6a2e4bf60b" title="pyPointTest.pyPoint.Clone" alt="" coords="223,5,409,32"/>
 <area shape="rect" id="node3" href="$classpyPointTest_1_1pyPoint.html#a9640e9b48e80a62a6dda8084af41a123" title="pyPointTest.pyPoint.getUser\lCoords" alt="" coords="216,57,416,98"/>
-<area shape="rect" id="node4" href="$testlsDFfix_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="289,123,343,149"/>
+<area shape="rect" id="node5" href="$testlsDFfix_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="289,123,343,149"/>
+<area shape="rect" id="node4" href="$classpyProjPoint_1_1pyProjPoint.html#aa3d71ea62ccd6c9cffc3efaa0b99b280" title="pyProjPoint.pyProjPoint.\lClone" alt="" coords="464,57,636,98"/>
 </map>

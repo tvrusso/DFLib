@@ -1,7 +1,0 @@
-<map id="SWIG_AsVal_int" name="SWIG_AsVal_int">
-<area shape="rect" id="node2" href="$classSwigDirector__ReportCollection.html#a71188a8172fdf3252005571786b981a1" title="Add a DF report to the collection. " alt="" coords="173,5,385,47"/>
-<area shape="rect" id="node3" href="$DFLib__wrap_8cpp.html#a9cf5be9079feaa14b6215f4c24b77243" title="_wrap_ReportCollection\l_toggleValidity" alt="" coords="195,71,364,112"/>
-<area shape="rect" id="node4" href="$DFLib__wrap_8cpp.html#a598dbdfdf79dce2f841c30e2367f90ff" title="_wrap_ReportCollection\l_isValid" alt="" coords="195,136,364,177"/>
-<area shape="rect" id="node5" href="$DFLib__wrap_8cpp.html#a2d105715fb829bc72488b63c30def752" title="_wrap_ReportCollection\l_getReport" alt="" coords="195,201,364,243"/>
-<area shape="rect" id="node6" href="$DFLib__wrap_8cpp.html#acb0b06122389ba0fa5f884eb708d6544" title="_wrap_ReportCollection\l_getReceiverLocationXY" alt="" coords="193,267,365,308"/>
-</map>

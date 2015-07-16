@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classDFLib_1_1Util_1_1gaussian__random__generator.html" title="DFLib::Util::gaussian\l_random_generator" alt="" coords="5,5,156,47"/>
+<area shape="rect" id="node1" href="$classDFLib_1_1Abstract_1_1Group.html" title="DFLib::Abstract::Group" alt="" coords="5,5,172,32"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1ReportCollection.html" title="DFLib::ReportCollection" alt="" coords="220,5,388,32"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1ProjReportCollection.html" title="DFLib::ProjReportCollection" alt="" coords="436,5,628,32"/>
 </map>

@@ -1,6 +1,0 @@
-<map id="_wrap_Report_isValid" name="_wrap_Report_isValid">
-<area shape="rect" id="node2" href="$classSwig_1_1Director.html#a3be0f6ca820c2022375d82f3c624ee4b" title="Swig::Director::swig\l_get_self" alt="" coords="219,5,365,47"/>
-<area shape="rect" id="node3" href="$classDFLib_1_1Abstract_1_1Report.html#a99ae1dc6aebd92fffbef902e5b4cbabe" title="check this report&#39;s validity " alt="" coords="208,71,376,112"/>
-<area shape="rect" id="node4" href="$DFLib__wrap_8cpp.html#a56d888f17c1ad0d5bac815dfe07061e6" title="SWIG_From_bool" alt="" coords="228,137,356,163"/>
-<area shape="rect" id="node5" href="$DFLib__wrap_8cpp.html#a9e8dba7cf79abba80fcd013e115ff3ce" title="PyBool_FromLong" alt="" coords="424,137,559,163"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="swig_varlink_type" name="swig_varlink_type">
-<area shape="rect" id="node2" href="$DFLib__wrap_8cpp.html#ad2b4927c9caa8562938bb95fa2323d5b" title="swig_varlink_dealloc" alt="" coords="185,5,335,32"/>
-<area shape="rect" id="node3" href="$DFLib__wrap_8cpp.html#aab6c4c0c3d6f7cb066d1bf494ee909c1" title="swig_varlink_print" alt="" coords="193,107,327,133"/>
-<area shape="rect" id="node4" href="$DFLib__wrap_8cpp.html#a1499f2083c0786d2e54042e92ac3ef6a" title="swig_varlink_str" alt="" coords="413,56,535,83"/>
-<area shape="rect" id="node6" href="$DFLib__wrap_8cpp.html#a25b6ac5e60ad191347e0c14deccc64c7" title="swig_varlink_getattr" alt="" coords="186,157,334,184"/>
-<area shape="rect" id="node7" href="$DFLib__wrap_8cpp.html#a2ec84ff72b3bb939d9930127720a1104" title="swig_varlink_setattr" alt="" coords="187,208,333,235"/>
-<area shape="rect" id="node8" href="$DFLib__wrap_8cpp.html#a8f7bb58cf5697eb4ad02dddc21d3484b" title="swig_varlink_repr" alt="" coords="195,259,325,285"/>
-<area shape="rect" id="node5" href="$DFLib__wrap_8cpp.html#a933a38459f11308f715f19c1c0269682" title="SWIG_Python_str_AsChar" alt="" coords="383,107,565,133"/>
-</map>

@@ -1,4 +1,5 @@
 <map id="DFLib::Proj::Point::getUserCoords" name="DFLib::Proj::Point::getUserCoords">
-<area shape="rect" id="node2" href="$ProjUnitTests_8cpp.html#a5ea466849f21e6c2be4ef9b2eb8868d3" title="main" alt="" coords="241,5,296,32"/>
-<area shape="rect" id="node3" href="$classpyProjPoint_1_1pyProjPoint.html#aa3d71ea62ccd6c9cffc3efaa0b99b280" title="pyProjPoint.pyProjPoint.\lClone" alt="" coords="183,57,355,98"/>
+<area shape="rect" id="node2" href="$ProjUnitTests_8cpp.html#a5ea466849f21e6c2be4ef9b2eb8868d3" title="main" alt="" coords="255,5,310,32"/>
+<area shape="rect" id="node3" href="$classarcpyPoint_1_1arcpyPoint.html#a63d80f4b6e4d4341c082db19cfb9e03a" title="arcpyPoint.arcpyPoint.Clone" alt="" coords="183,56,383,83"/>
+<area shape="rect" id="node4" href="$classpyProjPoint_1_1pyProjPoint.html#aa3d71ea62ccd6c9cffc3efaa0b99b280" title="pyProjPoint.pyProjPoint.\lClone" alt="" coords="197,107,369,149"/>
 </map>

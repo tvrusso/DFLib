@@ -1,5 +1,6 @@
 <map id="DFLib::ReportCollection" name="DFLib::ReportCollection">
-<area shape="rect" id="node2" href="$classDFLib_1_1Group.html" title="DFLib.Group" alt="" coords="333,5,433,32"/>
-<area shape="rect" id="node3" href="$classDFLib_1_1__object.html" title="DFLib._object" alt="" coords="33,5,140,32"/>
-<area shape="rect" id="node4" href="$classDFLib_1_1Abstract_1_1Group.html" title="DFLib::Abstract::Group" alt="" coords="299,56,466,83"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Group.html" title="DFLib::Abstract::Group" alt="" coords="703,5,870,32"/>
+<area shape="rect" id="node6" href="$classDFLib_1_1Abstract_1_1Report.html" title="Abstract interface for DFReport. This is the base class for DF report classes. " alt="" coords="419,207,587,233"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="192,207,279,233"/>
+<area shape="rect" id="node8" title="STL class. " alt="" coords="5,199,143,241"/>
 </map>

@@ -1,17 +1,13 @@
 <map id="DFLib::Abstract::Point::getXY" name="DFLib::Abstract::Point::getXY">
-<area shape="rect" id="node2" href="$classDFLib_1_1ReportCollection.html#aa91199f4a9e034857a043bc5aee0d34a" title="more aggressive attempt to get at an ML fix " alt="" coords="219,57,411,99"/>
-<area shape="rect" id="node5" href="$classDFLib_1_1ReportCollection.html#adffd170257322f58734acb369bb720a4" title="Computes Maximum Likelihood solution of DF problem. " alt="" coords="231,253,399,295"/>
-<area shape="rect" id="node8" href="$classDFLib_1_1ReportCollection.html#a254385b14ca3a2708123f2fce980cc3a" title="Computes Stansfield estimate of Maximum Likelihood solution of DF problem. " alt="" coords="231,123,399,164"/>
-<area shape="rect" id="node10" href="$classDFLib_1_1ReportCollection.html#a451e1a9224dcd059c521ed445f367d62" title="compute Cramer&#45;Rao bounding ellipse parameters " alt="" coords="212,188,419,229"/>
-<area shape="rect" id="node12" href="$classDFLib_1_1ReportCollection.html#a4f37e88da4347af97dfdc2f7ac63f6f1" title="Computes least squares solution of DF problem. " alt="" coords="220,319,411,360"/>
-<area shape="rect" id="node15" href="$classpyPointTest_1_1pyPoint.html#a67c0faef6eaad7913a0c4f6a2e4bf60b" title="pyPointTest.pyPoint.Clone" alt="" coords="223,385,408,411"/>
-<area shape="rect" id="node16" href="$classpyPointTest_1_1pyPoint.html#a9640e9b48e80a62a6dda8084af41a123" title="pyPointTest.pyPoint.getUser\lCoords" alt="" coords="215,436,415,477"/>
-<area shape="rect" id="node3" href="$classDFLib_1_1ReportCollection.html#a26fbfcd2754a1d10d0247ba08605107c" title="DFLib.ReportCollection.aggressive\lComputeMLFix" alt="" coords="467,5,704,47"/>
-<area shape="rect" id="node4" href="$testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="558,71,613,98"/>
-<area shape="rect" id="node6" href="$classDFLib_1_1ReportCollection.html#afdf9714357f8884360caaff355ab2799" title="DFLib.ReportCollection.compute\lMLFix" alt="" coords="473,253,698,295"/>
-<area shape="rect" id="node7" href="$SimpleDF_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="558,319,613,346"/>
-<area shape="rect" id="node9" href="$classDFLib_1_1ReportCollection.html#ad69d8cc7639434bb6cab2a39f1e5fd65" title="DFLib.ReportCollection.compute\lStansfieldFix" alt="" coords="473,123,698,164"/>
-<area shape="rect" id="node11" href="$classDFLib_1_1ReportCollection.html#a025af29861b321eda8bc64099425ae63" title="DFLib.ReportCollection.compute\lCramerRaoBounds" alt="" coords="473,188,698,229"/>
-<area shape="rect" id="node13" href="$nonoise_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="558,370,613,397"/>
-<area shape="rect" id="node14" href="$classDFLib_1_1ReportCollection.html#ab9a392794a3e3274cf7c3d21020a18cb" title="DFLib.ReportCollection.compute\lLeastSquaresFix" alt="" coords="473,421,698,463"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1ReportCollection.html#aa91199f4a9e034857a043bc5aee0d34a" title="more aggressive attempt to get at an ML fix " alt="" coords="219,5,411,47"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1ReportCollection.html#adffd170257322f58734acb369bb720a4" title="Computes Maximum Likelihood solution of DF problem. " alt="" coords="231,201,399,243"/>
+<area shape="rect" id="node6" href="$classDFLib_1_1ReportCollection.html#a254385b14ca3a2708123f2fce980cc3a" title="Computes Stansfield estimate of Maximum Likelihood solution of DF problem. " alt="" coords="231,71,399,112"/>
+<area shape="rect" id="node7" href="$classDFLib_1_1ReportCollection.html#a451e1a9224dcd059c521ed445f367d62" title="compute Cramer&#45;Rao bounding ellipse parameters " alt="" coords="212,136,419,177"/>
+<area shape="rect" id="node8" href="$classDFLib_1_1ReportCollection.html#a4f37e88da4347af97dfdc2f7ac63f6f1" title="Computes least squares solution of DF problem. " alt="" coords="220,267,411,308"/>
+<area shape="rect" id="node10" href="$classpyPointTest_1_1pyPoint.html#a67c0faef6eaad7913a0c4f6a2e4bf60b" title="pyPointTest.pyPoint.Clone" alt="" coords="223,333,408,359"/>
+<area shape="rect" id="node11" href="$classpyPointTest_1_1pyPoint.html#a9640e9b48e80a62a6dda8084af41a123" title="pyPointTest.pyPoint.getUser\lCoords" alt="" coords="215,384,415,425"/>
+<area shape="rect" id="node3" href="$testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="525,78,580,105"/>
+<area shape="rect" id="node5" href="$SimpleDF_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="525,209,580,235"/>
+<area shape="rect" id="node9" href="$nonoise_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="525,274,580,301"/>
+<area shape="rect" id="node12" href="$classpyProjPoint_1_1pyProjPoint.html#aa3d71ea62ccd6c9cffc3efaa0b99b280" title="pyProjPoint.pyProjPoint.\lClone" alt="" coords="467,384,639,425"/>
 </map>

@@ -1,28 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classDFLib_1_1__object.html" title="DFLib._object" alt="" coords="5,556,112,583"/>
-<area shape="rect" id="node2" href="$classDFLib_1_1Group.html" title="DFLib.Group" alt="" coords="194,360,294,387"/>
-<area shape="rect" id="node6" href="$classDFLib_1_1Point.html" title="DFLib.Point" alt="" coords="197,664,291,691"/>
-<area shape="rect" id="node9" href="$classDFLib_1_1Report.html" title="DFLib.Report" alt="" coords="193,607,295,633"/>
-<area shape="rect" id="node12" href="$classDFLib_1_1SwigPyIterator.html" title="DFLib.SwigPyIterator" alt="" coords="168,505,320,532"/>
-<area shape="rect" id="node13" href="$classDFLib_1_1vectord.html" title="DFLib.vectord" alt="" coords="189,556,299,583"/>
-<area shape="rect" id="node3" href="$classDFLib_1_1ReportCollection.html" title="DFLib::ReportCollection" alt="" coords="381,309,549,336"/>
-<area shape="rect" id="node4" href="$classDFLib_1_1ProjReportCollection.html" title="DFLib::ProjReportCollection" alt="" coords="611,309,803,336"/>
-<area shape="rect" id="node5" href="$classSwigDirector__ReportCollection.html" title="SwigDirector_ReportCollection" alt="" coords="601,233,813,260"/>
-<area shape="rect" id="node7" href="$classpyPointTest_1_1pyPoint.html" title="pyPointTest.pyPoint" alt="" coords="392,715,537,741"/>
-<area shape="rect" id="node8" href="$classpyProjPoint_1_1pyProjPoint.html" title="pyProjPoint.pyProjPoint" alt="" coords="381,664,549,691"/>
-<area shape="rect" id="node10" href="$classpyPointTest_1_1pyReport.html" title="pyPointTest.pyReport" alt="" coords="387,563,542,589"/>
-<area shape="rect" id="node11" href="$classpyProjPoint_1_1pyProjReport.html" title="pyProjPoint.pyProjReport" alt="" coords="376,613,553,640"/>
-<area shape="rect" id="node14" href="$classSwig_1_1Director.html" title="Swig::Director" alt="" coords="189,233,299,260"/>
-<area shape="rect" id="node15" href="$classSwigDirector__Group.html" title="SwigDirector_Group" alt="" coords="391,259,539,285"/>
-<area shape="rect" id="node16" href="$classSwigDirector__Point.html" title="SwigDirector_Point" alt="" coords="394,157,535,184"/>
-<area shape="rect" id="node17" href="$classSwigDirector__Report.html" title="SwigDirector_Report" alt="" coords="389,360,540,387"/>
-<area shape="rect" id="node18" href="$classDFLib_1_1Abstract_1_1Group.html" title="DFLib::Abstract::Group" alt="" coords="161,297,327,324"/>
-<area shape="rect" id="node19" href="$classDFLib_1_1Abstract_1_1Point.html" title="Abstract base class for generic &quot;point&quot; objects. " alt="" coords="165,81,323,108"/>
-<area shape="rect" id="node20" href="$classDFLib_1_1LatLon_1_1Point.html" title="DFLib::LatLon::Point" alt="" coords="391,5,539,32"/>
-<area shape="rect" id="node21" href="$classDFLib_1_1Proj_1_1Point.html" title="DFLib::Proj::Point" alt="" coords="400,56,529,83"/>
-<area shape="rect" id="node22" href="$classDFLib_1_1XY_1_1Point.html" title="DFLib::XY::Point" alt="" coords="405,107,524,133"/>
-<area shape="rect" id="node23" href="$classDFLib_1_1Abstract_1_1Report.html" title="Abstract interface for DFReport. This is the base class for DF report classes. " alt="" coords="160,429,328,456"/>
-<area shape="rect" id="node24" href="$classDFLib_1_1LatLon_1_1Report.html" title="DF report in Lat/Lon coordinates. " alt="" coords="386,411,543,437"/>
-<area shape="rect" id="node25" href="$classDFLib_1_1Proj_1_1Report.html" title="DF report in user&#45;specified coordinates. " alt="" coords="395,461,534,488"/>
-<area shape="rect" id="node26" href="$classDFLib_1_1XY_1_1Report.html" title="DF report in XY coordinates This class is meant for simplistic DF codes that work in X/Y coordinates ..." alt="" coords="401,512,528,539"/>
+<area shape="rect" id="node2" href="$classarcpyPoint_1_1arcpyPoint.html" title="arcpyPoint.arcpyPoint" alt="" coords="112,5,272,32"/>
+<area shape="rect" id="node3" href="$classpyPointTest_1_1pyPoint.html" title="pyPointTest.pyPoint" alt="" coords="119,56,265,83"/>
+<area shape="rect" id="node4" href="$classpyProjPoint_1_1pyProjPoint.html" title="pyProjPoint.pyProjPoint" alt="" coords="108,107,276,133"/>
 </map>

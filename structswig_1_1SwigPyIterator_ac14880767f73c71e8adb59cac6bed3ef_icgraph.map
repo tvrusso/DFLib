@@ -1,7 +1,0 @@
-<map id="swig::SwigPyIterator::advance" name="swig::SwigPyIterator::advance">
-<area shape="rect" id="node2" href="$structswig_1_1SwigPyIterator.html#a81afed8a7dfb6c44a8d31069e44aabc2" title="swig::SwigPyIterator\l::operator+=" alt="" coords="206,5,354,47"/>
-<area shape="rect" id="node3" href="$structswig_1_1SwigPyIterator.html#a1de70234523e1e2512586c06ad697f21" title="swig::SwigPyIterator\l::operator&#45;=" alt="" coords="206,71,354,112"/>
-<area shape="rect" id="node4" href="$structswig_1_1SwigPyIterator.html#afb94d5e5c795d63fc54a3831789e2997" title="swig::SwigPyIterator\l::operator+" alt="" coords="206,136,354,177"/>
-<area shape="rect" id="node5" href="$structswig_1_1SwigPyIterator.html#af83adc5dcc576f1224a03202443aa3f7" title="swig::SwigPyIterator\l::operator&#45;" alt="" coords="206,201,354,243"/>
-<area shape="rect" id="node6" href="$DFLib__wrap_8cpp.html#afe407e84a961efb5262f238036b739a9" title="_wrap_SwigPyIterator\l_advance" alt="" coords="201,267,359,308"/>
-</map>

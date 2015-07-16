@@ -1,6 +1,7 @@
 <map id="DFLib::Abstract::Report::getReportBearingRadians" name="DFLib::Abstract::Report::getReportBearingRadians">
 <area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Report.html#a983bcbd2bc6fa9bab2b1081d759ca2b2" title="compute point at which the line from this report intersects that from another " alt="" coords="261,5,429,47"/>
 <area shape="rect" id="node3" href="$nonoise_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="318,71,373,98"/>
-<area shape="rect" id="node4" href="$classpyPointTest_1_1pyReport.html#a1e5e17a6ead843d27a0091e6b23c29f0" title="pyPointTest.pyReport.get\lBearing" alt="" coords="256,123,435,164"/>
-<area shape="rect" id="node5" href="$classpyProjPoint_1_1pyProjReport.html#ae629f5cb9047a9f12bd9aea9af10620e" title="pyProjPoint.pyProjReport.get\lBearing" alt="" coords="244,188,447,229"/>
+<area shape="rect" id="node4" href="$classarcpyPoint_1_1arcpyReport.html#afaf030f7f25a67c6e6e129b2a2e43bbd" title="arcpyPoint.arcpyReport.get\lBearing" alt="" coords="248,123,443,164"/>
+<area shape="rect" id="node5" href="$classpyPointTest_1_1pyReport.html#a1e5e17a6ead843d27a0091e6b23c29f0" title="pyPointTest.pyReport.get\lBearing" alt="" coords="256,188,435,229"/>
+<area shape="rect" id="node6" href="$classpyProjPoint_1_1pyProjReport.html#ae629f5cb9047a9f12bd9aea9af10620e" title="pyProjPoint.pyProjReport.get\lBearing" alt="" coords="244,253,447,295"/>
 </map>

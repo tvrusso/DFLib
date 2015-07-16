@@ -1,13 +1,11 @@
 <map id="DFLib::Abstract::Group::getFunctionValueAndGradient" name="DFLib::Abstract::Group::getFunctionValueAndGradient">
-<area shape="rect" id="node2" href="$classDFLib_1_1Util_1_1Minimizer.html#af4cb8dd8cd1ee7c40a27e4ecbc219917" title="DFLib::Util::Minimizer\l::simpleFandDeriv" alt="" coords="272,97,427,139"/>
-<area shape="rect" id="node5" href="$classDFLib_1_1Util_1_1Minimizer.html#a345f790e649eaf0092e5590e3e21acd7" title="minimize function of vector value by method of conjugate gradients " alt="" coords="880,127,1084,168"/>
-<area shape="rect" id="node3" href="$classDFLib_1_1Util_1_1Minimizer.html#a974666891284930ce15f2f1b80ed45c6" title="minimize by Brent&#39;s method with derivatives given a,b,c scalars that bracket the minimum in given dir..." alt="" coords="475,97,629,139"/>
-<area shape="rect" id="node4" href="$classDFLib_1_1Util_1_1Minimizer.html#af8044e0bb85656cbdf67f40f673cb82e" title="minimize function in given direction perform a line search along the given direction for the minimum ..." alt="" coords="677,97,832,139"/>
-<area shape="rect" id="node6" href="$classDFLib_1_1ReportCollection.html#aa91199f4a9e034857a043bc5aee0d34a" title="more aggressive attempt to get at an ML fix " alt="" coords="1132,61,1324,103"/>
-<area shape="rect" id="node9" href="$classDFLib_1_1ReportCollection.html#adffd170257322f58734acb369bb720a4" title="Computes Maximum Likelihood solution of DF problem. " alt="" coords="1144,127,1312,168"/>
-<area shape="rect" id="node12" href="$nonoise_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1201,193,1255,219"/>
-<area shape="rect" id="node7" href="$classDFLib_1_1ReportCollection.html#a26fbfcd2754a1d10d0247ba08605107c" title="DFLib.ReportCollection.aggressive\lComputeMLFix" alt="" coords="1372,5,1609,47"/>
-<area shape="rect" id="node8" href="$testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1463,71,1518,98"/>
-<area shape="rect" id="node10" href="$classDFLib_1_1ReportCollection.html#afdf9714357f8884360caaff355ab2799" title="DFLib.ReportCollection.compute\lMLFix" alt="" coords="1378,124,1603,165"/>
-<area shape="rect" id="node11" href="$SimpleDF_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1463,190,1518,217"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1Util_1_1Minimizer.html#af4cb8dd8cd1ee7c40a27e4ecbc219917" title="DFLib::Util::Minimizer\l::simpleFandDeriv" alt="" coords="272,41,427,83"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1Util_1_1Minimizer.html#a345f790e649eaf0092e5590e3e21acd7" title="minimize function of vector value by method of conjugate gradients " alt="" coords="880,71,1084,112"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1Util_1_1Minimizer.html#a974666891284930ce15f2f1b80ed45c6" title="minimize by Brent&#39;s method with derivatives given a,b,c scalars that bracket the minimum in given dir..." alt="" coords="475,41,629,83"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1Util_1_1Minimizer.html#af8044e0bb85656cbdf67f40f673cb82e" title="minimize function in given direction perform a line search along the given direction for the minimum ..." alt="" coords="677,41,832,83"/>
+<area shape="rect" id="node6" href="$classDFLib_1_1ReportCollection.html#aa91199f4a9e034857a043bc5aee0d34a" title="more aggressive attempt to get at an ML fix " alt="" coords="1132,5,1324,47"/>
+<area shape="rect" id="node8" href="$classDFLib_1_1ReportCollection.html#adffd170257322f58734acb369bb720a4" title="Computes Maximum Likelihood solution of DF problem. " alt="" coords="1144,71,1312,112"/>
+<area shape="rect" id="node10" href="$nonoise_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1201,137,1255,163"/>
+<area shape="rect" id="node7" href="$testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1372,13,1427,39"/>
+<area shape="rect" id="node9" href="$SimpleDF_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1372,78,1427,105"/>
 </map>

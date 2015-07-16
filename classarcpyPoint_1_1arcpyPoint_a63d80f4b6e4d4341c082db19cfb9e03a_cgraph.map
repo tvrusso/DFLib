@@ -1,0 +1,8 @@
+<map id="arcpyPoint.arcpyPoint.Clone" name="arcpyPoint.arcpyPoint.Clone">
+<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Point.html#ad07bb72df16915c4ef7799d07cd2c898" title="Get coordinates in the user&#39;s coordinate system. " alt="" coords="267,5,425,47"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1LatLon_1_1Point.html#a752ef4cb53b608201efd98e744bdfb7e" title="get user position " alt="" coords="272,71,420,112"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1Proj_1_1Point.html#ad1d0b8c5594fee59452dfc804a4c8619" title="get user position " alt="" coords="281,136,411,177"/>
+<area shape="rect" id="node6" href="$classDFLib_1_1XY_1_1Point.html#ac887b74893350166fb382de79edd4c33" title="get User Coords (wrapper as required by abstract interface) " alt="" coords="257,201,435,243"/>
+<area shape="rect" id="node7" href="$classarcpyPoint_1_1arcpyPoint.html#aadd7386c8183c4e39cd935fa0a033b40" title="arcpyPoint.arcpyPoint.get\lUserCoords" alt="" coords="253,267,439,308"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1Proj_1_1Point.html#a50d73db1c4ff9d4037e4cc3ce276b433" title="DFLib::Proj::Point\l::mercToUser" alt="" coords="487,136,616,177"/>
+</map>

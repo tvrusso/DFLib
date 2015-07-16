@@ -1,3 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structPyHeapTypeObject.html" title="PyHeapTypeObject" alt="" coords="5,5,145,32"/>
+<area shape="rect" id="node1" href="$classDFLib_1_1Abstract_1_1Report.html" title="Abstract interface for DFReport. This is the base class for DF report classes. " alt="" coords="5,56,173,83"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1LatLon_1_1Report.html" title="DF report in Lat/Lon coordinates. " alt="" coords="221,5,379,32"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1Proj_1_1Report.html" title="DF report in user&#45;specified coordinates. " alt="" coords="231,56,369,83"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1XY_1_1Report.html" title="DF report in XY coordinates This class is meant for simplistic DF codes that work in X/Y coordinates ..." alt="" coords="237,107,363,133"/>
 </map>

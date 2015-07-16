@@ -1,9 +1,10 @@
 <map id="pyPointTest.pyPoint.getUserCoords" name="pyPointTest.pyPoint.getUserCoords">
-<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Point.html#aa7837d850b5ea3bcd35da21b0dbe9669" title="Get X&#45;Y coordinates of the point. " alt="" coords="255,5,414,47"/>
-<area shape="rect" id="node3" href="$classDFLib_1_1LatLon_1_1Point.html#a7b20fb68764d7328a4ff3300e80ad21b" title="get mercator projection (XY) position " alt="" coords="261,71,409,112"/>
-<area shape="rect" id="node5" href="$classDFLib_1_1Proj_1_1Point.html#a624b4b542d3f68be5b99205ffdd621dc" title="get mercator projection (XY) position " alt="" coords="270,136,399,177"/>
-<area shape="rect" id="node7" href="$classDFLib_1_1XY_1_1Point.html#a8cc0551c1b78581a9ec7083b9a4a1990" title="Set X&#45;Y position. " alt="" coords="253,202,416,229"/>
-<area shape="rect" id="node8" href="$classDFLib_1_1Point.html#aacc17078f57a15af04f5e47a1d48c654" title="DFLib.Point.getXY" alt="" coords="268,253,401,279"/>
-<area shape="rect" id="node4" href="$classDFLib_1_1LatLon_1_1Point.html#aff611575c4201216580c0324b76fd199" title="DFLib::LatLon::Point\l::llToMerc" alt="" coords="464,71,612,112"/>
-<area shape="rect" id="node6" href="$classDFLib_1_1Proj_1_1Point.html#a8a57c7fa0776c5e5cc077fcd87e3fd79" title="DFLib::Proj::Point\l::userToMerc" alt="" coords="473,136,603,177"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Point.html#aa7837d850b5ea3bcd35da21b0dbe9669" title="Get X&#45;Y coordinates of the point. " alt="" coords="274,5,433,47"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1LatLon_1_1Point.html#a7b20fb68764d7328a4ff3300e80ad21b" title="get mercator projection (XY) position " alt="" coords="279,71,427,112"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1Proj_1_1Point.html#a624b4b542d3f68be5b99205ffdd621dc" title="get mercator projection (XY) position " alt="" coords="289,136,418,177"/>
+<area shape="rect" id="node7" href="$classDFLib_1_1XY_1_1Point.html#a8cc0551c1b78581a9ec7083b9a4a1990" title="Set X&#45;Y position. " alt="" coords="272,202,435,229"/>
+<area shape="rect" id="node8" href="$classarcpyPoint_1_1arcpyPoint.html#a4848c54b15598cebd8234484ba30ea6e" title="arcpyPoint.arcpyPoint.getXY" alt="" coords="253,253,453,279"/>
+<area shape="rect" id="node9" href="$classpyPointTest_1_1pyPoint.html#a0493c42f8947f5058013338336864dd9" title="pyPointTest.pyPoint.getXY" alt="" coords="261,303,446,330"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1LatLon_1_1Point.html#aff611575c4201216580c0324b76fd199" title="DFLib::LatLon::Point\l::llToMerc" alt="" coords="501,71,649,112"/>
+<area shape="rect" id="node6" href="$classDFLib_1_1Proj_1_1Point.html#a8a57c7fa0776c5e5cc077fcd87e3fd79" title="DFLib::Proj::Point\l::userToMerc" alt="" coords="511,136,640,177"/>
 </map>

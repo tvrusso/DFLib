@@ -1,7 +1,9 @@
 <map id="pyProjPoint.pyProjReport.getSigma" name="pyProjPoint.pyProjReport.getSigma">
-<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Report.html#acc383ce24bd007e1d39948798f1f1810" title="DFLib::Abstract::Report\l::getBearingStandardDeviation\lRadians" alt="" coords="264,5,483,61"/>
-<area shape="rect" id="node3" href="$classDFLib_1_1LatLon_1_1Report.html#a5e7b3045c705721baa6f1315cc900767" title="DFLib::LatLon::Report\l::getBearingStandardDeviation\lRadians" alt="" coords="264,85,483,141"/>
-<area shape="rect" id="node4" href="$classDFLib_1_1Proj_1_1Report.html#a3fc6cd5eabc9d7245fc88b62c1fb68d2" title="DFLib::Proj::Report\l::getBearingStandardDeviation\lRadians" alt="" coords="264,165,483,221"/>
-<area shape="rect" id="node5" href="$classDFLib_1_1XY_1_1Report.html#a437074611e14fb36bf71c5ae30c855ae" title="DFLib::XY::Report::\lgetBearingStandardDeviation\lRadians" alt="" coords="268,245,479,301"/>
-<area shape="rect" id="node6" href="$classDFLib_1_1Report.html#a8ca9076984d97aad5f934309e269dbe9" title="DFLib.Report.getBearingStandard\lDeviationRadians" alt="" coords="256,325,491,366"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Report.html#acc383ce24bd007e1d39948798f1f1810" title="DFLib::Abstract::Report\l::getBearingStandardDeviation\lRadians" alt="" coords="267,5,485,61"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1LatLon_1_1Report.html#a5e7b3045c705721baa6f1315cc900767" title="DFLib::LatLon::Report\l::getBearingStandardDeviation\lRadians" alt="" coords="267,85,485,141"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1Proj_1_1Report.html#a3fc6cd5eabc9d7245fc88b62c1fb68d2" title="DFLib::Proj::Report\l::getBearingStandardDeviation\lRadians" alt="" coords="267,165,485,221"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1XY_1_1Report.html#a437074611e14fb36bf71c5ae30c855ae" title="DFLib::XY::Report::\lgetBearingStandardDeviation\lRadians" alt="" coords="271,245,481,301"/>
+<area shape="rect" id="node6" href="$classarcpyPoint_1_1arcpyReport.html#a1f0706c5a2240db4a9e7b4bd5e69bc34" title="arcpyPoint.arcpyReport.get\lBearingStandardDeviationRadians" alt="" coords="256,325,496,366"/>
+<area shape="rect" id="node7" href="$classpyPointTest_1_1pyReport.html#aceff0de6adb0384483cb65e57a776a27" title="pyPointTest.pyReport.get\lBearingStandardDeviationRadians" alt="" coords="256,390,496,431"/>
+<area shape="rect" id="node8" href="$classpyProjPoint_1_1pyProjReport.html#a317e4f7290956eacb896b6bf8dca4e66" title="pyProjPoint.pyProjReport.get\lBearingStandardDeviationRadians" alt="" coords="256,455,496,497"/>
 </map>

@@ -1,9 +1,0 @@
-<map id="SwigDirector_Point::Clone" name="SwigDirector_Point::Clone">
-<area shape="rect" id="node2" href="$classSwig_1_1Director.html#a3be0f6ca820c2022375d82f3c624ee4b" title="Swig::Director::swig\l_get_self" alt="" coords="222,5,367,47"/>
-<area shape="rect" id="node3" href="$classSwig_1_1DirectorException.html#ac611787f45da3da04b1a4a13ac2a3790" title="Swig::DirectorException\l::raise" alt="" coords="209,71,381,112"/>
-<area shape="rect" id="node6" href="$classSwig_1_1DirectorTypeMismatchException.html#a2304d4f86f65ca73c21785a20de35528" title="Swig::DirectorTypeMismatch\lException::raise" alt="" coords="195,136,395,177"/>
-<area shape="rect" id="node8" href="$classSwig_1_1Director.html#aa16e8e4ef8e6cbab7863535b28340815" title="Swig::Director::swig\l_acquire_ownership_obj" alt="" coords="208,201,381,243"/>
-<area shape="rect" id="node4" href="$classSwig_1_1DirectorException.html#a8c8b029182ef5c96c88830f5db9e9734" title="Swig::DirectorException\l::DirectorException" alt="" coords="473,68,645,109"/>
-<area shape="rect" id="node5" href="$classSwig_1_1DirectorException.html#aa43637932bf0b895ecdadf1c8c2c3cf8" title="Swig::DirectorException\l::what" alt="" coords="724,68,896,109"/>
-<area shape="rect" id="node7" href="$classSwig_1_1DirectorTypeMismatchException.html#a8e149796c051d0c425a4dd54370e74fe" title="Swig::DirectorTypeMismatch\lException::DirectorTypeMismatch\lException" alt="" coords="443,133,676,189"/>
-</map>
