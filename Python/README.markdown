@@ -41,6 +41,12 @@ There are two test codes in this directory, "pyPointTest.py" and
 you'll need to obtain elsewhere.  That module binds the proj.4
 cartographic projection library in Python.
 
+A third test code, arcpyPoint.py, is similar to pyProjPoint but uses 
+the arcpy module from ArcGIS to do the same work.  It is intended as
+a demonstration that DFLib can be used within ArcGIS to do DF computations.
+It is my intent to add a DFLib-based module to IGT4SAR someday, but 
+I caution you not to hold your breath waiting for it.
+
 pyPointTest.py implements the equivalent of the DFLib::XY:Point and
 DFLib::XY:Report classes in python, and then runs a single DF fix
 problem equivalent to a run of the DFLib test program "testlsDFfix"
