@@ -61,6 +61,9 @@ extern "C" {
 #include <cfloat>
 inline bool isnan(double v) {return _isnan(v)!=0;}
 inline bool isinf(double v) {return !_finite(v);}
+#else
+using std::isnan;
+using std::isinf;
 #endif
 
 #include "Util_Misc.hpp"
