@@ -8,8 +8,8 @@ AC_CONFIG_SRCDIR([DF_Abstract_Point.hpp])
 AC_CONFIG_HEADER([config.h])
 
 # Checks for programs.
-AC_PROG_CXX
-AC_PROG_CC
+AC_PROG_CXX([c++ CC g++ clang++  cxx])
+AC_PROG_CC([cc gcc clang])
 AC_PROG_RANLIB
 
 AC_DISABLE_SHARED

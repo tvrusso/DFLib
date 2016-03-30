@@ -15,4 +15,5 @@ config.h.in
 config.sub
 configure
 ltmain.sh
+missing
 *~
