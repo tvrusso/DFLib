@@ -84,13 +84,13 @@ r3.setBearing(-160.354)
 r3.setSigma(2.0)
 r3p=r3.getReceiverLocation()
 
-print 'r1: (x,y)=(%f,%f)  bearing=%f sigma=%f'%(r1p[0],r1p[1],r1.getBearing(),r1.getSigma())
-print 'r1: (x,y)=(%f,%f)  bearing(rad)=%f sigma(rad)=%f'%(r1p[0],r1p[1],r1.getReportBearingRadians(),r1.getBearingStandardDeviationRadians())
-print 'r2: (x,y)=(%f,%f)  bearing=%f sigma=%f'%(r2p[0],r2p[1],r2.getBearing(),r2.getSigma())
-print 'r2: (x,y)=(%f,%f)  bearing(rad)=%f sigma(rad)=%f'%(r2p[0],r2p[1],r2.getReportBearingRadians(),r2.getBearingStandardDeviationRadians())
+print('r1: (x,y)=(%f,%f)  bearing=%f sigma=%f'%(r1p[0],r1p[1],r1.getBearing(),r1.getSigma()))
+print('r1: (x,y)=(%f,%f)  bearing(rad)=%f sigma(rad)=%f'%(r1p[0],r1p[1],r1.getReportBearingRadians(),r1.getBearingStandardDeviationRadians()))
+print('r2: (x,y)=(%f,%f)  bearing=%f sigma=%f'%(r2p[0],r2p[1],r2.getBearing(),r2.getSigma()))
+print('r2: (x,y)=(%f,%f)  bearing(rad)=%f sigma(rad)=%f'%(r2p[0],r2p[1],r2.getReportBearingRadians(),r2.getBearingStandardDeviationRadians()))
 
-print 'r3: (x,y)=(%f,%f)  bearing=%f sigma=%f'%(r3p[0],r3p[1],r3.getBearing(),r3.getSigma())
-print 'r3: (x,y)=(%f,%f)  bearing(rad)=%f sigma(rad)=%f'%(r3p[0],r3p[1],r3.getReportBearingRadians(),r3.getBearingStandardDeviationRadians())
+print('r3: (x,y)=(%f,%f)  bearing=%f sigma=%f'%(r3p[0],r3p[1],r3.getBearing(),r3.getSigma()))
+print('r3: (x,y)=(%f,%f)  bearing(rad)=%f sigma(rad)=%f'%(r3p[0],r3p[1],r3.getReportBearingRadians(),r3.getBearingStandardDeviationRadians()))
 
 rc=DFLib.ReportCollection()
 rc.addReport(r1)
@@ -101,8 +101,8 @@ LSfix=pyPoint()
 rc.computeLeastSquaresFix(LSfix)
 
 LSv=LSfix.getXY()
-print 'ls fix: x=%f y=%f'%(LSv[0],LSv[1])
-print 'ls fix(LL): x=%f y=%f'%mercProj(LSv[0],LSv[1],inverse=True)
+print('ls fix: x=%f y=%f'%(LSv[0],LSv[1]))
+print('ls fix(LL): x=%f y=%f'%mercProj(LSv[0],LSv[1],inverse=True))
 
 FCAfix=pyPoint()
 FCA_stddev=DFLib.vectord(2)
@@ -110,14 +110,14 @@ rc.computeFixCutAverage(FCAfix,FCA_stddev)
    
 FCAv=FCAfix.getXY()
 
-print 'FCA fix: x=%f y=%f'%(FCAv[0],FCAv[1])
-print 'FCA fix(LL): x=%f y=%f'%mercProj(FCAv[0],FCAv[1],inverse=True)
-print 'FCA stddevs(merc) x=%f y=%f'%(FCA_stddev[0],FCA_stddev[1])
+print('FCA fix: x=%f y=%f'%(FCAv[0],FCAv[1]))
+print('FCA fix(LL): x=%f y=%f'%mercProj(FCAv[0],FCAv[1],inverse=True))
+print('FCA stddevs(merc) x=%f y=%f'%(FCA_stddev[0],FCA_stddev[1]))
 
 MLfix = LSfix.Clone()
 rc.aggressiveComputeMLFix(MLfix)
 
 
 MLv=MLfix.getXY()
-print 'ML fix: x=%f y=%f'%(MLv[0],MLv[1])
-print 'ML fix(LL): x=%f y=%f'%mercProj(MLv[0],MLv[1],inverse=True)
+print('ML fix: x=%f y=%f'%(MLv[0],MLv[1]))
+print('ML fix(LL): x=%f y=%f'%mercProj(MLv[0],MLv[1],inverse=True))
