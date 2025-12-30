@@ -17,33 +17,21 @@
 //-------------------------------------------------------------------------
 
 //-------------------------------------------------------------------------
-// Filename       : $RCSfile$
+// Filename       : DF_LatLon_Point.cpp
 //
 // Purpose        : Implement a DFLib::Abstract::Point interface such that
 //                  the "user" coordinate system is WGS84 lat/lon
-//                  "XY" coordinate system is a mercator projection on the 
+//                  "XY" coordinate system is a mercator projection on the
 //                  WGS84 ellipsoid.
 //
-// Special Notes  : 
-//
-// Creator        : 
-//
-// Creation Date  : 
-//
-// Revision Information:
-// ---------------------
-//
-// Revision Number: $Revision$
-//
-// Revision Date  : $Date$
-//
-// Current Owner  : $Author$
 //-------------------------------------------------------------------------
 #include "DF_LatLon_Point.hpp"
 #include "Util_Misc.hpp"
+#include "DFLib_Misc_Defs.h"
 
 #include <vector>
 #include <iostream>
+#include <cmath>
 
 namespace DFLib
 {
@@ -55,23 +43,29 @@ namespace DFLib
       : llDirty(true),
         mercDirty(false)
     {
-      char *latlon_argv[2]={"proj=latlong",
-                            "datum=WGS84"};
-      char *mercator_argv[3]={"proj=merc",
-                              "ellps=WGS84",
-                              "lat_ts=0"};
-      if (!(latlonProj = pj_init(2,latlon_argv)))
-      {
-        throw(Util::Exception("Failed to initialize lat/lon projection"));
-      }
+      std::string latlon_args="+proj=latlong +datum=WGS84";
+      std::string mercator_args="+proj=merc +ellps=WGS84 +lat_ts=0";
 
-      if (!(mercProj = pj_init(3,mercator_argv)))
+      char *latlon_argv= new char [latlon_args.size()+1];
+      strcpy(latlon_argv,latlon_args.c_str());
+      char *mercator_argv= new char [mercator_args.size()+1];
+      strcpy(mercator_argv,mercator_args.c_str());
+
+      convertPJ = proj_create_crs_to_crs(PJ_DEFAULT_CTX,
+                                                 latlon_argv,
+                                                 mercator_argv,
+                                                 0);
+
+      if (convertPJ == 0)
       {
-        throw(Util::Exception("Failed to initialize mercator projection"));
+        throw(Util::Exception("Failed to initialize crs_to_crs"));
       }
 
       theLatLon.resize(2,0.0);
       theMerc.resize(2,0.0);
+
+      delete [] latlon_argv;
+      delete [] mercator_argv;
     }
 
     Point::Point(const std::vector<double> &aPosition)
@@ -83,53 +77,77 @@ namespace DFLib
       // Create the proj.4 stuff.  This is highly inefficient, as it should
       // live in the base class, not each object.  Fix that.
 
-      char *latlon_argv[2]={"proj=latlong",
-                            "datum=WGS84"};
-      char *mercator_argv[3]={"proj=merc",
-                              "ellps=WGS84",
-                              "lat_ts=0"};
-      if (!(latlonProj = pj_init(2,latlon_argv)))
-      {
-        throw(Util::Exception("Failed to initialize lat/lon projection"));
-      }
 
-      if (!(mercProj = pj_init(3,mercator_argv)))
+      std::string latlon_args="+proj=latlong +datum=WGS84";
+      std::string mercator_args="+proj=merc +ellps=WGS84 +lat_ts=0";
+
+      char *latlon_argv= new char [latlon_args.size()+1];
+      strcpy(latlon_argv,latlon_args.c_str());
+      char *mercator_argv= new char [mercator_args.size()+1];
+      strcpy(mercator_argv,mercator_args.c_str());
+
+      convertPJ = proj_create_crs_to_crs(PJ_DEFAULT_CTX,
+                                                 latlon_argv,
+                                                 mercator_argv,
+                                                 0);
+
+      if (convertPJ == 0)
       {
-        throw(Util::Exception("Failed to initialize mercator projection"));
+        throw(Util::Exception("Failed to initialize crs_to_crs"));
       }
 
       // Don't bother trying to force the mercator --- we'll do that if
       // we query, because we're setting llDirty to true, just initialize
       // to junk.
       theMerc.resize(2,0.0);
+      delete [] latlon_argv;
+      delete [] mercator_argv;
     }
 
     Point::Point(const Point &right)
-      : latlonProj(right.latlonProj),
-        mercProj(right.mercProj)
     {
+      PJ_PROJ_INFO theProjDef = proj_pj_info(right.convertPJ);
+      convertPJ = proj_create(PJ_DEFAULT_CTX,theProjDef.definition);
+
+      if (convertPJ == 0)
+      {
+        throw(Util::Exception("Failed to initialize transform in copy constructor"));
+      }
+
       if (right.mercDirty)
       {
-        // Right's mercator's been changed without its LL being 
+        // Right's mercator's been changed without its LL being
         // updated, so copy its mercator values and say we're dirty.
         theMerc=right.theMerc;
         mercDirty=true;
-      } 
+        llDirty=false;
+      }
       else
       {
         // Just copy its LL and mark dirty.
         theLatLon=right.theLatLon;
         llDirty=true;
+        mercDirty=false;
       }
+    }
+
+    Point::~Point()
+    {
+      proj_destroy(convertPJ);
     }
 
     void Point::setXY(const std::vector<double> &aPosition)
     {
       theMerc = aPosition;
-      // Essential to set llDirty=false, otherwise getXY will try to 
+      // Essential to set llDirty=false, otherwise getXY will try to
       // convert ll and we'll be wrong.
-      mercDirty=true;  
+      mercDirty=true;
       llDirty=false;
+    }
+
+    bool Point::isUserProjRadians() const
+    {
+      return (proj_angular_input(convertPJ,PJ_FWD));
     }
 
     const std::vector<double> & Point::getXY()
@@ -158,7 +176,7 @@ namespace DFLib
       }
       return(theLatLon);
     }
-    
+
     Point * Point::Clone()
     {
       Point *retPoint;
@@ -168,39 +186,56 @@ namespace DFLib
 
     void Point::llToMerc()
     {
-      projUV data;
-      double z;
-      data.u = theLatLon[0]*DEG_TO_RAD;
-      data.v = theLatLon[1]*DEG_TO_RAD;
-      z=0;
-      if (pj_transform(latlonProj,mercProj,1,0,&(data.u),&(data.v),&z) != 0)
+      PJ_COORD data;
+      PJ_COORD newCoord;
+
+      if (isUserProjRadians())
+      {
+        data.lp.lam = theLatLon[0]*DEG_TO_RAD;
+        data.lp.phi = theLatLon[1]*DEG_TO_RAD;
+      }
+      else
+      {
+        data.xy.x = theLatLon[0];
+        data.xy.y = theLatLon[1];
+      }
+      newCoord=proj_trans(convertPJ,PJ_FWD,data);
+      if (std::isnan(newCoord.xy.x) || std::isnan(newCoord.xy.y))
       {
         throw(Util::Exception("Failure converting LL to Mercator"));
       }
       theMerc.resize(2);
-      theMerc[0]=data.u;
-      theMerc[1]=data.v;
+      theMerc[0]=newCoord.xy.x;
+      theMerc[1]=newCoord.xy.y;
 
       llDirty=false;
-    }      
+    }
 
 
     void Point::mercToLL()
     {
-      projUV data;
-      double z;
-      data.u = theMerc[0];
-      data.v = theMerc[1];
-      z=0;
-      if (pj_transform(mercProj,latlonProj,1,0,&(data.u),&(data.v),&z) != 0)
+      PJ_COORD data;
+      PJ_COORD newCoord;
+
+      data.xy.x = theMerc[0];
+      data.xy.y = theMerc[1];
+      newCoord=proj_trans(convertPJ,PJ_INV,data);
+      if (std::isnan(newCoord.lp.lam) || std::isnan(newCoord.lp.phi))
       {
         throw(Util::Exception("Failure converting Mercator to LL"));
       }
       theLatLon.resize(2);
-      theLatLon[0]=data.u*RAD_TO_DEG;
-      theLatLon[1]=data.v*RAD_TO_DEG;
-
+      if (isUserProjRadians())
+      {
+        theLatLon[0]=data.lp.lam*RAD_TO_DEG;
+        theLatLon[1]=data.lp.phi*RAD_TO_DEG;
+      }
+      else
+      {
+        theLatLon[0]=newCoord.xy.x;
+        theLatLon[1]=newCoord.xy.y;
+      }
       mercDirty=false;
-    }      
+    }
   }
 }

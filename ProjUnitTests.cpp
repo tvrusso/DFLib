@@ -43,10 +43,10 @@
 #include "Util_Misc.hpp"
 #include "DF_Proj_Point.hpp"
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 
-  double dtol=10*sqrt(numeric_limits<double>::epsilon());
+  double dtol=10*sqrt(std::numeric_limits<double>::epsilon());
   std::vector<double> xyVals(2);
   xyVals[0]=-106.482;
   xyVals[1]=35.0913;

@@ -16,39 +16,27 @@
 //-------------------------------------------------------------------------
 
 //-------------------------------------------------------------------------
-// Filename       : $RCSfile$
+// Filename       : SimpleDF2.cpp
 //
 // Purpose        : Provide a trivial DF fixing program that uses DFLib
 //                  to produce fixes from an input file of DF reports.
 //
 // Special Notes  : This is basically the same program as SimpleDF, but using
-//                  the DFLib::ProjReportCollection instead of 
+//                  the DFLib::ProjReportCollection instead of
 //                  ReportCollection.
-//
-// Creator        : 
-//
-// Creation Date  : 
-//
-// Revision Information:
-// ---------------------
-//
-// Revision Number: $Revision$
-//
-// Revision Date  : $Date$
-//
-// Current Owner  : $Author$
 //-------------------------------------------------------------------------
 #include <cmath>
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <proj_api.h>
+#include <proj.h>
 
 extern "C" {
-  double dmstor(const char *, char **);
+  double proj_dmstor(const char *, char **);
 }
 
 
+#include "DFLib_Misc_Defs.h"
 #include "DF_Proj_Point.hpp"
 #include "DF_Proj_Report.hpp"
 #include "DF_ProjReport_Collection.hpp"
@@ -84,7 +72,7 @@ int main(int argc, char **argv)
   }
 
   std::ifstream infile(argv[1],std::ifstream::in);
-  
+
   if (!infile.good())
   {
     std::cout << " Failed to open file " << argv[1] << std::endl;
@@ -97,23 +85,23 @@ int main(int argc, char **argv)
       if (!infile.eof())
       {
         infile >> tempstr; // lon
-        stationPos[0]=dmstor(tempstr.c_str(),NULL)*RAD_TO_DEG;
+        stationPos[0]=proj_dmstor(tempstr.c_str(),NULL)*RAD_TO_DEG;
         infile >> tempstr; // lat
-        stationPos[1]=dmstor(tempstr.c_str(),NULL)*RAD_TO_DEG;
+        stationPos[1]=proj_dmstor(tempstr.c_str(),NULL)*RAD_TO_DEG;
         infile >> bearing;
         bearing += 9.8;  // hard coded magnetic declination
         infile >> datum;
         infile >> sd;
         infile >> validity;
 
-        std::cout << "Station " << stationName << " at (" 
-             << stationPos[0] << "," << stationPos[1] << ")" 
+        std::cout << "Station " << stationName << " at ("
+             << stationPos[0] << "," << stationPos[1] << ")"
              << " with datum "; 
         if (datum==0)
           std::cout << "NAD27";
         else
           std::cout << "WGS84/NAD83" ;
-        
+
         std::cout << " bearing " << bearing << " sd " << sd << std::endl;
         std::cout << std::string((validity==1)?"VALID":"IGNORE") << std::endl;
 
@@ -133,32 +121,32 @@ int main(int argc, char **argv)
     }
     catch (DFLib::Util::Exception x)
     {
-      std::cerr << " Ooops .... got exception trying to compute LS fix: " 
+      std::cerr << " Ooops .... got exception trying to compute LS fix: "
            << x.getEmsg()
            << std::endl;
     }
 
     DFLib::Proj::Point FCA=LSFix;
     std::vector<double> FCA_stddev(2);
-    try 
+    try
     {
       rColl.computeFixCutAverage(FCA,FCA_stddev);
     }
     catch (DFLib::Util::Exception x)
     {
-      std::cerr << " Ooops .... got exception trying to compute FCA: " 
+      std::cerr << " Ooops .... got exception trying to compute FCA: "
            << x.getEmsg()
            << std::endl;
     }
 
     DFLib::Proj::Point MLFix=LSFix;
-    try 
+    try
     {
       rColl.computeMLFix(MLFix);
     }
     catch (DFLib::Util::Exception x)
     {
-      std::cerr << " Ooops .... got exception trying to compute ML Fix: " 
+      std::cerr << " Ooops .... got exception trying to compute ML Fix: "
            << x.getEmsg()
            << std::endl;
     }
@@ -195,18 +183,18 @@ void printCoords(const std::vector<double> &latlon,const std::string &text)
     NS='S';
   }
 
-  std::cout << " Longitude of " << text << ": " 
+  std::cout << " Longitude of " << text << ": "
        << static_cast<int>(latlon[0]*lonfac)
-       << "d" 
-       << (latlon[0]*lonfac-static_cast<int>(latlon[0]*lonfac))*60 
-       << "'" << EW 
+       << "d"
+       << (latlon[0]*lonfac-static_cast<int>(latlon[0]*lonfac))*60
+       << "'" << EW
        << std::endl;
 
-  std::cout << " Latitude of " << text << ": " 
+  std::cout << " Latitude of " << text << ": "
        << static_cast<int>(latlon[1]*latfac)
-       << "d" 
-       << (latlon[1]*latfac-static_cast<int>(latlon[1]*latfac))*60 
-       << "'" << NS 
+       << "d"
+       << (latlon[1]*latfac-static_cast<int>(latlon[1]*latfac))*60
+       << "'" << NS
        << std::endl;
 
 }

@@ -16,31 +16,19 @@
 //-------------------------------------------------------------------------
 
 //-------------------------------------------------------------------------
-// Filename       : $RCSfile$
+// Filename       : SimpleDF.cpp
 //
 // Purpose        : Provide a trivial DF fixing program that uses DFLib
 //                  to produce fixes from an input file of DF reports.
 //
-// Special Notes  : To use, one must provide an input text file in a rigid 
+// Special Notes  : To use, one must provide an input text file in a rigid
 //                  format.  The format is described in comments below.
 //                  This was a quick hack to show that  code could actually
-//                  use DFLib to produce useful fixes from real data, but its 
+//                  use DFLib to produce useful fixes from real data, but its
 //                  interface is so crude it is not really useful in real work.
-//                  It's just a precursor to a real DF fixing program using 
+//                  It's just a precursor to a real DF fixing program using
 //                  DFLib.
 //
-// Creator        : 
-//
-// Creation Date  : 
-//
-// Revision Information:
-// ---------------------
-//
-// Revision Number: $Revision$
-//
-// Revision Date  : $Date$
-//
-// Current Owner  : $Author$
 //-------------------------------------------------------------------------
 #ifdef _MSC_VER
 #define _USE_MATH_DEFINES
@@ -50,12 +38,13 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <proj_api.h>
+#include <proj.h>
 
 extern "C" {
-  double dmstor(const char *, char **);
+  double proj_dmstor(const char *, char **);
 }
 
+#include "DFLib_Misc_Defs.h"
 #include "DF_Proj_Point.hpp"
 #include "DF_Report_Collection.hpp"
 #include "DF_Proj_Report.hpp"
@@ -81,15 +70,15 @@ int main(int argc, char **argv)
 
     where longitude and latitude are in PROJ.4 format, Bearing is magnetic
     bearing IN CENTRAL NEW MEXICO IN 2009, Datum is 1 for WGS84/NAD83 and 0 for
-    NAD27, stddev is the standard deviation of bearing error expected for the 
+    NAD27, stddev is the standard deviation of bearing error expected for the
     equipment and user, and VALID is 0 for invalid and 1 for valid reports.
 
     The magnetic declination is hard-coded here as 9.8 degrees, which is the
-    correct declination in Albuquerque, NM in mid-2009.  The user must change 
+    correct declination in Albuquerque, NM in mid-2009.  The user must change
     the appropriate line of code to fix this for the region and date.
 
     The DF reports in the input file are input into a DFLib::ReportCollection,
-    and the various DF fixes computed.  The fixes are printed to standard 
+    and the various DF fixes computed.  The fixes are printed to standard
     output.
 
     This primitive program shows how to use the DFLib report classes.
@@ -133,7 +122,7 @@ int main(int argc, char **argv)
   }
 
   std::ifstream infile(argv[1],std::ifstream::in);
-  
+
   if (!infile.good())
   {
     std::cout << " Failed to open file " << argv[1] << std::endl;
@@ -149,9 +138,9 @@ int main(int argc, char **argv)
       if (!infile.eof())
       {
         infile >> tempstr; // lon
-        stationPos[0]=dmstor(tempstr.c_str(),NULL)*RAD_TO_DEG;
+        stationPos[0]=proj_dmstor(tempstr.c_str(),NULL)*RAD_TO_DEG;
         infile >> tempstr; // lat
-        stationPos[1]=dmstor(tempstr.c_str(),NULL)*RAD_TO_DEG;
+        stationPos[1]=proj_dmstor(tempstr.c_str(),NULL)*RAD_TO_DEG;
         infile >> bearing;
         // The bearing as input is magnetic.  Convert to true by adding in
         // the declination (assumes East declination is positive, here)
@@ -162,14 +151,14 @@ int main(int argc, char **argv)
 
         // We now have the data for this line, so print it all out and
         // create a new report object.
-        std::cout << "Station " << stationName << " at (" 
-             << stationPos[0] << "," << stationPos[1] << ")" 
-             << " with datum "; 
+        std::cout << "Station " << stationName << " at ("
+             << stationPos[0] << "," << stationPos[1] << ")"
+             << " with datum ";
         if (datum==0)
           std::cout << "NAD27";
         else
           std::cout << "WGS84/NAD83" ;
-        
+
         std::cout << " bearing " << bearing << " sd " << sd << std::endl;
         std::cout << std::string((validity==1)?"VALID":"IGNORE") << std::endl;
 
@@ -195,7 +184,7 @@ int main(int argc, char **argv)
     }
     catch (DFLib::Util::Exception x)
     {
-      std::cerr << " Ooops .... got exception trying to compute LS fix: " 
+      std::cerr << " Ooops .... got exception trying to compute LS fix: "
            << x.getEmsg()
            << std::endl;
     }
@@ -205,13 +194,13 @@ int main(int argc, char **argv)
     // the LSFix point into FCA.
     DFLib::Proj::Point FCA=LSFix;
     std::vector<double> FCA_stddev(2);
-    try 
+    try
     {
       rColl.computeFixCutAverage(FCA,FCA_stddev);
     }
     catch (DFLib::Util::Exception x)
     {
-      std::cerr << " Ooops .... got exception trying to compute FCA: " 
+      std::cerr << " Ooops .... got exception trying to compute FCA: "
            << x.getEmsg()
            << std::endl;
     }
@@ -220,16 +209,16 @@ int main(int argc, char **argv)
     // minimization search.  Initialize to the LS fix.  It can also FAIL if
     // the geometry of bearing measurements leads to a very flat cost surface,
     // and we *should* be testing the result before reporting it.  But we're
-    // not.  See testlsDF_proj.cpp for a clumsy example of testing the 
+    // not.  See testlsDF_proj.cpp for a clumsy example of testing the
     // ML fix before proceeding.
     DFLib::Proj::Point MLFix=LSFix;
-    try 
+    try
     {
       rColl.computeMLFix(MLFix);
     }
     catch (DFLib::Util::Exception x)
     {
-      std::cerr << " Ooops .... got exception trying to compute ML Fix: " 
+      std::cerr << " Ooops .... got exception trying to compute ML Fix: "
            << x.getEmsg()
            << std::endl;
     }
@@ -267,18 +256,18 @@ void printCoords(const std::vector<double> &latlon,const std::string &text)
     NS='S';
   }
 
-  std::cout << " Longitude of " << text << ": " 
+  std::cout << " Longitude of " << text << ": "
        << static_cast<int>(latlon[0]*lonfac)
        << "d" 
-       << (latlon[0]*lonfac-static_cast<int>(latlon[0]*lonfac))*60 
+       << (latlon[0]*lonfac-static_cast<int>(latlon[0]*lonfac))*60
        << "'" << EW 
        << std::endl;
 
-  std::cout << " Latitude of " << text << ": " 
+  std::cout << " Latitude of " << text << ": "
        << static_cast<int>(latlon[1]*latfac)
-       << "d" 
-       << (latlon[1]*latfac-static_cast<int>(latlon[1]*latfac))*60 
-       << "'" << NS 
+       << "d"
+       << (latlon[1]*latfac-static_cast<int>(latlon[1]*latfac))*60
+       << "'" << NS
        << std::endl;
 
 }

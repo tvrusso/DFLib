@@ -43,7 +43,7 @@
 
 #include "DFLib_port.h"
 #include <vector>
-#include "proj_api.h"
+#include "proj.h"
 #include "DF_Abstract_Point.hpp"
 
 namespace DFLib
@@ -57,7 +57,7 @@ namespace DFLib
       bool mercDirty;
       std::vector<double> theLatLon;
       bool llDirty;
-      projPJ latlonProj, mercProj;
+      PJ *convertPJ;
     public:
       /// \brief Default Constructor
       Point();
@@ -70,6 +70,9 @@ namespace DFLib
 
       /// \brief Copy Constructor
       Point(const Point &right);
+
+      /// \brief return true if user projection expects input in radians
+      bool isUserProjRadians() const;
 
       /// \brief set mercator projection (XY) position
       /// 
@@ -95,22 +98,26 @@ namespace DFLib
       /// This is just a wrapper for setLL as needed by the abstract
       /// interface
 
-      virtual void setUserCoords(const std::vector<double> &uPosition)  
+      virtual void setUserCoords(const std::vector<double> &uPosition)
       { setLL(uPosition); };
-	  
+
       /// \brief set lat/lon position
-      /// 
+      ///
       /// \param llPosition coordinates in Lat/Lon
       ///
       void setLL(const std::vector<double> &llPosition);
       /// \brief get Lat/Lon position
-      /// 
+      ///
       /// \return vector of coordinates in lat/lon
       ///
       const std::vector<double> &getLL();
 
 
       Point * Clone();
+
+      // \brief Destructor
+      ~Point();
+
     private:
       void mercToLL();
       void llToMerc();

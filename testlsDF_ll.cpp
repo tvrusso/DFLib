@@ -48,12 +48,13 @@
 #include <sstream>
 #include <fstream>
 #include <vector>
-#include <proj_api.h>
+#include <proj.h>
 
 extern "C" {
-  double dmstor(const char *, char **);
+  double proj_dmstor(const char *, char **);
 }
 
+#include "DFLib_Misc_Defs.h"
 #include "Util_Misc.hpp"
 #include "gaussian_random.hpp"
 #include "DF_Report_Collection.hpp"
@@ -93,20 +94,50 @@ int main(int argc,char **argv)
   gnuplotFile << "set parametric" << std::endl;
   gnuplotFile.precision(16); gnuplotFile.width(20);
 
-#ifdef _MSC_VER
-  srand(time(NULL));
-#else
-  srand48(time(NULL));
-#endif
-  if (argc < 3)
+  std::string progName(argv[0]);
+  argv++;
+  argc--;
+
+  time_t seed;
+  if (argc > 0)
   {
-    std::cerr << "Usage: " << argv[0] << " <trans lon> <trans lat> " << std::endl;
+    std::string testArg(argv[0]);
+
+    if (testArg == "--seed")
+    {
+      argv++;
+      argc--;
+      seed=atoi(argv[0]);
+      argv++;
+      argc--;
+      std::cerr << " using seed " << seed << std::endl;
+    }
+    else
+    {
+      seed=time(NULL);
+      std::cerr << " using time " << seed << " as random number seed." << std::endl;
+    }
+  }
+  else
+  {
+    seed=time(NULL);
+    std::cerr << " using time " << seed << " as random number seed." << std::endl;
+  }
+#ifdef _MSC_VER
+  srand(seed);
+#else
+  srand48(seed);
+#endif
+
+  if (argc < 2)
+  {
+    std::cerr << "Usage: " << progName << " <trans lon> <trans lat> " << std::endl;
     std::cerr << " Remember to pipe list of receiver lon/lats into stdin!" << std::endl;
     exit(1);
   }
 
-  lon=dmstor(argv[1],NULL);
-  lat=dmstor(argv[2],NULL);
+  lon=proj_dmstor(argv[0],NULL);
+  lat=proj_dmstor(argv[1],NULL);
 
   std::cout << "Transmitter location in decimal degrees: Lon: " << lon*RAD_TO_DEG
        << " Lat: " << lat*RAD_TO_DEG << std::endl;
@@ -134,13 +165,13 @@ int main(int argc,char **argv)
     std::cin.get(dms_string,sizeof(dms_string),' ');
     if (std::cin.eof())
       break;
-    lon=dmstor(dms_string,NULL);
+    lon=proj_dmstor(dms_string,NULL);
     // get the space: 
     std::cin.get(junk_space);
     std::cin.get(dms_string,sizeof(dms_string),' ');
     if (std::cin.eof())
       break;
-    lat=dmstor(dms_string,NULL);
+    lat=proj_dmstor(dms_string,NULL);
     std::cin.get(junk_space);
 
     std::cin >>  temp_sigma;
@@ -199,6 +230,9 @@ int main(int argc,char **argv)
 
   rColl.computeLeastSquaresFix(LS_fix);
   rColl.computeFixCutAverage(FixCutAverage,FCA_stddev);
+  std::vector <double> FCA_point_ll=FixCutAverage.getLL();
+  std::cerr<< "Fix Cut Average at lon " << FCA_point_ll[0] << " lat " << FCA_point_ll[1] << std::endl;
+
   std::vector <double> LS_point=LS_fix.getXY();
   std::vector <double> FCA_point=FixCutAverage.getXY();
 

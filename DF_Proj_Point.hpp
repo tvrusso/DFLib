@@ -16,7 +16,7 @@
 //-------------------------------------------------------------------------
 
 //-------------------------------------------------------------------------
-// Filename       : $RCSfile$
+// Filename       : DF_Proj_Point.cpp
 //
 // Purpose        : Implement a DFLib::Abstract::Point interface such that
 //                  the "user" coordinate system is whatever the user has
@@ -24,20 +24,6 @@
 //                  "XY" coordinate system is a mercator projection on the 
 //                  WGS84 ellipsoid.
 //
-// Special Notes  : 
-//
-// Creator        : 
-//
-// Creation Date  : 
-//
-// Revision Information:
-// ---------------------
-//
-// Revision Number: $Revision$
-//
-// Revision Date  : $Date$
-//
-// Current Owner  : $Author$
 //-------------------------------------------------------------------------
 #ifndef DF_PROJ_POINT_HPP
 #define DF_PROJ_POINT_HPP
@@ -45,7 +31,8 @@
 #include "DFLib_port.h"
 #include <vector>
 #include <string>
-#include "proj_api.h"
+
+#include "proj.h"
 #include "DF_Abstract_Point.hpp"
 
 namespace DFLib
@@ -59,7 +46,7 @@ namespace DFLib
       bool mercDirty;
       std::vector<double> theUserCoords;
       bool userDirty;
-      projPJ userProj, mercProj;
+      PJ *convertPJ;
     public:
 
       /// \brief Constructor
@@ -92,12 +79,8 @@ namespace DFLib
 
       void setUserProj(const std::vector<std::string> &projArgs);
 
-      /// \brief return true if user projection is a lat/lon system
-      ///
-      ///  Primarily useful for deciding how to display coordinates 
-      ///  (as for example whether to display them in sexigesimal or
-      ///  decimal representation)
-      bool isUserProjLatLong() const;
+      /// \brief return true if user projection expects input in radians
+      bool isUserProjRadians() const;
 
       /// \brief set mercator projection (XY) position
       /// 

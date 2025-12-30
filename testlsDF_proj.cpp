@@ -48,9 +48,9 @@
 #include <fstream>
 #include <vector>
 // we need this for dmstor and various conversion factors
-#include <proj_api.h>
+#include <proj.h>
 extern "C" {
-  double dmstor(const char *, char **);
+  double proj_dmstor(const char *, char **);
 }
 
 #ifdef HAVE_CONFIG_H
@@ -71,6 +71,7 @@ using std::isinf;
 #include "DF_Proj_Point.hpp"
 #include "DF_Report_Collection.hpp"
 #include "DF_Proj_Report.hpp"
+#include "DFLib_Misc_Defs.h"
 
 #if 0
 #ifdef HAVE_GDAL_H
@@ -123,7 +124,7 @@ int main(int argc,char **argv)
   std::vector<double> transPos(2,0.0);
   int i,j;
   char dms_string[128];
-  
+
   std::vector<double> FCA_stddev;
   std::vector<double> NR_fix;
   std::vector<std::string> projArgs;
@@ -135,9 +136,9 @@ int main(int argc,char **argv)
   bool done;
   double normf,lastnormf;
   double lastf;
-  
+
   DFLib::ReportCollection rColl;
-  
+
   // newton-raphson temporaries
   double f;
   std::vector<double> gradf;
@@ -151,7 +152,7 @@ int main(int argc,char **argv)
   gnuplotFile << "set parametric" << std::endl;
   gnuplotFile.precision(16); gnuplotFile.width(20);
   pointsFile.precision(16); pointsFile.width(20);
-  std::cout.precision(16); std::cout.width(20);
+  //  std::cout.precision(16); std::cout.width(20);
 
   std::string progName(argv[0]);
   argv++;
@@ -221,20 +222,14 @@ int main(int argc,char **argv)
     exit(1);
   }
 
-  lon=dmstor(argv[0],NULL);
-  lat=dmstor(argv[1],NULL);
+  lon=proj_dmstor(argv[0],NULL);
+  lat=proj_dmstor(argv[1],NULL);
 
   std::cout << "Transmitter location in decimal degrees: Lon: " << lon*RAD_TO_DEG
        << " Lat: " << lat*RAD_TO_DEG << std::endl;
 
   transPos[0]=lon*RAD_TO_DEG;
   transPos[1]=lat*RAD_TO_DEG;
-  std::cout << " making point from transPos " << std::endl;
-  std::cout << " projArgs is currently: " << std::endl;
-  for (int junk=0; junk<projArgs.size();++junk)
-  {
-    std::cout << "   " << projArgs[junk];
-  }
 
   DFLib::Proj::Point transPoint(transPos,projArgs);
   transPos=transPoint.getXY();
@@ -257,13 +252,13 @@ int main(int argc,char **argv)
     std::cin.get(dms_string,sizeof(dms_string),' ');
     if (std::cin.eof())
       break;
-    lon=dmstor(dms_string,NULL);
+    lon=proj_dmstor(dms_string,NULL);
     // get the space: 
     std::cin.get(junk_space);
     std::cin.get(dms_string,sizeof(dms_string),' ');
     if (std::cin.eof())
       break;
-    lat=dmstor(dms_string,NULL);
+    lat=proj_dmstor(dms_string,NULL);
     std::cin.get(junk_space);
 
     std::cin >>  temp_sigma;
@@ -323,6 +318,9 @@ int main(int argc,char **argv)
 
   rColl.computeLeastSquaresFix(LS_fix);
   rColl.computeFixCutAverage(FixCutAverage,FCA_stddev);
+  std::vector <double> FCA_point_ll=FixCutAverage.getUserCoords();
+  std::cerr<< "Fix Cut Average at lon " << FCA_point_ll[0] << " lat " << FCA_point_ll[1] << std::endl;
+
   std::vector <double> LS_point=LS_fix.getXY();
   std::vector <double> FCA_point=FixCutAverage.getXY();
 
@@ -370,7 +368,6 @@ int main(int argc,char **argv)
   std::cout << "  Latitude of LS fix: " << (int) latlon[1] << "d" 
        << (latlon[1]-(int)latlon[1])*60 << "\"" << NS << std::endl;
 
-  /*
   //  for (double minCutAngle=0; minCutAngle < 50; minCutAngle += 5.0)
   for (double minCutAngle=0; minCutAngle < 5; minCutAngle += 5.0)
   {
@@ -404,7 +401,6 @@ int main(int argc,char **argv)
            << " , " << FCA_stddev[1] << ")" << std::endl;
     }
   }
-  */
 
   NR_fix.resize(2);
 

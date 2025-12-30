@@ -60,7 +60,7 @@ namespace DFLib
   /// \param theLocation position vector <em>in lat/lon</em> of this report.
   /// \param Bearing bearing IN DEGREES
   /// \param std_dev standard deviation in degrees
-  /// \param projArgs a vector of strings to pass to pj_init in order to 
+  /// \param projArgs a vector of strings to pass to proj_create_argv in order to 
   ///        define the user coordinate system.
     Report::Report(const std::vector<double> &theLocation,
                    const double &Bearing,const double &std_dev,

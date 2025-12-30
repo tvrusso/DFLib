@@ -26,6 +26,12 @@ include_HEADERS = DF_Abstract_Point.hpp \
                   DFLib_port.h
 
 bin_PROGRAMS = testlsDFfix testlsDF_ll testlsDF_proj SimpleDF SimpleDF2
+noinst_PROGRAMS = ProjUnitTests
+
+ProjUnitTests_SOURCES = ProjUnitTests.cpp
+ProjUnitTests_LDADD = -L. -lDFLib
+ProjUnitTests_DEPENDENCIES=libDFLib.la
+
 testlsDFfix_SOURCES = testlsDFfix.cpp
 testlsDFfix_LDADD=-L. -lDFLib
 testlsDFfix_DEPENDENCIES=libDFLib.la

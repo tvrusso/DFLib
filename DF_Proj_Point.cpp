@@ -17,31 +17,18 @@
 //-------------------------------------------------------------------------
 
 //-------------------------------------------------------------------------
-// Filename       : $RCSfile$
+// Filename       : DF_Proj_Point.cpp
 //
 // Purpose        : Implement a DFLib::Abstract::Point interface such that
 //                  the "user" coordinate system is whatever the user has
 //                  specified with a proj.4 spatial reference system, and the
-//                  "XY" coordinate system is a mercator projection on the 
+//                  "XY" coordinate system is a mercator projection on the
 //                  WGS84 ellipsoid.
 //
-// Special Notes  : 
-//
-// Creator        : 
-//
-// Creation Date  : 
-//
-// Revision Information:
-// ---------------------
-//
-// Revision Number: $Revision$
-//
-// Revision Date  : $Date$
-//
-// Current Owner  : $Author$
 //-------------------------------------------------------------------------
 #include "DF_Proj_Point.hpp"
 #include "Util_Misc.hpp"
+#include "DFLib_Misc_Defs.h"
 
 #include <vector>
 #include <iostream>
@@ -60,68 +47,74 @@ namespace DFLib
     {
       // Create the proj.4 stuff.  This is highly inefficient, as it should
       // live in the base class, not each object.  Fix that.
-      
-      char *mercator_argv[3]={"proj=merc",
-                              "datum=WGS84",
-                              "lat_ts=0"};
+
+      std::string mercator_args="+proj=merc +ellps=WGS84 +lat_ts=0";
+      char *mercator_argv= new char [mercator_args.size()+1];
+      strcpy(mercator_argv,mercator_args.c_str());
 
       int numUserArgs = projArgs.size();
-      char **user_argv = new char * [numUserArgs];
+      std::string user_args;
 
-      for (int i=0; i<numUserArgs; ++i)
+      user_args = projArgs[0];
+
+      for (int i=1; i<numUserArgs; ++i)
       {
-        user_argv[i]=new char [projArgs[i].size()+1];
-        projArgs[i].copy(user_argv[i],projArgs[i].size());
-        // Null terminate the string!
-        user_argv[i][projArgs[i].size()] = '\0';
+        if (projArgs[i][0] != '+')
+        {
+          user_args += " +";
+        }
+        else
+        {
+          user_args += " ";
+        }
+        user_args += projArgs[i];
       }
-      if (!(userProj = pj_init(numUserArgs,user_argv)))
+
+      char *user_argv = new char [user_args.size()+1];
+      strcpy(user_argv,user_args.c_str());
+
+      convertPJ = proj_create_crs_to_crs(PJ_DEFAULT_CTX,
+                                                 user_argv,
+                                                 mercator_argv,
+                                                 NULL);
+
+      if (convertPJ == 0)
       {
-        throw(Util::Exception("Failed to initialize user projection"));
+        throw(Util::Exception("Failed to initialize crs_to_crs"));
       }
-      
-      if (!(mercProj = pj_init(3,mercator_argv)))
-      {
-        throw(Util::Exception("Failed to initialize mercator projection"));
-      }
-      
+
       // Don't bother trying to force the mercator --- we'll do that if
       // we query, because we're setting userDirty to true, just initialize
       // to junk.
       theMerc.resize(2,0.0);
 
-      // Now must free the user_argv junk:
-      for (int i=0; i<numUserArgs; ++i)
-      {
-        delete [] user_argv[i];
-      }
       delete [] user_argv;
+      delete [] mercator_argv;
 
     }
-    
+
     Point::Point(const Point &right)
     {
 
       // Must *COPY* the definition, not the pointer to it!
       // Get the text version of the definition
-      char *theProjDef = pj_get_def(right.userProj,0);
+      PJ_PROJ_INFO theProjDef = proj_pj_info(right.convertPJ);
       // generate a new projUJ pointer
-      userProj = pj_init_plus(theProjDef);
-      free(theProjDef);
+      convertPJ = proj_create(PJ_DEFAULT_CTX,theProjDef.definition);
 
-      theProjDef = pj_get_def(right.mercProj,0);
-      // generate a new projUJ pointer
-      mercProj = pj_init_plus(theProjDef);
-      free(theProjDef);
+      if (convertPJ == 0)
+      {
+        throw(Util::Exception("Failed to initialize transform in copy constructor"));
+      }
 
       if (right.mercDirty)
       {
-        // Right's mercator's been changed without its LL being 
+        // Right's mercator's been changed without its LL being
         // updated, so copy its mercator values and say we're dirty.
         theMerc=right.theMerc;
         mercDirty=true;
         userDirty=false;
-      } 
+      }
       else
       {
         // Just copy its LL and mark dirty.
@@ -133,34 +126,22 @@ namespace DFLib
 
     Point::~Point()
     {
-      pj_free(userProj);
-      pj_free(mercProj);
+      proj_destroy(convertPJ);
     }
 
     Point& Point::operator=(const Point& rhs)
     {
       if (this == &rhs) return *this;
 
-      if (userProj) 
+      if (convertPJ)
       {
-        pj_free(userProj);
-        userProj=0;
-      }
-      if (mercProj)
-      {
-        pj_free(mercProj);
-        mercProj=0;
+        convertPJ=proj_destroy(convertPJ);
+        convertPJ=0;
       }
 
-      char *theProjDef = pj_get_def(rhs.userProj,0);
-      // generate a new projUJ pointer
-      userProj = pj_init_plus(theProjDef);
-      free(theProjDef);
+      PJ_PROJ_INFO theProjDef = proj_pj_info(rhs.convertPJ);
+      convertPJ = proj_create(PJ_DEFAULT_CTX,theProjDef.definition);
 
-      theProjDef = pj_get_def(rhs.mercProj,0);
-      // generate a new projUJ pointer
-      mercProj = pj_init_plus(theProjDef);
-      free(theProjDef);
 
       mercDirty=rhs.mercDirty;
       userDirty=rhs.userDirty;
@@ -177,60 +158,68 @@ namespace DFLib
     void Point::setXY(const std::vector<double> &mPosition)
     {
       theMerc = mPosition;
-      // Essential to set userDirty=false, otherwise getXY will try to 
+      // Essential to set userDirty=false, otherwise getXY will try to
       // convert ll and we'll be wrong.
-      mercDirty=true;  
+      mercDirty=true;
       userDirty=false;
     }
 
     void Point::setUserProj(const std::vector<std::string> &projArgs)
     {
       int numUserArgs = projArgs.size();
-      char **user_argv = new char * [numUserArgs];
-      for (int i=0; i<numUserArgs; ++i)
+      std::string user_args;
+      std::string mercator_args="+proj=merc +ellps=WGS84 +lat_ts=0";
+      char *mercator_argv= new char [mercator_args.size()+1];
+      strcpy(mercator_argv,mercator_args.c_str());
+
+
+      user_args = projArgs[0];
+
+      for (int i=1; i<numUserArgs; ++i)
       {
-        user_argv[i]=new char [projArgs[i].size()+1];
-        projArgs[i].copy(user_argv[i],projArgs[i].size());
-        // Null terminate the string!
-        user_argv[i][projArgs[i].size()] = '\0';
+        user_args += " " + projArgs[i];
       }
+
+      char *user_argv = new char [user_args.size()+1];
+      strcpy(user_argv,user_args.c_str());
 
       // before we clobber userProj, if we have already have valid userProj
       //  already then we might also have
       // valid data, and need to make sure our coordinates are correct in the
       // new system:
-      if (userProj)
+      if (convertPJ)
       {
         if (userDirty)
         {
           userToMerc(); // make sure our mercator coordinates are up-to-date
         }
-        pj_free(userProj); // free the existing projection
-        userProj = NULL;
+        proj_destroy(convertPJ); // free the existing projection
+        convertPJ = NULL;
       }
 
-      if (!(userProj = pj_init(numUserArgs,user_argv)))
+      convertPJ = proj_create_crs_to_crs(PJ_DEFAULT_CTX,
+                                                 user_argv,
+                                                 mercator_argv,
+                                                 NULL);
+      if (convertPJ == 0)
       {
-        throw(Util::Exception("Failed to initialize user projection"));
+        throw(Util::Exception("Failed to initialize crs_to_crs"));
       }
+
       // Now, we have just changed the projection, so mark mercDirty as if
       // we had changed the mercator coordinates ourselves.
       mercDirty=true;
 
-      // Now must free the user_argv junk:
-      for (int i=0; i<numUserArgs; ++i)
-      {
-        delete [] user_argv[i];
-      }
       delete [] user_argv;
+      delete [] mercator_argv;
 
-    }      
-    
-    bool Point::isUserProjLatLong() const
-    {
-      return (pj_is_latlong(userProj));
     }
-    
+
+    bool Point::isUserProjRadians() const
+    {
+      return (proj_angular_input(convertPJ,PJ_FWD));
+    }
+
     const std::vector<double> & Point::getXY()
     {
       if (userDirty)
@@ -257,7 +246,7 @@ namespace DFLib
       }
       return(theUserCoords);
     }
-    
+
     Point * Point::Clone()
     {
       Point *retPoint;
@@ -267,45 +256,60 @@ namespace DFLib
 
     void Point::userToMerc()
     {
-      projUV data;
-      double z;
-      if (pj_is_latlong(userProj))
+      PJ_COORD data;
+      PJ_COORD newCoord;
+
+      if (isUserProjRadians())
       {
-        data.u = theUserCoords[0]*DEG_TO_RAD;
-        data.v = theUserCoords[1]*DEG_TO_RAD;
+        data.lp.lam = theUserCoords[0]*DEG_TO_RAD;
+        data.lp.phi = theUserCoords[1]*DEG_TO_RAD;
       }
-      z=0;
-      if (pj_transform(userProj,mercProj,1,0,&(data.u),&(data.v),&z) != 0)
+      else
+      {
+        data.xy.x = theUserCoords[0];
+        data.xy.y = theUserCoords[1];
+      }
+
+      newCoord=proj_trans(convertPJ,PJ_FWD,data);
+
+      if (std::isnan(newCoord.xy.x) || std::isnan(newCoord.xy.y))
       {
         throw(Util::Exception("Failure converting user coords to Mercator"));
       }
 
       theMerc.resize(2);
-      theMerc[0]=data.u;
-      theMerc[1]=data.v;
+      theMerc[0]=newCoord.xy.x;
+      theMerc[1]=newCoord.xy.y;
 
       userDirty=false;
-    }      
+    }
 
 
     void Point::mercToUser()
     {
-      projUV data;
-      double z;
-      data.u = theMerc[0];
-      data.v = theMerc[1];
-      z=0;
-      if (pj_transform(mercProj,userProj,1,0,&(data.u),&(data.v),&z) != 0)
+      PJ_COORD data;
+      PJ_COORD newCoord;
+
+      data.xy.x = theMerc[0];
+      data.xy.y = theMerc[1];
+      newCoord=proj_trans(convertPJ,PJ_INV,data);
+      if (std::isnan(newCoord.lp.lam) || std::isnan(newCoord.lp.phi))
       {
-        throw(Util::Exception("Failure converting Mercator to LL"));
+        throw(Util::Exception("Failure converting Mercator to user coords"));
       }
+
       theUserCoords.resize(2);
-      if (pj_is_latlong(userProj))
+      if (isUserProjRadians())
       {
-        theUserCoords[0]=data.u*RAD_TO_DEG;
-        theUserCoords[1]=data.v*RAD_TO_DEG;
+        theUserCoords[0]=newCoord.lp.lam*RAD_TO_DEG;
+        theUserCoords[1]=newCoord.lp.phi*RAD_TO_DEG;
+      }
+      else
+      {
+        theUserCoords[0]=newCoord.xy.x;
+        theUserCoords[1]=newCoord.xy.y;
       }
       mercDirty=false;
-    }      
+    }
   }
 }
