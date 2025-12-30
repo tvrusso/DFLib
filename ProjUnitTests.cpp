@@ -39,6 +39,7 @@
 #include <iostream>
 #include <vector>
 #include <limits>
+#include <cmath>
 
 #include "Util_Misc.hpp"
 #include "DF_Proj_Point.hpp"
