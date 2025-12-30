@@ -12,7 +12,6 @@ AC_PROG_CXX([c++ CC g++ clang++  cxx])
 AC_PROG_CC([cc gcc clang])
 AC_PROG_RANLIB
 
-AC_DISABLE_SHARED
 LT_INIT
 
 # Checks for libraries.
