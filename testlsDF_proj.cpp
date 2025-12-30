@@ -17,26 +17,13 @@
 //-------------------------------------------------------------------------
 
 //-------------------------------------------------------------------------
-// Filename       : $RCSfile$
+// Filename       : testlsDF_proj.cpp
 //
 // Purpose        : Test harness for DFLib methods using the "Proj" classes.
 //
 // Special Notes  : This is the last test harness I wrote.  It uses the
 //                  DFLib::Proj implementations of DFLib::Abstract::Point
 //                  and DFLib::Abstract::Report.
-//
-// Creator        : 
-//
-// Creation Date  : 
-//
-// Revision Information:
-// ---------------------
-//
-// Revision Number: $Revision$
-//
-// Revision Date  : $Date$
-//
-// Current Owner  : $Author$
 //-------------------------------------------------------------------------
 #ifdef _MSC_VER
 #define _USE_MATH_DEFINES
@@ -73,12 +60,6 @@ using std::isinf;
 #include "DF_Proj_Report.hpp"
 #include "DFLib_Misc_Defs.h"
 
-#if 0
-#ifdef HAVE_GDAL_H
-#include <gdal_priv.h>
-#endif
-#endif
-
 
 int main(int argc,char **argv)
 {
@@ -99,25 +80,14 @@ int main(int argc,char **argv)
 
     From the randomized bearings, the code computes DF fixes using all
     the methods available in DFLib: the Fix Cut Average, Least Squares
-    (orthogonal vectors), Maximum Likelihood and Stansfield fixes.  It 
+    (orthogonal vectors), Maximum Likelihood and Stansfield fixes.  It
     outputs a file "testlsDFfix.gnuplot" of Gnuplot commands to plot the
     DF problem and the various fixes.  Error ellipses for the Stansfield
     solution are also plotted.
 
     The program also outputs a file "testlsDFfix.grasspoints" with the
     station locations and fix locations in a format that can be read by
-    GRASS GIS's v.in.ascii. 
-
-    Code to dump out a GeoTIFF file of the Maximum Likelihood method's 
-    cost function is commented out with preprocessor "if 0" statements, and
-    requires GDAL.  Only the Autoconf build method is currently set up to
-    detect and use GDAL.  This stuff is commented out because in at least one
-    version of GDAL it lead to reports of memory access issues from Valgrind.
-    But it can be useful to uncomment it when trying to understand why some
-    geometries of DF problem lead to the Maximum Likelihood and Stansfield
-    fixes failing to converge (one finds that the surface is very flat near
-    the minimum, and the various minimization methods can't do anything but
-    shoot off to infinity).
+    GRASS GIS's v.in.ascii.
 
   */
   double lon,lat;
@@ -136,6 +106,7 @@ int main(int argc,char **argv)
   bool done;
   double normf,lastnormf;
   double lastf;
+  bool randomizeBearings=true;
 
   DFLib::ReportCollection rColl;
 
@@ -145,13 +116,10 @@ int main(int argc,char **argv)
   std::vector<std::vector<double> > jac;
 
   std::ofstream gnuplotFile("testlsDFfix.gnuplot");
-  std::ofstream gridFile("function.grid");
-  std::ofstream pointsFile("testlsDFfix.grasspoints");
   gnuplotFile << "set angles degrees" << std::endl;
   gnuplotFile << "set size square" << std::endl;
   gnuplotFile << "set parametric" << std::endl;
   gnuplotFile.precision(16); gnuplotFile.width(20);
-  pointsFile.precision(16); pointsFile.width(20);
   //  std::cout.precision(16); std::cout.width(20);
 
   std::string progName(argv[0]);
@@ -189,34 +157,22 @@ int main(int argc,char **argv)
   srand48(seed);
 #endif
 
-#if 0
-#ifdef HAVE_LIBGDAL  
-  testArg=argv[0];
-  std::string geotiffName;
-  bool geotiffRequested=false;
-
-  if (testArg == "--geotiff")
+  if (argc > 0)
   {
-    std::cout<< "You asked for a geotiff ... not yet." << std::endl;
-    argv++;
-    argc--;
-    geotiffRequested=true;
-    geotiffName=argv[0];
-    std::cout << "Geotiff name: " << geotiffName << std::endl;
-    argv++;
-    argc--;
+    std::string testArg(argv[0]);
+
+    if (testArg == "--norandom")
+    {
+      argv++;
+      argc--;
+      randomizeBearings=false;
+      std::cerr << " not randomizing " << std::endl;
+    }
   }
-#endif
-#endif
 
   if (argc < 2)
   {
     std::cerr << "Usage: " << progName;
-#if 0
-#ifdef HAVE_LIBGDAL    
-    std::cerr << " [--geotiff <geotiffname>]";
-#endif
-#endif
     std::cerr << " <trans lon> <trans lat> " << std::endl;
     std::cerr << " Remember to pipe list of receiver lon/lats into stdin!" << std::endl;
     exit(1);
@@ -253,7 +209,7 @@ int main(int argc,char **argv)
     if (std::cin.eof())
       break;
     lon=proj_dmstor(dms_string,NULL);
-    // get the space: 
+    // get the space:
     std::cin.get(junk_space);
     std::cin.get(dms_string,sizeof(dms_string),' ');
     if (std::cin.eof())
@@ -268,7 +224,7 @@ int main(int argc,char **argv)
     DFLib::Util::gaussian_random_generator rand_gen(0,temp_sigma);
 
     std::cout << " Got receiver number " << rColl.size()
-         << " Position = " << lon*RAD_TO_DEG << " " << lat*RAD_TO_DEG 
+         << " Position = " << lon*RAD_TO_DEG << " " << lat*RAD_TO_DEG
          << " With standard deviation " << temp_sigma
          << std::endl;
     tempVector[0]=lon*RAD_TO_DEG;
@@ -284,8 +240,11 @@ int main(int argc,char **argv)
     bearing=reportPtr->computeBearingToPoint(transPos)*RAD_TO_DEG;
     std::cout << " True bearing to transmitter is " << bearing << std::endl;
 
-    bearing += rand_gen.getRandom();
-    std::cout << " after randomizing, bearing to transmitter is " << bearing << std::endl;
+    if (randomizeBearings)
+    {
+      bearing += rand_gen.getRandom();
+      std::cout << " after randomizing, bearing to transmitter is " << bearing << std::endl;
+    }
     reportPtr->setBearing(bearing);
 
     rColl.addReport(reportPtr);
@@ -297,7 +256,7 @@ int main(int argc,char **argv)
   std::cout << "Receiver locations in mercator: " << std::endl;
   for (i=0;i<rColl.size();++i)
   {
-    std::vector<double> receiverLoc = 
+    std::vector<double> receiverLoc =
       rColl.getReceiverLocationXY(i);
     double rb=dynamic_cast<DFLib::Proj::Report const *>(rColl.getReport(i))->getBearing();
     double rbr=rColl.getReport(i)->getReportBearingRadians();
@@ -312,7 +271,6 @@ int main(int argc,char **argv)
     gnuplotFile << receiverLoc[0] << "+sin("<<rb<<")*t,"
                 << receiverLoc[1] << "+cos("<<rb<<")*t with lines title \"station " << i << "\" ";
 
-    pointsFile << i << "|"<<receiverLoc[0]<<"|"<<receiverLoc[1]<<"|Receiver "<<i<<std::endl;
   }
   gnuplotFile << std::endl;
 
@@ -328,23 +286,20 @@ int main(int argc,char **argv)
   gnuplotFile << "replot " << transPos[0] << "," << transPos[1] << " with points title \"Actual Location\"" << std::endl;
   gnuplotFile << "replot " << FCA_point[0] << "," << FCA_point[1] << " with points title \"Fix Cut Average\"" << std::endl;
 
-  pointsFile << 100 << "|"<<LS_point[0]<<"|"<<LS_point[1]<<"|LSFix" <<std::endl;
-  pointsFile << 101 << "|"<<FCA_point[0]<<"|"<<FCA_point[1]<<"|FCA" <<std::endl;
-  pointsFile << 666 << "|"<<transPos[0]<<"|"<<transPos[1]<<"|Transmitter" <<std::endl;
 
   for(i = 0; i<rColl.size() ; ++i)
   {
-    const std::vector<double> &receiverLoc = 
+    const std::vector<double> &receiverLoc =
       rColl.getReceiverLocationXY(i);
-    gnuplotFile << "replot " << receiverLoc[0] << "," << receiverLoc[1] 
-                << " with points title \"Station "<< i << "\"" << std::endl;
+    gnuplotFile << "replot " << receiverLoc[0] << "," << receiverLoc[1]
+                << " with points title \"Station "<< i << "'" << std::endl;
   }
 
-  std::cout << " Mercator coordinates of LS fix: " 
+  std::cout << " Mercator coordinates of LS fix: "
        << "X = " << LS_point[0] << " Y = " << LS_point[1] << std::endl;
-  std::cout << " Mercator coordinates of Fix Cut Average: " 
+  std::cout << " Mercator coordinates of Fix Cut Average: "
        << "X = " << FCA_point[0] << " Y = " << FCA_point[1] << std::endl;
-  
+
   std::vector<double> latlon=LS_fix.getUserCoords();
 
   EW='E';
@@ -362,11 +317,11 @@ int main(int argc,char **argv)
     NS = 'S';
   }
 
-  std::cout << "  Longitude of LS fix: " << (int) latlon[0] << "d" 
-       << (latlon[0]-(int)latlon[0])*60 << "\"" << EW << std::endl;
+  std::cout << "  Longitude of LS fix: " << (int) latlon[0] << "d"
+       << (latlon[0]-(int)latlon[0])*60 << "'" << EW << std::endl;
 
-  std::cout << "  Latitude of LS fix: " << (int) latlon[1] << "d" 
-       << (latlon[1]-(int)latlon[1])*60 << "\"" << NS << std::endl;
+  std::cout << "  Latitude of LS fix: " << (int) latlon[1] << "d"
+       << (latlon[1]-(int)latlon[1])*60 << "'" << NS << std::endl;
 
   //  for (double minCutAngle=0; minCutAngle < 50; minCutAngle += 5.0)
   for (double minCutAngle=0; minCutAngle < 5; minCutAngle += 5.0)
@@ -374,106 +329,36 @@ int main(int argc,char **argv)
     if (rColl.computeFixCutAverage(FixCutAverage,FCA_stddev,minCutAngle))
     {
       std::vector<double> latlon=FixCutAverage.getUserCoords();
-	
-	
+
+
       EW='E';
       NS='N';
-	
+
       if (latlon[0] < 0)
       {
         latlon[0] *= -1;
         EW = 'W';
       }
-	
+
       if (latlon[1] < 0)
       {
         latlon[1] *= -1;
         NS = 'S';
       }
-	
-      std::cout << "  Longitude of Fix Cut Average (min cut angle="<< minCutAngle <<"): " << (int) latlon[0] << "d" 
-           << (latlon[0]-(int)latlon[0])*60 << "\"" << EW << std::endl;
-	
-      std::cout << "  Latitude of Fix Cut Average (min cut angle="<< minCutAngle <<"): " << (int) latlon[1] << "d" 
-           << (latlon[1]-(int)latlon[1])*60 << "\"" << NS << std::endl;
-	
-      std::cout << "   Std Dev of FCA = (" << FCA_stddev[0] << " , " 
+
+      std::cout << "  Longitude of Fix Cut Average (min cut angle="<< minCutAngle <<"): " << (int) latlon[0] << "d"
+           << (latlon[0]-(int)latlon[0])*60 << "'" << EW << std::endl;
+
+      std::cout << "  Latitude of Fix Cut Average (min cut angle="<< minCutAngle <<"): " << (int) latlon[1] << "d"
+           << (latlon[1]-(int)latlon[1])*60 << "'" << NS << std::endl;
+
+      std::cout << "   Std Dev of FCA = (" << FCA_stddev[0] << " , "
            << " , " << FCA_stddev[1] << ")" << std::endl;
     }
   }
 
   NR_fix.resize(2);
 
-//   LS_point=LS_fix.getXY();
-//   // write out a grid of 5 meter "pixels" showing function values
-//   for (i=-500;i<=500;++i)
-//   {
-//     for (j=-500;j<=500;++j)
-//     {
-//       NR_fix[0] = LS_point[0]+10.0*i;
-//       NR_fix[1] = LS_point[1]+10.0*j;
-//       gridFile << rColl.computeCostFunction(NR_fix) << " ";
-//     }
-//     gridFile << std::endl;
-//   }
-
-#if 0
-#ifdef HAVE_LIBGDAL
-#define RASTSIZ (2049)
-#define RWID ((RASTSIZ-1)/2)
-#define PIXSIZ (80.0)
-  if (geotiffRequested)
-  {
-    // create a RASTSIZxRASTSIZ buffer centered on LS point 
-    double rasterBuff[RASTSIZ*RASTSIZ];
-    for (i=RWID; i>=-RWID; --i)
-    {
-      NR_fix[1]=LS_point[1]+PIXSIZ*i;
-      for (j=-RWID; j<=RWID; ++j)
-      {
-        NR_fix[0]=LS_point[0]+PIXSIZ*j;
-        rasterBuff[RASTSIZ*(RWID-i)+RWID+j]=rColl.computeCostFunction(NR_fix);
-      }
-    }
-    // Now create a geotiff and write out our buffer
-
-    const char *pszFormat = "GTiff";
-    GDALDriver *poDriver;
-
-    GDALAllRegister();
-    poDriver = GetGDALDriverManager()->GetDriverByName(pszFormat);
-
-    if( poDriver != NULL )
-    {
-      GDALDataset *poDstDS;       
-      char **papszOptions = NULL;
-      
-      poDstDS = poDriver->Create( geotiffName.c_str(), RASTSIZ, RASTSIZ, 1, 
-                                  GDT_Float64, papszOptions );
-
-      
-      double adfGeoTransform[6] = { LS_point[0]-RWID*PIXSIZ, PIXSIZ, 0, LS_point[1]+RWID*PIXSIZ, 0, -PIXSIZ };
-      char *pszSRS_WKT="PROJCS[\"unnamed\",GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433],AUTHORITY[\"EPSG\",\"4326\"]],PROJECTION[\"Mercator_1SP\"],PARAMETER[\"central_meridian\",0],PARAMETER[\"scale_factor\",1],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]]]";
-
-      GDALRasterBand *poBand;
-
-      poDstDS->SetGeoTransform( adfGeoTransform );
-      poDstDS->SetProjection( pszSRS_WKT );
-      poBand = poDstDS->GetRasterBand(1);
-      poBand->RasterIO( GF_Write, 0, 0, RASTSIZ, RASTSIZ, 
-                        rasterBuff, RASTSIZ, RASTSIZ, GDT_Float64, 0, 0 );    
-
-      /* Once we're done, close properly the dataset */
-      GDALClose( (GDALDatasetH) poDstDS );
-
-    }
-    else
-    {
-      std::cerr << "Could not open GeoTiff driver." << std::endl;
-    }
-  }
-#endif
-#endif
   // Now try Conjugate Gradients on Jml, always starting from OV fix.
   j=0;
 
@@ -504,13 +389,6 @@ int main(int argc,char **argv)
     double haversin_a=sin(dlat/2.0)*sin(dlat/2.0)+cos(latlon[1]/RAD_TO_DEG)*cos(r0_coords[1]/RAD_TO_DEG)*sin(dlon/2)*sin(dlon/2);
     double haversin_c=2*atan2(sqrt(haversin_a),sqrt(1-haversin_a));
     haversin_d=3596*haversin_c;   // miles, give or take
-    std::cout << " latlon[0]-r0_coords[0]= " << latlon[0]-r0_coords[0];
-    std::cout << " latlon[1]-r0_coords[1]= " << latlon[1]-r0_coords[1];
-    std::cout << " dlon="<<dlon <<std::endl;
-    std::cout << " dlat="<<dlat <<std::endl;
-    std::cout << " haversin_a="<<haversin_a <<std::endl;
-    std::cout << " haversin_c="<<haversin_c <<std::endl;
-    std::cout << " haversin_d="<<haversin_d <<std::endl;
     if (haversin_d>100)    // don't freakin' trust it
     {
       retryFix=true;
@@ -532,7 +410,7 @@ int main(int argc,char **argv)
 
     NR_fix = NRPoint.getXY();
     latlon=NRPoint.getUserCoords();
-    
+
     if (!(isinf(latlon[0]) || isinf(latlon[1]) || isnan(latlon[0]) || isnan(latlon[1])
           ||isinf(NR_fix[0]) || isinf(NR_fix[1]) || isnan(NR_fix[0]) || isnan(NR_fix[1])))
     {
@@ -541,13 +419,6 @@ int main(int argc,char **argv)
       double haversin_a=sin(dlat/2.0)*sin(dlat/2.0)+cos(latlon[1]/RAD_TO_DEG)*cos(r0_coords[1]/RAD_TO_DEG)*sin(dlon/2)*sin(dlon/2);
       double haversin_c=2*atan2(sqrt(haversin_a),sqrt(1-haversin_a));
       haversin_d=3596*haversin_c;   // miles, give or take
-      std::cout << " latlon[0]-r0_coords[0]= " << latlon[0]-r0_coords[0];
-      std::cout << " latlon[1]-r0_coords[1]= " << latlon[1]-r0_coords[1];
-      std::cout << " dlon="<<dlon <<std::endl;
-      std::cout << " dlat="<<dlat <<std::endl;
-      std::cout << " haversin_a="<<haversin_a <<std::endl;
-      std::cout << " haversin_c="<<haversin_c <<std::endl;
-      std::cout << " haversin_d="<<haversin_d <<std::endl;
       if (haversin_d>100)
       {
         fixFailed=true;
@@ -583,9 +454,9 @@ int main(int argc,char **argv)
     double a=sqrt(1/am2ML);
     double b=sqrt(1/bm2ML);
       std::cout << " ML ellipse: a="<<a << "  b=" << b << " phi=" << phiML
-           << " rotation in degrees="<<phiML*RAD_TO_DEG 
+           << " rotation in degrees="<<phiML*RAD_TO_DEG
            << std::endl;
-      
+
       double rho=sqrt(-2*log(.5));   // 50% confidence interval
       double cosphi=cos(phiML);
       double sinphi=sin(phiML);
@@ -602,7 +473,7 @@ int main(int argc,char **argv)
                   <<NR_fix[1] << "+"<<a<<"*"<<rho<<"*"<<sinphi
                   <<"*cos(360.0/40000.0*t)+"<<b<<"*"<<rho<<"*"<<cosphi
                   <<"*sin(360.0/40000.0*t) w l title \"75% ML confidence\"" << std::endl;
-      
+
       rho=sqrt(-2*log(.05));   // 95% confidence interval
       gnuplotFile << "replot " << NR_fix[0] << "+"<<a<<"*"<<rho<<"*"<<cosphi
                   <<"*cos(360.0/40000.0*t)-"<<b<<"*"<<rho<<"*"<<sinphi
@@ -611,39 +482,38 @@ int main(int argc,char **argv)
                   <<"*cos(360.0/40000.0*t)+"<<b<<"*"<<rho<<"*"<<cosphi
                   <<"*sin(360.0/40000.0*t) w l title \"95% ML confidence\"" << std::endl;
 
-    pointsFile << 102 << "|"<<NR_fix[0]<<"|"<<NR_fix[1]<<"|ML" <<std::endl;
-    
+
     std::cout << " getting user coordinates " << std::endl;
-    
+
     latlon=NRPoint.getUserCoords();
-    
+
     EW='E';
     NS='N';
-    
+
     if (latlon[0] < 0)
     {
       latlon[0] *= -1;
       EW = 'W';
     }
-    
+
     if (latlon[1] < 0)
     {
       latlon[1] *= -1;
       NS = 'S';
     }
-    
-    std::cout << "  Longitude of ML fix: " << (int) latlon[0] << "d" 
-         << (latlon[0]-(int)latlon[0])*60 << "\"" << EW << std::endl;
-    
-    std::cout << "  Latitude of ML fix: " << (int) latlon[1] << "d" 
-         << (latlon[1]-(int)latlon[1])*60 << "\"" << NS << std::endl;
-    
+
+    std::cout << "  Longitude of ML fix: " << (int) latlon[0] << "d"
+         << (latlon[0]-(int)latlon[0])*60 << "'" << EW << std::endl;
+
+    std::cout << "  Latitude of ML fix: " << (int) latlon[1] << "d"
+         << (latlon[1]-(int)latlon[1])*60 << "'" << NS << std::endl;
+
     latlon=NRPoint.getXY();
-    std::cout << " Mercator coords of ML fix" << latlon[0] << " , " << latlon[1] 
+    std::cout << " Mercator coords of ML fix" << latlon[0] << " , " << latlon[1]
          << std::endl;
-    std::cout << "  Offset from LS by " << latlon[0]-LS_point[0] << " , " 
-         << latlon[1]-LS_point[1] << std::endl; 
-    
+    std::cout << "  Offset from LS by " << latlon[0]-LS_point[0] << " , "
+         << latlon[1]-LS_point[1] << std::endl;
+
   }
   // Lastly, try to compute the stansfield solution using LS fix as staring
   // guess:
@@ -655,47 +525,46 @@ int main(int argc,char **argv)
 
     NR_fix = StansfieldPoint.getXY();
     gnuplotFile << "replot " << NR_fix[0] << "," << NR_fix[1] << " with points title \"Stansfield Fix\"" << std::endl;
-    pointsFile << 103 << "|"<<NR_fix[0]<<"|"<<NR_fix[1]<<"|Stansfield" <<std::endl;
-    
+
     std::cout << " getting user coordinates " << std::endl;
-    
+
     latlon=StansfieldPoint.getUserCoords();
-    
+
     EW='E';
     NS='N';
-    
+
     if (latlon[0] < 0)
     {
       latlon[0] *= -1;
       EW = 'W';
     }
-    
+
     if (latlon[1] < 0)
     {
       latlon[1] *= -1;
       NS = 'S';
     }
-    
-    std::cout << "  Longitude of Stansfield fix: " << (int) latlon[0] << "d" 
-         << (latlon[0]-(int)latlon[0])*60 << "\"" << EW << std::endl;
-    
-    std::cout << "  Latitude of Stansfield fix: " << (int) latlon[1] << "d" 
-         << (latlon[1]-(int)latlon[1])*60 << "\"" << NS << std::endl;
-    
+
+    std::cout << "  Longitude of Stansfield fix: " << (int) latlon[0] << "d"
+         << (latlon[0]-(int)latlon[0])*60 << "'" << EW << std::endl;
+
+    std::cout << "  Latitude of Stansfield fix: " << (int) latlon[1] << "d"
+         << (latlon[1]-(int)latlon[1])*60 << "'" << NS << std::endl;
+
     latlon=StansfieldPoint.getXY();
-    std::cout << " Mercator coords of Stansfield fix" << latlon[0] << " , " << latlon[1] 
+    std::cout << " Mercator coords of Stansfield fix" << latlon[0] << " , " << latlon[1]
          << std::endl;
-    std::cout << "  Offset from LS by " << latlon[0]-LS_point[0] << " , " 
-         << latlon[1]-LS_point[1] << std::endl; 
+    std::cout << "  Offset from LS by " << latlon[0]-LS_point[0] << " , "
+         << latlon[1]-LS_point[1] << std::endl;
 
     if (am2>0 && bm2>0)
     {
       double a=sqrt(1/am2);
       double b=sqrt(1/bm2);
       std::cout << " Stansfield ellipse: a="<<a << "  b=" << b << " phi=" << phi
-           << " rotation in degrees="<<phi*RAD_TO_DEG 
+           << " rotation in degrees="<<phi*RAD_TO_DEG
            << std::endl;
-      
+
       double rho=sqrt(-2*log(.5));   // 50% confidence interval
       double cosphi=cos(phi);
       double sinphi=sin(phi);
@@ -712,7 +581,7 @@ int main(int argc,char **argv)
                   <<NR_fix[1] << "+"<<a<<"*"<<rho<<"*"<<sinphi
                   <<"*cos(360.0/40000.0*t)+"<<b<<"*"<<rho<<"*"<<cosphi
                   <<"*sin(360.0/40000.0*t) w l title \"75% Stansfield confidence\"" << std::endl;
-      
+
       rho=sqrt(-2*log(.05));   // 95% confidence interval
       gnuplotFile << "replot " << NR_fix[0] << "+"<<a<<"*"<<rho<<"*"<<cosphi
                   <<"*cos(360.0/40000.0*t)-"<<b<<"*"<<rho<<"*"<<sinphi

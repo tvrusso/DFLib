@@ -163,22 +163,20 @@ class pyProjReport(DFLib.Report):
 
 #Create 3 reports.  These correspond exactly to the "receivers3" points
 #in the main DFLib directory.
-# The bearings are the product of a single run of testlsDFfix, randomizing
-# around the true bearings to a transmitter at 106d35'W 34d55'N
-# according to the sigmas associated with the transmitters
-#
+# The bearings are from a run of testlsDF_proj using a transmitter
+# position of -106.58274, 34.919551 and no bearing randomization
 
 
 r1Point=pyProjPoint([-(106+38./60.+15.4/3600.) , (34+56./60.+48.7/3600)])
-r1=pyProjReport("r1",True,r1Point,123.866,1.0)
+r1=pyProjReport("r1",True,r1Point,121.147,1.0)
 r1p=r1.getReceiverLocation()
 
 r2Point=pyProjPoint([-(106+18./60.+17.0/3600.) , (34+58./60.+12.5/3600)])
-r2=pyProjReport("r2",True,r2Point,-104.265,3.0)
+r2=pyProjReport("r2",True,r2Point,257.539,3.0)
 r2p=r2.getReceiverLocation()
 
 r3Point=pyProjPoint([-(106+28./60.+53.8/3600.) , (35+10./60.+33.9/3600)])
-r3=pyProjReport("r3",True,r3Point,-160.354,2.0)
+r3=pyProjReport("r3",True,r3Point,197.962,2.0)
 r3p=r3.getReceiverLocation()
 
 print('r1: (x,y)=(%f,%f)  bearing=%f sigma=%f'%(r1p[0],r1p[1],r1.getBearing(),r1.getSigma()))
@@ -221,3 +219,18 @@ MLv=MLfix.getXY()
 MLu=MLfix.getUserCoords()
 print('ML fix: x=%f y=%f'%(MLv[0],MLv[1]))
 print('ML fix(LL): x=%f y=%f'%(MLu[0],MLu[1]))
+
+# convert to DD MM.MMMM H
+(ML_lon,ML_lat)=MLu;
+ML_H_lon="E";
+if (ML_lon < 0):
+   ML_H_lon="W";
+   ML_lon = -ML_lon;
+ML_H_lat="N";
+if (ML_lat < 0):
+   ML_H_lat="S";
+   ML_lat = -ML_lat;
+
+(ML_lon_f,ML_lon_d) = math.modf(ML_lon);
+(ML_lat_f,ML_lat_d) = math.modf(ML_lat);
+print ('ML fix %d°%8.4f%s %d°%7.4f%s'%(ML_lon_d, ML_lon_f*60, ML_H_lon, ML_lat_d, ML_lat_f*60, ML_H_lat))
