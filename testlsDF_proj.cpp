@@ -85,10 +85,6 @@ int main(int argc,char **argv)
     DF problem and the various fixes.  Error ellipses for the Stansfield
     solution are also plotted.
 
-    The program also outputs a file "testlsDFfix.grasspoints" with the
-    station locations and fix locations in a format that can be read by
-    GRASS GIS's v.in.ascii.
-
   */
   double lon,lat;
   std::vector<double> transPos(2,0.0);
