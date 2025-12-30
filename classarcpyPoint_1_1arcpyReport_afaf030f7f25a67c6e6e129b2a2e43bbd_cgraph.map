@@ -1,7 +1,10 @@
 <map id="arcpyPoint.arcpyReport.getBearing" name="arcpyPoint.arcpyReport.getBearing">
-<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Report.html#a68b62f719f4c09f8aff4d8890c6f0b3e" title="return reported bearing to target " alt="" coords="250,5,441,47"/>
-<area shape="rect" id="node3" href="$classDFLib_1_1LatLon_1_1Report.html#a084a3d24419106be436c3c8f20893700" title="return reported bearing to target " alt="" coords="250,71,441,112"/>
-<area shape="rect" id="node4" href="$classDFLib_1_1Proj_1_1Report.html#a8f2a64a72e33519b950c5bfa93ae5727" title="return reported bearing to target " alt="" coords="250,136,441,177"/>
-<area shape="rect" id="node5" href="$classDFLib_1_1XY_1_1Report.html#a5f4c6d3e0fb79a9fa620c701bfae70a7" title="return reported bearing to target " alt="" coords="254,201,437,243"/>
-<area shape="rect" id="node6" href="$classarcpyPoint_1_1arcpyReport.html#a3cca8367fe50d09050e041d176844549" title="arcpyPoint.arcpyReport.get\lReportBearingRadians" alt="" coords="248,267,443,308"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,225,197,274"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1LatLon_1_1Report.html#a89aeef8095e397f00d9a487e07db867b" title="return reported bearing to target" alt="" coords="252,5,441,54"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1Proj_1_1Report.html#a1989e82acdf552ef23fd559c468127db" title="return reported bearing to target" alt="" coords="252,79,441,127"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1XY_1_1Report.html#ab20c38100b5d9dbb76e694668f8ceacb" title="return reported bearing to target" alt="" coords="256,152,437,201"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1Abstract_1_1Report.html#a68b62f719f4c09f8aff4d8890c6f0b3e" title="return reported bearing to target" alt="" coords="252,225,441,274"/>
+<area shape="rect" id="node6" href="$classarcpyPoint_1_1arcpyReport.html#a3cca8367fe50d09050e041d176844549" title=" " alt="" coords="251,299,442,347"/>
+<area shape="rect" id="node7" href="$classpyPointTest_1_1pyReport.html#a13c717aca44e59a85f9ed7b6a5f06ea8" title=" " alt="" coords="256,372,436,421"/>
+<area shape="rect" id="node8" href="$classpyProjPoint_1_1pyProjReport.html#a2d2a54bd66f6b142cadd532a8e2e7ac2" title=" " alt="" coords="245,445,448,494"/>
 </map>

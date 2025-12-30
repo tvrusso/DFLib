@@ -1,4 +1,5 @@
 <map id="DFLib::XY::Point::Point" name="DFLib::XY::Point::Point">
-<area shape="rect" id="node2" href="$classDFLib_1_1XY_1_1Point.html#abcb43d37e05e20a04fa885470f8bd91e" title="Clone Self. " alt="" coords="212,5,375,32"/>
-<area shape="rect" id="node3" href="$XYPointUnitTests_8cpp.html#a5ea466849f21e6c2be4ef9b2eb8868d3" title="main" alt="" coords="423,5,477,32"/>
+<area shape="rect" id="node1" title="Default." alt="" coords="316,5,476,35"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1XY_1_1Point.html#abcb43d37e05e20a04fa885470f8bd91e" title="Clone Self." alt="" coords="105,5,268,35"/>
+<area shape="rect" id="node3" href="$XYPointUnitTests_8cpp.html#a5ea466849f21e6c2be4ef9b2eb8868d3" title=" " alt="" coords="5,5,57,35"/>
 </map>

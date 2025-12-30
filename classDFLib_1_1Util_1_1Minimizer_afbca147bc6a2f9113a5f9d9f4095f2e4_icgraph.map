@@ -1,4 +1,5 @@
 <map id="DFLib::Util::Minimizer::nelderMeadMinimize" name="DFLib::Util::Minimizer::nelderMeadMinimize">
-<area shape="rect" id="node2" href="$classDFLib_1_1ReportCollection.html#aa91199f4a9e034857a043bc5aee0d34a" title="more aggressive attempt to get at an ML fix " alt="" coords="215,5,407,47"/>
-<area shape="rect" id="node3" href="$testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="455,13,509,39"/>
+<area shape="rect" id="node1" title="minimuze function of vector argument by Nelder&#45;Mead simplex method." alt="" coords="341,5,501,54"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1ReportCollection.html#aa91199f4a9e034857a043bc5aee0d34a" title="more aggressive attempt to get at an ML fix" alt="" coords="105,5,293,54"/>
+<area shape="rect" id="node3" href="$testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,15,57,44"/>
 </map>

@@ -1,7 +1,11 @@
 <map id="/users/russo/DFLIB_Git/DFLib/DF_ProjReport_Collection.hpp" name="/users/russo/DFLIB_Git/DFLib/DF_ProjReport_Collection.hpp">
-<area shape="rect" id="node2" href="$DFLib__port_8h.html" title="DFLib_port.h" alt="" coords="526,333,629,360"/>
-<area shape="rect" id="node3" href="$DF__Report__Collection_8hpp.html" title="DF_Report_Collection.hpp" alt="" coords="353,109,537,136"/>
-<area shape="rect" id="node5" href="$Util__Abstract__Group_8hpp.html" title="Util_Abstract_Group.hpp" alt="" coords="488,259,667,285"/>
-<area shape="rect" id="node6" href="$DF__Abstract__Report_8hpp.html" title="DF_Abstract_Report.hpp" alt="" coords="259,184,435,211"/>
-<area shape="rect" id="node9" href="$DF__Abstract__Point_8hpp.html" title="DF_Abstract_Point.hpp" alt="" coords="25,259,191,285"/>
+<area shape="rect" id="node1" title=" " alt="" coords="448,5,629,73"/>
+<area shape="rect" id="node2" href="$DFLib__port_8h.html" title=" " alt="" coords="513,354,614,384"/>
+<area shape="rect" id="node3" href="$DF__Report__Collection_8hpp.html" title=" " alt="" coords="361,121,542,151"/>
+<area shape="rect" id="node4" title=" " alt="" coords="134,354,196,384"/>
+<area shape="rect" id="node5" href="$Util__Abstract__Group_8hpp.html" title=" " alt="" coords="478,276,650,306"/>
+<area shape="rect" id="node6" href="$DF__Abstract__Report_8hpp.html" title=" " alt="" coords="251,199,423,228"/>
+<area shape="rect" id="node9" href="$DF__Abstract__Point_8hpp.html" title=" " alt="" coords="24,276,186,306"/>
+<area shape="rect" id="node7" title=" " alt="" coords="261,276,320,306"/>
+<area shape="rect" id="node8" title=" " alt="" coords="344,276,402,306"/>
 </map>

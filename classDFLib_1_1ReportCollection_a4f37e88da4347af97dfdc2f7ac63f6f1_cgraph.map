@@ -1,4 +1,5 @@
 <map id="DFLib::ReportCollection::computeLeastSquaresFix" name="DFLib::ReportCollection::computeLeastSquaresFix">
-<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Point.html#adec4bffdb7ccebcef10e3105f90bc2bd" title="Set X&#45;Y coordinates of the point. " alt="" coords="244,5,403,47"/>
-<area shape="rect" id="node3" href="$classDFLib_1_1Abstract_1_1Point.html#aa7837d850b5ea3bcd35da21b0dbe9669" title="Get X&#45;Y coordinates of the point. " alt="" coords="244,71,403,112"/>
+<area shape="rect" id="node1" title="Computes least squares solution of DF problem." alt="" coords="5,43,189,91"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Point.html#a5eb6bedf8a7d33d0061f4b8bb3787552" title="Get X&#45;Y coordinates of the point." alt="" coords="237,5,392,54"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1Abstract_1_1Point.html#adec4bffdb7ccebcef10e3105f90bc2bd" title="Set X&#45;Y coordinates of the point." alt="" coords="237,79,392,127"/>
 </map>

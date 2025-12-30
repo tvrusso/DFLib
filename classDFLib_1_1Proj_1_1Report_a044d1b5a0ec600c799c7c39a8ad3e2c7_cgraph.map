@@ -1,7 +1,8 @@
 <map id="DFLib::Proj::Report::operator=" name="DFLib::Proj::Report::operator=">
-<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Report.html#a4dce3e8c563f97904dbba2019938a62a" title="set the name of this report " alt="" coords="192,5,360,47"/>
-<area shape="rect" id="node3" href="$classDFLib_1_1Abstract_1_1Report.html#af30d76b92d8dc82393de693b664fb870" title="Return the name of this report. " alt="" coords="192,71,360,112"/>
-<area shape="rect" id="node4" href="$classDFLib_1_1Abstract_1_1Report.html#a99ae1dc6aebd92fffbef902e5b4cbabe" title="check this report&#39;s validity " alt="" coords="192,136,360,177"/>
-<area shape="rect" id="node5" href="$classDFLib_1_1Abstract_1_1Report.html#a9887eec407ff0f872e792bab8dc85c0c" title="Set this report as valid. " alt="" coords="192,201,360,243"/>
-<area shape="rect" id="node6" href="$classDFLib_1_1Abstract_1_1Report.html#ad79e7a5839266eb0b4cef3c1c53b9bfa" title="Set this report as invalid. " alt="" coords="192,267,360,308"/>
+<area shape="rect" id="node1" title="assignment operator" alt="" coords="5,152,145,201"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Report.html#a819dcca5ed395e8fe6aed3afbdc0bcdc" title="Return the name of this report." alt="" coords="193,5,359,54"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1Abstract_1_1Report.html#a9ff6010e782df1cb29ccfb07377fbb76" title="check this report&#39;s validity" alt="" coords="193,79,359,127"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1Abstract_1_1Report.html#ad79e7a5839266eb0b4cef3c1c53b9bfa" title="Set this report as invalid." alt="" coords="193,152,359,201"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1Abstract_1_1Report.html#a4dce3e8c563f97904dbba2019938a62a" title="set the name of this report" alt="" coords="193,225,359,274"/>
+<area shape="rect" id="node6" href="$classDFLib_1_1Abstract_1_1Report.html#a9887eec407ff0f872e792bab8dc85c0c" title="Set this report as valid." alt="" coords="193,299,359,347"/>
 </map>

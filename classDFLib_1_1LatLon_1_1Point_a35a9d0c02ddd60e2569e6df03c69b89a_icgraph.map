@@ -1,0 +1,12 @@
+<map id="DFLib::LatLon::Point::isUserProjRadians" name="DFLib::LatLon::Point::isUserProjRadians">
+<area shape="rect" id="node1" title="return true if user projection expects input in radians" alt="" coords="883,93,1029,142"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1LatLon_1_1Point.html#aff611575c4201216580c0324b76fd199" title=" " alt="" coords="688,56,835,104"/>
+<area shape="rect" id="node9" href="$classDFLib_1_1LatLon_1_1Point.html#ac02df8fb329a1c3773b8b192077d51e6" title=" " alt="" coords="688,129,835,178"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1LatLon_1_1Point.html#a7b20fb68764d7328a4ff3300e80ad21b" title="get mercator projection (XY) position" alt="" coords="494,56,640,104"/>
+<area shape="rect" id="node4" href="$classpyPointTest_1_1pyPoint.html#a67c0faef6eaad7913a0c4f6a2e4bf60b" title=" " alt="" coords="255,5,438,35"/>
+<area shape="rect" id="node5" href="$classpyPointTest_1_1pyPoint.html#a9640e9b48e80a62a6dda8084af41a123" title=" " alt="" coords="247,58,446,107"/>
+<area shape="rect" id="node8" href="$LLUnitTests_8cpp.html#a5ea466849f21e6c2be4ef9b2eb8868d3" title=" " alt="" coords="321,133,372,163"/>
+<area shape="rect" id="node6" href="$classarcpyPoint_1_1arcpyPoint.html#a63d80f4b6e4d4341c082db19cfb9e03a" title=" " alt="" coords="5,37,199,67"/>
+<area shape="rect" id="node7" href="$classpyProjPoint_1_1pyProjPoint.html#aa3d71ea62ccd6c9cffc3efaa0b99b280" title=" " alt="" coords="16,90,188,139"/>
+<area shape="rect" id="node10" href="$classDFLib_1_1LatLon_1_1Point.html#a3db2d3ff718e12a26a893c85a6ffadcd" title="get Lat/Lon position" alt="" coords="494,129,640,178"/>
+</map>

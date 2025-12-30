@@ -1,5 +1,6 @@
 <map id="DFLib::ReportCollection::addReport" name="DFLib::ReportCollection::addReport">
-<area shape="rect" id="node2" href="$classDFLib_1_1ProjReportCollection.html#a8c191d92d17d826943376457d57777b3" title="DFLib::ProjReportCollection\l::addReport" alt="" coords="221,5,413,47"/>
-<area shape="rect" id="node4" href="$nonoise_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="290,71,345,98"/>
-<area shape="rect" id="node3" href="$SimpleDF2_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="461,13,516,39"/>
+<area shape="rect" id="node1" title="Add a DF report to the collection." alt="" coords="344,37,511,86"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1ProjReportCollection.html#a8c191d92d17d826943376457d57777b3" title=" " alt="" coords="105,5,296,54"/>
+<area shape="rect" id="node4" href="$nonoise_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="175,78,226,107"/>
+<area shape="rect" id="node3" href="$SimpleDF2_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,15,57,44"/>
 </map>

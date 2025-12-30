@@ -1,5 +1,6 @@
 <map id="DFLib::Abstract::Report" name="DFLib::Abstract::Report">
-<area shape="rect" id="node2" href="$classDFLib_1_1LatLon_1_1Report.html" title="DF report in Lat/Lon coordinates. " alt="" coords="5,80,163,107"/>
-<area shape="rect" id="node3" href="$classDFLib_1_1Proj_1_1Report.html" title="DF report in user&#45;specified coordinates. " alt="" coords="187,80,325,107"/>
-<area shape="rect" id="node4" href="$classDFLib_1_1XY_1_1Report.html" title="DF report in XY coordinates This class is meant for simplistic DF codes that work in X/Y coordinates ..." alt="" coords="350,80,477,107"/>
+<area shape="rect" id="node1" title="Abstract interface for DFReport. This is the base class for DF report classes." alt="" coords="173,5,339,35"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1LatLon_1_1Report.html" title="DF report in Lat/Lon coordinates." alt="" coords="5,83,163,113"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1Proj_1_1Report.html" title="DF report in user&#45;specified coordinates." alt="" coords="186,83,326,113"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1XY_1_1Report.html" title="DF report in XY coordinates This class is meant for simplistic DF codes that work in X/Y coordinates ..." alt="" coords="350,83,482,113"/>
 </map>

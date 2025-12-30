@@ -1,10 +1,14 @@
 <map id="pyPointTest.pyPoint.Clone" name="pyPointTest.pyPoint.Clone">
-<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Point.html#aa7837d850b5ea3bcd35da21b0dbe9669" title="Get X&#45;Y coordinates of the point. " alt="" coords="259,5,418,47"/>
-<area shape="rect" id="node3" href="$classDFLib_1_1LatLon_1_1Point.html#a7b20fb68764d7328a4ff3300e80ad21b" title="get mercator projection (XY) position " alt="" coords="265,71,413,112"/>
-<area shape="rect" id="node5" href="$classDFLib_1_1Proj_1_1Point.html#a624b4b542d3f68be5b99205ffdd621dc" title="get mercator projection (XY) position " alt="" coords="274,136,403,177"/>
-<area shape="rect" id="node7" href="$classDFLib_1_1XY_1_1Point.html#a8cc0551c1b78581a9ec7083b9a4a1990" title="Set X&#45;Y position. " alt="" coords="257,202,420,229"/>
-<area shape="rect" id="node8" href="$classarcpyPoint_1_1arcpyPoint.html#a4848c54b15598cebd8234484ba30ea6e" title="arcpyPoint.arcpyPoint.getXY" alt="" coords="239,253,439,279"/>
-<area shape="rect" id="node9" href="$classpyPointTest_1_1pyPoint.html#a0493c42f8947f5058013338336864dd9" title="pyPointTest.pyPoint.getXY" alt="" coords="246,303,431,330"/>
-<area shape="rect" id="node4" href="$classDFLib_1_1LatLon_1_1Point.html#aff611575c4201216580c0324b76fd199" title="DFLib::LatLon::Point\l::llToMerc" alt="" coords="487,71,635,112"/>
-<area shape="rect" id="node6" href="$classDFLib_1_1Proj_1_1Point.html#a8a57c7fa0776c5e5cc077fcd87e3fd79" title="DFLib::Proj::Point\l::userToMerc" alt="" coords="496,136,625,177"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,214,188,243"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1LatLon_1_1Point.html#a7b20fb68764d7328a4ff3300e80ad21b" title="get mercator projection (XY) position" alt="" coords="267,5,413,54"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1Proj_1_1Point.html#a624b4b542d3f68be5b99205ffdd621dc" title="get mercator projection (XY) position" alt="" coords="276,79,404,127"/>
+<area shape="rect" id="node8" href="$classDFLib_1_1XY_1_1Point.html#a8cc0551c1b78581a9ec7083b9a4a1990" title="Set X&#45;Y position." alt="" coords="257,151,422,180"/>
+<area shape="rect" id="node9" href="$classDFLib_1_1Abstract_1_1Point.html#a5eb6bedf8a7d33d0061f4b8bb3787552" title="Get X&#45;Y coordinates of the point." alt="" coords="262,204,418,253"/>
+<area shape="rect" id="node10" href="$classarcpyPoint_1_1arcpyPoint.html#a4848c54b15598cebd8234484ba30ea6e" title=" " alt="" coords="242,276,438,306"/>
+<area shape="rect" id="node11" href="$classpyPointTest_1_1pyPoint.html#a0493c42f8947f5058013338336864dd9" title=" " alt="" coords="247,330,432,359"/>
+<area shape="rect" id="node12" href="$classpyProjPoint_1_1pyProjPoint.html#aa454f341a1db15be68ad8e722c376c55" title=" " alt="" coords="236,383,444,412"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1LatLon_1_1Point.html#aff611575c4201216580c0324b76fd199" title=" " alt="" coords="492,5,638,54"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1LatLon_1_1Point.html#a35a9d0c02ddd60e2569e6df03c69b89a" title="return true if user projection expects input in radians" alt="" coords="686,5,833,54"/>
+<area shape="rect" id="node6" href="$classDFLib_1_1Proj_1_1Point.html#a8a57c7fa0776c5e5cc077fcd87e3fd79" title=" " alt="" coords="501,79,629,127"/>
+<area shape="rect" id="node7" href="$classDFLib_1_1Proj_1_1Point.html#a11be19e976eab22485d9b8603dc31b6a" title="return true if user projection expects input in radians" alt="" coords="690,79,829,127"/>
 </map>

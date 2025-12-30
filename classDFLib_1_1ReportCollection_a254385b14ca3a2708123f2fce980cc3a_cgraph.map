@@ -1,4 +1,5 @@
 <map id="DFLib::ReportCollection::computeStansfieldFix" name="DFLib::ReportCollection::computeStansfieldFix">
-<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Point.html#aa7837d850b5ea3bcd35da21b0dbe9669" title="Get X&#45;Y coordinates of the point. " alt="" coords="221,5,380,47"/>
-<area shape="rect" id="node3" href="$classDFLib_1_1Abstract_1_1Point.html#adec4bffdb7ccebcef10e3105f90bc2bd" title="Set X&#45;Y coordinates of the point. " alt="" coords="221,71,380,112"/>
+<area shape="rect" id="node1" title="Computes Stansfield estimate of Maximum Likelihood solution of DF problem." alt="" coords="5,43,173,91"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Point.html#a5eb6bedf8a7d33d0061f4b8bb3787552" title="Get X&#45;Y coordinates of the point." alt="" coords="221,5,376,54"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1Abstract_1_1Point.html#adec4bffdb7ccebcef10e3105f90bc2bd" title="Set X&#45;Y coordinates of the point." alt="" coords="221,79,376,127"/>
 </map>

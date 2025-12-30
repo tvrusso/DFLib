@@ -1,7 +1,9 @@
 <map id="DFLib::XY::Report" name="DFLib::XY::Report">
-<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Report.html" title="Abstract interface for DFReport. This is the base class for DF report classes. " alt="" coords="5,185,173,212"/>
-<area shape="rect" id="node3" title="STL class. " alt="" coords="46,96,133,123"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="21,5,158,47"/>
-<area shape="rect" id="node5" href="$classDFLib_1_1XY_1_1Point.html" title="DFLib::XY::Point" alt="" coords="198,185,317,212"/>
-<area shape="rect" id="node6" href="$classDFLib_1_1Abstract_1_1Point.html" title="Abstract base class for generic &quot;point&quot; objects. " alt="" coords="167,96,326,123"/>
+<area shape="rect" id="node1" title="DF report in XY coordinates This class is meant for simplistic DF codes that work in X/Y coordinates ..." alt="" coords="106,297,237,326"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Report.html" title="Abstract interface for DFReport. This is the base class for DF report classes." alt="" coords="5,200,172,230"/>
+<area shape="rect" id="node3" title=" " alt="" coords="46,103,131,133"/>
+<area shape="rect" id="node4" title=" " alt="" coords="24,5,153,54"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1XY_1_1Point.html" title=" " alt="" coords="196,200,317,230"/>
+<area shape="rect" id="node6" href="$classDFLib_1_1Abstract_1_1Point.html" title="Abstract base class for generic &quot;point&quot; objects." alt="" coords="167,103,322,133"/>
+<area shape="rect" id="node7" title=" " alt="" coords="346,103,500,133"/>
 </map>

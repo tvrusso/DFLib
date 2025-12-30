@@ -1,4 +1,5 @@
 <map id="DFLib::Abstract::Report::setInvalid" name="DFLib::Abstract::Report::setInvalid">
-<area shape="rect" id="node2" href="$classDFLib_1_1Proj_1_1Report.html#a044d1b5a0ec600c799c7c39a8ad3e2c7" title="assignment operator " alt="" coords="221,5,360,47"/>
-<area shape="rect" id="node3" href="$SimpleDF_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="263,71,318,98"/>
+<area shape="rect" id="node1" title="Set this report as invalid." alt="" coords="193,28,359,76"/>
+<area shape="rect" id="node2" href="$SimpleDF_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="49,5,101,35"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1Proj_1_1Report.html#a044d1b5a0ec600c799c7c39a8ad3e2c7" title="assignment operator" alt="" coords="5,58,145,107"/>
 </map>

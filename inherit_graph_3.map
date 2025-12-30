@@ -1,6 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classDFLib_1_1Abstract_1_1Point.html" title="Abstract base class for generic &quot;point&quot; objects. " alt="" coords="5,56,164,83"/>
-<area shape="rect" id="node2" href="$classDFLib_1_1LatLon_1_1Point.html" title="DFLib::LatLon::Point" alt="" coords="212,5,360,32"/>
-<area shape="rect" id="node3" href="$classDFLib_1_1Proj_1_1Point.html" title="DFLib::Proj::Point" alt="" coords="221,56,351,83"/>
-<area shape="rect" id="node4" href="$classDFLib_1_1XY_1_1Point.html" title="DFLib::XY::Point" alt="" coords="227,107,345,133"/>
+<area shape="rect" id="node1" href="$classDFLib_1_1Abstract_1_1Point.html" title="Abstract base class for generic &quot;point&quot; objects." alt="" coords="5,59,161,88"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1LatLon_1_1Point.html" title=" " alt="" coords="209,5,355,35"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1Proj_1_1Point.html" title=" " alt="" coords="218,59,346,88"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1XY_1_1Point.html" title=" " alt="" coords="222,112,342,142"/>
 </map>

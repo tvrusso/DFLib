@@ -1,6 +1,7 @@
 <map id="DFLib::Proj::Point::mercToUser" name="DFLib::Proj::Point::mercToUser">
-<area shape="rect" id="node2" href="$classDFLib_1_1Proj_1_1Point.html#ad1d0b8c5594fee59452dfc804a4c8619" title="get user position " alt="" coords="183,49,312,90"/>
-<area shape="rect" id="node3" href="$ProjUnitTests_8cpp.html#a5ea466849f21e6c2be4ef9b2eb8868d3" title="main" alt="" coords="433,5,487,32"/>
-<area shape="rect" id="node4" href="$classarcpyPoint_1_1arcpyPoint.html#a63d80f4b6e4d4341c082db19cfb9e03a" title="arcpyPoint.arcpyPoint.Clone" alt="" coords="360,56,560,83"/>
-<area shape="rect" id="node5" href="$classpyProjPoint_1_1pyProjPoint.html#aa3d71ea62ccd6c9cffc3efaa0b99b280" title="pyProjPoint.pyProjPoint.\lClone" alt="" coords="374,107,546,149"/>
+<area shape="rect" id="node1" title=" " alt="" coords="423,58,551,107"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1Proj_1_1Point.html#ad1d0b8c5594fee59452dfc804a4c8619" title="get user position" alt="" coords="247,58,375,107"/>
+<area shape="rect" id="node3" href="$classarcpyPoint_1_1arcpyPoint.html#a63d80f4b6e4d4341c082db19cfb9e03a" title=" " alt="" coords="5,5,199,35"/>
+<area shape="rect" id="node4" href="$classpyProjPoint_1_1pyProjPoint.html#aa3d71ea62ccd6c9cffc3efaa0b99b280" title=" " alt="" coords="16,58,188,107"/>
+<area shape="rect" id="node5" href="$ProjUnitTests_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="76,131,128,160"/>
 </map>

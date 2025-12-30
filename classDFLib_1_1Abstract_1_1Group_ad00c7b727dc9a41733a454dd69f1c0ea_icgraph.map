@@ -1,14 +1,15 @@
 <map id="DFLib::Abstract::Group::setEvaluationPoint" name="DFLib::Abstract::Group::setEvaluationPoint">
-<area shape="rect" id="node2" href="$classDFLib_1_1Util_1_1Minimizer.html#ac1a357c746cdefe2f20d8784f1f00ab4" title="Evaluate &#160;where x0 and dir are vectors. " alt="" coords="220,5,375,47"/>
-<area shape="rect" id="node5" href="$classDFLib_1_1Util_1_1Minimizer.html#a345f790e649eaf0092e5590e3e21acd7" title="minimize function of vector value by method of conjugate gradients " alt="" coords="835,123,1039,164"/>
-<area shape="rect" id="node11" href="$classDFLib_1_1Util_1_1Minimizer.html#af4cb8dd8cd1ee7c40a27e4ecbc219917" title="DFLib::Util::Minimizer\l::simpleFandDeriv" alt="" coords="220,71,375,112"/>
-<area shape="rect" id="node13" href="$classDFLib_1_1Util_1_1Minimizer.html#afbca147bc6a2f9113a5f9d9f4095f2e4" title="minimuze function of vector argument by Nelder&#45;Mead simplex method. " alt="" coords="625,188,787,229"/>
-<area shape="rect" id="node3" href="$classDFLib_1_1Util_1_1Minimizer.html#a5e4b72771d67e950842a6fa8cebe2583" title="bracket minimum of function " alt="" coords="423,5,577,47"/>
-<area shape="rect" id="node4" href="$classDFLib_1_1Util_1_1Minimizer.html#af8044e0bb85656cbdf67f40f673cb82e" title="minimize function in given direction perform a line search along the given direction for the minimum ..." alt="" coords="629,71,783,112"/>
-<area shape="rect" id="node6" href="$classDFLib_1_1ReportCollection.html#aa91199f4a9e034857a043bc5aee0d34a" title="more aggressive attempt to get at an ML fix " alt="" coords="1087,188,1279,229"/>
-<area shape="rect" id="node8" href="$classDFLib_1_1ReportCollection.html#adffd170257322f58734acb369bb720a4" title="Computes Maximum Likelihood solution of DF problem. " alt="" coords="1099,123,1267,164"/>
-<area shape="rect" id="node10" href="$nonoise_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1155,71,1210,98"/>
-<area shape="rect" id="node7" href="$testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1327,195,1381,222"/>
-<area shape="rect" id="node9" href="$SimpleDF_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1327,130,1381,157"/>
-<area shape="rect" id="node12" href="$classDFLib_1_1Util_1_1Minimizer.html#a974666891284930ce15f2f1b80ed45c6" title="minimize by Brent&#39;s method with derivatives given a,b,c scalars that bracket the minimum in given dir..." alt="" coords="423,71,577,112"/>
+<area shape="rect" id="node1" title="Set the point at which to evaluate the function." alt="" coords="1201,97,1364,146"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1Util_1_1Minimizer.html#a345f790e649eaf0092e5590e3e21acd7" title="minimize function of vector value by method of conjugate gradients" alt="" coords="341,68,540,117"/>
+<area shape="rect" id="node8" href="$classDFLib_1_1Util_1_1Minimizer.html#afbca147bc6a2f9113a5f9d9f4095f2e4" title="minimuze function of vector argument by Nelder&#45;Mead simplex method." alt="" coords="588,5,749,54"/>
+<area shape="rect" id="node9" href="$classDFLib_1_1Util_1_1Minimizer.html#ac1a357c746cdefe2f20d8784f1f00ab4" title="Evaluate &#160;where x0 and dir are vectors." alt="" coords="999,128,1153,177"/>
+<area shape="rect" id="node12" href="$classDFLib_1_1Util_1_1Minimizer.html#af4cb8dd8cd1ee7c40a27e4ecbc219917" title=" " alt="" coords="999,201,1153,250"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1ReportCollection.html#aa91199f4a9e034857a043bc5aee0d34a" title="more aggressive attempt to get at an ML fix" alt="" coords="105,5,293,54"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1ReportCollection.html#adffd170257322f58734acb369bb720a4" title="Computes Maximum Likelihood solution of DF problem." alt="" coords="115,131,282,179"/>
+<area shape="rect" id="node7" href="$nonoise_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="173,78,224,107"/>
+<area shape="rect" id="node4" href="$testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,15,57,44"/>
+<area shape="rect" id="node6" href="$SimpleDF_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,140,57,170"/>
+<area shape="rect" id="node10" href="$classDFLib_1_1Util_1_1Minimizer.html#a5e4b72771d67e950842a6fa8cebe2583" title="bracket minimum of function" alt="" coords="797,128,951,177"/>
+<area shape="rect" id="node11" href="$classDFLib_1_1Util_1_1Minimizer.html#af8044e0bb85656cbdf67f40f673cb82e" title="minimize function in given direction perform a line search along the given direction for the minimum ..." alt="" coords="591,128,746,177"/>
+<area shape="rect" id="node13" href="$classDFLib_1_1Util_1_1Minimizer.html#a974666891284930ce15f2f1b80ed45c6" title="minimize by Brent&#39;s method with derivatives given a,b,c scalars that bracket the minimum in given dir..." alt="" coords="797,201,951,250"/>
 </map>

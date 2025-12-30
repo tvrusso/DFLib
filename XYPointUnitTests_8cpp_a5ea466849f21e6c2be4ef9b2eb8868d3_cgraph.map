@@ -1,6 +1,7 @@
 <map id="main" name="main">
-<area shape="rect" id="node2" href="$classDFLib_1_1XY_1_1Point.html#a8cc0551c1b78581a9ec7083b9a4a1990" title="Set X&#45;Y position. " alt="" coords="108,5,271,32"/>
-<area shape="rect" id="node3" href="$classDFLib_1_1XY_1_1Point.html#ae6e78474dec049dbc0c1a122457b100c" title="Set position from X&#45;Y. " alt="" coords="109,56,270,83"/>
-<area shape="rect" id="node4" href="$classDFLib_1_1XY_1_1Point.html#abcb43d37e05e20a04fa885470f8bd91e" title="Clone Self. " alt="" coords="108,107,271,133"/>
-<area shape="rect" id="node5" href="$classDFLib_1_1XY_1_1Point.html#a20483d508aae19c86c1db8373557bb27" title="Default. " alt="" coords="319,107,477,133"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,59,57,88"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1XY_1_1Point.html#abcb43d37e05e20a04fa885470f8bd91e" title="Clone Self." alt="" coords="106,5,269,35"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1XY_1_1Point.html#a8cc0551c1b78581a9ec7083b9a4a1990" title="Set X&#45;Y position." alt="" coords="105,59,270,88"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1XY_1_1Point.html#ae6e78474dec049dbc0c1a122457b100c" title="Set position from X&#45;Y." alt="" coords="106,112,269,142"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1XY_1_1Point.html#a20483d508aae19c86c1db8373557bb27" title="Default." alt="" coords="318,5,478,35"/>
 </map>

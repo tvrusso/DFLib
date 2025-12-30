@@ -1,0 +1,15 @@
+<map id="DFLib::Abstract::Point::getXY" name="DFLib::Abstract::Point::getXY">
+<area shape="rect" id="node1" title="Get X&#45;Y coordinates of the point." alt="" coords="495,204,650,253"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1ReportCollection.html#aa91199f4a9e034857a043bc5aee0d34a" title="more aggressive attempt to get at an ML fix" alt="" coords="253,5,441,54"/>
+<area shape="rect" id="node4" href="$classpyPointTest_1_1pyPoint.html#a67c0faef6eaad7913a0c4f6a2e4bf60b" title=" " alt="" coords="256,78,438,107"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1ReportCollection.html#a451e1a9224dcd059c521ed445f367d62" title="compute Cramer&#45;Rao bounding ellipse parameters" alt="" coords="247,131,447,179"/>
+<area shape="rect" id="node6" href="$classDFLib_1_1ReportCollection.html#a4f37e88da4347af97dfdc2f7ac63f6f1" title="Computes least squares solution of DF problem." alt="" coords="255,277,438,326"/>
+<area shape="rect" id="node8" href="$classDFLib_1_1ReportCollection.html#adffd170257322f58734acb369bb720a4" title="Computes Maximum Likelihood solution of DF problem." alt="" coords="263,351,430,399"/>
+<area shape="rect" id="node10" href="$classDFLib_1_1ReportCollection.html#a254385b14ca3a2708123f2fce980cc3a" title="Computes Stansfield estimate of Maximum Likelihood solution of DF problem." alt="" coords="263,204,430,253"/>
+<area shape="rect" id="node11" href="$classpyPointTest_1_1pyPoint.html#a9640e9b48e80a62a6dda8084af41a123" title=" " alt="" coords="247,424,446,473"/>
+<area shape="rect" id="node3" href="$testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="76,140,128,170"/>
+<area shape="rect" id="node7" href="$nonoise_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="76,287,128,316"/>
+<area shape="rect" id="node9" href="$SimpleDF_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="76,360,128,390"/>
+<area shape="rect" id="node12" href="$classarcpyPoint_1_1arcpyPoint.html#a63d80f4b6e4d4341c082db19cfb9e03a" title=" " alt="" coords="5,423,199,452"/>
+<area shape="rect" id="node13" href="$classpyProjPoint_1_1pyProjPoint.html#aa3d71ea62ccd6c9cffc3efaa0b99b280" title=" " alt="" coords="16,476,188,525"/>
+</map>

@@ -1,6 +1,8 @@
 <map id="DFLib::Proj::Point::getXY" name="DFLib::Proj::Point::getXY">
-<area shape="rect" id="node2" href="$ProjUnitTests_8cpp.html#a5ea466849f21e6c2be4ef9b2eb8868d3" title="main" alt="" coords="255,5,310,32"/>
-<area shape="rect" id="node3" href="$classpyPointTest_1_1pyPoint.html#a67c0faef6eaad7913a0c4f6a2e4bf60b" title="pyPointTest.pyPoint.Clone" alt="" coords="190,56,375,83"/>
-<area shape="rect" id="node4" href="$classpyPointTest_1_1pyPoint.html#a9640e9b48e80a62a6dda8084af41a123" title="pyPointTest.pyPoint.getUser\lCoords" alt="" coords="183,107,383,149"/>
-<area shape="rect" id="node5" href="$classpyProjPoint_1_1pyProjPoint.html#aa3d71ea62ccd6c9cffc3efaa0b99b280" title="pyProjPoint.pyProjPoint.\lClone" alt="" coords="431,107,603,149"/>
+<area shape="rect" id="node1" title="get mercator projection (XY) position" alt="" coords="494,58,622,107"/>
+<area shape="rect" id="node2" href="$classpyPointTest_1_1pyPoint.html#a67c0faef6eaad7913a0c4f6a2e4bf60b" title=" " alt="" coords="255,5,438,35"/>
+<area shape="rect" id="node3" href="$classpyPointTest_1_1pyPoint.html#a9640e9b48e80a62a6dda8084af41a123" title=" " alt="" coords="247,58,446,107"/>
+<area shape="rect" id="node6" href="$ProjUnitTests_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="321,131,372,160"/>
+<area shape="rect" id="node4" href="$classarcpyPoint_1_1arcpyPoint.html#a63d80f4b6e4d4341c082db19cfb9e03a" title=" " alt="" coords="5,37,199,67"/>
+<area shape="rect" id="node5" href="$classpyProjPoint_1_1pyProjPoint.html#aa3d71ea62ccd6c9cffc3efaa0b99b280" title=" " alt="" coords="16,90,188,139"/>
 </map>

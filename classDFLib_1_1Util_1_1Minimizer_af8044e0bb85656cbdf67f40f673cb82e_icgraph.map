@@ -1,8 +1,9 @@
 <map id="DFLib::Util::Minimizer::lineSearch" name="DFLib::Util::Minimizer::lineSearch">
-<area shape="rect" id="node2" href="$classDFLib_1_1Util_1_1Minimizer.html#a345f790e649eaf0092e5590e3e21acd7" title="minimize function of vector value by method of conjugate gradients " alt="" coords="208,71,412,112"/>
-<area shape="rect" id="node3" href="$classDFLib_1_1ReportCollection.html#aa91199f4a9e034857a043bc5aee0d34a" title="more aggressive attempt to get at an ML fix " alt="" coords="460,5,652,47"/>
-<area shape="rect" id="node5" href="$classDFLib_1_1ReportCollection.html#adffd170257322f58734acb369bb720a4" title="Computes Maximum Likelihood solution of DF problem. " alt="" coords="472,71,640,112"/>
-<area shape="rect" id="node7" href="$nonoise_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="529,137,583,163"/>
-<area shape="rect" id="node4" href="$testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="700,13,755,39"/>
-<area shape="rect" id="node6" href="$SimpleDF_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="700,78,755,105"/>
+<area shape="rect" id="node1" title="minimize function in given direction perform a line search along the given direction for the minimum ..." alt="" coords="588,79,743,127"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1Util_1_1Minimizer.html#a345f790e649eaf0092e5590e3e21acd7" title="minimize function of vector value by method of conjugate gradients" alt="" coords="341,79,540,127"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1ReportCollection.html#aa91199f4a9e034857a043bc5aee0d34a" title="more aggressive attempt to get at an ML fix" alt="" coords="105,5,293,54"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1ReportCollection.html#adffd170257322f58734acb369bb720a4" title="Computes Maximum Likelihood solution of DF problem." alt="" coords="115,79,282,127"/>
+<area shape="rect" id="node7" href="$nonoise_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="173,151,224,180"/>
+<area shape="rect" id="node4" href="$testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,15,57,44"/>
+<area shape="rect" id="node6" href="$SimpleDF_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,88,57,118"/>
 </map>

@@ -1,9 +1,11 @@
 <map id="main" name="main">
-<area shape="rect" id="node2" href="$classDFLib_1_1LatLon_1_1Point.html#a3db2d3ff718e12a26a893c85a6ffadcd" title="get Lat/Lon position " alt="" coords="108,5,256,47"/>
-<area shape="rect" id="node4" href="$classDFLib_1_1LatLon_1_1Point.html#a7b20fb68764d7328a4ff3300e80ad21b" title="get mercator projection (XY) position " alt="" coords="108,71,256,112"/>
-<area shape="rect" id="node6" href="$classDFLib_1_1LatLon_1_1Point.html#a687b8f1c95256b7b08cfe1b7b0ab0e1e" title="set mercator projection (XY) position " alt="" coords="108,136,256,177"/>
-<area shape="rect" id="node7" href="$classDFLib_1_1LatLon_1_1Point.html#a83b0c511bb8faf82e378dc9913609e9d" title="Clone Self. " alt="" coords="108,201,256,243"/>
-<area shape="rect" id="node3" href="$classDFLib_1_1LatLon_1_1Point.html#ac02df8fb329a1c3773b8b192077d51e6" title="DFLib::LatLon::Point\l::mercToLL" alt="" coords="304,5,452,47"/>
-<area shape="rect" id="node5" href="$classDFLib_1_1LatLon_1_1Point.html#aff611575c4201216580c0324b76fd199" title="DFLib::LatLon::Point\l::llToMerc" alt="" coords="304,71,452,112"/>
-<area shape="rect" id="node8" href="$classDFLib_1_1LatLon_1_1Point.html#a13aeb412534b3ecb408bfe8a13b4b318" title="Default Constructor. " alt="" coords="304,201,452,243"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,126,57,155"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1LatLon_1_1Point.html#a83b0c511bb8faf82e378dc9913609e9d" title="Clone Self." alt="" coords="105,5,251,54"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1LatLon_1_1Point.html#a3db2d3ff718e12a26a893c85a6ffadcd" title="get Lat/Lon position" alt="" coords="105,79,251,127"/>
+<area shape="rect" id="node7" href="$classDFLib_1_1LatLon_1_1Point.html#a7b20fb68764d7328a4ff3300e80ad21b" title="get mercator projection (XY) position" alt="" coords="105,152,251,201"/>
+<area shape="rect" id="node9" href="$classDFLib_1_1LatLon_1_1Point.html#a687b8f1c95256b7b08cfe1b7b0ab0e1e" title="set mercator projection (XY) position" alt="" coords="105,225,251,274"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1LatLon_1_1Point.html#a13aeb412534b3ecb408bfe8a13b4b318" title="Default Constructor." alt="" coords="299,5,445,54"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1LatLon_1_1Point.html#ac02df8fb329a1c3773b8b192077d51e6" title=" " alt="" coords="299,79,445,127"/>
+<area shape="rect" id="node6" href="$classDFLib_1_1LatLon_1_1Point.html#a35a9d0c02ddd60e2569e6df03c69b89a" title="return true if user projection expects input in radians" alt="" coords="493,116,640,165"/>
+<area shape="rect" id="node8" href="$classDFLib_1_1LatLon_1_1Point.html#aff611575c4201216580c0324b76fd199" title=" " alt="" coords="299,152,445,201"/>
 </map>

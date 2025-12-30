@@ -1,3 +1,5 @@
 <map id="DFLib::LatLon::Point::getLL" name="DFLib::LatLon::Point::getLL">
-<area shape="rect" id="node2" href="$classDFLib_1_1LatLon_1_1Point.html#ac02df8fb329a1c3773b8b192077d51e6" title="DFLib::LatLon::Point\l::mercToLL" alt="" coords="201,5,349,47"/>
+<area shape="rect" id="node1" title="get Lat/Lon position" alt="" coords="5,5,152,54"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1LatLon_1_1Point.html#ac02df8fb329a1c3773b8b192077d51e6" title=" " alt="" coords="200,5,346,54"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1LatLon_1_1Point.html#a35a9d0c02ddd60e2569e6df03c69b89a" title="return true if user projection expects input in radians" alt="" coords="394,5,540,54"/>
 </map>

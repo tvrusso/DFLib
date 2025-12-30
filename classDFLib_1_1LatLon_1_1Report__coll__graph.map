@@ -1,7 +1,9 @@
 <map id="DFLib::LatLon::Report" name="DFLib::LatLon::Report">
-<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Report.html" title="Abstract interface for DFReport. This is the base class for DF report classes. " alt="" coords="5,200,173,227"/>
-<area shape="rect" id="node3" title="STL class. " alt="" coords="46,96,133,123"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="21,5,158,47"/>
-<area shape="rect" id="node5" href="$classDFLib_1_1LatLon_1_1Point.html" title="DFLib::LatLon::Point" alt="" coords="198,200,346,227"/>
-<area shape="rect" id="node6" href="$classDFLib_1_1Abstract_1_1Point.html" title="Abstract base class for generic &quot;point&quot; objects. " alt="" coords="174,96,333,123"/>
+<area shape="rect" id="node1" title="DF report in Lat/Lon coordinates." alt="" coords="99,316,256,345"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Report.html" title="Abstract interface for DFReport. This is the base class for DF report classes." alt="" coords="5,219,172,249"/>
+<area shape="rect" id="node3" title=" " alt="" coords="46,103,131,133"/>
+<area shape="rect" id="node4" title=" " alt="" coords="24,5,153,54"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1LatLon_1_1Point.html" title=" " alt="" coords="195,219,342,249"/>
+<area shape="rect" id="node6" href="$classDFLib_1_1Abstract_1_1Point.html" title="Abstract base class for generic &quot;point&quot; objects." alt="" coords="172,103,328,133"/>
+<area shape="rect" id="node7" title=" " alt="" coords="352,103,505,133"/>
 </map>

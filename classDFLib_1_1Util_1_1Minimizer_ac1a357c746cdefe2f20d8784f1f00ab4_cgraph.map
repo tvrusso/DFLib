@@ -1,4 +1,5 @@
 <map id="DFLib::Util::Minimizer::simpleF" name="DFLib::Util::Minimizer::simpleF">
-<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Group.html#ad00c7b727dc9a41733a454dd69f1c0ea" title="Set the point at which to evaluate the function. " alt="" coords="208,5,375,47"/>
-<area shape="rect" id="node3" href="$classDFLib_1_1Abstract_1_1Group.html#a56e8978276976b053afac5939c0fbafb" title="DFLib::Abstract::Group\l::getFunctionValue" alt="" coords="208,71,375,112"/>
+<area shape="rect" id="node1" title="Evaluate &#160;where x0 and dir are vectors." alt="" coords="5,43,160,91"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Group.html#a56e8978276976b053afac5939c0fbafb" title=" " alt="" coords="208,5,370,54"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1Abstract_1_1Group.html#ad00c7b727dc9a41733a454dd69f1c0ea" title="Set the point at which to evaluate the function." alt="" coords="208,79,370,127"/>
 </map>

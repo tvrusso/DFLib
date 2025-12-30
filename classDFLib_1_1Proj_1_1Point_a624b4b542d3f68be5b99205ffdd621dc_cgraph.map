@@ -1,3 +1,5 @@
 <map id="DFLib::Proj::Point::getXY" name="DFLib::Proj::Point::getXY">
-<area shape="rect" id="node2" href="$classDFLib_1_1Proj_1_1Point.html#a8a57c7fa0776c5e5cc077fcd87e3fd79" title="DFLib::Proj::Point\l::userToMerc" alt="" coords="183,5,312,47"/>
+<area shape="rect" id="node1" title="get mercator projection (XY) position" alt="" coords="5,5,134,54"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1Proj_1_1Point.html#a8a57c7fa0776c5e5cc077fcd87e3fd79" title=" " alt="" coords="182,5,310,54"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1Proj_1_1Point.html#a11be19e976eab22485d9b8603dc31b6a" title="return true if user projection expects input in radians" alt="" coords="358,5,497,54"/>
 </map>

@@ -1,6 +1,7 @@
 <map id="DFLib::Proj::Point::setXY" name="DFLib::Proj::Point::setXY">
-<area shape="rect" id="node2" href="$ProjUnitTests_8cpp.html#a5ea466849f21e6c2be4ef9b2eb8868d3" title="main" alt="" coords="255,5,309,32"/>
-<area shape="rect" id="node3" href="$classarcpyPoint_1_1arcpyPoint.html#a24d022ba3c4babe0f564fd9a610b9626" title="arcpyPoint.arcpyPoint.set\lUserCoords" alt="" coords="190,57,374,98"/>
-<area shape="rect" id="node4" href="$classpyPointTest_1_1pyPoint.html#adb2e5cc3530d3bfcbd7a6c744a3f0b0c" title="pyPointTest.pyPoint.setUser\lCoords" alt="" coords="183,122,381,163"/>
-<area shape="rect" id="node5" href="$classpyProjPoint_1_1pyProjPoint.html#a63330e51a3919be68cff2ed88093357f" title="pyProjPoint.pyProjPoint.set\lUserCoords" alt="" coords="186,187,378,229"/>
+<area shape="rect" id="node1" title="set mercator projection (XY) position" alt="" coords="251,96,379,144"/>
+<area shape="rect" id="node2" href="$ProjUnitTests_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="78,5,130,35"/>
+<area shape="rect" id="node3" href="$classarcpyPoint_1_1arcpyPoint.html#a24d022ba3c4babe0f564fd9a610b9626" title=" " alt="" coords="15,58,193,107"/>
+<area shape="rect" id="node4" href="$classpyPointTest_1_1pyPoint.html#adb2e5cc3530d3bfcbd7a6c744a3f0b0c" title=" " alt="" coords="5,132,203,180"/>
+<area shape="rect" id="node5" href="$classpyProjPoint_1_1pyProjPoint.html#a63330e51a3919be68cff2ed88093357f" title=" " alt="" coords="9,205,199,254"/>
 </map>

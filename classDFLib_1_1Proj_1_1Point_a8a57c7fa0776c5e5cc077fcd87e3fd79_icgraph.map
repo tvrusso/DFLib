@@ -1,9 +1,11 @@
 <map id="DFLib::Proj::Point::userToMerc" name="DFLib::Proj::Point::userToMerc">
-<area shape="rect" id="node2" href="$classDFLib_1_1Proj_1_1Point.html#a04df5f8197a6ee402e10f1d1c7fab574" title="set user projection information " alt="" coords="183,7,312,49"/>
-<area shape="rect" id="node4" href="$classDFLib_1_1Proj_1_1Point.html#a624b4b542d3f68be5b99205ffdd621dc" title="get mercator projection (XY) position " alt="" coords="183,90,312,131"/>
-<area shape="rect" id="node3" href="$testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="433,5,487,32"/>
-<area shape="rect" id="node5" href="$ProjUnitTests_8cpp.html#a5ea466849f21e6c2be4ef9b2eb8868d3" title="main" alt="" coords="433,56,487,83"/>
-<area shape="rect" id="node6" href="$classpyPointTest_1_1pyPoint.html#a67c0faef6eaad7913a0c4f6a2e4bf60b" title="pyPointTest.pyPoint.Clone" alt="" coords="367,107,553,133"/>
-<area shape="rect" id="node7" href="$classpyPointTest_1_1pyPoint.html#a9640e9b48e80a62a6dda8084af41a123" title="pyPointTest.pyPoint.getUser\lCoords" alt="" coords="360,158,560,199"/>
-<area shape="rect" id="node8" href="$classpyProjPoint_1_1pyProjPoint.html#aa3d71ea62ccd6c9cffc3efaa0b99b280" title="pyProjPoint.pyProjPoint.\lClone" alt="" coords="608,158,780,199"/>
+<area shape="rect" id="node1" title=" " alt="" coords="670,117,799,166"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1Proj_1_1Point.html#a624b4b542d3f68be5b99205ffdd621dc" title="get mercator projection (XY) position" alt="" coords="494,69,622,118"/>
+<area shape="rect" id="node8" href="$classDFLib_1_1Proj_1_1Point.html#a04df5f8197a6ee402e10f1d1c7fab574" title="set user projection information" alt="" coords="494,153,622,202"/>
+<area shape="rect" id="node3" href="$classpyPointTest_1_1pyPoint.html#a67c0faef6eaad7913a0c4f6a2e4bf60b" title=" " alt="" coords="255,5,438,35"/>
+<area shape="rect" id="node4" href="$classpyPointTest_1_1pyPoint.html#a9640e9b48e80a62a6dda8084af41a123" title=" " alt="" coords="247,58,446,107"/>
+<area shape="rect" id="node7" href="$ProjUnitTests_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="321,131,372,160"/>
+<area shape="rect" id="node5" href="$classarcpyPoint_1_1arcpyPoint.html#a63d80f4b6e4d4341c082db19cfb9e03a" title=" " alt="" coords="5,37,199,67"/>
+<area shape="rect" id="node6" href="$classpyProjPoint_1_1pyProjPoint.html#aa3d71ea62ccd6c9cffc3efaa0b99b280" title=" " alt="" coords="16,90,188,139"/>
+<area shape="rect" id="node9" href="$testlsDF__proj_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="321,184,372,214"/>
 </map>

@@ -1,5 +1,6 @@
 <map id="DFLib::Abstract::Report::computeFixCut" name="DFLib::Abstract::Report::computeFixCut">
-<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Report.html#a81e6f683a61db898e392cc7554eb9a75" title="return receiver location in double vector of XY coords " alt="" coords="233,5,401,47"/>
-<area shape="rect" id="node3" href="$classDFLib_1_1Abstract_1_1Report.html#a68b62f719f4c09f8aff4d8890c6f0b3e" title="return reported bearing to target " alt="" coords="221,71,412,112"/>
-<area shape="rect" id="node4" href="$classDFLib_1_1Abstract_1_1Point.html#adec4bffdb7ccebcef10e3105f90bc2bd" title="Set X&#45;Y coordinates of the point. " alt="" coords="237,136,396,177"/>
+<area shape="rect" id="node1" title="compute point at which the line from this report intersects that from another" alt="" coords="5,79,172,127"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Report.html#acac08ee0e89c5a704d7ee2f9dc10c84c" title="return receiver location in double vector of XY coords" alt="" coords="231,5,398,54"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1Abstract_1_1Report.html#a68b62f719f4c09f8aff4d8890c6f0b3e" title="return reported bearing to target" alt="" coords="220,79,409,127"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1Abstract_1_1Point.html#adec4bffdb7ccebcef10e3105f90bc2bd" title="Set X&#45;Y coordinates of the point." alt="" coords="237,152,392,201"/>
 </map>

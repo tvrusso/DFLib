@@ -1,4 +1,5 @@
 <map id="DFLib::Abstract::Report" name="DFLib::Abstract::Report">
-<area shape="rect" id="node2" title="STL class. " alt="" coords="46,96,133,123"/>
-<area shape="rect" id="node3" title="STL class. " alt="" coords="21,5,158,47"/>
+<area shape="rect" id="node1" title="Abstract interface for DFReport. This is the base class for DF report classes." alt="" coords="5,200,172,230"/>
+<area shape="rect" id="node2" title=" " alt="" coords="46,103,131,133"/>
+<area shape="rect" id="node3" title=" " alt="" coords="24,5,153,54"/>
 </map>

@@ -1,8 +1,10 @@
 <map id="pyPointTest.pyPoint.setUserCoords" name="pyPointTest.pyPoint.setUserCoords">
-<area shape="rect" id="node2" href="$classDFLib_1_1Abstract_1_1Point.html#adec4bffdb7ccebcef10e3105f90bc2bd" title="Set X&#45;Y coordinates of the point. " alt="" coords="272,5,431,47"/>
-<area shape="rect" id="node3" href="$classDFLib_1_1LatLon_1_1Point.html#a687b8f1c95256b7b08cfe1b7b0ab0e1e" title="set mercator projection (XY) position " alt="" coords="277,71,425,112"/>
-<area shape="rect" id="node4" href="$classDFLib_1_1Proj_1_1Point.html#a326ae1e4a9aba94b0618306dce32b53a" title="set mercator projection (XY) position " alt="" coords="287,136,416,177"/>
-<area shape="rect" id="node5" href="$classDFLib_1_1XY_1_1Point.html#ae6e78474dec049dbc0c1a122457b100c" title="Set position from X&#45;Y. " alt="" coords="271,202,432,229"/>
-<area shape="rect" id="node6" href="$classarcpyPoint_1_1arcpyPoint.html#ac777bd2d1adee1dfde4da1c3f8204428" title="arcpyPoint.arcpyPoint.setXY" alt="" coords="252,253,451,279"/>
-<area shape="rect" id="node7" href="$classpyPointTest_1_1pyPoint.html#aa6c04bf7dc81f4553766074050a88e8d" title="pyPointTest.pyPoint.setXY" alt="" coords="259,303,443,330"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,204,203,253"/>
+<area shape="rect" id="node2" href="$classDFLib_1_1LatLon_1_1Point.html#a687b8f1c95256b7b08cfe1b7b0ab0e1e" title="set mercator projection (XY) position" alt="" coords="281,5,427,54"/>
+<area shape="rect" id="node3" href="$classDFLib_1_1XY_1_1Point.html#ae6e78474dec049dbc0c1a122457b100c" title="Set position from X&#45;Y." alt="" coords="272,78,436,107"/>
+<area shape="rect" id="node4" href="$classDFLib_1_1Abstract_1_1Point.html#adec4bffdb7ccebcef10e3105f90bc2bd" title="Set X&#45;Y coordinates of the point." alt="" coords="276,131,432,179"/>
+<area shape="rect" id="node5" href="$classDFLib_1_1Proj_1_1Point.html#a326ae1e4a9aba94b0618306dce32b53a" title="set mercator projection (XY) position" alt="" coords="290,204,418,253"/>
+<area shape="rect" id="node6" href="$classarcpyPoint_1_1arcpyPoint.html#ac777bd2d1adee1dfde4da1c3f8204428" title=" " alt="" coords="257,276,451,306"/>
+<area shape="rect" id="node7" href="$classpyPointTest_1_1pyPoint.html#aa6c04bf7dc81f4553766074050a88e8d" title=" " alt="" coords="262,330,446,359"/>
+<area shape="rect" id="node8" href="$classpyProjPoint_1_1pyProjPoint.html#a8d1df6ab9cdc2b7b562205688403b604" title=" " alt="" coords="251,383,457,412"/>
 </map>
