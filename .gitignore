@@ -5,6 +5,8 @@ Python/DFLib.pyc
 Python/DFLib_wrap.cpp
 Python/DFLib_wrap.h
 Python/build/
+Python/__pycache__/
+Python/*.so
 aclocal.m4
 autom4te.cache/
 build/
