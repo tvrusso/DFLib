@@ -82,7 +82,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:afbca147bc6a2f9113a5f9d9f4095f2e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">minimuze function of vector argument by Nelder-Mead simplex method.  <br /></td></tr>
 <tr class="separator:afbca147bc6a2f9113a5f9d9f4095f2e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1a357c746cdefe2f20d8784f1f00ab4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#ac1a357c746cdefe2f20d8784f1f00ab4">simpleF</a> (double &amp;x, std::vector&lt; double &gt; &amp;X0, std::vector&lt; double &gt; &amp;dir)</td></tr>
-<tr class="memdesc:ac1a357c746cdefe2f20d8784f1f00ab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate <picture><source srcset="form_71_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$F(x0+x*dir)$" src="form_71.png"/></picture> where x0 and dir are vectors.  <br /></td></tr>
+<tr class="memdesc:ac1a357c746cdefe2f20d8784f1f00ab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate <picture><source srcset="form_71_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$F(x0+x*dir)$" src="form_71.png" width="83" height="14"/></picture> where x0 and dir are vectors.  <br /></td></tr>
 <tr class="separator:ac1a357c746cdefe2f20d8784f1f00ab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4cb8dd8cd1ee7c40a27e4ecbc219917"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDFLib_1_1Util_1_1Minimizer.html#af4cb8dd8cd1ee7c40a27e4ecbc219917">simpleFandDeriv</a> (double &amp;x, std::vector&lt; double &gt; &amp;X0, std::vector&lt; double &gt; &amp;dir, double &amp;df)</td></tr>
 <tr class="separator:af4cb8dd8cd1ee7c40a27e4ecbc219917"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,7 +165,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>bracket minimum of function </p>
-<p>Given scalars <picture><source srcset="form_64_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$a,b,c$" src="form_64.png"/></picture> and an initial point <picture><source srcset="form_65_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$X0$" src="form_65.png"/></picture> and direction, find new values of <picture><source srcset="form_66_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$a, b,$" src="form_66.png"/></picture> and <picture><source srcset="form_67_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$c$" src="form_67.png"/></picture> such that the minimum value of theGroup's function in the chosen direction is bracketed (i.e. <picture><source srcset="form_68_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(x0+direction*b)&lt;f(x0+direction*a) $" src="form_68.png"/></picture> and <picture><source srcset="form_69_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(x0+direction*b) &lt; f(x0+direction*c))$" src="form_69.png"/></picture> Nearly verbatim port to C++ from Numerical Recipes in C </p>
+<p>Given scalars <picture><source srcset="form_64_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$a,b,c$" src="form_64.png" width="29" height="13"/></picture> and an initial point <picture><source srcset="form_65_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$X0$" src="form_65.png" width="19" height="10"/></picture> and direction, find new values of <picture><source srcset="form_66_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$a, b,$" src="form_66.png" width="20" height="13"/></picture> and <picture><source srcset="form_67_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$c$" src="form_67.png" width="5" height="6"/></picture> such that the minimum value of theGroup's function in the chosen direction is bracketed (i.e. <picture><source srcset="form_68_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(x0+direction*b)&lt;f(x0+direction*a) $" src="form_68.png" width="243" height="14"/></picture> and <picture><source srcset="form_69_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(x0+direction*b) &lt; f(x0+direction*c))$" src="form_69.png" width="246" height="14"/></picture> Nearly verbatim port to C++ from Numerical Recipes in C </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -440,7 +440,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>index into modified simplex of vertex with lowest function value</dd></dl>
-<p>The Nelder-Mead simplex method is a minimization method in which a "simplex" is morphed through the landscape of the function and tends downhill. In 2-D the simplex is a triangle, in 3-D a tetrahedron, and in more dimensions it is a generalization of such a shape. In <picture><source srcset="form_11_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$N$" src="form_11.png"/></picture> dimensions, the simplex has <picture><source srcset="form_70_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$N+1$" src="form_70.png"/></picture> vertices. The method keeps track of the best, worst, and "second
+<p>The Nelder-Mead simplex method is a minimization method in which a "simplex" is morphed through the landscape of the function and tends downhill. In 2-D the simplex is a triangle, in 3-D a tetrahedron, and in more dimensions it is a generalization of such a shape. In <picture><source srcset="form_11_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$N$" src="form_11.png" width="11" height="10"/></picture> dimensions, the simplex has <picture><source srcset="form_70_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$N+1$" src="form_70.png" width="33" height="11"/></picture> vertices. The method keeps track of the best, worst, and "second
 worst" fucntion values at the vertices and at each step attempts to modify the simplex to make the collection better:</p>
 <p>Centroid point: the centroid of the side opposite the worst point.</p>
 <p>Reflected point: The reflection of the worst point through the centroid.</p>
@@ -509,8 +509,8 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Evaluate <picture><source srcset="form_71_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$F(x0+x*dir)$" src="form_71.png"/></picture> where x0 and dir are vectors. </p>
-<p>F is the group's function "computeFunctionValue" </p><dl class="section return"><dt>Returns</dt><dd>function value at <picture><source srcset="form_72_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$X0+x*dir$" src="form_72.png"/></picture> </dd></dl>
+<p>Evaluate <picture><source srcset="form_71_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$F(x0+x*dir)$" src="form_71.png" width="83" height="14"/></picture> where x0 and dir are vectors. </p>
+<p>F is the group's function "computeFunctionValue" </p><dl class="section return"><dt>Returns</dt><dd>function value at <picture><source srcset="form_72_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$X0+x*dir$" src="form_72.png" width="69" height="11"/></picture> </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -577,7 +577,7 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Evaluate F(x0+x*dir) and its directional derivative where x0 and dir are vectors. The directional derivative is the inner product of the gradient and the direction: <picture><source srcset="form_73_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$df = dir\cdot\nabla f$" src="form_73.png"/></picture>. </p>
+<p>Evaluate F(x0+x*dir) and its directional derivative where x0 and dir are vectors. The directional derivative is the inner product of the gradient and the direction: <picture><source srcset="form_73_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$df = dir\cdot\nabla f$" src="form_73.png" width="71" height="13"/></picture>. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

@@ -1,73 +1,123 @@
-\form#0:$0<\theta<2\pi$
-\form#1:$d = \sqrt{\Delta x^2 + \Delta y^2}$
-\form#2:$ P_{LS} = (A^TA)^{-1}A^Tb $
-\form#3:$A$
-\form#4:$Nx2$
-\form#5:$k^{th}$
-\form#6:$k$
-\form#7:$[\cos(\theta_k), -\sin(\theta_k)]$
-\form#8:$\theta_k$
-\form#9:$T$
-\form#10:$b$
-\form#11:$N$
-\form#12:$ b_k = [\cos(\theta_k),-sin(\theta_k)]\cdot[r_{kx},r_{ky}] $
-\form#13:${\bf r}_k$
-\form#14:$(A^TA)^{-1}$
-\form#15:$A^\#=(A^TA)^{-1}A^T$
-\form#16:$\theta_i(x,y)-\tilde{\theta}_i$
-\form#17:$\sin(\theta_i(x,y)-\tilde{\theta}_i)$
-\form#18:$\theta_i$
-\form#19:$\tilde{\theta_i}$
-\form#20:$\sigma_i$
-\form#21:$(x,y)$
-\form#22:$ P(x,y) = K*\exp(-\sum_{i=0}^n (\tilde{\theta_i} - \theta_i(x,y))^2/(2\sigma_i^2)) $
-\form#23:$i$
-\form#24:$\theta_i(x,y)$
-\form#25:$\tilde{\theta_i} - \theta_i(x,y)\approx\sin(\tilde{\theta_i} - \theta_i(x,y))$
-\form#26:$\sin(\tilde{\theta_i} - \theta_i(x,y))=q_i/d_i$
-\form#27:$q_i$
-\form#28:$d_i$
-\form#29:$ P(q) = K*\exp(-\sum_{i=0}^n (q_i)^2/(2(d_i\sigma_i)^2)) $
-\form#30:$p_i$
-\form#31:$\Delta x$
-\form#32:$\Delta y$
-\form#33:$ q_i = p_i+\Delta x \sin(\tilde{\theta}_i)-\Delta y\cos(\tilde{\theta}_i) $
-\form#34:$ \Delta x = \frac{1}{\lambda\mu-\nu^2}\sum_i p_i\frac{\nu\cos(\tilde{\theta}_i)-\mu\sin(\tilde{\theta}_i)}{(d_i\sigma_i)^2} $
-\form#35:$ \Delta y = \frac{1}{\lambda\mu-\nu^2}\sum_i p_i\frac{\lambda\cos(\tilde{\theta}_i)-\nu\sin(\tilde{\theta}_i)}{(d_i\sigma_i)^2} $
-\form#36:$ \lambda=\sum_i \frac{\sin^2(\tilde{\theta}_i)}{(d_i\sigma_i)^2} $
-\form#37:$ \mu=\sum_i \frac{\cos^2(\tilde{\theta}_i)}{(d_i\sigma_i)^2} $
-\form#38:$ \nu = \sum_i \frac{\cos(\tilde{\theta}_i)\sin(\tilde{\theta}_i)}{(d_i\sigma_i)^2} $
-\form#39:$\lambda$
-\form#40:$\mu$
-\form#41:$\nu$
-\form#42:$\phi$
-\form#43:$ tan(2\phi) = -\frac{2\nu}{\lambda-\mu} $
-\form#44:$ \Delta x = X\cos(\phi) - Y\sin(\phi) $
-\form#45:$ \Delta y = X\sin\phi) + Y\cos(\phi) $
-\form#46:$ \frac{X^2}{a^2} + \frac{Y^2}{b^2} = -2 \ln(1-P') $
-\form#47:$P'$
-\form#48:$a$
-\form#49:$ \frac{1}{a^2}=\lambda - \nu\tan(\phi) $
-\form#50:$ \frac{1}{b^2}=\mu + \nu\tan(\phi) $
-\form#51:$(\Delta x, \Delta y)$
-\form#52:$O+(\Delta x, \Delta y)$
-\form#53:$i^{th}$
-\form#54:$K$
-\form#55:\[ I=\sum_i \frac{\left[ \begin{array}{cc} (y_e-y_i)^2&-(x_e-x_i)(y_e-y_i)\\ -(x_e-x_i)(y_e-y_i)&(x_e-x_i)^2 \end{array} \right]}{\sigma_i^2[(x_e-x_i)^2+(y_e-y_i)^2]^2} \]
-\form#56:$x_e$
-\form#57:$y_e$
-\form#58:$x_i$
-\form#59:$y_i$
-\form#60:\begin{eqnarray*} \lambda&=&\sum_i \frac{(y_e-y_i)^2}{\sigma_i^2[(x_e-x_i)^2+(y_e-y_i)^2]^2}\\ \nu&=&\sum_i \frac{(x_e-x_i)(y_e-y_i)}{\sigma_i^2[(x_e-x_i)^2+(y_e-y_i)^2]^2}\\ \mu&=&\sum_i \frac{(x_e-x_i)^2}{\sigma_i^2[(x_e-x_i)^2+(y_e-y_i)^2]^2}\\ tan(2\phi) &=& -\frac{2\nu}{\lambda-\mu}\\ \frac{1}{a^2}&=&\lambda - \nu\tan(\phi)\\ \frac{1}{b^2}&=&\mu + \nu\tan(\phi) \end{eqnarray*}
-\form#61:$ f(x,y) = \sum_{i=0}^n (\tilde{\theta_i} - \theta_i(x,y))^2/(2\sigma_i^2) $
-\form#62:$-\pi<\tilde{\theta_i} - \theta_i(x,y)<=\pi$
-\form#63:$a,b,c$
-\form#64:$X0$
-\form#65:$a, b,$
-\form#66:$c$
-\form#67:$f(x0+direction*b)<f(x0+direction*a) $
-\form#68:$f(x0+direction*b) < f(x0+direction*c))$
-\form#69:$N+1$
-\form#70:$F(x0+x*dir)$
-\form#71:$X0+x*dir$
-\form#72:$df = dir\cdot\nabla f$
+\_form#0=60x11:$0<\theta<2\pi$
+\_form#1=96x16:$d = \sqrt{\Delta x^2 + \Delta y^2}$
+\_form#2=111x15:$ 
+P_{LS} = (A^TA)^{-1}A^Tb 
+$
+\_form#3=10x10:$A$
+\_form#4=24x10:$Nx2$
+\_form#5=16x11:$k^{th}$
+\_form#6=6x10:$k$
+\_form#7=99x14:$[\cos(\theta_k), -\sin(\theta_k)]$
+\_form#8=11x13:$\theta_k$
+\_form#9=10x9:$T$
+\_form#10=5x10:$b$
+\_form#11=11x10:$N$
+\_form#12=183x14:$
+b_k = [\cos(\theta_k),-sin(\theta_k)]\cdot[r_{kx},r_{ky}]
+$
+\_form#13=13x9:${\bf r}_k$
+\_form#14=49x15:$(A^TA)^{-1}$
+\_form#15=103x15:$A^\#=(A^TA)^{-1}A^T$
+\_form#16=64x16:$\theta_i(x,y)-\tilde{\theta}_i$
+\_form#17=90x16:$\sin(\theta_i(x,y)-\tilde{\theta}_i)$
+\_form#18=9x13:$\theta_i$
+\_form#19=9x15:$\tilde{\theta_i}$
+\_form#20=10x9:$\sigma_i$
+\_form#21=28x14:$(x,y)$
+\_form#22=263x16:$
+P(x,y) = K*\exp(-\sum_{i=0}^n (\tilde{\theta_i} - \theta_i(x,y))^2/(2\sigma_i^2))
+$
+\_form#23=5x9:$i$
+\_form#24=38x14:$\theta_i(x,y)$
+\_form#25=169x16:$\tilde{\theta_i} -
+\theta_i(x,y)\approx\sin(\tilde{\theta_i} - \theta_i(x,y))$
+\_form#26=133x16:$\sin(\tilde{\theta_i} - \theta_i(x,y))=q_i/d_i$
+\_form#27=9x9:$q_i$
+\_form#28=10x13:$d_i$
+\_form#29=219x15:$
+P(q) = K*\exp(-\sum_{i=0}^n (q_i)^2/(2(d_i\sigma_i)^2))
+$
+\_form#30=11x9:$p_i$
+\_form#31=18x10:$\Delta x$
+\_form#32=16x13:$\Delta y$
+\_form#33=176x16:$ q_i =
+p_i+\Delta x \sin(\tilde{\theta}_i)-\Delta
+y\cos(\tilde{\theta}_i) $
+\_form#34=183x23:$
+\Delta x = \frac{1}{\lambda\mu-\nu^2}\sum_i p_i\frac{\nu\cos(\tilde{\theta}_i)-\mu\sin(\tilde{\theta}_i)}{(d_i\sigma_i)^2}
+$
+\_form#35=181x23:$
+\Delta y = \frac{1}{\lambda\mu-\nu^2}\sum_i p_i\frac{\lambda\cos(\tilde{\theta}_i)-\nu\sin(\tilde{\theta}_i)}{(d_i\sigma_i)^2}
+$
+\_form#36=79x23:$
+\lambda=\sum_i \frac{\sin^2(\tilde{\theta}_i)}{(d_i\sigma_i)^2}
+$
+\_form#37=81x23:$
+\mu=\sum_i \frac{\cos^2(\tilde{\theta}_i)}{(d_i\sigma_i)^2}
+$
+\_form#38=105x23:$
+\nu = \sum_i \frac{\cos(\tilde{\theta}_i)\sin(\tilde{\theta}_i)}{(d_i\sigma_i)^2}
+$
+\_form#39=8x10:$\lambda$
+\_form#40=9x9:$\mu$
+\_form#41=6x6:$\nu$
+\_form#42=8x13:$\phi$
+\_form#43=91x18:$
+tan(2\phi) = -\frac{2\nu}{\lambda-\mu}
+$
+\_form#44=140x14:$
+\Delta x = X\cos(\phi) - Y\sin(\phi)
+$
+\_form#45=136x14:$
+\Delta y = X\sin\phi) + Y\cos(\phi)      
+$
+\_form#46=136x19:$
+\frac{X^2}{a^2} + \frac{Y^2}{b^2} = -2 \ln(1-P')
+$
+\_form#47=13x10:$P'$
+\_form#48=6x6:$a$
+\_form#49=95x16:$
+\frac{1}{a^2}=\lambda - \nu\tan(\phi)
+$
+\_form#50=95x16:$
+\frac{1}{b^2}=\mu + \nu\tan(\phi)
+$
+\_form#51=49x14:$(\Delta x, \Delta y)$
+\_form#52=74x14:$O+(\Delta x,
+     \Delta y)$
+\_form#53=74x14:$O+(\Delta x, \Delta y)$
+\_form#54=15x11:$i^{th}$
+\_form#55=11x10:$K$
+\_form#56=294x51:\[
+I=\sum_i \frac{\left[
+\begin{array}{cc}
+(y_e-y_i)^2&-(x_e-x_i)(y_e-y_i)\\
+-(x_e-x_i)(y_e-y_i)&(x_e-x_i)^2
+\end{array} \right]}{\sigma_i^2[(x_e-x_i)^2+(y_e-y_i)^2]^2}
+\]
+\_form#57=13x9:$x_e$
+\_form#58=13x9:$y_e$
+\_form#59=11x9:$x_i$
+\_form#60=11x9:$y_i$
+\_form#61=246x206:\begin{eqnarray*}
+\lambda&=&\sum_i \frac{(y_e-y_i)^2}{\sigma_i^2[(x_e-x_i)^2+(y_e-y_i)^2]^2}\\
+\nu&=&\sum_i \frac{(x_e-x_i)(y_e-y_i)}{\sigma_i^2[(x_e-x_i)^2+(y_e-y_i)^2]^2}\\
+\mu&=&\sum_i \frac{(x_e-x_i)^2}{\sigma_i^2[(x_e-x_i)^2+(y_e-y_i)^2]^2}\\
+tan(2\phi) &=& -\frac{2\nu}{\lambda-\mu}\\
+\frac{1}{a^2}&=&\lambda - \nu\tan(\phi)\\
+\frac{1}{b^2}&=&\mu + \nu\tan(\phi)
+\end{eqnarray*}
+\_form#62=196x16:$
+f(x,y) = \sum_{i=0}^n (\tilde{\theta_i} - \theta_i(x,y))^2/(2\sigma_i^2)
+$
+\_form#63=131x16:$-\pi<\tilde{\theta_i} - \theta_i(x,y)<=\pi$
+\_form#64=29x13:$a,b,c$
+\_form#65=19x10:$X0$
+\_form#66=20x13:$a, b,$
+\_form#67=5x6:$c$
+\_form#68=243x14:$f(x0+direction*b)<f(x0+direction*a) $
+\_form#69=246x14:$f(x0+direction*b) < f(x0+direction*c))$
+\_form#70=33x11:$N+1$
+\_form#71=83x14:$F(x0+x*dir)$
+\_form#72=69x11:$X0+x*dir$
+\_form#73=71x13:$df = dir\cdot\nabla f$

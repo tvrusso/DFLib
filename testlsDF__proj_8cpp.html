@@ -124,7 +124,6 @@ Functions</h2></td></tr>
 <p>testlsDFfix_proj takes a longitude/latitude pair in PROJ.4 format as command line arguments. This coordinate pair represents the actual location of a transmitter. It also takes as standard in a text file of receiver locations with their standard deviations. Several example receivers files are distributed with <a class="el" href="namespaceDFLib.html">DFLib</a>.</p>
 <p>The program then computes the actual bearings from the given receiver locations to the known transmitter location, and adds random errors to the bearings. The random errors are selected from a Gaussian distribution with the standard deviations given in the receivers file.</p>
 <p>From the randomized bearings, the code computes DF fixes using all the methods available in <a class="el" href="namespaceDFLib.html">DFLib</a>: the Fix Cut Average, Least Squares (orthogonal vectors), Maximum Likelihood and Stansfield fixes. It outputs a file "testlsDFfix.gnuplot" of Gnuplot commands to plot the DF problem and the various fixes. Error ellipses for the Stansfield solution are also plotted.</p>
-<p>The program also outputs a file "testlsDFfix.grasspoints" with the station locations and fix locations in a format that can be read by GRASS GIS's v.in.ascii.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
