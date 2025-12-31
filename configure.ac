@@ -10,7 +10,6 @@ AC_CONFIG_HEADERS([config.h])
 # Checks for programs.
 AC_PROG_CXX([c++ CC g++ clang++  cxx])
 AC_PROG_CC([cc gcc clang])
-AC_PROG_RANLIB
 
 LT_INIT
 
