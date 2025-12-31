@@ -479,23 +479,23 @@ namespace DFLib
 
       The Fisher Information Matrix for the probability distribution 
       associated with the ML fix is just:
+
       \f[
-      I=\sum_i \frac{\left[ 
+      I=\sum_i \frac{\left[
       \begin{array}{cc}
       (y_e-y_i)^2&-(x_e-x_i)(y_e-y_i)\\
       -(x_e-x_i)(y_e-y_i)&(x_e-x_i)^2
       \end{array} \right]}{\sigma_i^2[(x_e-x_i)^2+(y_e-y_i)^2]^2}
       \f]
 
-      where \f$x_e\f$ and \f$y_e\f$ are the coordinates of the fix, 
+      where \f$x_e\f$ and \f$y_e\f$ are the coordinates of the fix,
       \f$x_i\f$ and \f$y_i\f$ are the coordinates of the \f$i^{th}\f$ receiver,
-      and \f$\sigma_i\f$ the standard deviation associated with the 
+      and \f$\sigma_i\f$ the standard deviation associated with the
       \f$i^{th}\f$ receiver.
 
       Thus, the correspondence with the Stansfield parameters is this:
 
       \f{eqnarray*}{
-
       \lambda&=&\sum_i \frac{(y_e-y_i)^2}{\sigma_i^2[(x_e-x_i)^2+(y_e-y_i)^2]^2}\\
       \nu&=&\sum_i \frac{(x_e-x_i)(y_e-y_i)}{\sigma_i^2[(x_e-x_i)^2+(y_e-y_i)^2]^2}\\
       \mu&=&\sum_i \frac{(x_e-x_i)^2}{\sigma_i^2[(x_e-x_i)^2+(y_e-y_i)^2]^2}\\
@@ -510,25 +510,25 @@ namespace DFLib
 
     /*!
       \brief compute cost function for point x,y
-      
+
       this returns the cost function for the transmitter being at x,y
       given the DF reports we have.  The probability density uses the
       cost function in the argument of an exponential.  Minimizing the
       cost function will therefore maximize the probability density.
-      
+
       The cost function is the sum
       \f$
       f(x,y) = \sum_{i=0}^n (\tilde{\theta_i} - \theta_i(x,y))^2/(2\sigma_i^2)
       \f$
-      
+
       where \f$\tilde{\theta_i}\f$ is the measured bearing from receiver
       location i and \f$\theta_i(x,y)\f$ is the bearing from receiver
       location i to point (x,y).  Care must be taken to assure that the
-      bearing differences are are always kept in the range 
+      bearing differences are are always kept in the range
       \f$-\pi<\tilde{\theta_i} - \theta_i(x,y)<=\pi\f$ to avoid
       discontinuities that break the minimization operation.
     */
-    
+
     double computeCostFunction(std::vector<double> &evaluationPoint);
     void computeCostFunctionAndGradient(std::vector<double> &evaluationPoint,
                                                 double &f,
