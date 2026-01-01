@@ -234,6 +234,10 @@ int main(int argc, char **argv)
     std::vector<double> ML_point=MLFix.getUserCoords();
     printCoords(ML_point,std::string("Maximum Likelihood Fix"));
   }
+
+  // Clean up our report collection (not really necessary, trying to eliminate
+  // valgrind issues
+  rColl.deleteReports();
 }
 
 void printCoords(const std::vector<double> &latlon,const std::string &text)

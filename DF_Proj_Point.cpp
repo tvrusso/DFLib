@@ -281,11 +281,15 @@ namespace DFLib
       {
         data.lp.lam = theUserCoords[0]*DEG_TO_RAD;
         data.lp.phi = theUserCoords[1]*DEG_TO_RAD;
+        data.lpzt.z = 0.0;
+        data.lpzt.t = 0.0;
       }
       else
       {
         data.xy.x = theUserCoords[0];
         data.xy.y = theUserCoords[1];
+        data.xyzt.z = 0.0;
+        data.xyzt.t = 0.0;
       }
 
       newCoord=proj_trans(convertPJ,PJ_FWD,data);
@@ -310,6 +314,8 @@ namespace DFLib
 
       data.xy.x = theMerc[0];
       data.xy.y = theMerc[1];
+      data.xyzt.z=0;
+      data.xyzt.t=0;
       newCoord=proj_trans(convertPJ,PJ_INV,data);
       if (std::isnan(newCoord.lp.lam) || std::isnan(newCoord.lp.phi))
       {
