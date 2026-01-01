@@ -57,7 +57,10 @@ namespace DFLib
       int numUserArgs = projArgs.size();
       std::string user_args;
 
-      user_args = projArgs[0];
+      if (projArgs[0][0] != '+')
+        user_args = "+"+projArgs[0];
+      else
+        user_args = projArgs[0];
 
       for (int i=1; i<numUserArgs; ++i)
       {
@@ -175,11 +178,22 @@ namespace DFLib
       strcpy(mercator_argv,mercator_args.c_str());
 
 
-      user_args = projArgs[0];
+      if (projArgs[0][0] != '+')
+        user_args = "+"+projArgs[0];
+      else
+        user_args = projArgs[0];
 
       for (int i=1; i<numUserArgs; ++i)
       {
-        user_args += " " + projArgs[i];
+        if (projArgs[i][0] != '+')
+        {
+          user_args += " +";
+        }
+        else
+        {
+          user_args += " ";
+        }
+        user_args += projArgs[i];
       }
 
       char *user_argv = new char [user_args.size()+1];
@@ -203,6 +217,8 @@ namespace DFLib
                                                  user_argv,
                                                  mercator_argv,
                                                  NULL);
+      PJ_PROJ_INFO theProjDef = proj_pj_info(convertPJ);
+
       if (convertPJ == 0)
       {
         throw(Util::Exception("Failed to initialize crs_to_crs"));
